@@ -1,10 +1,10 @@
 version: 2
-branches:
-  only:
-    - master
-    - dev
 jobs:
   test:
+    branches:
+      only:
+        - master
+        - dev
     docker:
       - image: circleci/node:4.8.2
     steps:
@@ -20,12 +20,14 @@ jobs:
 #          username: fakesamgregory  # can specify string literal values
 #          password: $DOCKERHUB_PASSWORD  # or project UI env-var reference
   deployment:
-    codedeploy:
-      jupiterandthegiraffe:
-        application_root: /
-        region: us-west-1
-        revision_location:
-          revision_type: S3
-          s3_location:
-            bucket: jupiterandthegiraffe
-            key_pattern: jupiterandthegiraffe-{BRANCH}-{SHORT_COMMIT}
+    staging:
+      branch: dev
+      codedeploy:
+        jupiterandthegiraffe:
+          application_root: /
+          region: us-west-1
+          revision_location:
+            revision_type: S3
+            s3_location:
+              bucket: jupiterandthegiraffe
+              key_pattern: jupiterandthegiraffe-{BRANCH}-{SHORT_COMMIT}

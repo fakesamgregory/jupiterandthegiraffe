@@ -19,7 +19,6 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            sh 'sudo npm i'
             sh 'npm test'
         }
     }

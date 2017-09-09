@@ -7,4 +7,3 @@ services:
         - ./src:/usr/src/app/src
       ports:
         - "80:4200"
-

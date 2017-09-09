@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("jupiterandthegiraffe")
+        app = docker.build("fakesamgregory/jupiterandthegiraffe")
     }
 
     stage('Test image') {
@@ -34,4 +34,3 @@ node {
         }
     }
 }
-

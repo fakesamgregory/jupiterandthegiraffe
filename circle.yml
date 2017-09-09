@@ -1,15 +1,25 @@
-deployment:
-  development:
-    branchs:
-      only:
-        - master
-        - dev
+version: 2
+branches:
+  only:
+    - master
+    - dev
+jobs:
+  test:
     docker:
-      - image: fakesamgregory/jupiterandthegiraffe:{BuildNum}
-      - image: fakesamgregory/jupiterandthegiraffe:latest
-        auth:
-          username: fakesamgregory  # can specify string literal values
-          password: $DOCKERHUB_PASSWORD  # or project UI env-var reference
+      - image: circleci/node:4.8.2
+    steps:
+      - checkout
+      - run:
+          name: Test
+          command: console.log('test')
+#  development:
+#    docker:
+#      - image: fakesamgregory/jupiterandthegiraffe:<version TAG>
+#      - image: fakesamgregory/jupiterandthegiraffe:latest
+#        auth:
+#          username: fakesamgregory  # can specify string literal values
+#          password: $DOCKERHUB_PASSWORD  # or project UI env-var reference
+  deployment:
     steps:
       - test
       - run: 'console.log("run tests...")

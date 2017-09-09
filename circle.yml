@@ -11,6 +11,8 @@ jobs:
   deployment:
     staging:
       branch: dev
+      steps:
+        - checkout
       codedeploy:
         jupiterandthegiraffe:
           application_root: /

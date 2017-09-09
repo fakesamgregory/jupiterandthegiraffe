@@ -9,10 +9,7 @@ COPY package.json .
 
 RUN npm install
 
-COPY src src
-COPY .angular-cli.json .
-COPY tsconfig.json .
-COPY tslint.json .
+COPY . .
 
 # tell docker what port to expose
 EXPOSE 4200

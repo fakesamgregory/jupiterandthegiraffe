@@ -1,6 +1,18 @@
 deployment:
-  staging:
-    branch: dev
+  development:
+    branchs:
+      only:
+        - master
+        - dev
+    docker:
+      - image: fakesamgregory/jupiterandthegiraffe:{BuildNum}
+      - image: fakesamgregory/jupiterandthegiraffe:latest
+        auth:
+          username: fakesamgregory  # can specify string literal values
+          password: $DOCKERHUB_PASSWORD  # or project UI env-var reference
+    steps:
+      - test
+      - run: 'console.log("run tests...")
     codedeploy:
       jupiterandthegiraffe:
         application_root: /

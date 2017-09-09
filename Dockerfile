@@ -18,3 +18,4 @@ COPY tslint.json .
 EXPOSE 4200
 
 CMD [ "npm", "start" ]
+

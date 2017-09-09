@@ -1,0 +1,50 @@
+@import "../../assets/sass/variables";
+@import "../../assets/sass/mixins";
+
+.logo {
+  line-height: 1.1;
+
+  &__text {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &__moon {
+    transition: opacity 1s ease;
+    @include font-size(52);
+
+    animation-name: fade;
+    animation-duration: 1.5s;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+
+
+    + .logo__moon {
+      animation-delay: .2s;
+
+      + .logo__moon {
+        animation-delay: .5s;
+
+        + .logo__moon {
+          animation-delay: .7s;
+
+          + .logo__moon {
+            animation-delay: 1s;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      opacity: 0;
+      pointer: auto;
+    }
+  }
+}
+
+@keyframes fade {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

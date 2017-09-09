@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: $main-font;
+}
+
+h1 {
+  @include font-size($heading-1);
+
+  @media screen and (max-width: $screen-sm - 1) {
+    @include font-size($heading-1-mobile);
+  }
+}
+
+h2 {
+  @include font-size($heading-2);
+  margin-bottom: $margin-large;
+  padding-bottom: $margin-large;
+  border-bottom: 1px solid $color-pickledBluewood;
+
+  @media screen and (max-width: $screen-sm - 1) {
+    @include font-size($heading-2-mobile);
+  }
+
+  br {
+    @media screen and (max-width: $screen-sm - 1) {
+      display: none;
+    }
+  }
+}
+
+h3 {
+  @include font-size($heading-3);
+}

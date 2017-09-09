@@ -1,0 +1,71 @@
+@mixin the-margin($direction: "") {
+
+  @if $direction != ""  { $direction: '-' + $direction; }
+
+  .margin {
+    &#{$direction}--sm {
+      margin#{$direction}: 5px !important;
+    }
+
+    &#{$direction}--md {
+      margin#{$direction}: 15px !important;
+    }
+
+    &#{$direction}--lg {
+      margin#{$direction}: 20px !important;
+    }
+  }
+}
+
+@include the-margin;
+
+$positions: top left right bottom;
+
+@each $position in $positions {
+  @include the-margin('#{$position}');
+}
+
+
+$sm: 5px;
+$md: 15px;
+$lg: 20px;
+
+@mixin the-padding($direction: "") {
+
+  @if $direction != ""  { $direction: '-' + $direction; }
+
+  .padding {
+    &#{$direction}--sm {
+      padding#{$direction}: $sm !important;
+    }
+
+    &#{$direction}--md {
+      padding#{$direction}: $md !important;
+    }
+
+    &#{$direction}--lg {
+      padding#{$direction}: $lg !important;
+    }
+  }
+}
+
+@include the-padding;
+
+$positions: top left right bottom;
+
+@each $position in $positions {
+  @include the-padding('#{$position}');
+}
+
+@mixin font-size($font-val: 16) {
+  font-size: $font-val + px;
+  font-size: ($font-val / 10) + rem;
+}
+
+@mixin box-shadow() {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+@mixin text-shadow() {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}

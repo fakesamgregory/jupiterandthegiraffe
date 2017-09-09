@@ -1,0 +1,48 @@
+$main-font: 'KG-Summer-Storm';
+$title-font: $main-font;
+$body-font: -apple-system,system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$base-font: 16;
+$line-height-base: 1.5;
+
+$heading-1: 55;
+$heading-2: 42;
+$heading-3: 16;
+$heading-1-mobile: 34;
+$heading-2-mobile: 24;
+
+$space-mid: 20px;
+$space-lrg: 35px;
+
+$color-black: #333333;
+$color-white: #FFFFFF;
+$color-vulcan: #0a0b13;
+$color-oldBrick: #942223;
+$color-malibu: #93ccf8;
+$color-pickledBluewood: #2A3A47;
+$color-sushi: #8CC63E;
+$color-zombie: #D6E598;
+$color-vividViolet: #8A3A95;
+$color-mine-shaft: #323232;
+
+$color-primary: $color-oldBrick;
+$color-secondary: $color-oldBrick;
+$color-tertiary: $color-vividViolet;
+$color-gray-dark: $color-mine-shaft;
+
+$screen-xs:                  480px;
+$screen-sm:                  768px;
+$screen-md:                  992px;
+$screen-lg:                  1200px;
+
+$palm: 320px;
+$lap: $screen-xs;
+$desk: $screen-md;
+
+$palm-media: '(max-width: $screen-xs - 1)';
+$lap-media: '(min-width: $screen-sm) and (max-width: $screen-md - 1)';
+$desk-media: '(min-width: $screen-md)';
+
+$margin-small: 5px;
+$margin-medium: 10px;
+$margin-large: 15px;
+$margin-xlarge: 20px;

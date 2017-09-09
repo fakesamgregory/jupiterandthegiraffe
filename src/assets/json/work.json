@@ -1,0 +1,34 @@
+{
+  "work": [
+    {
+      "title": "3DUX Wordpress Website",
+      "link": "3dux-website",
+      "client": {
+        "page": "emdad-rashid",
+        "name": "Emdad Rashid"
+      },
+      "tags": ["wordpress", "wordpress theme"],
+      "content": "blah, blah, blah Emdad"
+    },
+    {
+      "title": "Velvet Trumpet Wordpress Website",
+      "link": "velvet-trumpet-website",
+      "client": {
+        "page": "velvet-trumpet",
+        "name": "Velvet Trumpet"
+      },
+      "tags": ["wordpress", "wordpress theme"],
+      "content": "blah, blah, blah Velvet Trumpet"
+    },
+    {
+      "title": "Wasp Plumbing SEO",
+      "link": "wasp-plumbing-seo",
+      "client": {
+        "page": "wasp-plumbing",
+        "name": "Wasp Plumbing"
+      },
+      "tags": ["SEO", "front-end"],
+      "content": "blah, blah, blah Wasp Plumbing"
+    }
+  ]
+}

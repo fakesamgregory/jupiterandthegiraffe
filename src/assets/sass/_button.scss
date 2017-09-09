@@ -1,0 +1,14 @@
+button {
+  -webkit-appearance: button;
+  color: $color-white;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  @include font-size($base-font);
+}

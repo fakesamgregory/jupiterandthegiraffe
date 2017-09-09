@@ -1,0 +1,153 @@
+html {
+  font-size: 62.5%;
+  font-family: $body-font;
+  color: $color-white;
+  line-height: $line-height-base;
+}
+
+body {
+  margin: 0;
+  @include font-size($base-font);
+
+  &:after {
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    position: fixed;
+    bottom: 0;
+    content: '';
+    top: 0;
+    width: 100%;
+    z-index: -10;
+  }
+}
+
+hr {
+  border-color: #2a3a47;
+  border-style: solid;
+}
+
+blockquote q {
+  font-family: $main-font;
+  @include font-size(15);
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.jupiter {
+  border-radius: 50%;
+  width: 1000px;
+  height: 1000px;
+  background-color: $color-secondary;
+  position: fixed;
+  left: -40%;
+  z-index: -1;
+  top: 50%;
+}
+
+.scroll-up  {
+  background-color: $color-malibu;
+  color: $color-white;
+  position: fixed;
+  right: -100%;
+  bottom: 70px;
+  width: 70px;
+  transition: right ease .5s;
+  z-index: 90;
+  padding: 5px;
+
+  &--active {
+    right: 0;
+  }
+
+  &:focus,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+
+  &:before,
+  &:after {
+    content: "";
+    background: transparent;
+  }
+
+  &:after {
+    border-top: 12px solid $color-malibu;
+    border-bottom: 12px solid $color-malibu;
+    border-left: 8px solid transparent;
+    position: absolute;
+    left: -8px;
+    bottom: 0;
+    top: 0;
+  }
+
+  @media screen and (max-width: $screen-sm - 1) {
+      padding: 7px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+
+  &:focus {
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    clip: auto;
+    z-index: 1;
+  }
+}
+
+.pull {
+  &-right { float: right; }
+  &-left { float: left; }
+}
+
+.hidden {
+  @media screen and (max-width: $screen-sm - 1) {
+    &-sm {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $screen-sm - 1) {
+    &-sm-up {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: $screen-xs - 1) {
+    &-xs {
+      display: none;
+    }
+  }
+}
+
+.vertical {
+  &-helper {
+    height: 100%;
+  }
+
+  &-wrapper,
+  &-helper{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

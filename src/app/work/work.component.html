@@ -1,0 +1,23 @@
+<div class="section">
+  <section>
+    <header>
+      <h2>Projects</h2>
+    </header>
+    <p>
+      Feast your eyes on the projects we've enjoyed and read about what we've done.
+    </p>
+    <div [ngSwitch]="error?.status">
+      <div *ngSwitchCase="404">
+        {{error.status}}: {{ error.statusText }}
+      </div>
+      <ul class="row work list-unstyled" *ngSwitchDefault="">
+        <li class="col-sm-4 col-6" *ngFor="let workItem of work.work">
+          <h3>
+            <a [routerLink]="workItem.link">{{workItem.title}}</a></h3>
+          <a [routerLink]="workItem.client.page">{{workItem.client.name}}</a>
+          <p>{{workItem.content}}</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>

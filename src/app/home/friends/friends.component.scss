@@ -1,0 +1,17 @@
+@import "../../../assets/sass/variables";
+
+.friends {
+  .work__link {
+
+  }
+
+  &__image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+
+    @media screen and (max-width: $screen-sm - 1) {
+      max-width: 150px;
+    }
+  }
+}

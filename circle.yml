@@ -20,9 +20,6 @@ jobs:
 #          username: fakesamgregory  # can specify string literal values
 #          password: $DOCKERHUB_PASSWORD  # or project UI env-var reference
   deployment:
-    steps:
-      - test
-      - run: 'console.log("run tests...")
     codedeploy:
       jupiterandthegiraffe:
         application_root: /

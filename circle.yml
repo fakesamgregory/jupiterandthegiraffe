@@ -1,20 +1,23 @@
-test:
-  docker:
-    - image: circleci/node:4.8.2
-  steps:
-    - checkout
-    - run:
-        name: Test
-        command: console.log('test')
-deployment:
-  staging:
-    branch: dev
-    codedeploy:
-      jupiterandthegiraffe:
-        application_root: /
-        region: us-west-1
-        revision_location:
-          revision_type: S3
-          s3_location:
-            bucket: jupiterandthegiraffe
-            key_pattern: jupiterandthegiraffe-{BRANCH}-{SHORT_COMMIT}
+version: 2
+jobs:
+  deployment:
+    staging:
+      branch: dev
+      codedeploy:
+        jupiterandthegiraffe:
+          application_root: /
+          region: us-west-1
+          revision_location:
+            revision_type: S3
+            s3_location:
+              bucket: jupiterandthegiraffe
+              key_pattern: jupiterandthegiraffe-{BRANCH}-{SHORT_COMMIT}
+  test:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - checkout
+      - run:
+          name: Test
+          command: console.log('test')
+

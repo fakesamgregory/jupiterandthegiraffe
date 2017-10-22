@@ -1,24 +1,22 @@
-<div class="section friends">
-  <section>
-    <header>
-      <h2>Our best <br>friends!</h2>
-    </header>
-    <p>
-      Henry Ford said <q>My best friend is the one who brings out the best in me</q>.
-      We're so proud to work with these people and the best was certainly brought out in us.
-    </p>
-    <ul class="row work list-unstyled">
-      <li class="col-sm-4 col-6" *ngFor="let friend of friends">
-        <div class="work__item text-center">
-          <a [routerLink]="friend.page" class="work__link">
-            <img
-              class="img-fluid friends__image"
-              src="/assets/images/{{ friend.img }}.png"
-              srcset="/assets/images/{{friend.img}}.png 1x, /assets/images/{{friend.img}}@2x.png 2x"
-              [attr.alt]="friend.name">
-          </a>
-        </div>
-      </li>
-    </ul>
-  </section>
-</div>
+<section class="section friends">
+  <header>
+    <h2>Our best <br>friends!</h2>
+  </header>
+  <p>
+    Henry Ford said <q>My best friend is the one who brings out the best in me</q>.
+    We're so proud to work with these people and the best was certainly brought out in us.
+  </p>
+  <ul class="row work list-unstyled">
+    <li class="col-sm-4 col-6" *ngFor="let friend of friends">
+      <div class="work__item text-center">
+        <a [routerLink]="friend.page" class="work__link">
+          <img
+            class="img-fluid friends__image"
+            src="/assets/images/{{ friend.img }}.png"
+            srcset="/assets/images/{{friend.img}}.png 1x, /assets/images/{{friend.img}}@2x.png 2x"
+            [attr.alt]="friend.name">
+        </a>
+      </div>
+    </li>
+  </ul>
+</section>

@@ -1,6 +1,6 @@
 button {
-  -webkit-appearance: button;
-  color: $color-white;
+  //-webkit-appearance: button;
+  color: $color-black;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
@@ -10,5 +10,13 @@ button {
   padding: .5rem 1rem;
   border-radius: .25rem;
   transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  background: $color-white;
   @include font-size($base-font);
+
+  &:hover, &:focus {
+    background: transparent;
+    cursor: pointer;
+    border-color: $color-white;
+    color: $color-white;
+  }
 }

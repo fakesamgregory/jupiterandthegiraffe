@@ -4,7 +4,9 @@
 @import "tools";
 
 //Bootstrap
+@import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../../node_modules/bootstrap/scss/images";
 
 //Elements
 @import "global";

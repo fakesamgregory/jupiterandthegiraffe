@@ -1,23 +1,26 @@
-<div class="section">
-  <section>
-    <header>
-      <h2>Projects</h2>
-    </header>
-    <p>
-      Feast your eyes on the projects we've enjoyed and read about what we've done.
-    </p>
-    <div [ngSwitch]="error?.status">
-      <div *ngSwitchCase="404">
-        {{error.status}}: {{ error.statusText }}
-      </div>
-      <ul class="row work list-unstyled" *ngSwitchDefault="">
-        <li class="col-sm-4 col-6" *ngFor="let workItem of work.work">
-          <h3>
-            <a [routerLink]="workItem.link">{{workItem.title}}</a></h3>
-          <a [routerLink]="workItem.client.page">{{workItem.client.name}}</a>
-          <p>{{workItem.content}}</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-</div>
+<section class="section">
+  <header>
+    <h2>Projects</h2>
+  </header>
+  <p>
+    Feast your eyes on the projects we've enjoyed and read about what we've done.
+  </p>
+  <div [ngSwitch]="error?.status">
+    <h3 *ngSwitchCase="404">
+      {{error.status}}: {{ error.statusText }}
+    </h3>
+    <ul class="row work list-unstyled" *ngSwitchDefault="">
+      <li class="col-sm-4 col-6 work__item" *ngFor="let workItem of work.work">
+        <img
+          *ngIf="workItem.image"
+          [src]="'/assets/images/' + workItem.image"
+          alt="{{workItem.title}}"
+          class="img-thumbnail"
+        />
+        <h3>{{workItem.title}}</h3>
+        <h4>The brief:</h4>
+        <p>{{workItem.content}}</p>
+      </li>
+    </ul>
+  </div>
+</section>

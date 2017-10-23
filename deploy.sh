@@ -17,7 +17,6 @@ if [ $CIRCLE_BRANCH = "master" ]; then
 fi
 
 #build
-npm install -g @angular/cli
 npm run build
 
 tar -zcvf $TARGET.tar.gz dist

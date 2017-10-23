@@ -1,0 +1,29 @@
+<button
+  (click)="showDialog(true)"
+  class="btn btn--primary-outline btn--white btn--lg"
+  [innerText]="buttonText">
+</button>
+
+<div
+  class="pop-up pop-up--open"
+  *ngIf="show"
+>
+  <div
+    class="pop-up__overlay"
+    (click)="showDialog(false)"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="pop-up__content"
+    role="dialog"
+    aria-labelledby="dialogheader"
+  >
+    <header>
+      <h2 class="pop-up__header" id="dialogheader">{{title}}</h2>
+    </header>
+    <div [innerHTML]="description"></div>
+  </div>
+  <a href="#" class="sr-only" (click)="showDialog(false)">Close dialog</a>
+</div>
+

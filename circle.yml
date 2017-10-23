@@ -1,0 +1,18 @@
+---
+machine:
+  node:
+    version: 8.2.1
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bash ./deploy.sh
+  development:
+    branch: dev
+    commands:
+      - bash ./deploy.sh
+test:
+  override:
+    - echo 'Test'
+

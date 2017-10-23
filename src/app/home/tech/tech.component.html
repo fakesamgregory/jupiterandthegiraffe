@@ -1,0 +1,20 @@
+<section class="section tech">
+  <header>
+    <h2>The Tech <br>We Love!</h2>
+  </header>
+  <p>We love all kinds of technology. This gives us an arsenal of tools to help create whatever life throws at us.</p>
+  <ul class="row work list-unstyled equal-height">
+    <li class="col-4" *ngFor="let tech of technology">
+      <div class="work__item text-center">
+
+        <span class="vertical-helper"></span>
+        <img
+          class="img-fluid tech__image"
+          src="/assets/images/{{ tech.img }}.png"
+          [attr.alt]="tech.title"
+        >
+      </div>
+    </li>
+  </ul>
+</section>
+

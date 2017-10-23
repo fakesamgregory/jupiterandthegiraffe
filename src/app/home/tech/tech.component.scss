@@ -1,0 +1,18 @@
+@import "../../../assets/sass/variables";
+
+.tech {
+  &__image {
+    max-width: 150px;
+    width: 100%;
+    vertical-align: middle;
+    height: auto;
+
+    @media screen and (max-width: $screen-sm - 1) {
+      max-width: 70px;
+    }
+  }
+
+  .work__item {
+    height: 100%;
+  }
+}

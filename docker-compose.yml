@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  client:
+      build: .
+      volumes:
+        - ./src:/usr/src/app/src
+      ports:
+        - "80:4200"

@@ -1,0 +1,33 @@
+<div class="hero text-center" [ngClass]="{'home-page': home}">
+  <span *ngIf="home" class="vertical-helper"></span>
+  <div class="vertical-wrapper">
+    <div class="hero__logo">
+      <a [routerLink]="['/']" class="hero__link">
+        <logo></logo>
+      </a>
+    </div>
+
+    <div class="line--top line--bottom line hero__text-wrap">
+      <div class="hero__text text-center">
+        A <span class="hero__lead-letter">digital agency</span> out of this world.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-right">
+        <div class="hero__button margin-top--lg">
+          <pop-up
+            [title]="dialogTitle"
+            [description]="dialogDescription | trustHtml"
+            [buttonText]="dialogButtonText"></pop-up>
+        </div>
+        <div class="padding--lg"></div>
+      </div>
+      <div class="col line line--left text-left">
+        <div class="hero__button margin-top--lg">
+          <a [routerLink]="['work']" class="btn btn--lg">Our work</a>
+        </div>
+        <div class="padding--lg"></div>
+      </div>
+    </div>
+  </div>
+</div>

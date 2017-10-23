@@ -1,6 +1,14 @@
 # JupiterAndTheGiraffe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
+## Docker 
+
+### dev
+`docker-compose up -d --build --remove-orphans`
+### prod
+`docker build -t jupiterandthegiraffe .`
+
+`docker run -it -p 80:4200 jupiterandthegiraffe`
+
 
 ## Development server
 

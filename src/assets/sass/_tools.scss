@@ -1,0 +1,13 @@
+$pos: top left right bottom;
+
+.line {
+  border-color: $color-pickledBluewood;
+  border-style: solid;
+  border-width: 0;
+
+  @each $position in $pos {
+    &--#{$position} {
+      border-#{$position}-width: 1px;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import "../../assets/sass/variables";
+@import "../../assets/sass/mixins";
+
+.hero {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 35px;
+
+  &.home-page {
+    height: 100vh;
+    margin-bottom: 0;
+
+    @media screen and (max-width: $screen-sm - 1) {
+      height: auto;
+      margin-bottom: $margin-xlarge;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      text-decoration: none;
+      background: none;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__logo-text {
+    font-family: $main-font;
+    color: $color-primary;
+    @include font-size(84);
+    position: absolute;
+    left: 53px;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__text {
+    font-family: $main-font;
+    padding: 10px 0;
+    @include font-size(18);
+  }
+
+  &__lead-letter {
+    color: $color-secondary;
+    @include text-shadow();
+  }
+}

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: $main-font;
+  src: url('../fonts/kgsummerstormrough-webfont.woff2') format('woff2'),
+  url('../fonts/kgsummerstormrough-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text {
+  &-center {
+    text-align: center;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}

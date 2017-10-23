@@ -19,7 +19,7 @@ fi
 #build
 npm run build
 
-tar -zcvf $TARGET.tar.gz $FOLDERNAME
+tar -zcvf $TARGET.tar.gz dist
 
 # Securly copy zip file to server /var/www/$DOMAIN
 echo "Copy file $TARGET.tar.gz to $DEST"
@@ -34,10 +34,8 @@ ssh -i ~/.ssh/$SSH_LOC $USER@$IP_ADDRESS "cd $DEST
 		echo '-- remove old $TARGET folder --'
 	rm -rf $TARGET
 		echo '-- making folder $TARGET --'
-	mkdir -p $TARGET/public_html
-		echo '-- moving $TARGET.tar.gz folder to $TARGET/public_html --'
-	mv $TARGET.tar.gz $TARGET/public_html
+	mkdir -p $TARGET
 		echo '-- unzip $TARGET/public_html/$TARGET.tar.gz --'
-	tar -xvzf $TARGET/public_html/$TARGET.tar.gz
+	tar -xvzf $TARGET.tar.gz --directory $TARGET
 		echo 'list directory ---'
-		ls $TARGET/public_html/
+		ls $TARGET

@@ -1,12 +1,11 @@
+---
 deployment:
-  production: # just a label; label names are completely up to you
+  production:
     branch: master
     commands:
-      - npm run build
-      - scp -rp ~/dist/* sam@178.62.126.206:/var/www/jupiterandthegiraffe/prod/public_html
+      - bash ./deploy.sh
   development:
-      branch: dev  # branches starting with "feature-"
-      commands:
-        - npm run build
-        - scp -rp ~/dist/* sam@178.62.126.206:/var/www/jupiterandthegiraffe/dev/public_html
+    branch: dev
+    commands:
+      - bash ./deploy.sh
 

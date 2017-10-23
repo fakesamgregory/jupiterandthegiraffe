@@ -17,7 +17,6 @@ if [ $CIRCLE_BRANCH = "master" ]; then
 fi
 
 #build
-npm rebuild node-sass --force
 npm run build
 
 tar -zcvf $TARGET.tar.gz dist
@@ -38,5 +37,7 @@ scp -i ~/.ssh/$SSH_LOC $TARGET.tar.gz $USER@$IP_ADDRESS:$DEST >> /dev/null
 	mkdir -p $TARGET
 		echo '-- unzip $TARGET/public_html/$TARGET.tar.gz --'
 	tar -xvzf $TARGET.tar.gz --directory $TARGET
+	mv $TARGET/dist $TARGET/public_html
 		echo 'list directory ---'
-		ls $TARGET"
+		ls $TARGET
+		rm $TARGET.tar.gz"

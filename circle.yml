@@ -12,7 +12,13 @@ deployment:
     branch: dev
     commands:
       - bash ./deploy.sh
+
+dependencies:
+  override:
+    - npm rebuild node-sass
+    - npm install
+
 test:
   override:
-    - echo 'Test'
+    - echo 'test'
 

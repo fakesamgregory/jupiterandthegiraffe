@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
+
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -13,7 +15,10 @@ export class AppComponent {
   isKeyboardUser = false;
   hasBeenHome = false;
 
-  constructor( router: Router) {
+  constructor(
+    router: Router,
+    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics
+  ) {
     router.events
       .filter(event => event instanceof NavigationStart)
       .subscribe((event: NavigationStart) => {

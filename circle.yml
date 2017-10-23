@@ -13,3 +13,9 @@ deployment:
     commands:
       - bash ./deploy.sh
 
+dependencies:
+  override:
+    commands:
+      - npm rebuild node-sass
+      - npm install
+

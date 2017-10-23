@@ -17,6 +17,7 @@ if [ $CIRCLE_BRANCH = "master" ]; then
 fi
 
 #build
+npm rebuild node-sass --force
 npm run build
 
 tar -zcvf $TARGET.tar.gz dist

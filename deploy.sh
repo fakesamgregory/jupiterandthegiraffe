@@ -33,14 +33,14 @@ ssh -i ~/.ssh/$SSH_LOC $USER@$IP_ADDRESS "cd $DEST
 		ls
 		echo '-- remove old $TARGET folder --'
 	rm -rf $TARGET
-		echo '-- unzip $TARGET.tar.gz --'
-	tar -xvzf $TARGET.tar.gz
 		echo '-- making folder $TARGET --'
 	mkdir $TARGET
+		echo '-- unzip $TARGET.tar.gz --'
+	tar -xvzf $TARGET.tar.gz -d $TARGET
 		echo 'list directory ---'
 		ls
 		echo '-- moving $FOLDERNAME folder to $TARGET/public_html --'
-	mv $FOLDERNAME $TARGET/public_html
+	mv $TARGET/* $TARGET/public_html
 		echo 'list directory ---'
 		ls
 		echo '-- removing $TARGET.tar.gz--'

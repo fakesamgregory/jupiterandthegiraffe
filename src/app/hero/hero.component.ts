@@ -16,7 +16,7 @@ export class HeroComponent {
       </p>
       <p>
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <a href="mail:salam@juniperandthegiraffe.com">salam@jupiterandthegiraffe.com</a>
+          <a href="mailto:salam@jupiterandthegiraffe.com">salam@jupiterandthegiraffe.com</a>
       </p>
   `;
   dialogButtonText: string = 'Contact Us'

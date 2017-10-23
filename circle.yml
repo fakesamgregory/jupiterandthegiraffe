@@ -12,7 +12,4 @@ deployment:
     branch: dev
     commands:
       - bash ./deploy.sh
-test:
-  override:
-    - echo 'Test'
 

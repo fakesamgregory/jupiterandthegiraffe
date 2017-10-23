@@ -1,4 +1,7 @@
 ---
+machine:
+  node: 8.2.1
+
 deployment:
   production:
     branch: master

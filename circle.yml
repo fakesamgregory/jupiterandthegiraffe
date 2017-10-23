@@ -18,3 +18,7 @@ dependencies:
     - npm rebuild node-sass
     - npm install
 
+dependencies:
+  test:
+    - echo 'test'
+

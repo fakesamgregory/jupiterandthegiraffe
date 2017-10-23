@@ -15,7 +15,6 @@ deployment:
 
 dependencies:
   override:
-    commands:
-      - npm rebuild node-sass
-      - npm install
+    - npm rebuild node-sass
+    - npm install
 

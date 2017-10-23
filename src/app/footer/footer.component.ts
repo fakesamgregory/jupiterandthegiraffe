@@ -20,10 +20,8 @@ export class FooterComponent implements OnInit {
   ];
 
    general = [
-    { url: 'work', name: 'Our work', class: 'footer__general-item' },
-    { url: 'who-we-are', name: 'About', class: 'footer__general-item' },
-    { url: '/sitemap.xml', name: 'Sitemap', class: 'footer__general-item' },
-    { name: '© 2016 Jupiter and the Giraffe', class: 'pull-right' }
+    { url: '/work', name: 'Our work', class: 'footer__general-item' },
+    { url: '/who-we-are', name: 'About', class: 'footer__general-item' }
   ];
 
   constructor(private http: HttpClient) {}

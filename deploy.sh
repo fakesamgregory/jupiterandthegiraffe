@@ -17,6 +17,7 @@ if [ $CIRCLE_BRANCH = "master" ]; then
 fi
 
 #build
+npm install -g @angular/cli
 npm run build
 
 tar -zcvf $TARGET.tar.gz dist
@@ -27,7 +28,8 @@ scp -i ~/.ssh/$SSH_LOC $TARGET.tar.gz $USER@$IP_ADDRESS:$DEST >> /dev/null
 
 # SSH into box, cd to /var/www/$DOMAIN, remove previous $FOLDERNAME
 # unzip, move and rename into public_html remove zip
-ssh -i ~/.ssh/$SSH_LOC $USER@$IP_ADDRESS "cd $DEST
+  ssh -i ~/.ssh/$SSH_LOC $USER@$IP_ADDRESS "
+  cd $DEST
 		echo '-- cd to $DEST --'
 		echo 'list directory ---'
 		ls

@@ -1,6 +1,7 @@
 ---
 machine:
-  node: 8.2.1
+  node:
+    version: 8.2.1
 
 deployment:
   production:

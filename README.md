@@ -4,6 +4,7 @@
 - [Dev Site - dev.JupiterandtheGiraffe.com](http://dev.jupiterandthegiraffe.com)
 
 Project road-map - https://trello.com/b/HINcNI0y/jupiter-and-the-giraffe-website-roadmap
+Feel free to add issues.
 
 ## Docker 
 

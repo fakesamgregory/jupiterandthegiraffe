@@ -10,7 +10,7 @@
       {{error.status}}: {{ error.statusText }}
     </h3>
     <ul class="row work list-unstyled" *ngSwitchDefault="">
-      <li class="col-sm-4 col-6 work__item" *ngFor="let workItem of work.work">
+      <li class="col-md-4 col-sm-6 work__item" *ngFor="let workItem of work.work">
         <img
           *ngIf="workItem.image"
           [src]="'/assets/images/' + workItem.image"

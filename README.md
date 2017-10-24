@@ -3,8 +3,9 @@
 - [Production Site - JupiterandtheGiraffe.com](http://jupiterandthegiraffe.com)
 - [Dev Site - dev.JupiterandtheGiraffe.com](http://dev.jupiterandthegiraffe.com)
 
-Project road-map - https://trello.com/b/HINcNI0y/jupiter-and-the-giraffe-website-roadmap
-Feel free to add issues.
+Project road-map - [https://trello.com/b/HINcNI0y/jupiter-and-the-giraffe-website-roadmap](Trello)
+
+Feel free to add issues using Github issues.
 
 ## Docker 
 

@@ -1,5 +1,10 @@
 # JupiterAndTheGiraffe
 
+- [Production Site - JupiterandtheGiraffe.com](http://jupiterandthegiraffe.com)
+- [Dev Site - dev.JupiterandtheGiraffe.com](http://dev.jupiterandthegiraffe.com)
+
+Project road-map - https://trello.com/b/HINcNI0y/jupiter-and-the-giraffe-website-roadmap
+
 ## Docker 
 
 ### dev
@@ -12,7 +17,7 @@
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

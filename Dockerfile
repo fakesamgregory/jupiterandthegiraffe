@@ -1,5 +1,5 @@
 # use a node base image
-FROM node:boron
+FROM node:8.2.1
 
 RUN mkdir -p /usr/src/app
 

@@ -19,7 +19,7 @@ fi
 #build
 npm run build -- --prod
 
-mv -t dist src/share-image.jpg
+mv -t dist src/share-image.jpg src/.htaccess src/google7cfd879982ead749.html src/sitemap.xml
 
 tar -zcvf $TARGET.tar.gz dist
 

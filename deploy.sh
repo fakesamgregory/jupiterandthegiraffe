@@ -17,7 +17,7 @@ if [ $CIRCLE_BRANCH = "master" ]; then
 fi
 
 #build
-npm run build --prod
+npm run build -- --prod
 
 mv -t dist src/share-image.jpg
 

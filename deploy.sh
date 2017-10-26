@@ -19,6 +19,8 @@ fi
 #build
 npm run build
 
+mv -t dist src/share-image.jpg
+
 tar -zcvf $TARGET.tar.gz dist
 
 # Securly copy zip file to server /var/www/$DOMAIN

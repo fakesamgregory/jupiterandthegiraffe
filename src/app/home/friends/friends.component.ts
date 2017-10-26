@@ -16,7 +16,7 @@ import '../../../assets/images/waspplumbing@2x.png';
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
-  private friends: Array<Object>;
+  public friends: Array<Object>;
   private postsUrl: string = '/assets/json/friends.json';
 
   constructor(private http: HttpClient) {}

@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WorkComponent implements OnInit {
   public work;
-  public error: Error;
+  public error;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -16,7 +16,7 @@ export class WorkComponent implements OnInit {
     this.route.data
       .subscribe(
         data => this.work = data.work,
-        (error: Error) => this.error = error
+        error => this.error = error
     );
   }
 }

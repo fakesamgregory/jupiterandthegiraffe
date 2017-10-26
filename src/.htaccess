@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+  RewriteRule ^google7cfd879982ead749\.html$ google7cfd879982ead749.html [L]
+  RewriteRule ^sitemap\.xml$ sitemap.xml [L]
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

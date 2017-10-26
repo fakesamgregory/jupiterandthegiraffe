@@ -17,7 +17,9 @@ if [ $CIRCLE_BRANCH = "master" ]; then
 fi
 
 #build
-npm run build
+npm run build -- --prod
+
+mv -t dist src/share-image.jpg
 
 tar -zcvf $TARGET.tar.gz dist
 

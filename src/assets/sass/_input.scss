@@ -1,0 +1,17 @@
+input {
+  display: block;
+  border: none;
+  border-left: 3px solid transparent;
+  padding: $margin-medium;
+  margin: $margin-small 0;
+  width: 100%;
+  border-radius: 3px;
+  color: $color-black;
+  font-family: $title-font;
+  transition: border-left $animation;
+
+  &:focus {
+    border-left-color: $color-green-haze;
+    outline: none;
+  }
+}

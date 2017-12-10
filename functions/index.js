@@ -29,6 +29,12 @@ exports.sendContactMessage = functions.database
     };
 
     return mailTransport.sendMail(mailOptions)
-      .then(() => console.log('Mail sent to: salam@jupiterandthegiraffe.com'))
+      .then((error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+
+        console.log('Mail sent to: salam@jupiterandthegiraffe.com')
+      })
       .catch(e => console.log(e));
   });

@@ -12,6 +12,7 @@ import { HarkComponent } from './hark/hark.component';
 import { WorkComponent } from './work/work.component';
 import { WorkDetailComponent } from './work/work-detail/work-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ContactComponent } from './contact/contact.component';
 
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'emdad-rashid', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
   { path: 'hark', component: HarkComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];
@@ -62,5 +64,7 @@ export const routableComponents = [
   WaspplumbingComponent,
   HarkComponent,
   WorkComponent,
-  WorkDetailComponent
+  WorkDetailComponent,
+  ContactComponent,
+  NotFoundComponent
 ];

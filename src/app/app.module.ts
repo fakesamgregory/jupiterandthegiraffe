@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormatDataService } from './format-data.service';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
@@ -20,15 +26,19 @@ import { TrustHtmlPipe } from './trust-html.pipe';
 import { DataService } from './data.service';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
-    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
+    RecaptchaModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   declarations: [
     AppComponent,
@@ -44,14 +54,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FriendsComponent,
     TechComponent,
     TrustHtmlPipe,
-    NotFoundComponent
   ],
   bootstrap: [AppComponent],
   providers: [
     FormatDataService,
     DataService,
     WorkResolverService,
-    WorkDetailService
+    WorkDetailService,
   ]
 })
 export class AppModule { }

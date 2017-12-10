@@ -21,9 +21,13 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angularfire2": "^5.0.0-rc.3",
     "angulartics2": "^2.5.0",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "firebase": "^4.6.0",
+    "ng-recaptcha": "^3.0.2",
+    "nodemailer": "^4.3.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },

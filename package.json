@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@fakesamgregory/underscore-helpers": "0.0.1",
     "angularfire2": "^5.0.0-rc.3",
     "angulartics2": "^2.5.0",
     "bootstrap": "^4.0.0-alpha.6",

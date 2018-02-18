@@ -39,11 +39,10 @@
             </div>
           </label>
 
-          <!--<re-captcha-->
-            <!--formControlName="reCapture"-->
-            <!--siteKey="your site key here"-->
-            <!--size="invisible"-->
-            <!--(resolved)="$event && onSubmit($event)"></re-captcha>-->
+          <label for="check" class="sr-only">
+            Please ignore
+            <input type="checkbok" formControlName="check" id="check">
+          </label>
 
           <button type="submit" [disabled]="rForm.invalid">
             <i class="fa fa-paper-plane" aria-hidden="true"></i>

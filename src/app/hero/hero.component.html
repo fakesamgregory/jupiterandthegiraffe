@@ -15,10 +15,7 @@
     <div class="row">
       <div class="col text-right">
         <div class="hero__button margin-top--lg">
-          <pop-up
-            [title]="dialogTitle"
-            [description]="dialogDescription | trustHtml"
-            [buttonText]="dialogButtonText"></pop-up>
+          <a [routerLink]="['contact']" class="btn btn--lg btn--primary btn--primary-outline">Contact us</a>
         </div>
         <div class="padding--lg"></div>
       </div>

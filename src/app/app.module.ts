@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { FormatDataService } from './format-data.service';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,12 +27,14 @@ import { TrustHtmlPipe } from './trust-html.pipe';
 import { DataService } from './data.service';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
+// import { NbRecaptchaDirective } from './nb-recaptcha.directive';
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
 

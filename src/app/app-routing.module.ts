@@ -25,18 +25,6 @@ const routes: Routes = [
     path: 'work',
     component: WorkComponent,
     resolve: { work: WorkResolverService },
-    children: [
-      { path: ':page', children: [
-          {
-            path: '',
-            component: WorkDetailComponent,
-            resolve: {
-              page: WorkDetailService
-            }
-          }
-        ]
-      }
-    ]
   },
   { path: 'rathergood', component: RathergoodComponent },
   { path: 'velvet-trumpet', component: VelvettrumpetComponent },

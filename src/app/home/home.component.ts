@@ -7,10 +7,7 @@ import { FriendsComponent } from './friends/friends.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 }

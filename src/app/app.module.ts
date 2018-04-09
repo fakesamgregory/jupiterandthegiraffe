@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormatDataService } from './format-data.service';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module';
 import { DotsComponent } from './dots/dots.component';
@@ -29,7 +30,6 @@ import { VeratrakComponent } from './veratrak/veratrak.component';
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-
     Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
   ],
   declarations: [

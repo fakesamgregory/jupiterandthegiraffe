@@ -1,8 +1,13 @@
 {
   "work": [
     {
+      "title": "Veratrak - Logo, branding and website",
+      "link": "/veratrak",
+      "image": "veratrak-website.jpg",
+      "content": "We were asked to create an identity for their upcoming launch which involved a logo and a website."
+    },
+    {
       "title": "3DUX Wordpress Website",
-      "link": "3dux-website",
       "image": "3dux-wordpress.jpg",
       "client": {
         "page": "emdad-rashid",
@@ -13,7 +18,6 @@
     },
     {
       "title": "Velvet Trumpet Wordpress Website",
-      "link": "velvet-trumpet-website",
       "image": "velvettrumpet-wordpress.jpg",
       "client": {
         "page": "velvet-trumpet",
@@ -24,7 +28,6 @@
     },
     {
       "title": "Wasp Plumbing SEO",
-      "link": "wasp-plumbing-seo",
       "image": "wasp-seo.jpg",
       "client": {
         "page": "wasp-plumbing",

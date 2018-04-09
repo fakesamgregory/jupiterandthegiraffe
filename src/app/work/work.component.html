@@ -19,7 +19,7 @@
         />
         <h3>{{workItem.title}}</h3>
         <h4>The brief:</h4>
-        <p>{{workItem.content}}</p>
+        <p [innerHtml]="workItem.content"></p>
       </li>
     </ul>
   </div>

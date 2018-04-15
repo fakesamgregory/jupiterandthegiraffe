@@ -10,7 +10,6 @@ import { EmdadComponent } from './emdad/emdad.component';
 import { WaspplumbingComponent } from './waspplumbing/waspplumbing.component';
 import { HarkComponent } from './hark/hark.component';
 import { WorkComponent } from './work/work.component';
-import { VeratrakComponent } from './veratrak/veratrak.component';
 import { WorkDetailComponent } from './work/work-detail/work-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -25,12 +24,23 @@ const routes: Routes = [
     path: 'work',
     component: WorkComponent,
     resolve: { work: WorkResolverService },
+    children: [
+      { path: ':page', children: [
+          {
+            path: '',
+            component: WorkDetailComponent,
+            resolve: {
+              page: WorkDetailService
+            }
+          }
+        ]
+      }
+    ]
   },
   { path: 'rathergood', component: RathergoodComponent },
   { path: 'velvet-trumpet', component: VelvettrumpetComponent },
   { path: 'emdad-rashid', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
-  { path: 'veratrak', component: VeratrakComponent },
   { path: 'hark', component: HarkComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }

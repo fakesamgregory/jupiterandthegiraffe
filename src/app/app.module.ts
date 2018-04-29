@@ -21,6 +21,7 @@ import { DataService } from './data.service';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NorthstarComponent } from './northstar/northstar.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FriendsComponent,
     TechComponent,
     TrustHtmlPipe,
-    NotFoundComponent
+    NotFoundComponent,
+    NorthstarComponent
   ],
   bootstrap: [AppComponent],
   providers: [

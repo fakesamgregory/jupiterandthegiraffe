@@ -12,10 +12,8 @@ export class WorkDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('stneouh');
     this.route.data
       .filter(name => {
-        console.log(name, this.route.params);
         return this.route.params === name;
       })
       .subscribe(

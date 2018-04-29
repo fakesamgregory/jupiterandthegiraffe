@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WaspplumbingComponent } from './waspplumbing.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormatDataService} from "../format-data.service";
 
 describe('WaspplumbingComponent', () => {
   let component: WaspplumbingComponent;
@@ -8,7 +10,9 @@ describe('WaspplumbingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WaspplumbingComponent ]
+      imports: [HttpClientModule],
+      declarations: [ WaspplumbingComponent ],
+      providers: [FormatDataService]
     })
     .compileComponents();
   }));

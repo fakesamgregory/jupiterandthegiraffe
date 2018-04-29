@@ -8,7 +8,8 @@ import { RathergoodComponent } from './rathergood/rathergood.component';
 import { VelvettrumpetComponent } from './velvettrumpet/velvettrumpet.component';
 import { EmdadComponent } from './emdad/emdad.component';
 import { WaspplumbingComponent } from './waspplumbing/waspplumbing.component';
-import { HarkComponent } from './hark/hark.component';
+import { VeratrakComponent } from './veratrak/veratrak.component';
+import { NorthstarComponent } from './northstar/northstar.component';
 import { WorkComponent } from './work/work.component';
 import { WorkDetailComponent } from './work/work-detail/work-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'velvet-trumpet', component: VelvettrumpetComponent },
   { path: 'emdad-rashid', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
-  { path: 'hark', component: HarkComponent },
+  { path: 'veratrak', component: VeratrakComponent },
+  { path: 'north-star', component: NorthstarComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];
@@ -60,7 +62,8 @@ export const routableComponents = [
   VelvettrumpetComponent,
   EmdadComponent,
   WaspplumbingComponent,
-  HarkComponent,
+  VeratrakComponent,
+  NorthstarComponent,
   WorkComponent,
   WorkDetailComponent
 ];

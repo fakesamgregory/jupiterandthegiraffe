@@ -10,5 +10,4 @@ export class TrustHtmlPipe implements PipeTransform {
   transform(value: string): any {
     return this.sanitized.bypassSecurityTrustHtml(value);
   }
-
 }

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VelvettrumpetComponent } from './velvettrumpet.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormatDataService} from "../format-data.service";
 
 describe('VelvettrumpetComponent', () => {
   let component: VelvettrumpetComponent;
@@ -8,7 +10,9 @@ describe('VelvettrumpetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VelvettrumpetComponent ]
+      imports: [HttpClientModule],
+      declarations: [ VelvettrumpetComponent ],
+      providers: [FormatDataService]
     })
     .compileComponents();
   }));

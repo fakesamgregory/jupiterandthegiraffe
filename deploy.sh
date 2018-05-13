@@ -31,7 +31,7 @@ echo "has copied"
 
 # SSH into box, cd to /var/www/$DOMAIN, remove previous $FOLDERNAME
 # unzip, move and rename into public_html remove zip
-  ssh -i ~/.ssh/$SSH_LOC $USER@$IP_ADDRESS "cd $DEST
+  ssh -i ~/.ssh/id_178.62.126.206 $USER@$IP_ADDRESS "cd $DEST
 		echo '-- cd to $DEST --'
 		echo 'list directory ---'
 		ls

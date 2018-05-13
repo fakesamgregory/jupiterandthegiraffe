@@ -15,7 +15,7 @@
     </main>
   </div>
 
-  <a href="#" class="scroll-up fa fa-arrow-up" aria-hidden="false" [ngClass]="{'scroll-up--active': showHeader}">
+  <a (click)="scrollUp($event)" class="scroll-up fa fa-arrow-up" aria-hidden="false" [ngClass]="{'scroll-up--active': showHeader}">
     <span class="sr-only">Scroll to top</span>
   </a>
 

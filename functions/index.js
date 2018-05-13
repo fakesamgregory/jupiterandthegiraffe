@@ -1,20 +1,16 @@
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
-const mg = require('nodemailer-mailgun-transport');
 
-// The Firebase Admin SDK to access the Firebase Realtime Database.
-const admin = require('firebase-admin');
-admin.initializeApp(functions.config().firebase);
-
-const auth = {
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
+const mailTransport = nodemailer.createTransport({
+  service: 'gmail',
   auth: {
-    api_key: functions.config().mailgun.apikey,
-    domain: functions.config().mailgun.domain
-  }
-};
-
-const mailTransport = nodemailer.createTransport(mg(auth));
+    user: gmailEmail,
+    pass: gmailPassword,
+  },
+});
 
 exports.sendContactMessage = functions.database
   .ref('/messages/{pushKey}')

@@ -11,7 +11,7 @@ export class HeroComponent {
   dialogDescription: string = `
       <p>
           <i class="fa fa-phone" aria-hidden="true"></i>
-          <span class="hidden-xs-down">(+44) 7816 061 943</span>
+          <span class="hidden-sm">(+44) 7816 061 943</span>
           <a href="tel:+447816061943" class="hidden-sm-up">(+44) 7816 061 943</a>
       </p>
       <p>

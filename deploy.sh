@@ -26,7 +26,7 @@ tar -zcvf $TARGET.tar.gz dist
 # Securly copy zip file to server /var/www/$DOMAIN
 echo "Copy file $TARGET.tar.gz to $DEST"
 echo "$USER, $IP_ADDRESS, $SSH_LOC"
-scp -i ~/.ssh/$SSH_LOC $TARGET.tar.gz $USER@$IP_ADDRESS:$DEST >> /dev/null
+scp -i ~/.ssh/id_178.62.126.206 $TARGET.tar.gz $USER@$IP_ADDRESS:$DEST >> /dev/null
 echo "has copied"
 
 # SSH into box, cd to /var/www/$DOMAIN, remove previous $FOLDERNAME

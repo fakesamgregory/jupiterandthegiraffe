@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WorkComponent } from './work.component';
+import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 describe('WorkComponent', () => {
   let component: WorkComponent;
@@ -8,7 +10,13 @@ describe('WorkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkComponent ]
+      declarations: [ WorkComponent ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { data: Observable.of({work: 'hello'}) }
+        }
+      ]
     })
     .compileComponents();
   }));

@@ -1,25 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmdadComponent } from './emdad.component';
+import { FeaturedComponent } from './featured.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientModule} from "@angular/common/http";
-import {FormatDataService} from "../format-data.service";
 
-describe('EmdadComponent', () => {
-  let component: EmdadComponent;
-  let fixture: ComponentFixture<EmdadComponent>;
+describe('FeaturedComponent', () => {
+  let component: FeaturedComponent;
+  let fixture: ComponentFixture<FeaturedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmdadComponent ],
-      imports: [RouterTestingModule, HttpClientModule],
-      providers: [FormatDataService]
+      declarations: [ FeaturedComponent ],
+      imports: [RouterTestingModule, HttpClientModule]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmdadComponent);
+    fixture = TestBed.createComponent(FeaturedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

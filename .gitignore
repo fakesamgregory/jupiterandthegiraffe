@@ -43,3 +43,5 @@ yarn-error.log
 Thumbs.db
 build/
 dist/
+
+functions/node_modules

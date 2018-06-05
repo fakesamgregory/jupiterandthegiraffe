@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { WorkDetailService } from './work-detail.service';
-import {DataService} from "../../data.service";
-import {HttpClientModule} from "@angular/common/http";
+import {DataService} from '../../data.service';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('WorkDetailService', () => {
   beforeEach(() => {

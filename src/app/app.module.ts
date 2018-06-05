@@ -22,7 +22,7 @@ import { WhatComponent } from './what/what.component';
 import { LogoComponent } from './logo/logo.component';
 import { PopupComponent } from './popup/popup.component';
 import { FriendsComponent } from './home/friends/friends.component';
-import { FeaturedComponent } from './home/featured/featured.component'
+import { FeaturedComponent } from './home/featured/featured.component';
 import { TechComponent } from './home/tech/tech.component';
 import { TrustHtmlPipe } from './trust-html.pipe';
 import { DataService } from './data.service';

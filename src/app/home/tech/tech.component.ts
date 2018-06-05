@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'tech',
+  selector: 'app-tech-component',
   templateUrl: './tech.component.html',
   styleUrls: ['./tech.component.scss']
 })

@@ -1,7 +1,7 @@
 <div [ngClass]="{'keyboard-user': isKeyboardUser}">
-  <page-header [show]="showHeader"></page-header>
+  <app-header-component [show]="showHeader"></app-header-component>
 
-  <stars></stars>
+  <app-stars-components></app-stars-components>
   <div
     class="jupiter"
     data-start="top: 400px;"
@@ -9,7 +9,7 @@
   </div>
 
   <div class="container">
-    <hero [home]="isHome"></hero>
+    <app-hero-component [home]="isHome"></app-hero-component>
     <main>
       <router-outlet></router-outlet>
     </main>
@@ -19,5 +19,5 @@
     <span class="sr-only">Scroll to top</span>
   </a>
 
-  <page-footer></page-footer>
+  <app-footer-component></app-footer-component>
 </div>

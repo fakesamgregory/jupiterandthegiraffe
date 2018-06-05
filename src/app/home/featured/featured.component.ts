@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'featured',
+  selector: 'app-featured-component',
   templateUrl: './featured.component.html',
   styleUrls: ['./featured.component.scss']
 })

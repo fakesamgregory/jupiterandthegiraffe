@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
 import { VeratrakComponent } from './veratrak.component';
 
 describe('VeratrakComponent', () => {
-  let component: VeratrakComponent;
+  const COMPONENT: VeratrakComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -13,6 +13,6 @@ describe('VeratrakComponent', () => {
   }));
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+    expect(COMPONENT).toBeTruthy();
   });
 });

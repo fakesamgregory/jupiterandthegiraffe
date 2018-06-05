@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Http } from '@angular/http';
 
-export interface Item { name: string; email: string; message: string; html: string; date: string }
+export interface Item { name: string; email: string; message: string; html: string; date: string; }
 
 @Component({
   selector: 'app-contact',
@@ -13,10 +13,10 @@ export interface Item { name: string; email: string; message: string; html: stri
 export class ContactComponent {
   public rForm: FormGroup;
   public post: any;
-  public message: string = '';
-  public name: string = '';
-  public company: string = '';
-  public email: string = '';
+  public message = '';
+  public name = '';
+  public company = '';
+  public email = '';
   // public captcha: string;
   itemRef: AngularFireList<any>;
   item;

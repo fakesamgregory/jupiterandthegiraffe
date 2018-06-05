@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'stars',
+  selector: 'app-stars-component',
   templateUrl: './stars.component.html',
   styleUrls: ['./stars.component.scss']
 })

@@ -11,13 +11,13 @@ import '../../../assets/images/waspplumbing.png';
 import '../../../assets/images/waspplumbing@2x.png';
 
 @Component({
-  selector: 'friends',
+  selector: 'app-friends-component',
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
   public friends: Array<Object>;
-  private postsUrl: string = '/assets/json/friends.json';
+  private postsUrl = '/assets/json/friends.json';
 
   constructor(private http: HttpClient) {}
 

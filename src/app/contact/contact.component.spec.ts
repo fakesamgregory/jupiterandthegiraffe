@@ -5,8 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 
 import { environment } from '../../environments/environment';
-import { AngularFireModule } from "angularfire2";
-import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from 'angularfire2';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;

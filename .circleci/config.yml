@@ -10,6 +10,8 @@ jobs:
     steps:
       - checkout
 
+      - add_ssh_keys
+
       - restore_cache:
           keys:
             - v3-dependencies-{{ checksum "package.json" }}

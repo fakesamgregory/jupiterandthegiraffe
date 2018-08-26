@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Http } from '@angular/http';
+import { HttpClient } from "@angular/common/http";
 
 export interface Item { name: string; email: string; message: string; html: string; date: string; }
 
@@ -21,7 +21,7 @@ export class ContactComponent {
   itemRef: AngularFireList<any>;
   item;
 
-  constructor(private fb: FormBuilder, public db: AngularFireDatabase, private http: Http) {
+  constructor(private fb: FormBuilder, public db: AngularFireDatabase, private http: HttpClient) {
     this.createForm();
     // this.itemRef = db.object('messages');
     this.itemRef = db.list('messages');

@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VelvettrumpetComponent } from './velvettrumpet.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormatDataService} from '../format-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormatDataService } from '../format-data.service';
 
 describe('VelvettrumpetComponent', () => {
   let component: VelvettrumpetComponent;

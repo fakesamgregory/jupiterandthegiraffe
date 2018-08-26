@@ -24,6 +24,7 @@ import { PopupComponent } from './popup/popup.component';
 import { FriendsComponent } from './home/friends/friends.component';
 import { FeaturedComponent } from './home/featured/featured.component';
 import { TechComponent } from './home/tech/tech.component';
+import { ContactComponent } from './contact/contact.component';
 import { TrustHtmlPipe } from './trust-html.pipe';
 import { DataService } from './data.service';
 import { WorkResolverService } from './work/work-resolver.service';
@@ -61,7 +62,8 @@ import { NorthstarComponent } from './northstar/northstar.component';
     TechComponent,
     TrustHtmlPipe,
     NotFoundComponent,
-    NorthstarComponent
+    NorthstarComponent,
+    ContactComponent
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -49,7 +49,7 @@ jobs:
 
       - run:
           name: Workaround for GoogleChrome/puppeteer#290
-          command: 'sh .circleci/setup-puppeteer.sh'
+          command: 'sh ./setup-puppeteer.sh'
 
       - run: yarn test
 

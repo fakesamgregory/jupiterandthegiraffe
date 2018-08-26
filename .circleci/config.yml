@@ -14,6 +14,10 @@ jobs:
           fingerprints:
             - "ad:0e:95:93:e1:40:dc:60:d2:5e:58:b1:4a:64:18:e7"
 
+      - run:
+          name: Keyscan Github (HACK)
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
       - restore_cache:
           keys:
             - v3-dependencies-{{ checksum "package.json" }}

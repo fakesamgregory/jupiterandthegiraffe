@@ -47,6 +47,8 @@ jobs:
 
       - run: yarn run lint
 
+      - run: export CHROME_BIN=/usr/bin/chromium-browser
+
       - run: yarn run test
 
 workflows:

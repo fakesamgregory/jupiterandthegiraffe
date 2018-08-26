@@ -1,7 +1,7 @@
 vm_settings: &vm_settings
   working_directory: ~/app
   docker:
-    - image: circleci/node:10.9.0
+    - image: circleci/node:10.9.0-browsers
 
 version: 2
 jobs:
@@ -46,10 +46,6 @@ jobs:
           key: v3-dependencies-{{ checksum "package.json" }}
 
       - run: yarn run lint
-
-      - run:
-          name: Workaround for GoogleChrome/puppeteer#290
-          command: 'sh setup-puppeteer.sh'
 
       - run: yarn test
 

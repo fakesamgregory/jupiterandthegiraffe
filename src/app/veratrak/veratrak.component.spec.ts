@@ -3,7 +3,7 @@ import { async, TestBed } from '@angular/core/testing';
 import { VeratrakComponent } from './veratrak.component';
 
 describe('VeratrakComponent', () => {
-  const COMPONENT: VeratrakComponent;
+  let COMPONENT: VeratrakComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

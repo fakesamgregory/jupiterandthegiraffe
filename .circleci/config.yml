@@ -54,7 +54,6 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-            - ~/.ssh
           key: v3-dependencies-{{ checksum "package.json" }}
 
       - run: yarn run build

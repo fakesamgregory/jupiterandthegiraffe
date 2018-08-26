@@ -13,7 +13,7 @@ import { NorthstarComponent } from './northstar/northstar.component';
 import { WorkComponent } from './work/work.component';
 import { WorkDetailComponent } from './work/work-detail/work-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { ContactComponent } from './contact/contact.component';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
 
@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'velvet-trumpet', component: VelvettrumpetComponent },
   { path: 'emdad-rashid', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'veratrak', component: VeratrakComponent },
   { path: 'north-star', component: NorthstarComponent },
   { path: '404', component: NotFoundComponent },
@@ -65,5 +66,7 @@ export const routableComponents = [
   VeratrakComponent,
   NorthstarComponent,
   WorkComponent,
-  WorkDetailComponent
+  WorkDetailComponent,
+  ContactComponent,
+  NotFoundComponent
 ];

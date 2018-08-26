@@ -1,7 +1,7 @@
 <div [ngClass]="{'keyboard-user': isKeyboardUser}">
-  <page-header [show]="showHeader"></page-header>
+  <app-header-component [show]="showHeader"></app-header-component>
 
-  <stars></stars>
+  <app-stars-component></app-stars-component>
   <div
     class="jupiter"
     data-start="top: 400px;"
@@ -9,15 +9,15 @@
   </div>
 
   <div class="container">
-    <hero [home]="isHome"></hero>
+    <app-hero-component [home]="isHome"></app-hero-component>
     <main>
       <router-outlet></router-outlet>
     </main>
   </div>
 
-  <a href="#" class="scroll-up fa fa-arrow-up" aria-hidden="false" [ngClass]="{'scroll-up--active': showHeader}">
+  <a (click)="scrollUp($event)" class="scroll-up fa fa-arrow-up" aria-hidden="false" [ngClass]="{'scroll-up--active': showHeader}">
     <span class="sr-only">Scroll to top</span>
   </a>
 
-  <page-footer></page-footer>
+  <app-footer-component></app-footer-component>
 </div>

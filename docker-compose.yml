@@ -4,6 +4,6 @@ services:
   client:
       build: .
       volumes:
-        - ./src:/usr/src/app/src
+        - ./environment:/usr/environment/app/environment
       ports:
         - "80:4200"

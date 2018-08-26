@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'hero',
+  selector: 'app-hero-component',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  @Input() home: boolean = false;
-  dialogTitle: string = 'Contact Details';
-  dialogDescription: string = `
+  @Input() home = false;
+  dialogTitle = 'Contact Details';
+  dialogDescription = `
       <p>
           <i class="fa fa-phone" aria-hidden="true"></i>
           <span class="hidden-sm">(+44) 7816 061 943</span>
@@ -19,10 +19,8 @@ export class HeroComponent {
           <a href="mailto:salam@jupiterandthegiraffe.com">salam@jupiterandthegiraffe.com</a>
       </p>
   `;
-  dialogButtonText: string = 'Contact Us'
+  dialogButtonText = 'Contact Us';
   homePage: boolean;
 
-  constructor () {
-
-  }
+  constructor () { }
 }

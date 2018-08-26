@@ -5,7 +5,7 @@ import '../../assets/images/giraffe.png';
 import '../../assets/images/giraffe@2x.png';
 
 @Component({
-  selector: 'page-footer',
+  selector: 'app-footer-component',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })

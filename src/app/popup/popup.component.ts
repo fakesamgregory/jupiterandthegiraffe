@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'pop-up',
+  selector: 'app-pop-up',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
   encapsulation: ViewEncapsulation.None

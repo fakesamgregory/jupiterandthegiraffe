@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import './dots.component.scss';
 
 @Component({
-  selector: 'dots',
+  selector: 'app-dots-component',
   templateUrl: './dots.component.html',
   styleUrls: ['./dots.component.scss']
 })

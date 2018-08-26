@@ -1,16 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import {StarsComponent} from "./stars/stars.component";
-import {FooterComponent} from "./footer/footer.component";
-import {HeroComponent} from "./hero/hero.component";
-import {RouterTestingModule} from "@angular/router/testing";
-import {HeaderComponent} from "./header/header.component";
-import {PopupComponent} from "./popup/popup.component";
-import {TrustHtmlPipe} from "./trust-html.pipe";
-import {LogoComponent} from "./logo/logo.component";
-import {Angulartics2, Angulartics2GoogleAnalytics} from "angulartics2";
-import {HttpClientModule} from "@angular/common/http";
+import {StarsComponent} from './stars/stars.component';
+import {FooterComponent} from './footer/footer.component';
+import {HeroComponent} from './hero/hero.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HeaderComponent} from './header/header.component';
+import {PopupComponent} from './popup/popup.component';
+import {TrustHtmlPipe} from './trust-html.pipe';
+import {LogoComponent} from './logo/logo.component';
+import {Angulartics2, Angulartics2GoogleAnalytics} from 'angulartics2';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

@@ -1,0 +1,109 @@
+vm_settings: &vm_settings
+  working_directory: ~/app
+  docker:
+    - image: circleci/node:10.9.0-browsers
+
+version: 2
+jobs:
+  deploy_prod:
+    working_directory: ~/app
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - attach_workspace:
+          at: ~/app/dist
+
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+
+      - run:
+          name: AWS Sync
+          command: aws --region eu-west-1 s3 sync ./dist s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+
+
+  deploy_dev:
+    working_directory: ~/app
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - attach_workspace:
+          at: ~/app/dist
+
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+
+      - run:
+          name: AWS Sync
+          command: aws --region eu-west-1 s3 sync ./dist s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+
+  build:
+    <<: *vm_settings
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v3-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v3-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v3-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn run build
+
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - .
+
+  test:
+    <<: *vm_settings
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v3-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v3-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v3-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn run lint
+
+      - run: yarn test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test
+      - deploy_prod:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
+      - deploy_dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

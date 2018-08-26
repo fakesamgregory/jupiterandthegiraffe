@@ -30,8 +30,8 @@ export class FormatDataService {
   }
 
   formatNFilterData(array: any, filter: string) {
-    let formattedData = this.formatData(array);
-    return this.filterItem(formattedData, filter);
+    const FORMATTED_DATA = this.formatData(array);
+    return this.filterItem(FORMATTED_DATA, filter);
   }
 
 }

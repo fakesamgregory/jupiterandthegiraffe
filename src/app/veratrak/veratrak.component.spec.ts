@@ -1,10 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 
 import { VeratrakComponent } from './veratrak.component';
 
 describe('VeratrakComponent', () => {
   let component: VeratrakComponent;
   let fixture: ComponentFixture<VeratrakComponent>;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

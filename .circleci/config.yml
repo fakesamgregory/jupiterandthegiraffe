@@ -5,18 +5,43 @@ vm_settings: &vm_settings
 
 version: 2
 jobs:
+  deploy_prod:
+    working_directory: ~/app
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - attach_workspace:
+          at: ~/app/dist
+
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+
+      - run:
+          name: AWS Sync
+          command: aws --region eu-west-1 s3 sync ./dist s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+
+
+  deploy_dev:
+    working_directory: ~/app
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - attach_workspace:
+          at: ~/app/dist
+
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+
+      - run:
+          name: AWS Sync
+          command: aws --region eu-west-1 s3 sync ./dist s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+
   build:
     <<: *vm_settings
     steps:
       - checkout
-
-      - add_ssh_keys:
-          fingerprints:
-            - "ad:0e:95:93:e1:40:dc:60:d2:5e:58:b1:4a:64:18:e7"
-
-      - run:
-          name: Keyscan Github (HACK)
-          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
       - restore_cache:
           keys:
@@ -33,8 +58,6 @@ jobs:
           key: v3-dependencies-{{ checksum "package.json" }}
 
       - run: yarn run build
-
-      - run: sh ./deploy.sh
 
   test:
     <<: *vm_settings
@@ -66,3 +89,17 @@ workflows:
       - build:
           requires:
             - test
+      - deploy_prod:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
+      - deploy_dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

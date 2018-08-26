@@ -47,6 +47,10 @@ jobs:
 
       - run: yarn run lint
 
+      - run:
+          name: Workaround for GoogleChrome/puppeteer#290
+          command: 'sh .circleci/setup-puppeteer.sh'
+
       - run: yarn test
 
 workflows:

@@ -59,6 +59,11 @@ jobs:
 
       - run: yarn run build
 
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - .
+
   test:
     <<: *vm_settings
     steps:

@@ -157,3 +157,17 @@ p:first-of-type {
     vertical-align: middle;
   }
 }
+
+.underline {
+  text-decoration: underline;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: $color-white;
+  background: $color-oldBrick;
+}
+
+::selection {
+  color: $color-white;
+  background: $color-oldBrick;
+}

@@ -21,7 +21,7 @@ jobs:
           name: AWS Sync
           command: |
             aws --region eu-west-1 s3 sync ./dist s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
-            curl -X POST "https://api.cloudflare.com/client/v4/zones/f4392746d0acc6b4554b7e759c1c9e2e/purge_cache" \
+            curl -X POST "https://api.cloudflare.com/client/v4/zones/bc340fdaafad906e7e66a5245a25e334/purge_cache" \
               -H "X-Auth-Email: samuelgregory@me.com" \
               -H "X-Auth-Key: $CLOUDFLARE_API_KEY" \
               -H "Content-Type: application/json" \

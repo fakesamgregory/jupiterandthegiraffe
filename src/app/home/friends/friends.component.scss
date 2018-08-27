@@ -5,6 +5,7 @@
   &__image {
     max-height: 200px;
     vertical-align: middle;
+    transition: transform .3s ease;
 
     @media screen and (max-width: $screen-sm - 1) {
       max-width: 150px;
@@ -26,5 +27,13 @@
 
   h2 {
     @include font-size($heading-1);
+  }
+
+  a {
+    &:hover, &:focus {
+      .friends__image {
+        transform: translate(10px, -10px);
+      }
+    }
   }
 }

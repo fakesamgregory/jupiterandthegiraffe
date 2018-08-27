@@ -41,7 +41,7 @@ const routes: Routes = [
   },
   { path: 'rathergood', component: RathergoodComponent },
   { path: 'velvet-trumpet', component: VelvettrumpetComponent },
-  { path: 'emdad-rashid', component: EmdadComponent },
+  { path: '3dux', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'veratrak', component: VeratrakComponent },

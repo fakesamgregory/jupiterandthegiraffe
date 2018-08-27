@@ -36,17 +36,21 @@
   }
 
   h2 {
-
     @include md {
       @include font-size($heading-1);
     }
   }
 
   a {
+    transition: background-color .3s ease, border-radius .3s ease;
+
     &:hover, &:focus {
       .friends__image {
         transform: translate(10px, -10px);
       }
+
+      background-color: rgba($color-malibu, .15);
+      border-radius: 10px;
     }
   }
 }

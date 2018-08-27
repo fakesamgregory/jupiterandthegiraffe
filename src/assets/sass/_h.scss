@@ -3,6 +3,14 @@ h2,
 h3,
 h4 {
   font-family: $main-font;
+
+  &:after {
+    content: '_';
+    opacity: 1;
+    animation: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
 }
 
 h1 {
@@ -36,4 +44,13 @@ h3 {
 
 h4 {
   @include font-size($heading-4);
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

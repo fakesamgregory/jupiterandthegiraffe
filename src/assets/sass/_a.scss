@@ -11,6 +11,16 @@ a {
       font-family: "FontAwesome";
       margin-left: 5px;
       vertical-align: bottom;
+      opacity: 0;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    @include hover-focus {
+
+      &:after {
+        opacity: 1;
+        transform: translateX(5px);
+      }
     }
   }
 
@@ -26,7 +36,11 @@ a {
       text-decoration: underline;
       outline: none;
       background: $color-primary;
-      padding: 5px;
+      color: $color-white;
+
+      &:not(.btn) {
+        padding: 5px;
+      }
     }
   }
 }

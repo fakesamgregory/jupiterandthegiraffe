@@ -57,14 +57,10 @@ $shadows-big:    multiple-box-shadow(100);
   width: 700px;
   top: 0;
   height: 1px;
-  -webkit-transform: rotate(-45deg);
-  background-image: -webkit-linear-gradient(left, $color-white, rgba($color-white, 0));
-  opacity: 0;
-
-  &--active {
-    animation: meteor 40s linear infinite;
-    opacity: 1;
-  }
+  -webkit-transform: rotate(45deg);
+  background-image: -webkit-linear-gradient(right, $color-white, rgba($color-white, 0));
+  animation: meteor 20s linear infinite;
+  opacity: 1;
 
   &:before {
     content: ' ';
@@ -79,8 +75,8 @@ $shadows-big:    multiple-box-shadow(100);
 }
 
 @keyframes meteor {
-  0% {margin-top: -300px; margin-right: -300px; opacity: 1}
+  0% {margin-top: -300px; margin-right: 900px; opacity: 1}
   8% {opacity: 0}
-  10% {margin-top: 300px; margin-left: -600px; opacity: 0}
+  10% {margin-top: 600px; margin-left: 1000px; opacity: 0}
   100% {opacity: 0}
 }

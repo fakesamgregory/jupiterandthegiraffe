@@ -12,6 +12,7 @@ import { VeratrakComponent } from './veratrak/veratrak.component';
 import { NorthstarComponent } from './northstar/northstar.component';
 import { WorkComponent } from './work/work.component';
 import { WorkDetailComponent } from './work/work-detail/work-detail.component';
+import { BoombocsComponent } from './boombocs/boombocs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkResolverService } from './work/work-resolver.service';
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'veratrak', component: VeratrakComponent },
-  { path: 'north-star', component: NorthstarComponent },
+  { path: 'north-star-law', component: NorthstarComponent },
+  { path: 'boombocs', component: BoombocsComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];

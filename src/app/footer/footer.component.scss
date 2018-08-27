@@ -6,6 +6,7 @@
   color: $color-white;
   z-index: 3;
   padding: $margin-small 0 $margin-large;
+  position: relative;
 
   &__title {
     color: lighten($color-gray-dark, 15%);
@@ -29,7 +30,7 @@
 
   &__giraffe {
     position: absolute;
-    right: -20px;
+    right: 20px;
     bottom: 0;
     opacity: .2;
   }

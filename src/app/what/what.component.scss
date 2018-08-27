@@ -1,0 +1,9 @@
+@import "../../assets/sass/variables";
+@import "../../assets/sass/mixins";
+
+.what-we-do {
+  &__tagline {
+    @include font-size($heading-2);
+    font-style: italic;
+  }
+}

@@ -11,14 +11,6 @@ import '../../assets/images/giraffe@2x.png';
 })
 export class FooterComponent implements OnInit {
    brands = [];
-   otherStuff = [
-    { url: 'events', name: 'Search Engine Optimisation' },
-    { url: 'events', name: 'Wordpress Websites' },
-    { url: 'events', name: 'Front-End Websites' },
-    { url: 'events', name: 'Print/Digital Design' },
-    { url: 'events', name: 'Video/Promo Production' }
-  ];
-
    general = [
     { url: '/work', name: 'Our work', class: 'footer__general-item' },
     { url: '/who-we-are', name: 'About', class: 'footer__general-item' }

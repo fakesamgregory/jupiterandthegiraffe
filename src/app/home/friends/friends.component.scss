@@ -1,9 +1,11 @@
 @import "../../../assets/sass/variables";
+@import "../../../assets/sass/mixins";
 
 .friends {
   &__image {
     max-height: 200px;
     vertical-align: middle;
+    transition: transform .3s ease;
 
     @media screen and (max-width: $screen-sm - 1) {
       max-width: 150px;
@@ -13,8 +15,25 @@
 
   &__link {
     display: block;
-    text-align: center;
-    vertical-align: middle;
+    align-self: center;
     padding: 10px 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h2 {
+    @include font-size($heading-1);
+  }
+
+  a {
+    &:hover, &:focus {
+      .friends__image {
+        transform: translate(10px, -10px);
+      }
+    }
   }
 }

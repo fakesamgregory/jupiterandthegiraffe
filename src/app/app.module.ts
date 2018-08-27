@@ -25,12 +25,14 @@ import { FriendsComponent } from './home/friends/friends.component';
 import { FeaturedComponent } from './home/featured/featured.component';
 import { TechComponent } from './home/tech/tech.component';
 import { ContactComponent } from './contact/contact.component';
+import { SectionComponent } from './section/section.component';
 import { TrustHtmlPipe } from './trust-html.pipe';
 import { DataService } from './data.service';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NorthstarComponent } from './northstar/northstar.component';
+import { BoombocsComponent } from './boombocs/boombocs.component';
 
 @NgModule({
   imports: [
@@ -63,7 +65,9 @@ import { NorthstarComponent } from './northstar/northstar.component';
     TrustHtmlPipe,
     NotFoundComponent,
     NorthstarComponent,
-    ContactComponent
+    ContactComponent,
+    SectionComponent,
+    BoombocsComponent
   ],
   bootstrap: [AppComponent],
   providers: [

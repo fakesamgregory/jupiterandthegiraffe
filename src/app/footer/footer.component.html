@@ -14,27 +14,13 @@
           </li>
         </ul>
       </section>
-        <!--<section class="col-md>-->
-          <!--<header>-->
-            <!--<h2 class="footer__title heading-3">Other stuff</h2>-->
-          <!--</header>-->
-          <!--<ul class="list-unstyled">-->
-            <!--<li-->
-              <!--*ngFor="let stuff of otherStuff"-->
-              <!--class="footer__list-item">-->
-              <!--<a [href]="stuff.url" class="footer__link">{{stuff.name}}</a>-->
-            <!--</li>-->
-          <!--</ul>-->
-        <!--</section>-->
       <ul class="footer__menu list-unstyled list-inline">
         <li
           *ngFor="let item of general"
           class="list-inline-item"
-          [ngClass]="item.class">
-          <a *ngIf="item.url" [routerLink]="item.url" class="footer__link">{{item.name}}</a>
-        </li>
-        <li class="list-inline-item footer__general-item">
-          <a href="/sitemap.xml" class="footer__link">Sitemap</a>
+          [ngClass]="item.class"
+        >
+          <a *ngIf="item.url" [href]="item.url" class="footer__link">{{item.name}}</a>
         </li>
         <li class="list-inline-item pull-right">
           © 2016 Jupiter and the Giraffe

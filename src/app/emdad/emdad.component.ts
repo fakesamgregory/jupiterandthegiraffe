@@ -1,23 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormatDataService } from '../format-data.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-emdad',
-  templateUrl: '../work.template.html'
+  templateUrl: './emdad.component.html'
 })
-export class EmdadComponent implements OnInit {
-   data: any;
+export class EmdadComponent {
 
-  constructor(
-    private http: HttpClient,
-    private dataService: FormatDataService
-  ) { }
-
-  ngOnInit() {
-    this.http
-      .get('/assets/json/friends.json')
-      .map((value) => this.dataService.formatNFilterData(value['friends'], 'emdadrashid(3dux)')[0].data)
-      .subscribe(value => this.data = value);
-  }
+  constructor() { }
 }

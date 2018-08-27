@@ -9,7 +9,7 @@
     <h3 *ngSwitchCase="404">
       {{error.status}}: {{ error.statusText }}
     </h3>
-    <ul class="row work list-unstyled" *ngSwitchDefault="">
+    <ul class="row work" *ngSwitchDefault="">
       <li class="col-md-4 col-sm-6 work__item" *ngFor="let workItem of work.work">
         <img
           *ngIf="workItem.image"

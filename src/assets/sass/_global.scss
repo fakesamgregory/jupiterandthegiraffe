@@ -34,11 +34,17 @@ abbr {
   text-decoration: none;
 }
 
-.container {
+p:first-child,
+p:first-of-type {
+  margin-top: 0;
+}
+
+.container-fluid {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+  max-width: 1140px;
 }
 
 .jupiter {

@@ -1,6 +1,14 @@
+@import "mixins";
+
 .btn {
   @extend button;
   line-height: 1.2;
+  width: 100%;
+  padding: 10px;
+
+  @include md {
+    width: auto;
+  }
 
   &--primary-outline {
     background-color: transparent;
@@ -28,8 +36,6 @@
   }
 
   &--lg {
-    @media screen and (max-width: $screen-sm - 1) {
-      padding: 0.75rem 0.50rem;
-    }
+    padding: 0.75rem 0.50rem;
   }
 }

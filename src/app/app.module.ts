@@ -23,7 +23,6 @@ import { LogoComponent } from './logo/logo.component';
 import { PopupComponent } from './popup/popup.component';
 import { FriendsComponent } from './home/friends/friends.component';
 import { FeaturedComponent } from './home/featured/featured.component';
-import { TechComponent } from './home/tech/tech.component';
 import { ContactComponent } from './contact/contact.component';
 import { SectionComponent } from './section/section.component';
 import { TrustHtmlPipe } from './trust-html.pipe';
@@ -61,7 +60,6 @@ import { BoombocsComponent } from './boombocs/boombocs.component';
     PopupComponent,
     FriendsComponent,
     FeaturedComponent,
-    TechComponent,
     TrustHtmlPipe,
     NotFoundComponent,
     NorthstarComponent,

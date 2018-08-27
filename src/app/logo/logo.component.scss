@@ -7,8 +7,12 @@
   &__text {
     margin-top: 0;
     margin-bottom: 10px;
-    @include font-size(55);
     font-family: $title-font;
+    @include font-size(34);
+
+    @include md {
+      @include font-size(55);
+    }
   }
 
   &__moon {

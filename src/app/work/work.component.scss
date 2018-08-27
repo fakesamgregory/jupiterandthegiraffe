@@ -1,7 +1,10 @@
 @import "../../assets/sass/variables";
 
 .work {
+  list-style: none;
+  padding: 0;
+
   &__item {
-    padding: 0 $margin-small;
+    margin-bottom: $margin-xlarge;
   }
 }

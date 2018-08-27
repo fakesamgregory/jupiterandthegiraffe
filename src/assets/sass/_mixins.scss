@@ -69,3 +69,15 @@ $positions: top left right bottom;
 @mixin text-shadow() {
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
+
+@mixin md() {
+  @media screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media screen and (min-width: $screen-lg) {
+    @content;
+  }
+}

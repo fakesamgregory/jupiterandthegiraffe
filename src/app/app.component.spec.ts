@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 
+import { AosToken, aos } from './aos';
 import { AppComponent } from './app.component';
 import {StarsComponent} from './stars/stars.component';
 import {FooterComponent} from './footer/footer.component';
@@ -9,7 +10,7 @@ import {HeaderComponent} from './header/header.component';
 import {PopupComponent} from './popup/popup.component';
 import {TrustHtmlPipe} from './trust-html.pipe';
 import {LogoComponent} from './logo/logo.component';
-import {Angulartics2, Angulartics2GoogleAnalytics} from 'angulartics2';
+import { Angulartics2, Angulartics2GoogleAnalytics} from 'angulartics2';
 import {HttpClientModule} from '@angular/common/http';
 
 describe('AppComponent', () => {
@@ -26,7 +27,7 @@ describe('AppComponent', () => {
         LogoComponent
       ],
       imports: [ RouterTestingModule, HttpClientModule ],
-      providers: [Angulartics2GoogleAnalytics, Angulartics2]
+      providers: [Angulartics2GoogleAnalytics, Angulartics2, { provide: AosToken, useValue: aos }]
     }).compileComponents();
   }));
 

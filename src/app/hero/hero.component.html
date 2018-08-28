@@ -1,30 +1,27 @@
 <div class="hero text-center" [ngClass]="{'home-page': home}">
-  <span *ngIf="home" class="vertical-helper"></span>
-  <div class="vertical-wrapper">
-    <div class="hero__logo">
-      <a [routerLink]="['/']" class="hero__link">
-        <app-logo></app-logo>
-      </a>
-    </div>
+  <div class="hero__logo" data-aos="fade-up" data-aos-delay="200">
+    <a [routerLink]="['/']" class="hero__link">
+      <app-logo></app-logo>
+    </a>
+  </div>
 
-    <div class="line--top line--bottom line hero__text-wrap">
-      <div class="hero__text text-center">
-        A <span class="hero__lead-letter">digital agency</span> out of this world.
-      </div>
+  <div class="line--top line--bottom line hero__text-wrap">
+    <div class="hero__text text-center" data-aos="fade-up" data-aos-delay="400">
+      A <span class="hero__lead-letter">digital agency</span> out of this world.
     </div>
-    <div class="row">
-      <div class="col text-right">
-        <div class="hero__button margin-top--lg">
-          <a [routerLink]="['contact']" class="btn btn--lg btn--primary btn--primary-outline">Contact us</a>
-        </div>
-        <div class="padding--lg"></div>
+  </div>
+  <div class="row">
+    <div class="col text-right">
+      <div class="hero__button margin-top--lg" data-aos="zoom-out" data-aos-delay="600">
+        <a [routerLink]="['contact']" class="btn btn--lg btn--primary btn--primary-outline">Contact us</a>
       </div>
-      <div class="col line line--left text-left">
-        <div class="hero__button margin-top--lg">
-          <a [routerLink]="['work']" class="btn btn--lg">Our work</a>
-        </div>
-        <div class="padding--lg"></div>
+      <div class="padding--lg"></div>
+    </div>
+    <div class="col line line--left text-left">
+      <div class="hero__button margin-top--lg" data-aos="zoom-out" data-aos-delay="900">
+        <a [routerLink]="['work']" class="btn btn--lg">Our work</a>
       </div>
+      <div class="padding--lg"></div>
     </div>
   </div>
 </div>

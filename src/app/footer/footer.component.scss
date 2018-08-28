@@ -11,8 +11,8 @@
   &__title {
     color: lighten($color-gray-dark, 15%);
     border-bottom-color: lighten($color-gray-dark, 15%);
-    margin-bottom: $margin-medium;
-    padding-bottom: $margin-medium;
+    margin-bottom: 0;
+    padding-bottom: $margin-small;
   }
 
   &__link {

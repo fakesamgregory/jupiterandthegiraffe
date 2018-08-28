@@ -5,6 +5,10 @@
   animation-iteration-count: infinite;
   animation-play-state: running;
 
+  &::after {
+    content: '.';
+  }
+
   + .dot {
     animation-delay: .5s;
   }

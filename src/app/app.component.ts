@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Angulartics2GoogleAnalytics } from 'angulartics2';
+import { AosToken } from './aos';
 
 import 'rxjs/add/operator/filter';
 
@@ -17,8 +18,13 @@ export class AppComponent {
 
   constructor(
     router: Router,
-    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics
+    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    @Inject(AosToken) aos
   ) {
+    aos.init({
+      duration: 800,
+    });
+
     router.events
       .filter(event => event instanceof NavigationStart)
       .subscribe((event: NavigationStart) => {

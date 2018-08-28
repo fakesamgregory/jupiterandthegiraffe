@@ -32,6 +32,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NorthstarComponent } from './northstar/northstar.component';
 import { BoombocsComponent } from './boombocs/boombocs.component';
 
+import { AosToken, aos } from './aos';
+
 @NgModule({
   imports: [
     AppRoutingModule,
@@ -71,6 +73,7 @@ import { BoombocsComponent } from './boombocs/boombocs.component';
     DataService,
     WorkResolverService,
     WorkDetailService,
+    { provide: AosToken, useValue: aos },
   ]
 })
 export class AppModule { }

@@ -5,12 +5,16 @@
   max-width: 600px;
   margin: 0 auto;
   margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &.home-page {
     margin-bottom: $margin-xlarge;
+    height: 100vh;
 
     @include md {
-      height: 100vh;
       margin-bottom: 0;
       min-height: 500px;
     }
@@ -46,7 +50,11 @@
   &__text {
     font-family: $main-font;
     padding: 10px 0;
-    @include font-size(18);
+    @include font-size(14);
+
+    @include md {
+      @include font-size(18);
+    }
   }
 
   &__lead-letter {

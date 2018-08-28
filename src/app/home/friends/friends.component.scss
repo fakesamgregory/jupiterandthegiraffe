@@ -3,14 +3,16 @@
 
 .friends {
   &__image {
-    max-height: 200px;
-    max-width: 200px;
-    vertical-align: middle;
+    max-width: 150px;
+    max-height: 175px;
     transition: transform .3s ease;
 
+    @include md {
+      max-height: 130px;
+      max-width: 200px;
+    }
+
     @media screen and (max-width: $screen-sm - 1) {
-      max-width: 150px;
-      max-height: 75px;
     }
   }
 

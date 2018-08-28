@@ -13,7 +13,8 @@ export class FooterComponent implements OnInit {
    brands = [];
    general = [
     { url: '/work', name: 'Our work', class: 'footer__general-item' },
-    { url: '/who-we-are', name: 'About', class: 'footer__general-item' }
+    { url: '/who-we-are', name: 'About', class: 'footer__general-item' },
+    { url: '/contact', name: 'Work With Us', class: 'footer__general-item' }
   ];
 
   constructor(private http: HttpClient) {}

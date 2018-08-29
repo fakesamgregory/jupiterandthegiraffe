@@ -23,6 +23,7 @@ export class AppComponent {
   ) {
     aos.init({
       duration: 800,
+      once: true
     });
 
     router.events

@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { WhoComponent } from './who/who.component';
 import { WhatComponent } from './what/what.component';
 import { RathergoodComponent } from './rathergood/rathergood.component';
-import { VelvettrumpetComponent } from './velvettrumpet/velvettrumpet.component';
 import { EmdadComponent } from './emdad/emdad.component';
 import { WaspplumbingComponent } from './waspplumbing/waspplumbing.component';
 import { VeratrakComponent } from './veratrak/veratrak.component';
@@ -40,7 +39,6 @@ const routes: Routes = [
     ]
   },
   { path: 'rathergood', component: RathergoodComponent },
-  { path: 'velvet-trumpet', component: VelvettrumpetComponent },
   { path: '3dux', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
   { path: 'contact', component: ContactComponent },
@@ -62,7 +60,6 @@ export const routableComponents = [
   WhoComponent,
   WhatComponent,
   RathergoodComponent,
-  VelvettrumpetComponent,
   EmdadComponent,
   WaspplumbingComponent,
   VeratrakComponent,

@@ -171,3 +171,19 @@ p:first-of-type {
   color: $color-white;
   background: $color-oldBrick;
 }
+
+span[data-aos] {
+  display: inline-block;
+}
+
+.clearfix {
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
+
+figure {
+  margin: 0;
+}

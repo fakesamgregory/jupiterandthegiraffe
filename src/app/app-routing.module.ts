@@ -16,7 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
-import {TermsAndConditionsComponent} from "./terms-and-conditions/terms-and-conditions.component";
+import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },

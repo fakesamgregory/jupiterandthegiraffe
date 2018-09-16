@@ -16,6 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
+import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'veratrak', component: VeratrakComponent },
   { path: 'north-star-law', component: NorthstarComponent },
   { path: 'boombocs', component: BoombocsComponent },
-  { path: '404', component: NotFoundComponent },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];
 

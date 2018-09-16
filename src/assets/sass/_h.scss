@@ -42,6 +42,7 @@ h2 {
 
 h3 {
   @include font-size($heading-3);
+  margin: 25px 0;
 }
 
 h4 {

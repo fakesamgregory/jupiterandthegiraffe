@@ -20,7 +20,7 @@
           class="list-inline-item"
           [ngClass]="item.class"
         >
-          <a *ngIf="item.url" [href]="item.url" class="footer__link">{{item.name}}</a>
+          <a *ngIf="item.url" [routerLink]="item.url" class="footer__link">{{item.name}}</a>
         </li>
         <li class="list-inline-item pull-right">
           © 2016 Jupiter and the Giraffe

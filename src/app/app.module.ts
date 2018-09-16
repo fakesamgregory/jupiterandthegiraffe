@@ -33,6 +33,7 @@ import { NorthstarComponent } from './northstar/northstar.component';
 import { BoombocsComponent } from './boombocs/boombocs.component';
 
 import { AosToken, aos } from './aos';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   imports: [
@@ -65,7 +66,8 @@ import { AosToken, aos } from './aos';
     NorthstarComponent,
     ContactComponent,
     SectionComponent,
-    BoombocsComponent
+    BoombocsComponent,
+    TermsAndConditionsComponent
   ],
   bootstrap: [AppComponent],
   providers: [

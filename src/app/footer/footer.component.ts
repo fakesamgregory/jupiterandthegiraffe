@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 import '../../assets/images/giraffe.png';
 import '../../assets/images/giraffe@2x.png';
@@ -10,14 +10,16 @@ import '../../assets/images/giraffe@2x.png';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-   brands = [];
-   general = [
-    { url: '/work', name: 'Our work', class: 'footer__general-item' },
-    { url: '/who-we-are', name: 'About', class: 'footer__general-item' },
-    { url: '/contact', name: 'Work With Us', class: 'footer__general-item' }
+  brands = [];
+  general = [
+    {url: '/work', name: 'Our work', class: 'footer__general-item'},
+    {url: '/who-we-are', name: 'About', class: 'footer__general-item'},
+    {url: '/contact', name: 'Work With Us', class: 'footer__general-item'},
+    {url: '/terms-and-conditions', name: 'Terms and Conditions', class: 'footer__general-item'}
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
     this.http

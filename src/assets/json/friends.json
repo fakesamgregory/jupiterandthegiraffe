@@ -1,6 +1,12 @@
 {
   "friends": [
     {
+      "page": "/epoch-brand-website",
+      "img": "epoch-logo",
+      "name": "EPOCH",
+      "url": "http://epoch-group.org"
+    },
+    {
       "page": "boombocs",
       "img": "boombocs",
       "name": "BoomBocs",

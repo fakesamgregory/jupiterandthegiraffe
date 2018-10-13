@@ -1,4 +1,4 @@
-import { NgModule, OnInit, AfterViewInit  } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import {Routes, RouterModule, ActivatedRoute} from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -57,23 +57,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule implements OnInit, AfterViewInit {
-  private fragment: string;
-
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    console.log(this.route.fragment);
-    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
-  }
-
-  ngAfterViewInit(): void {
-    console.log('hello')
-    try {
-      document.querySelector(`#${this.fragment}`).scrollIntoView();
-    } catch (e) { }
-  }
-}
+export class AppRoutingModule { }
 
 export const routableComponents = [
   HomeComponent,

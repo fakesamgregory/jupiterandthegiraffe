@@ -23,7 +23,7 @@
         <p>{{workItem.content}}</p>
 
         <p>
-          <a *ngIf="workItem.link" [routerLink]="[workItem.link]">View Case Study</a><app-dots-component></app-dots-component>
+          <a *ngIf="workItem.link" [routerLink]="workItem.link">View Case Study</a><app-dots-component></app-dots-component>
         </p>
 
         <ul class="work__tags">

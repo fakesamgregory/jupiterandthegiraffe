@@ -1,6 +1,8 @@
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 import { EpochBrandWebsiteComponent } from './epoch-brand-website.component';
+import {DotsComponent} from '../dots/dots.component';
 
 describe('EpochBrandWebsiteComponent', () => {
   let component: EpochBrandWebsiteComponent;
@@ -9,7 +11,8 @@ describe('EpochBrandWebsiteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EpochBrandWebsiteComponent ]
+      declarations: [ EpochBrandWebsiteComponent, DotsComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

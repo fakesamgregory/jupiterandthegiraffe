@@ -1,9 +1,0 @@
-version: '2'
-
-services:
-  client:
-      build: .
-      volumes:
-        - ./environment:/usr/environment/app/environment
-      ports:
-        - "80:4200"

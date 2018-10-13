@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule, OnInit, AfterViewInit  } from '@angular/core';
+import {Routes, RouterModule, ActivatedRoute} from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { WhoComponent } from './who/who.component';
@@ -16,7 +16,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkResolverService } from './work/work-resolver.service';
 import { WorkDetailService } from './work/work-detail/work-detail.service';
-import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-conditions.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { EpochBrandWebsiteComponent } from './epoch-brand-website/epoch-brand-website.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'veratrak', component: VeratrakComponent },
   { path: 'north-star-law', component: NorthstarComponent },
   { path: 'boombocs', component: BoombocsComponent },
+  { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
@@ -55,7 +57,23 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule implements OnInit, AfterViewInit {
+  private fragment: string;
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    console.log(this.route.fragment);
+    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+  }
+
+  ngAfterViewInit(): void {
+    console.log('hello')
+    try {
+      document.querySelector(`#${this.fragment}`).scrollIntoView();
+    } catch (e) { }
+  }
+}
 
 export const routableComponents = [
   HomeComponent,

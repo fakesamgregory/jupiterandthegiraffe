@@ -42,11 +42,12 @@ h2 {
 
 h3 {
   @include font-size($heading-3);
-  margin: 25px 0;
+  margin: 5px 0 15px 0;
 }
 
 h4 {
   @include font-size($heading-4);
+  margin-bottom: 5px;
 }
 
 @keyframes blink {

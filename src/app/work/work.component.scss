@@ -7,4 +7,22 @@
   &__item {
     margin-bottom: $margin-xlarge;
   }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 -5px;
+  }
+
+  &__tag {
+    padding: 5px;
+    margin: 0 5px 5px;
+    background-color: $color-oldBrick;
+    color: $color-white;
+    border-radius: 5px;
+    font-size: $small-font;
+    border: 1px solid $color-pickledBluewood;
+  }
 }

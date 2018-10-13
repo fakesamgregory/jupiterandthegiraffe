@@ -1,35 +1,42 @@
 {
   "work": [
     {
+      "title": "EPOCH",
+      "link": "/epoch-brand-website",
+      "image": "work-epoch.jpg",
+      "tags": ["identity", "branding", "web design", "web development"],
+      "content": "EPOCH needed a brand and website to launch their product."
+    },
+    {
+      "title": "Veratrak",
+      "link": "/veratrak",
+      "image": "work-veratrak.jpg",
+      "tags": ["identity", "web design", "web development"],
+      "content": "EPOCH needed a brand and website to launch their product."
+    },
+    {
+      "title": "Boombocs",
+      "link": "/boombocs",
+      "image": "work-boombocs.jpg",
+      "tags": ["web design", "web development"],
+      "content": "Boombocs website needed modern flurishes and a new landing page."
+    },
+    {
+      "title": "North Star Law",
+      "link": "/north-star-law",
+      "image": "work-north-star-law.jpg",
+      "tags": ["branding", "web design", "web development"],
+      "content": "North Star Law needed a refresh on their dated website."
+    },
+    {
       "title": "3DUX Wordpress Website",
-      "link": "3dux-website",
       "image": "3dux-wordpress.jpg",
-      "client": {
-        "page": "emdad-rashid",
-        "name": "Emdad Rashid"
-      },
       "tags": ["wordpress", "wordpress theme"],
       "content": "For 3DUX, we created a bespoke Wordpress theme. This theme needed a login area where clients could request to see their more sensitive work."
     },
     {
-      "title": "Velvet Trumpet Wordpress Website",
-      "link": "velvet-trumpet-website",
-      "image": "velvettrumpet-wordpress.jpg",
-      "client": {
-        "page": "velvet-trumpet",
-        "name": "Velvet Trumpet"
-      },
-      "tags": ["wordpress", "wordpress theme"],
-      "content": "Velvet Trumpet asks us to design and build their website. Originally a brochure site, this later was moved onto Wordpress."
-    },
-    {
       "title": "Wasp Plumbing SEO",
-      "link": "wasp-plumbing-seo",
       "image": "wasp-seo.jpg",
-      "client": {
-        "page": "wasp-plumbing",
-        "name": "Wasp Plumbing"
-      },
       "tags": ["SEO", "front-end"],
       "content": "Wasp Plumbing came to us to improve their search engine presence. We used markup to identify to search engine the details about their business and gave consultancy advice on how they can enhance their presence"
     }

@@ -50,8 +50,11 @@ export class ContactComponent {
         name: post.name,
         email: post.email,
         message: post.message,
-        html: `You were contacted from JupiterandtheGiraffe's website by ${post.name}${company}.
-          They said "${post.message}". You can contact them back on ${post.email}`,
+        html: `You were contacted from JupiterandtheGiraffe's website by ${post.name}${company}. They said
+
+          "${post.message}"
+
+          You can contact them back on ${post.email}`,
         date: Date()
       };
 

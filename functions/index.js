@@ -13,6 +13,7 @@ const mailTransport = nodemailer.createTransport({
 });
 
 exports.sendContactMessage = functions.database
+  .instance('jupiterandthegiraffe-1662d')
   .ref('/messages/{pushKey}')
   .onCreate(event => {
     const snapshot = event.data;
@@ -23,10 +24,14 @@ exports.sendContactMessage = functions.database
 
     const val = snapshot.val();
 
+    if(!val.name || !val.email || !val.html) {
+      return null;
+    }
+
     const mailOptions = {
-      to: 'samuel@jupiterandthegiraffe.com',
-      from: 'salam@jupiterandthegiraffe.com',
-      subject: `Information Request from ${val.name}`,
+      from: `"${val.name} 🚀" <${val.email}>`,
+      to: 'samuel@jupiterandthegiraffe.com, suzannah@jupiterandthegiraffe.com',
+      subject: `${val.name} contacted JatG!!`,
       html: val.html
     };
 

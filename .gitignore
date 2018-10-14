@@ -44,3 +44,4 @@ Thumbs.db
 build/
 dist/
 functions/package-lock.json
+*.log

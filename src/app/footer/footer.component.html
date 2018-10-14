@@ -22,8 +22,8 @@
         >
           <a *ngIf="item.url" [routerLink]="item.url" class="footer__link">{{item.name}}</a>
         </li>
-        <li class="list-inline-item pull-right">
-          © 2016 Jupiter and the Giraffe
+        <li class="list-inline-item pull-right copywrite">
+          © {{ today | date:'yyyy' }} Jupiter and the Giraffe
         </li>
       </ul>
       <span class="footer__giraffe">

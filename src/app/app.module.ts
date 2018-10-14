@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormatDataService } from './format-data.service';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
@@ -34,14 +35,13 @@ import { BoombocsComponent } from './boombocs/boombocs.component';
 import { AosToken, aos } from './aos';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { EpochBrandWebsiteComponent } from './epoch-brand-website/epoch-brand-website.component';
-import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
 

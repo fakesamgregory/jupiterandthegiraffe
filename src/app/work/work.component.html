@@ -11,20 +11,32 @@
     </h3>
     <ul class="row work" *ngSwitchDefault="">
       <li class="col-md-4 col-sm-6 work__item" *ngFor="let workItem of work.work; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
-        <img
-          *ngIf="workItem.image"
-          [src]="'/assets/images/' + workItem.image"
-          alt="{{workItem.title}}"
-          class="img-thumbnail"
+        <a *ngIf="workItem.link; else noLink" [routerLink]="workItem.link">
+          <img
+            *ngIf="workItem.image"
+            [src]="'/assets/images/' + workItem.image"
+            alt="{{workItem.title}}"
+            class="img-thumbnail"
+          />
+          <h3>{{workItem.title}}</h3>
+          <h4>The brief:</h4>
+          <p>{{workItem.content}}</p>
 
-        />
-        <h3>{{workItem.title}}</h3>
-        <h4>The brief:</h4>
-        <p>{{workItem.content}}</p>
+          <p>View case study<app-dots-component></app-dots-component></p>
+        </a>
 
-        <p>
-          <a *ngIf="workItem.link" [routerLink]="workItem.link">View Case Study</a><app-dots-component></app-dots-component>
-        </p>
+        <ng-template #noLink>
+          <img
+            *ngIf="workItem.image"
+            [src]="'/assets/images/' + workItem.image"
+            alt="{{workItem.title}}"
+            class="img-thumbnail"
+          />
+          <h3>{{workItem.title}}</h3>
+          <h4>The brief:</h4>
+          <p>{{workItem.content}}</p>
+        </ng-template>
+
 
         <ul class="work__tags">
           <li *ngFor="let tag of workItem.tags" class="work__tag">{{ tag }}</li>

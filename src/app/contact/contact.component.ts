@@ -46,12 +46,15 @@ export class ContactComponent {
       this.company = post.company;
       const company = post.company ? ` from ${post.company}` : '';
 
+      const html = '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + post.name + company + '.</p>' +
+          '<p>They said... </br></br>"' + post.message + '".</p>' +
+          '<p>You can contact them back on ' + post.email + '</p>';
+
       const item: Item = {
         name: post.name,
         email: post.email,
         message: post.message,
-        html: `You were contacted from JupiterandtheGiraffe's website by ${post.name}${company}.
-          They said "${post.message}". You can contact them back on ${post.email}`,
+        html,
         date: Date()
       };
 

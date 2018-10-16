@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,7 +17,6 @@ export class ContactComponent {
   public name = '';
   public company = '';
   public email = '';
-  // public captcha: string;
   itemRef: AngularFireList<any>;
   item;
 
@@ -34,31 +33,24 @@ export class ContactComponent {
       email: [null, Validators.compose([Validators.required, Validators.email])],
       message: [null, Validators.compose([Validators.required, Validators.minLength(15)])],
       check: [null],
-      validate: ''
+      validate: '',
+      recaptchaReactive: [null, Validators.required]
     });
   }
 
-  sendMessage(post) {
-    if (!post.check) {
-      this.name = post.name;
-      this.email = post.email;
-      this.message = post.message;
-      this.company = post.company;
-      const company = post.company ? ` from ${post.company}` : '';
+  sendForm(post) {
+    const company = post.company ? ` from ${post.company}` : '';
 
-      const html = '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + post.name + company + '.</p>' +
-          '<p>They said... </br></br>"' + post.message + '".</p>' +
-          '<p>You can contact them back on ' + post.email + '</p>';
+    this.item = {
+      name: post.name,
+      email: post.email,
+      message: post.message,
+      html: '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + post.name + company + '.</p>' +
+      '<p>They said... </br></br>"' + post.message + '".</p>' +
+      '<p>You can contact them back on ' + post.email + '</p>',
+      date: Date()
+    };
 
-      const item: Item = {
-        name: post.name,
-        email: post.email,
-        message: post.message,
-        html,
-        date: Date()
-      };
-
-      this.itemRef.push(item);
-    }
+    this.itemRef.push(this.item);
   }
 }

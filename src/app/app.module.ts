@@ -6,6 +6,8 @@ import { FormatDataService } from './format-data.service';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
@@ -47,6 +49,7 @@ import { EpochBrandWebsiteComponent } from './epoch-brand-website/epoch-brand-we
 
     Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
     RecaptchaModule.forRoot(),
+    RecaptchaFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
@@ -78,6 +81,10 @@ import { EpochBrandWebsiteComponent } from './epoch-brand-website/epoch-brand-we
     WorkResolverService,
     WorkDetailService,
     { provide: AosToken, useValue: aos },
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: { siteKey: '6LcCT3UUAAAAAMXwUWkwfK5ELzsVOrt63JqAcAM7' } as RecaptchaSettings,
+    }
   ]
 })
 export class AppModule { }

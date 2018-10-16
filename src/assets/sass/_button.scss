@@ -10,10 +10,10 @@ button {
   padding: .5rem 1rem;
   border-radius: .25rem;
   transition: background-color $animation;
-  background: $color-white;
+  background-color: $color-white;
   @include font-size($base-font);
 
-  &:hover, &:focus {
+  &:hover:not([disabled]), &:focus:not([disabled]) {
     background: transparent;
     cursor: pointer;
     border-color: $color-white;
@@ -38,7 +38,7 @@ button {
       z-index: -1;
     }
 
-    &:hover, &:focus {
+    &:hover:not([disabled]), &:focus:not([disabled]) {
       outline: none;
       border-color: $color-green-haze;
 
@@ -46,5 +46,9 @@ button {
         width: 100%;
       }
     }
+  }
+
+  &[disabled] {
+    opacity: .4;
   }
 }

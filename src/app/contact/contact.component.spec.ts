@@ -1,12 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContactComponent } from './contact.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
-
-import { environment } from '../../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { HttpClientModule } from '@angular/common/http';
+import { RecaptchaModule } from 'ng-recaptcha';
+
+import { environment } from '../../environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -15,10 +16,13 @@ describe('ContactComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        ReactiveFormsModule,
+        RecaptchaModule.forRoot(),
+        RecaptchaFormsModule,
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
       ],
       declarations: [ ContactComponent ]
     })

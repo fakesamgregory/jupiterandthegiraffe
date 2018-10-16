@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WhoComponent } from './who/who.component';
 import { WhatComponent } from './what/what.component';
-import { RathergoodComponent } from './rathergood/rathergood.component';
 import { EmdadComponent } from './emdad/emdad.component';
 import { WaspplumbingComponent } from './waspplumbing/waspplumbing.component';
 import { VeratrakComponent } from './veratrak/veratrak.component';
@@ -40,7 +39,6 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'rathergood', component: RathergoodComponent },
   { path: '3dux', component: EmdadComponent },
   { path: 'wasp-plumbing', component: WaspplumbingComponent },
   { path: 'contact', component: ContactComponent },
@@ -63,7 +61,6 @@ export const routableComponents = [
   HomeComponent,
   WhoComponent,
   WhatComponent,
-  RathergoodComponent,
   EmdadComponent,
   WaspplumbingComponent,
   VeratrakComponent,

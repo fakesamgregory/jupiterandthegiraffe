@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormatDataService } from '../format-data.service';
+import {map} from 'rxjs/internal/operators';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class WaspplumbingComponent implements OnInit {
   ngOnInit() {
     this.http
       .get('/assets/json/friends.json')
-      .map((value) => this.dataService.formatNFilterData(value['friends'], 'waspplumbing')[0].data)
+      .pipe(map((value) => this.dataService.formatNFilterData(value['friends'], 'waspplumbing')[0].data))
       .subscribe(value => this.data = value);
   }
 }

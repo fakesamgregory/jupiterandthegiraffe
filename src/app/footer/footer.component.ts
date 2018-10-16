@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
     {url: '/contact', name: 'Work With Us', class: 'footer__general-item'},
     {url: '/terms-and-conditions', name: 'Terms and Conditions', class: 'footer__general-item'}
   ];
+  today: number = Date.now();
 
   constructor(private http: HttpClient) {
   }

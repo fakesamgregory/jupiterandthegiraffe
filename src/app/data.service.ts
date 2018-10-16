@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class DataService {
@@ -10,6 +10,6 @@ export class DataService {
   getData(url: string) {
     return this.http
       .get(url)
-      .map((response: Object) => response);
+      .pipe(map((response: Object) => response));
   }
 }

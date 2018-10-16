@@ -1,9 +1,8 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
-import { Angulartics2GoogleAnalytics } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { AosToken } from './aos';
-
-import 'rxjs/add/operator/filter';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -26,8 +25,10 @@ export class AppComponent {
       once: true
     });
 
+    angulartics2GoogleAnalytics.startTracking();
+
     router.events
-      .filter(event => event instanceof NavigationStart)
+      .pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
         this.isHome = (event.url === '/' && !this.hasBeenHome);
 

@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormatDataService } from './format-data.service';
-import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
@@ -33,7 +36,7 @@ import { BoombocsComponent } from './boombocs/boombocs.component';
 import { AosToken, aos } from './aos';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { EpochBrandWebsiteComponent } from './epoch-brand-website/epoch-brand-website.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -43,8 +46,9 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
 
-    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
+    Angulartics2Module.forRoot(),
     RecaptchaModule.forRoot(),
+    RecaptchaFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
@@ -76,6 +80,10 @@ import {HttpClientModule} from "@angular/common/http";
     WorkResolverService,
     WorkDetailService,
     { provide: AosToken, useValue: aos },
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: { siteKey: '6LcCT3UUAAAAAMXwUWkwfK5ELzsVOrt63JqAcAM7' } as RecaptchaSettings,
+    }
   ]
 })
 export class AppModule { }

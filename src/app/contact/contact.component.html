@@ -24,7 +24,7 @@
 
         <div class="text-center">or</div>
 
-        <form [formGroup]="rForm" (ngSubmit)="sendMessage(rForm.value)">
+        <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
           <label>
             Name:
             <input type="text" formControlName="name" required>
@@ -54,10 +54,7 @@
             </div>
           </label>
 
-          <label for="check" class="sr-only">
-            Please ignore
-            <input type="checkbok" formControlName="check" id="check">
-          </label>
+          <re-captcha formControlName="recaptchaReactive"></re-captcha>
 
           <button type="submit" [disabled]="rForm.invalid">
             <i class="fa fa-paper-plane" aria-hidden="true"></i>

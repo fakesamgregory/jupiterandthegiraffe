@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {filter} from 'rxjs/internal/operators';
 
 @Component({
   templateUrl: './work-detail.component.html',
@@ -13,9 +14,7 @@ export class WorkDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.data
-      .filter(name => {
-        return this.route.params === name;
-      })
+      .pipe(filter(name => this.route.params === name))
       .subscribe(
         data => this.work = data.work,
         (error: Error) => this.error = error

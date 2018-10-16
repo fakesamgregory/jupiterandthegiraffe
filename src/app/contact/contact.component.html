@@ -24,7 +24,7 @@
 
         <div class="text-center">or</div>
 
-        <form [formGroup]="rForm" (submit)="sendForm(data)" novalidate>
+        <form [formGroup]="rForm" (ngSubmit)="sendForm(data)" novalidate>
           <label>
             Name:
             <input type="text" formControlName="name" required>

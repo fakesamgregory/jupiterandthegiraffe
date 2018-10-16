@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,7 +22,6 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder, public db: AngularFireDatabase, private http: HttpClient) {
     this.createForm();
-    // this.itemRef = db.object('messages');
     this.itemRef = db.list('messages');
     this.item = this.itemRef.valueChanges();
   }

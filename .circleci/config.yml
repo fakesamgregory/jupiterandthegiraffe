@@ -20,7 +20,7 @@ jobs:
       - run:
           name: AWS Sync
           command: aws --region eu-west-1 s3 sync ./dist s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
-            
+
 
 
   deploy_dev:
@@ -46,16 +46,16 @@ jobs:
 
       - restore_cache:
           keys:
-            - v3-dependencies-{{ checksum "package.json" }}
+            - v4-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v3-dependencies-
+            - v4-dependencies-
 
       - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
-          key: v3-dependencies-{{ checksum "package.json" }}
+          key: v4-dependencies-{{ checksum "package.json" }}
 
       - run: yarn run build
 
@@ -71,16 +71,16 @@ jobs:
 
       - restore_cache:
           keys:
-            - v3-dependencies-{{ checksum "package.json" }}
+            - v4-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v3-dependencies-
+            - v4-dependencies-
 
       - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
-          key: v3-dependencies-{{ checksum "package.json" }}
+          key: v4-dependencies-{{ checksum "package.json" }}
 
       - run: yarn run lint
 

@@ -122,39 +122,39 @@ workflows:
               only: master
 
   build_and_deploy_prod:
-      jobs:
-        - test:
-            filters:
-              tags:
-                only: /[0-9]+(\.[0-9]+)*/
-              branches:
-                ignore: /.*/
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
 
-        - build:
-            requires:
-              - test
-            filters:
-              tags:
-                only: /[0-9]+(\.[0-9]+)*/
-              branches:
-                ignore: /.*/
-        - hold:
-            requires:
-              - build
-            type:
-              - approval
-            filters:
-              tags:
-                only: /[0-9]+(\.[0-9]+)*/
-              branches:
-                ignore: /.*/
+      - build:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
+      - hold:
+          requires:
+            - build
+          type:
+            - approval
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
 
-        - deploy_prod:
-            requires:
-              - build
-            filters:
-              tags:
-                only: /[0-9]+(\.[0-9]+)*/
-              branches:
-                ignore: /.*/
+      - deploy_prod:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
 

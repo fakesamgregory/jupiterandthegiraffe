@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, isDevMode} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
@@ -31,25 +31,31 @@ export class ContactComponent {
       name: [null, Validators.required],
       email: [null, Validators.compose([Validators.required, Validators.email])],
       message: [null, Validators.compose([Validators.required, Validators.minLength(15)])],
-      check: [null],
       validate: '',
       recaptchaReactive: [null, Validators.required]
     });
   }
 
   sendForm(post) {
+    console.log(post);
     const company = post.company ? ` from ${post.company}` : '';
 
+    this.name = post.name;
+    this.email = post.email;
+    this.message = post.message;
+
     this.item = {
-      name: post.name,
-      email: post.email,
-      message: post.message,
-      html: '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + post.name + company + '.</p>' +
-      '<p>They said... </br></br>"' + post.message + '".</p>' +
-      '<p>You can contact them back on ' + post.email + '</p>',
+      name: this.name,
+      email: this.email,
+      message: this.message,
+      html: '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + this.name + company + '.</p>' +
+      '<p>They said... </br></br>"' + this.message + '".</p>' +
+      '<p>You can contact them back on ' + this.email + '</p>',
       date: Date()
     };
 
-    this.itemRef.push(this.item);
+    if(!isDevMode()) {
+      this.itemRef.push(this.item);
+    }
   }
 }

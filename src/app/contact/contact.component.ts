@@ -54,7 +54,7 @@ export class ContactComponent {
       date: Date()
     };
 
-    if(!isDevMode()) {
+    if (!isDevMode()) {
       this.itemRef.push(this.item);
     }
   }

@@ -1,10 +1,8 @@
 import {NgtUniversalModule} from '@ng-toolkit/universal';
 import {CommonModule} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormatDataService} from './format-data.service';
 import {Angulartics2Module} from 'angulartics2';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
@@ -67,7 +65,6 @@ import {HttpClientModule} from '@angular/common/http';
     HeaderComponent,
     WhatComponent,
     LogoComponent,
-    PopupComponent,
     FriendsComponent,
     TrustHtmlPipe,
     NotFoundComponent,

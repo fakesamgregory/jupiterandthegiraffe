@@ -47,7 +47,7 @@ jobs:
       - attach_workspace:
           at: ~/app/
 
-      - run: build:browser:serverless
+      - run: npm run build:browser:serverless
 
       - persist_to_workspace:
           root: dist

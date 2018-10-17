@@ -88,14 +88,14 @@ workflows:
       - test:
           filters:
             branches:
-              ignore: master
+              only: /.*/
 
       - build:
           requires:
             - test
           filters:
             branches:
-              ignore: master
+              only: /.*/
 
   build_and_deploy_dev:
     jobs:

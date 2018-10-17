@@ -130,8 +130,7 @@ workflows:
             branches:
               ignore: /.*/
       - hold:
-          type:
-            - approval
+          type: approval
           requires:
             - build
           filters:

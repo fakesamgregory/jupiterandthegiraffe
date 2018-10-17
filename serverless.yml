@@ -19,6 +19,7 @@ package:
    - firebug-lite/**
    - e2e/**
    - coverage/**
+   - functions/**
    - '!node_modules/aws-serverless-express/**'
    - '!node_modules/binary-case/**'
    - '!node_modules/type-is/**'

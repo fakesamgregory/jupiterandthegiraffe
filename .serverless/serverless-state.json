@@ -108,7 +108,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/jupiter-and-the-giraffe/production/1539772952208-2018-10-17T10:42:32.208Z/jupiter-and-the-giraffe.zip"
+                "S3Key": "serverless/jupiter-and-the-giraffe/production/1539781648160-2018-10-17T13:07:28.160Z/jupiter-and-the-giraffe.zip"
               },
               "FunctionName": "jupiter-and-the-giraffe-production-api",
               "Handler": "lambda.universal",
@@ -127,14 +127,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ApiLambdaVersionj1VPoyeh9p2uVmqJIIhtCntpnNaN0crV2iPw7EQE": {
+          "ApiLambdaVersiondu4kbQ9YBS2ViAUwbUXuVyAEoJIQAt1CLPOp7UaITk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "4TSVUY7jOcoiAhbZAK/xf02cu0x6uKB2BGwHzQ+BWdQ="
+              "CodeSha256": "kVqlrCkguClGsk5C0Na70CrYm2Hyf4CRRXZw/hT12m8="
             }
           },
           "ApiGatewayRestApi": {
@@ -244,7 +244,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1539772952266": {
+          "ApiGatewayDeployment1539781648211": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -300,7 +300,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionj1VPoyeh9p2uVmqJIIhtCntpnNaN0crV2iPw7EQE"
+              "Ref": "ApiLambdaVersiondu4kbQ9YBS2ViAUwbUXuVyAEoJIQAt1CLPOp7UaITk"
             }
           },
           "ServiceEndpoint": {
@@ -367,7 +367,7 @@
     "artifact": "/Users/samuelgregory/Sites/jupiter-and-the-giraffe/.serverless/jupiter-and-the-giraffe.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/jupiter-and-the-giraffe/production/1539772952208-2018-10-17T10:42:32.208Z",
+    "artifactDirectoryName": "serverless/jupiter-and-the-giraffe/production/1539781648160-2018-10-17T13:07:28.160Z",
     "artifact": "jupiter-and-the-giraffe.zip"
   }
 }

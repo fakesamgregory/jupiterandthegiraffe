@@ -14,7 +14,7 @@
         <a *ngIf="workItem.link; else noLink" [routerLink]="workItem.link">
           <img
             *ngIf="workItem.image"
-            [src]="'/assets/images/' + workItem.image"
+            [src]="'assets/images/' + workItem.image"
             alt="{{workItem.title}}"
             class="img-thumbnail"
           />
@@ -28,7 +28,7 @@
         <ng-template #noLink>
           <img
             *ngIf="workItem.image"
-            [src]="'/assets/images/' + workItem.image"
+            [src]="'assets/images/' + workItem.image"
             alt="{{workItem.title}}"
             class="img-thumbnail"
           />

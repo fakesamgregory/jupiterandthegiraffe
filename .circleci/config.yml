@@ -65,9 +65,11 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: |
-        npm install angular-cli -g
-        npm install
+      - run:
+          name: Install dependencies
+          command: |
+            npm install angular-cli -g
+            npm install
 
       - save_cache:
           paths:

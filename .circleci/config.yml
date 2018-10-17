@@ -130,10 +130,10 @@ workflows:
             branches:
               ignore: /.*/
       - hold:
-          requires:
-            - build
           type:
             - approval
+          requires:
+            - build
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/

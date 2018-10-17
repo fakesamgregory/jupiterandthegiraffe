@@ -7,7 +7,7 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "lint": "ng jupiter-and-the-giraffe-e2e:lint",
+    "lint": "ng lint",
     "e2e": "ng e2e",
     "server": "node local.js",
     "build:browser:serverless": "ng build --prod --base-href /production/",

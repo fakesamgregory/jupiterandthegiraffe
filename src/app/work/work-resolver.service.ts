@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class WorkResolverService implements Resolve<any> {
-  private _workUrl = '/assets/json/work.json';
+  private _workUrl = 'assets/json/work.json';
 
   constructor(private dataService: DataService) { }
 

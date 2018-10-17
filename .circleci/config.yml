@@ -8,7 +8,7 @@ jobs:
   deploy_prod:
     working_directory: ~/app
     docker:
-      - image: circleci/python:2.7
+      - image: circleci/node:8.10
     steps:
       - attach_workspace:
           at: ~/app/dist
@@ -32,32 +32,22 @@ jobs:
           at: ~/app/dist
 
       - run:
-          name: Install awscli
-          command: sudo pip install awscli
+          name: Install Serverless CLI and dependencies
+          command: sudo npm i -g serverless
 
       - run:
-          name: AWS Sync
-          command: aws --region eu-west-1 s3 sync ./dist s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+          name: Deploy Severless
+          command: npm run build:server:serverless && npm run deploy
 
   build:
     <<: *vm_settings
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+      - attach_workspace:
+          at: ~/app/
 
-      - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: npm run build
+      - run: build:browser:serverless
 
       - persist_to_workspace:
           root: dist
@@ -85,6 +75,11 @@ jobs:
       - run: npm run lint
 
       - run: npm test
+
+      - persist_to_workspace:
+          root: node_modules
+          paths:
+            - .
 
 workflows:
   version: 2

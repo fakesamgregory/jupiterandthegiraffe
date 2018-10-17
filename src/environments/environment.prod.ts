@@ -7,5 +7,6 @@ export const environment = {
     projectId: 'jupiterandthegiraffe-1662d',
     storageBucket: 'jupiterandthegiraffe-1662d.appspot.com',
     messagingSenderId: '434681418965'
-  }
+  },
+  baseHref: '/production/'
 };

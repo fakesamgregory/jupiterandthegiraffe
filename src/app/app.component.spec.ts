@@ -10,7 +10,8 @@ import {HeaderComponent} from './header/header.component';
 import {PopupComponent} from './popup/popup.component';
 import {TrustHtmlPipe} from './trust-html.pipe';
 import {LogoComponent} from './logo/logo.component';
-import { Angulartics2, Angulartics2GoogleAnalytics} from 'angulartics2';
+import { Angulartics2 } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {HttpClientModule} from '@angular/common/http';
 
 describe('AppComponent', () => {

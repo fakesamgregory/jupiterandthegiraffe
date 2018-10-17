@@ -1,4 +1,5 @@
-import { Component, Input, ViewEncapsulation, HostListener } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
+import { Component, Input, ViewEncapsulation, HostListener , Inject} from '@angular/core';
 
 @Component({
   selector: 'app-pop-up',
@@ -11,6 +12,8 @@ export class PopupComponent {
   @Input() public buttonText: string;
   @Input() public description: string;
    show = false;
+ constructor(@Inject(WINDOW) private window: Window) {}
+
 
   showDialog(target: boolean) {
     this.show = target;

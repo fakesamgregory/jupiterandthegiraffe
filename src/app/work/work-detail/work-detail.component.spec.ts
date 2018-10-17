@@ -2,8 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 
 import { WorkDetailComponent } from './work-detail.component';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs';
 
 describe('WorkDetailComponent', () => {
   let component: WorkDetailComponent;
@@ -15,7 +14,7 @@ describe('WorkDetailComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: { data: Observable.of({
+          useValue: { data: of({
             work: 'hello',
             params: true
           }) }

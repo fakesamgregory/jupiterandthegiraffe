@@ -5,39 +5,7 @@ vm_settings: &vm_settings
 
 version: 2
 jobs:
-  deploy_prod:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:8.10
-    steps:
-      - attach_workspace:
-          at: ~/app/dist
-
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-
-      - run:
-          name: AWS Sync
-          command: aws --region eu-west-1 s3 sync ./dist s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
-
-
-
-  deploy_dev:
-    <<: *vm_settings
-    steps:
-      - attach_workspace:
-          at: ~/app/dist
-
-      - run:
-          name: Install Serverless CLI and dependencies
-          command: sudo npm i -g serverless
-
-      - run:
-          name: Deploy Severless
-          command: npm run build:server:serverless && npm run deploy
-
-  build:
+  build_deploy_dev:
     <<: *vm_settings
     steps:
       - checkout
@@ -57,12 +25,45 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run build:browser:serverless
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
 
-      - persist_to_workspace:
-          root: dist
+      - run:
+          name: Deploy Severless
+          command: npm run build
+
+      - run:
+          name: AWS Sync
+          command: aws --region eu-west-1 s3 sync ./dist s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+
+  build_deploy_prod:
+    <<: *vm_settings
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: Install dependencies
+          command: sudo npm install
+
+      - save_cache:
           paths:
-            - .
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Install Serverless CLI and dependencies
+          command: sudo npm i -g serverless
+
+      - run:
+          name: Deploy Severless
+          command: npm run build:serverless:deploy
 
   test:
     <<: *vm_settings
@@ -93,10 +94,16 @@ workflows:
   build_and_test:
     jobs:
       - test
+          filters:
+            branches:
+              ignore: master
 
       - build:
           requires:
             - test
+          filters:
+            branches:
+              ignore: master
 
   build_and_deploy_dev:
     jobs:

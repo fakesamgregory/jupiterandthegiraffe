@@ -8,5 +8,5 @@ export const environment = {
     storageBucket: 'jupiterandthegiraffe-1662d.appspot.com',
     messagingSenderId: '434681418965'
   },
-  baseHref: '/production/',
+  baseHref: '/',
 };

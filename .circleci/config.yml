@@ -5,10 +5,8 @@ vm_settings: &vm_settings
 
 version: 2
 jobs:
-  build_deploy_dev:
-    working_directory: ~/app
-    docker:
-      - image: circleci/node:8.10
+  build_dev:
+    <<: *vm_settings
     steps:
       - checkout
 
@@ -28,12 +26,25 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: Install awscli
-          command: sudo pip install awscli
-
-      - run:
           name: Deploy Severless
           command: npm run build
+
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - .
+
+  deploy_dev:
+    working_directory: ~/app
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - attach_workspace:
+          at: ~/app/dist
+
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
 
       - run:
           name: AWS Sync
@@ -114,9 +125,16 @@ workflows:
             branches:
               only: master
 
-      - build_deploy_dev:
+      - build_dev:
           requires:
             - test
+          filters:
+            branches:
+              only: master
+
+      - deploy_dev:
+          requires:
+            - build_dev
           filters:
             branches:
               only: master

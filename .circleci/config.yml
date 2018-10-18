@@ -5,7 +5,7 @@ vm_settings: &vm_settings
 
 version: 2
 jobs:
-  build_dev:
+  build:
     <<: *vm_settings
     steps:
       - checkout
@@ -26,7 +26,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: Deploy Severless
+          name: Build project
           command: npm run build
 
       - persist_to_workspace:
@@ -125,7 +125,7 @@ workflows:
             branches:
               only: master
 
-      - build_dev:
+      - build:
           requires:
             - test
           filters:
@@ -134,7 +134,7 @@ workflows:
 
       - deploy_dev:
           requires:
-            - build_dev
+            - build
           filters:
             branches:
               only: master

@@ -48,7 +48,7 @@ jobs:
 
       - run:
           name: AWS Sync
-          command: aws --region eu-west-1 s3 sync ./dist/browser s3://jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+          command: aws --region eu-west-1 s3 sync ./dist/browser s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
 
   build_deploy_prod:
     <<: *vm_settings

@@ -24,9 +24,7 @@ jobs:
 
 
   deploy_dev:
-    working_directory: ~/app
-    docker:
-      - image: circleci/python:2.7
+    <<: *vm_settings
     steps:
       - attach_workspace:
           at: ~/app/dist

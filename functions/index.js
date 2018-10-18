@@ -25,6 +25,16 @@ exports.sendContactMessage = functions.database
     if(!val.name || !val.email || !val.html) {
       return null;
     }
+<<<<<<< HEAD
+
+    const mailOptions = {
+      from: `"${val.name} 🚀" <${val.email}>`,
+      to: 'samuel@jupiterandthegiraffe.com, suzannah@jupiterandthegiraffe.com',
+      subject: `${val.name} contacted JatG!!`,
+      html: val.html
+    };
+=======
+>>>>>>> c3d43dec000dae3b0e5bc1c3af7dd233b33f5c3b
 
     return mailTransport.sendMail({
         from: `"${val.name} 🚀" <${val.email}>`,

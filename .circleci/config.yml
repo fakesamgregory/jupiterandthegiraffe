@@ -8,7 +8,7 @@ jobs:
   deploy_prod:
     working_directory: ~/app
     docker:
-      - image: circleci/python:2.7
+      - image: circleci/node:8.10
     steps:
       - attach_workspace:
           at: ~/app/dist
@@ -24,20 +24,18 @@ jobs:
 
 
   deploy_dev:
-    working_directory: ~/app
-    docker:
-      - image: circleci/python:2.7
+    <<: *vm_settings
     steps:
       - attach_workspace:
           at: ~/app/dist
 
       - run:
-          name: Install awscli
-          command: sudo pip install awscli
+          name: Install Serverless CLI and dependencies
+          command: sudo npm i -g serverless
 
       - run:
-          name: AWS Sync
-          command: aws --region eu-west-1 s3 sync ./dist s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+          name: Deploy Severless
+          command: npm run build:server:serverless && npm run deploy
 
   build:
     <<: *vm_settings
@@ -46,18 +44,20 @@ jobs:
 
       - restore_cache:
           keys:
-            - v5-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v5-dependencies-
+            - v1-dependencies-
 
-      - run: yarn install
+      - run:
+          name: Install dependencies
+          command: sudo npm install
 
       - save_cache:
           paths:
             - node_modules
-          key: v5-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn run build
+      - run: npm run build:browser:serverless
 
       - persist_to_workspace:
           root: dist
@@ -71,35 +71,81 @@ jobs:
 
       - restore_cache:
           keys:
-            - v5-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v5-dependencies-
+            - v1-dependencies-
 
-      - run: yarn install
+      - run:
+          name: Install dependencies
+          command: sudo npm install
 
       - save_cache:
           paths:
             - node_modules
-          key: v5-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn run lint
+      - run: npm run lint
 
-      - run: yarn test
+      - run: npm test
 
 workflows:
   version: 2
   build_and_test:
     jobs:
+      - test
+
+      - build:
+          requires:
+            - test
+
+  build_and_deploy_dev:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: master
+
+      - build:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+
+      - deploy_dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
+  build_and_deploy_prod:
+    jobs:
       - test:
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
+
       - build:
           requires:
             - test
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
+      - hold:
+          type: approval
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
+
       - deploy_prod:
           requires:
             - build
@@ -108,9 +154,4 @@ workflows:
               only: /[0-9]+(\.[0-9]+)*/
             branches:
               ignore: /.*/
-      - deploy_dev:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+

@@ -2,8 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import { WorkComponent } from './work.component';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs';
 
 import {DotsComponent} from '../dots/dots.component';
 
@@ -17,7 +16,7 @@ describe('WorkComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: { data: Observable.of({work: 'hello'}) }
+          useValue: { data: of({work: 'hello'}) }
         }
       ],
       imports: [RouterTestingModule]

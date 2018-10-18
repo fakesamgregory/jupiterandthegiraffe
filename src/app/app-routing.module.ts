@@ -4,9 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WhoComponent } from './who/who.component';
 import { WhatComponent } from './what/what.component';
-import { RathergoodComponent } from './rathergood/rathergood.component';
 import { EmdadComponent } from './emdad/emdad.component';
-import { WaspplumbingComponent } from './waspplumbing/waspplumbing.component';
 import { VeratrakComponent } from './veratrak/veratrak.component';
 import { NorthstarComponent } from './northstar/northstar.component';
 import { WorkComponent } from './work/work.component';
@@ -40,9 +38,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'rathergood', component: RathergoodComponent },
   { path: '3dux', component: EmdadComponent },
-  { path: 'wasp-plumbing', component: WaspplumbingComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'veratrak', component: VeratrakComponent },
   { path: 'north-star-law', component: NorthstarComponent },
@@ -50,7 +46,7 @@ const routes: Routes = [
   { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
@@ -63,9 +59,7 @@ export const routableComponents = [
   HomeComponent,
   WhoComponent,
   WhatComponent,
-  RathergoodComponent,
   EmdadComponent,
-  WaspplumbingComponent,
   VeratrakComponent,
   NorthstarComponent,
   WorkComponent,

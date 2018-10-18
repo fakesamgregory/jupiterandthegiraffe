@@ -56,9 +56,4 @@
       @include font-size(18);
     }
   }
-
-  &__lead-letter {
-    color: $color-secondary;
-    @include text-shadow();
-  }
 }

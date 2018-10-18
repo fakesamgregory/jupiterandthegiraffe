@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroComponent } from './hero.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
-import {PopupComponent} from '../popup/popup.component';
 import {TrustHtmlPipe} from '../trust-html.pipe';
 import {LogoComponent} from '../logo/logo.component';
 
@@ -13,7 +12,7 @@ describe('HeroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroComponent, PopupComponent, TrustHtmlPipe, LogoComponent ],
+      declarations: [ HeroComponent, TrustHtmlPipe, LogoComponent ],
       imports: [RouterTestingModule, HttpClientModule]
     })
     .compileComponents();

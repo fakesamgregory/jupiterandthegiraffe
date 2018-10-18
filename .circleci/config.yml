@@ -6,7 +6,9 @@ vm_settings: &vm_settings
 version: 2
 jobs:
   build_deploy_dev:
-    <<: *vm_settings
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:8.10
     steps:
       - checkout
 

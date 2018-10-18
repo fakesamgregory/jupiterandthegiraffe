@@ -9,9 +9,9 @@ import {Meta, Title} from '@angular/platform-browser';
 export class BoombocsComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'Boombocs - Website development';
-    const DESC = 'BoomBocs produce high-end, quality speaker systems. A colourful, fun yet powerful and professional sounding device, ' +
-      'which is looking to enter high-end retail stores this year. BoomBocs came to us looking to revamp their website and give it its own, distinct identity. ' +
-      'We welcomed the challenge.';
+    const DESC = 'BoomBocs produce high-end, quality speaker systems. A colourful, fun yet powerful and professional ' +
+      'sounding device, which is looking to enter high-end retail stores this year. BoomBocs came to us looking to revamp ' +
+      'their website and give it its own, distinct identity. We welcomed the challenge.';
 
     this.titleService.setTitle( TITLE );
 

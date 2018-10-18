@@ -112,16 +112,9 @@ workflows:
             branches:
               only: master
 
-      - build:
+      - build_deploy_dev:
           requires:
             - test
-          filters:
-            branches:
-              only: master
-
-      - deploy_dev:
-          requires:
-            - build
           filters:
             branches:
               only: master
@@ -135,7 +128,8 @@ workflows:
             branches:
               ignore: /.*/
 
-      - build:
+      - hold:
+          type: approval
           requires:
             - test
           filters:
@@ -143,19 +137,10 @@ workflows:
               only: /[0-9]+(\.[0-9]+)*/
             branches:
               ignore: /.*/
-      - hold:
-          type: approval
-          requires:
-            - build
-          filters:
-            tags:
-              only: /[0-9]+(\.[0-9]+)*/
-            branches:
-              ignore: /.*/
 
-      - deploy_prod:
+      - build_deploy_prod:
           requires:
-            - build
+            - hold
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/

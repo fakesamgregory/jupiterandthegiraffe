@@ -65,9 +65,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: |
-            sudo npm install angular-cli -g
-            sudo npm install
+          command: sudo npm install
 
       - save_cache:
           paths:

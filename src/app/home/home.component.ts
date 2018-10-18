@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FriendsComponent } from './friends/friends.component';
 
 @Component({
@@ -6,11 +6,6 @@ import { FriendsComponent } from './friends/friends.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-
-  }
+export class HomeComponent {
+  constructor() {}
 }

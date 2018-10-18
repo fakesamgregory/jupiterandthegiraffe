@@ -5,7 +5,7 @@ vm_settings: &vm_settings
 
 version: 2
 jobs:
-  build_dev:
+  build:
     <<: *vm_settings
     steps:
       - checkout
@@ -26,7 +26,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: Deploy Severless
+          name: Build project
           command: npm run build
 
       - persist_to_workspace:
@@ -45,6 +45,12 @@ jobs:
       - run:
           name: Install awscli
           command: sudo pip install awscli
+
+      - run:
+          name: Add robots TXT file
+          command: |
+            echo 'User-agent: *' >> ~/app/dist/browser/robots.txt
+            echo 'Disallow: /' >> ~/app/dist/browser/robots.txt
 
       - run:
           name: AWS Sync
@@ -125,7 +131,7 @@ workflows:
             branches:
               only: master
 
-      - build_dev:
+      - build:
           requires:
             - test
           filters:
@@ -134,7 +140,7 @@ workflows:
 
       - deploy_dev:
           requires:
-            - build_dev
+            - build
           filters:
             branches:
               only: master

@@ -2,6 +2,7 @@ import {Component, isDevMode} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
+import {Meta, Title} from '@angular/platform-browser';
 
 export interface Item { name: string; email: string; message: string; html: string; date: string; }
 
@@ -20,10 +21,40 @@ export class ContactComponent {
   itemRef: AngularFireList<any>;
   item;
 
-  constructor(private fb: FormBuilder, public db: AngularFireDatabase, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    public db: AngularFireDatabase,
+    private http: HttpClient,
+    private meta: Meta,
+    private titleService: Title
+  ) {
     this.createForm();
     this.itemRef = db.list('messages');
     this.item = this.itemRef.valueChanges();
+
+    const TITLE = 'Contact Us - Website development';
+    const DESC = 'Good to see you. We were just talking about you! Drop us a line and let us know why you\'re here. ' +
+      'If you know someone that needs our help, put their contact details in the message and you may be rewarded with ' +
+      '10% of the final invoice ';
+
+    this.titleService.setTitle( TITLE );
+
+    this.meta.updateTag({
+      name: 'description',
+      content: DESC
+    });
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: TITLE
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content: DESC
+    });
+    this.meta.updateTag({
+      itemprop: 'name',
+      content: TITLE
+    });
   }
 
   createForm() {

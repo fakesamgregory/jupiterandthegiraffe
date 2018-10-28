@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 import { EpochBrandWebsiteComponent } from './epoch-brand-website.component';
 import {DotsComponent} from '../dots/dots.component';
+import {GetInTouchComponent} from '../get-in-touch/get-in-touch.component';
 
 describe('EpochBrandWebsiteComponent', () => {
   let component: EpochBrandWebsiteComponent;
@@ -11,7 +12,7 @@ describe('EpochBrandWebsiteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EpochBrandWebsiteComponent, DotsComponent ],
+      declarations: [ EpochBrandWebsiteComponent, DotsComponent, GetInTouchComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

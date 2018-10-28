@@ -1,6 +1,7 @@
 import {NgtUniversalModule} from '@ng-toolkit/universal';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 import {FormatDataService} from './format-data.service';
 import {Angulartics2Module} from 'angulartics2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -10,6 +11,7 @@ import {RECAPTCHA_SETTINGS, RecaptchaSettings} from 'ng-recaptcha';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 
+import { AosToken, aos } from './aos';
 import {environment} from '../environments/environment';
 
 import {AppComponent} from './app.component';
@@ -31,11 +33,9 @@ import {WorkDetailService} from './work/work-detail/work-detail.service';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {NorthstarComponent} from './northstar/northstar.component';
 import {BoombocsComponent} from './boombocs/boombocs.component';
-
-import { AosToken, aos } from './aos';
+import {GetInTouchComponent} from './get-in-touch/get-in-touch.component';
 import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-conditions.component';
 import {EpochBrandWebsiteComponent} from './epoch-brand-website/epoch-brand-website.component';
-import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -72,7 +72,8 @@ import {HttpClientModule} from '@angular/common/http';
     SectionComponent,
     BoombocsComponent,
     TermsAndConditionsComponent,
-    EpochBrandWebsiteComponent
+    EpochBrandWebsiteComponent,
+    GetInTouchComponent
   ],
   providers: [
     FormatDataService,

@@ -1,0 +1,9 @@
+.link {
+  &-plain {
+    text-decoration: none;
+
+    &::after {
+      display: none !important;
+    }
+  }
+}

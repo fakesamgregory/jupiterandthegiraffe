@@ -37,6 +37,8 @@ import {GetInTouchComponent} from './get-in-touch/get-in-touch.component';
 import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-conditions.component';
 import {EpochBrandWebsiteComponent} from './epoch-brand-website/epoch-brand-website.component';
 
+import { SnowComponent } from './snow/snow.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -73,7 +75,8 @@ import {EpochBrandWebsiteComponent} from './epoch-brand-website/epoch-brand-webs
     BoombocsComponent,
     TermsAndConditionsComponent,
     EpochBrandWebsiteComponent,
-    GetInTouchComponent
+    GetInTouchComponent,
+    SnowComponent
   ],
   providers: [
     FormatDataService,

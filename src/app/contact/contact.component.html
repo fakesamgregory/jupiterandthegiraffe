@@ -1,107 +1,108 @@
 <section class="section">
-  <header>
-    <h1>
-      <div data-aos="fade-up">
-        Got work?
-      </div>
-      <div data-aos="fade-up" data-aos-delay="100">
-        Or just here to say "Hi"?
-      </div>
-    </h1>
-  </header>
+  <div class="container-fluid">
+    <header>
+      <h1>
+        <div data-aos="fade-up">
+          Got work?
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+          Or just here to say "Hi"?
+        </div>
+      </h1>
+    </header>
+    <div class="row">
+      <section class="col-md-6">
+        <h2>Contact Us</h2>
+        <div *ngIf="!name; else forminfo">
+          <p>
+            Good to see you. We were just talking about you! Drop us a line and let us know why you're here.
+          </p>
 
-  <div class="row">
-    <section class="col-md-6">
-      <h2>Contact Us</h2>
-      <div *ngIf="!name; else forminfo">
-        <p>
-          Good to see you. We were just talking about you! Drop us a line and let us know why you're here.
-        </p>
+          <p>Email us at <a href="mailto:salam@jupiterandthegiraffe.com?subject=Hey I'm on your website!!" class="underline">salam@jupiterandthegiraffe.com</a>.</p>
 
-        <p>Email us at <a href="mailto:salam@jupiterandthegiraffe.com?subject=Hey I'm on your website!!" class="underline">salam@jupiterandthegiraffe.com</a>.</p>
+          <p>Phone us on <a href="tel:447816061943" class="underline">+44 7816 061943</a>.</p>
 
-        <p>Phone us on <a href="tel:447816061943" class="underline">+44 7816 061943</a>.</p>
+          <div class="text-center">or</div>
 
-        <div class="text-center">or</div>
+          <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
+            <label>
+              Name:
+              <input type="text" formControlName="name" required>
+              <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched" class="form-error">
+                We need to know who you are!
+              </div>
+            </label>
 
-        <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
-          <label>
-            Name:
-            <input type="text" formControlName="name" required>
-            <div *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched" class="form-error">
-              We need to know who you are!
-            </div>
-          </label>
+            <label>
+              Email:
+              <input type="text" formControlName="email" required>
+              <div *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-error">
+                How can we reach you? Give us an email address
+              </div>
+            </label>
 
-          <label>
-            Email:
-            <input type="text" formControlName="email" required>
-            <div *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-error">
-              How can we reach you? Give us an email address
-            </div>
-          </label>
+            <label>
+              Company:
+              <input type="text" name="company">
+            </label>
 
-          <label>
-            Company:
-            <input type="text" name="company">
-          </label>
+            <label>
+              Message:
+              <textarea formControlName="message" id="" cols="30" rows="10"></textarea>
+              <div *ngIf="!rForm.controls['message'].valid && rForm.controls['message'].touched" class="form-error">
+                Tell us a bit more information about why you want to get in touch.
+              </div>
+            </label>
 
-          <label>
-            Message:
-            <textarea formControlName="message" id="" cols="30" rows="10"></textarea>
-            <div *ngIf="!rForm.controls['message'].valid && rForm.controls['message'].touched" class="form-error">
-              Tell us a bit more information about why you want to get in touch.
-            </div>
-          </label>
+            <re-captcha formControlName="recaptchaReactive"></re-captcha>
 
-          <re-captcha formControlName="recaptchaReactive"></re-captcha>
-
-          <button type="submit" [disabled]="rForm.invalid">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            Send
-          </button>
-        </form>
-      </div>
-
-      <ng-template #forminfo>
-        <div class="card">
-
-          <div class="text-center">
-            <span class="fa-stack fa-3x">
-              <i class="fa fa-circle fa-stack-2x color-green"></i>
-              <i class="fa fa-check fa-stack-1x color-white"></i>
-            </span>
-          </div>
-
-          <p><strong>{{name}}!</strong> <br>Thanks for dropping us a line. We'll get back to you soon.</p>
-
-          <p>Email: <strong>{{email}}</strong></p>
-
-          <p>Here's what you said...</p>
-
-          <blockquote>{{message}}</blockquote>
+            <button type="submit" [disabled]="rForm.invalid">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              Send
+            </button>
+          </form>
         </div>
 
-      </ng-template>
+        <ng-template #forminfo>
+          <div class="card">
 
-    </section>
-    <section class="col-md-6">
-      <header>
-        <h2>Referral Scheme</h2>
-      </header>
-      <div class="text-center">
-        <span class="fa-stack fa-3x">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-gbp fa-stack-1x color-black"></i>
-        </span>
-      </div>
+            <div class="text-center">
+              <span class="fa-stack fa-3x">
+                <i class="fa fa-circle fa-stack-2x color-green"></i>
+                <i class="fa fa-check fa-stack-1x color-white"></i>
+              </span>
+            </div>
+
+            <p><strong>{{name}}!</strong> <br>Thanks for dropping us a line. We'll get back to you soon.</p>
+
+            <p>Email: <strong>{{email}}</strong></p>
+
+            <p>Here's what you said...</p>
+
+            <blockquote>{{message}}</blockquote>
+          </div>
+
+        </ng-template>
+
+      </section>
+      <section class="col-md-6">
+        <header>
+          <h2>Referral Scheme</h2>
+        </header>
+        <div class="text-center">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-gbp fa-stack-1x color-black"></i>
+          </span>
+        </div>
 
 
-      <p>
-        We love to give. If you know someone that needs our help,
-        put their contact details in the message and you may be rewarded with 10% of the final invoice amount if we're
-        successful in landing the work. Kerching!
-      </p>
-    </section>
+        <p>
+          We love to give. If you know someone that needs our help,
+          put their contact details in the message and you may be rewarded with 10% of the final invoice amount if we're
+          successful in landing the work. Kerching!
+        </p>
+      </section>
+    </div>
   </div>
 </section>

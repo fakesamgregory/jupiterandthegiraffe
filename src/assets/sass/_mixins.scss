@@ -81,3 +81,10 @@ $positions: top left right bottom;
     @content;
   }
 }
+
+@mixin hover-focus() {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}

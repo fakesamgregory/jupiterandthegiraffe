@@ -16,12 +16,12 @@ $ease--out-quad: cubic-bezier(.25,.46,.450,.94);
 .winter-is-coming {
   @extend %on-top;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   max-width: 100%;
-  //background: $c--background;
 }
 
 

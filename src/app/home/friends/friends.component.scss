@@ -11,9 +11,6 @@
       max-height: 130px;
       max-width: 200px;
     }
-
-    @media screen and (max-width: $screen-sm - 1) {
-    }
   }
 
   &__link {
@@ -22,7 +19,7 @@
     padding: 20px;
 
     @include md {
-      padding: 0;
+      padding: 40px;
     }
   }
 
@@ -44,15 +41,12 @@
   }
 
   a {
-    transition: background-color .3s ease, border-radius .3s ease;
+    transition: border-radius .3s ease;
 
     &:hover, &:focus {
       .friends__image {
         transform: translate(10px, -10px);
       }
-
-      background-color: rgba($color-malibu, .15);
-      border-radius: 10px;
     }
   }
 }

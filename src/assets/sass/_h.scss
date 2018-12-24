@@ -18,6 +18,7 @@ h2 {
   margin-bottom: $margin-large;
   padding-bottom: $margin-large;
   border-bottom: 1px solid $color-pickledBluewood;
+  line-height: 1;
 
   &:after {
     content: '_';

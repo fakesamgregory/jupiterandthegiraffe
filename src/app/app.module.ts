@@ -13,6 +13,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 import { AosToken, aos } from './aos';
 import {environment} from '../environments/environment';
+import { WINDOW_PROVIDERS } from './services/window.service';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule, routableComponents} from './app-routing.module';
@@ -83,6 +84,7 @@ import { SnowComponent } from './snow/snow.component';
     DataService,
     WorkResolverService,
     WorkDetailService,
+    WINDOW_PROVIDERS,
     { provide: AosToken, useValue: aos },
     {
       provide: RECAPTCHA_SETTINGS,

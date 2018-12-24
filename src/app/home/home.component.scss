@@ -2,6 +2,9 @@
 @import "../../assets/sass/mixins";
 
 .home {
+  transition: color 1s ease, background 1s ease;
+  padding-bottom: 20px;
+
   h2 {
     @include md {
       @include font-size($heading-1);
@@ -16,5 +19,18 @@
 
   &__about {
     margin-bottom: $margin-xlarge;
+  }
+
+  &--active {
+    background: $color-white;
+    color: $color-black;
+
+    a {
+      color: $color-black;
+
+      @include hover-focus {
+        text-decoration: underline;
+      }
+    }
   }
 }

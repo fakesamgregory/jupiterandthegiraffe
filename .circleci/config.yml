@@ -44,7 +44,7 @@ jobs:
 
       - run:
           name: Install awscli
-          command: pip install awscli
+          command: sudo pip install awscli
 
       - run:
           name: Add robots TXT file

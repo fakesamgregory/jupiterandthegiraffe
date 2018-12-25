@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, AfterViewInit, ViewChild, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { FriendsComponent } from './friends/friends.component';
@@ -11,7 +11,7 @@ import {from, Observable, forkJoin} from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit, OnInit {
+export class HomeComponent implements OnInit {
   public blogs: Array<object> = [];
   private url = 'http://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
 

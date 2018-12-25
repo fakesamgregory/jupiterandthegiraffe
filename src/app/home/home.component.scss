@@ -3,7 +3,7 @@
 
 .home {
   transition: color 1s ease, background 1s ease;
-  padding-bottom: 20px;
+  padding: 20px 0;
 
   h2 {
     @include md {
@@ -21,16 +21,20 @@
     margin-bottom: $margin-xlarge;
   }
 
-  &--active {
+  //&--active {
     background: $color-white;
     color: $color-black;
+  //}
 
-    a {
-      color: $color-black;
+  &__blog-info {
+    margin-bottom: $margin-medium;
+    margin-top: $margin-medium;
+  }
 
-      @include hover-focus {
-        text-decoration: underline;
-      }
-    }
+  &__blog-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }

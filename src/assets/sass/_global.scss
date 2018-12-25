@@ -187,3 +187,29 @@ span[data-aos] {
 figure {
   margin: 0;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.home a {
+  color: $color-black;
+
+  @include hover-focus {
+    text-decoration: underline;
+  }
+}
+
+.home__blog {
+  a {
+    &:after {
+      display: none !important;
+    }
+  }
+}
+
+.more-link {
+  display: block;
+  margin: $margin-medium 0;
+}

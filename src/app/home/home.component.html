@@ -1,36 +1,70 @@
 <section class="home">
-  <h1 class="sr-only">Jupiter and the Giraffe</h1>
+  <div class="container-fluid">
+    <h1 class="sr-only">Jupiter and the Giraffe</h1>
 
-  <div class="row equal-heights home__about">
-    <section class="col-sm">
+    <div class="row equal-heights home__about">
+      <section class="col-sm">
+        <header>
+          <h2>
+            <span data-aos="fade-up">Who are Jupiter <br>and the Giraffe?</span>
+          </h2>
+        </header>
+
+        <p>Jupiter and the Giraffe are a not-so-ordinary branding agency. We love all things digital to the moon and back.</p>
+
+        <a href="" [routerLink]="['/who-we-are']">Read more</a><app-dots-component></app-dots-component>
+      </section>
+      <section class="col-sm">
+        <header>
+          <h2>
+            <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">What we <br>do</span>
+          </h2>
+        </header>
+
+        <p>
+          We care about your brand as much as you do, we have experience in logo design and corporate identity. To finish
+          it off, we can build you a kickass website to go with it.
+        </p>
+
+        <a href="" [routerLink]="['/what-we-do']">
+          Read more
+        </a><app-dots-component></app-dots-component>
+      </section>
+    </div>
+
+    <app-friends-component></app-friends-component>
+
+    <section class="home__blog">
       <header>
-        <h2>
-          <span data-aos="fade-up">Who are Jupiter <br>and the Giraffe?</span>
-        </h2>
+        <h2>Blog</h2>
       </header>
+      <div *ngIf="blogs.length">
+        <p>Read our latest blogs.</p>
 
-      <p>Jupiter and the Giraffe are a not-so-ordinary branding agency. We love all things digital to the moon and back.</p>
+        <div class="row">
+          <section *ngFor="let blog of blogs;"  class="home__blog col-md">
+            <header>
+              <h3>
+                <a [href]="blog.blog.link">{{blog.blog.title.rendered}}</a>
+              </h3>
+            </header>
 
-      <a href="" [routerLink]="['/who-we-are']">Read more</a><app-dots-component></app-dots-component>
+            <a [href]="blog.blog.link">
+              <div class="home__blog-image" *ngIf="blog.image.source_url" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}"></div>
+            </a>
+
+            <div class="home__blog-info">
+              By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[1]}}.{{blog.date[2]}}.{{blog.date[0]}}</strong>
+            </div>
+
+            <div [innerHTML]="blog.blog.excerpt.rendered"></div>
+          </section>
+        </div>
+
+        <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
+      </div>
     </section>
-    <section class="col-sm">
-      <header>
-        <h2>
-          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">What we <br>do</span>
-        </h2>
-      </header>
 
-      <p>
-        We care about your brand as much as you do, we have experience in logo design and corporate identity. To finish
-        it off, we can build you a kickass website to go with it.
-      </p>
-
-      <a href="" [routerLink]="['/what-we-do']">
-        Read more
-      </a><app-dots-component></app-dots-component>
-    </section>
   </div>
-
-  <app-friends-component></app-friends-component>
 </section>
 

@@ -5,6 +5,7 @@ import {FriendsComponent} from './friends/friends.component';
 import {DotsComponent} from '../dots/dots.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
+import {SnowComponent} from '../snow/snow.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -12,7 +13,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent, FriendsComponent, DotsComponent ],
+      declarations: [ HomeComponent, FriendsComponent, DotsComponent, SnowComponent ],
       imports: [RouterTestingModule, HttpClientModule]
     })
     .compileComponents();

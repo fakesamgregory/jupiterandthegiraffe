@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   &.home-page {
     margin-bottom: $margin-xlarge;

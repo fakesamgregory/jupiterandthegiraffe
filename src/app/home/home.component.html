@@ -38,7 +38,7 @@
       <header>
         <h2>Blog</h2>
       </header>
-      <div *ngIf="blogs.length; else error;">
+      <div *ngIf="blogs.length">
         <p>Read our latest blogs.</p>
 
         <div class="row">
@@ -53,7 +53,9 @@
               <div class="home__blog-image" *ngIf="blog.image.source_url" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}"></div>
             </a>
 
-            <div class="home__blog-info">By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[1]}}.{{blog.date[2]}}.{{blog.date[0]}}</strong></div>
+            <div class="home__blog-info">
+              By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[1]}}.{{blog.date[2]}}.{{blog.date[0]}}</strong>
+            </div>
 
             <div [innerHTML]="blog.blog.excerpt.rendered"></div>
           </section>
@@ -61,10 +63,6 @@
 
         <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
       </div>
-
-      <ng-template #error>
-        <p>{{error}}</p>
-      </ng-template>
     </section>
 
   </div>

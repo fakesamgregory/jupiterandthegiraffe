@@ -12,17 +12,10 @@ import {from, Observable, forkJoin} from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit, OnInit {
-  public navIsFixed = false;
-  public inputPos: number;
   public blogs: Array<object> = [];
-  // public error: object;
-  @ViewChild('myname') input;
   private url = 'http://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window: Window,
-    private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     const sequence = this.http
@@ -41,27 +34,9 @@ export class HomeComponent implements AfterViewInit, OnInit {
                 date: blog.date.split('T')[0].split('-'),
               };
 
-              console.log(obj);
-
               this.blogs.push(obj);
             });
         });
-        // return ;
-      })
-
-    //   .pipe(mergeMap(blog => { console.log(blog); return ; }))
-    //   .pipe(mergeMap(blog => )));
-    // console.log(sequence);
-
-  }
-
-  ngAfterViewInit() {
-    this.inputPos = this.input.nativeElement.getBoundingClientRect().top;
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    this.navIsFixed = number > this.inputPos ? true : false;
+      });
   }
 }

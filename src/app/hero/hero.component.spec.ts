@@ -5,7 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {TrustHtmlPipe} from '../trust-html.pipe';
 import {LogoComponent} from '../logo/logo.component';
-import {SnowComponent} from "../snow/snow.component";
+import {SnowComponent} from '../snow/snow.component';
 
 describe('HeroComponent', () => {
   let component: HeroComponent;

@@ -1,5 +1,5 @@
-@import "../../../assets/sass/variables";
-@import "../../../assets/sass/mixins";
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/tools/tools";
 
 .friends {
   &__image {
@@ -19,24 +19,17 @@
     padding: 20px;
 
     @include md {
-      padding: 40px;
+      margin: 40px;
     }
   }
 
-  li {
+  &__list-item {
     display: flex;
     align-items: center;
     justify-content: center;
 
     @include md {
-      margin-bottom: 20px;
       min-height: 100px;
-    }
-  }
-
-  h2 {
-    @include md {
-      @include font-size($heading-1);
     }
   }
 
@@ -48,5 +41,9 @@
         transform: translate(10px, -10px);
       }
     }
+  }
+
+  &__list {
+    margin: $space-large;
   }
 }

@@ -9,7 +9,7 @@ a {
       content: "\f08e";
       display: inline-block;
       font-family: "FontAwesome";
-      margin-left: 5px;
+      margin-left: $space-small;
       vertical-align: bottom;
       opacity: 0;
       transition: opacity .3s ease, transform .3s ease;
@@ -39,7 +39,7 @@ a {
       color: $color-white;
 
       &:not(.btn) {
-        padding: 5px;
+        padding: $space-small;
       }
     }
   }

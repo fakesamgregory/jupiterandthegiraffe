@@ -1,10 +1,10 @@
-@import "mixins";
+@import "../tools/tools";
 
 .btn {
   @extend button;
   line-height: 1.2;
   width: 100%;
-  padding: 10px;
+  padding: $space-medium;
 
   @include md {
     width: auto;

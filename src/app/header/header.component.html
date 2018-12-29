@@ -1,8 +1,23 @@
 <header class="header" [ngClass]="{'header--show': show }">
-  <div class="container">
+  <div class="container-fluid">
     <div class="header__inner">
-      <div class="pull-right">
-        <i class="fa fa-phone" aria-hidden="true"></i>
+      <div class="hidden-sm">
+        <span class="header__emoji" aria-hidden="true">💻</span>
+        <a [routerLink]="['work']">View our work</a>
+      </div>
+
+      <div class="hidden-sm">
+        <span class="header__emoji" aria-hidden="true">✉️</span>
+        <a [routerLink]="['contact']">Contact us</a>
+      </div>
+
+      <div class="hidden-sm">
+        <span class="header__emoji" aria-hidden="true">📕️</span>
+        <a href="https://blog.jupiterandthegiraffe.com">Read our blog</a>
+      </div>
+
+      <div>
+        <span class="header__emoji" aria-hidden="true">📞</span>
         <span class="hidden-sm">(+44) 7816 061 943</span>
         <a href="tel:+447816061943" class="hidden-sm-up">(+44) 7816 061 943</a>
       </div>

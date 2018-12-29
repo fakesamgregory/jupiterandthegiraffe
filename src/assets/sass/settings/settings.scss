@@ -1,0 +1,14 @@
+@import "colours";
+@import "fonts";
+@import "sizings";
+
+
+$palm: 320px;
+$lap: $screen-xs;
+$desk: $screen-md;
+
+$palm-media: '(max-width: $screen-xs - 1)';
+$lap-media: '(min-width: $screen-sm) and (max-width: $screen-md - 1)';
+$desk-media: '(min-width: $screen-md)';
+
+$animation: .2s ease-in-out, color .2s ease-in-out;

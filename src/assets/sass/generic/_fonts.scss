@@ -1,0 +1,31 @@
+@font-face {
+  font-family: $main-font;
+  src: url('../fonts/kgsummerstormrough-webfont.woff2') format('woff2'),
+       url('../fonts/kgsummerstormrough-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?54qe1w');
+  src:  url('../fonts/icomoon.eot?54qe1w#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?54qe1w') format('truetype'),
+        url('../fonts/icomoon.woff?54qe1w') format('woff'),
+        url('../fonts/icomoon.svg?54qe1w#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'fontawesome';
+  src:  url('../fonts/fontawesome-webfont.eot');
+  src:  url('../fonts/fontawesome-webfont.eot#iefix') format('embedded-opentype'),
+        url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+        url('../fonts/fontawesome-webfont.woff2') format('woff2'),
+        url('../fonts/fontawesome-webfont.woff') format('woff'),
+        url('../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

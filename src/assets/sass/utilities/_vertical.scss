@@ -1,0 +1,11 @@
+.vertical {
+  &-helper {
+    height: 100%;
+  }
+
+  &-wrapper,
+  &-helper{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

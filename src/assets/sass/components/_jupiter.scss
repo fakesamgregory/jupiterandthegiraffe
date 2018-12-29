@@ -1,0 +1,10 @@
+.jupiter {
+  border-radius: 50%;
+  width: 1000px;
+  height: 1000px;
+  background-color: $color-secondary;
+  position: fixed;
+  left: -40%;
+  z-index: -1;
+  top: 50%;
+}

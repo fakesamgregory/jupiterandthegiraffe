@@ -13,7 +13,8 @@
     <router-outlet></router-outlet>
   </main>
 
-  <a (click)="scrollUp($event)" class="scroll-up fa fa-arrow-up" aria-hidden="false" [ngClass]="{'scroll-up--active': showHeader}">
+  <a (click)="scrollUp($event)" class="scroll-up" [ngClass]="{'scroll-up--active': showHeader}">
+    <i aria-hidden="true" class="fab fa-arrow-up"></i>
     <span class="sr-only">Scroll to top</span>
   </a>
 

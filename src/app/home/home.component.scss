@@ -1,15 +1,11 @@
-@import "../../assets/sass/variables";
-@import "../../assets/sass/mixins";
+@import "../../assets/sass/settings/settings";
+@import "../../assets/sass/tools/tools";
 
 .home {
   transition: color 1s ease, background 1s ease;
   padding: 20px 0;
-
-  h2 {
-    @include md {
-      @include font-size($heading-1);
-    }
-  }
+  background: $color-white;
+  color: $color-black;
 
   .work {
     @include md {
@@ -21,20 +17,36 @@
     margin-bottom: $margin-xlarge;
   }
 
-  //&--active {
-    background: $color-white;
-    color: $color-black;
-  //}
-
   &__blog-info {
-    margin-bottom: $margin-medium;
-    margin-top: $margin-medium;
+    margin-bottom: $space-medium;
+    margin-top: $space-medium;
   }
 
   &__blog-image {
-    height: 200px;
+    height: 280px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+  }
+
+  &__blog-tag {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba($color-oldBrick, .5);
+    color: $color-white;
+    border-radius: 5px;
+    font-size: $small-font;
+    border: 1px solid $color-pickledBluewood;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__blog-title-link {
+    @include hover-focus {
+      text-decoration: none;
+    }
   }
 }

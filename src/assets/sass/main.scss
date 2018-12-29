@@ -1,35 +1,16 @@
-//Settings
-@import "variables";
-@import "mixins";
-@import "tools";
-
 //Bootstrap
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid";
 @import "../../../node_modules/bootstrap/scss/images";
 @import "../../../node_modules/aos/dist/aos.css";
-
-//Elements
-@import "global";
-@import "a";
-@import "h";
-@import "button";
-@import "form";
-@import "label";
-@import "input";
-@import "textarea";
-@import "ol";
-
-//Helpers
+// Font awesome
 @import "fontawesome/font-awesome";
-@import "typography";
-@import "lists";
-@import "headings";
-@import "btn";
-@import "section";
 
-//Components
-@import "card";
-@import "case-study";
-@import "icons";
-@import "link";
+@import "settings/settings";
+@import "tools/tools";
+@import "generic/generic";
+@import "elements/elements";
+@import "objects/objects";
+@import "components/components";
+@import "utilities/utilities";
+@import "global";

@@ -1,4 +1,4 @@
-@import "../../assets/sass/variables";
+@import "../../assets/sass/settings/settings";
 
 @function multiple-box-shadow ($n) {
   $value: '#{random(2000)}px #{random(2000)}px #FFF';

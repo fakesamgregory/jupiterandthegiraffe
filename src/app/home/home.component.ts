@@ -24,16 +24,17 @@ export class HomeComponent implements OnInit {
         blogs.forEach((blog) => {
           const author = this.http.get(blog._links.author[0].href);
           const image = this.http.get(blog._links['wp:featuredmedia'][0].href);
+          const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);
 
-          forkJoin(author, image)
+          forkJoin(author, image, category)
             .subscribe(data => {
               const obj = {
                 author: data[0],
                 image: data[1],
                 blog,
                 date: blog.date.split('T')[0].split('-'),
+                category: data[2]
               };
-
               this.blogs.push(obj);
             });
         });

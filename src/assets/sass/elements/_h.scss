@@ -15,8 +15,8 @@ h1 {
 
 h2 {
   @include font-size($heading-2-mobile);
-  margin-bottom: $margin-large;
-  padding-bottom: $margin-large;
+  margin-bottom: $space-large;
+  padding-bottom: $space-large;
   border-bottom: 1px solid $color-pickledBluewood;
   line-height: 1;
 
@@ -43,12 +43,12 @@ h2 {
 
 h3 {
   @include font-size($heading-3);
-  margin: 5px 0 15px 0;
+  margin: $space-small 0 $space-medium 0;
 }
 
 h4 {
   @include font-size($heading-4);
-  margin-bottom: 5px;
+  margin-bottom: $space-small;
 }
 
 @keyframes blink {

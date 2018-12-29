@@ -1,10 +1,10 @@
-@import "../../assets/sass/variables";
-@import "../../assets/sass/mixins";
+@import "../../assets/sass/settings/settings";
+@import "../../assets/sass/tools/tools";
 
 .get-in-touch {
   margin-top: 100px;
   &__links {
-    margin-right: $margin-large;
+    margin-right: $space-large;
     @include font-size($heading-2)
   }
 }

@@ -1,0 +1,27 @@
+.text {
+  &-center {
+    text-align: center;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}
+
+.color {
+  &-black {
+    color: $color-black;
+  }
+
+  &-green {
+    color: $color-green-haze;
+  }
+
+  &-white {
+    color: $color-white;
+  }
+}

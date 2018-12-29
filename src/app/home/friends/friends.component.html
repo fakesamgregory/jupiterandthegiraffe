@@ -8,8 +8,8 @@
     Henry Ford said <q>My best friend is the one who brings out the best in me</q>.
     We're so proud to work with these people and the best was certainly brought out in us.
   </p>
-  <ul class="row work list-unstyled">
-    <li class="col-sm-4 col-6" *ngFor="let friend of friends; let i = index"
+  <ul class="row list-unstyled friends__list">
+    <li class="col-sm-4 col-6 friends__list-item" *ngFor="let friend of friends; let i = index"
         data-aos="fade-up"
         [attr.data-aos-delay]="i * 150"
     >
@@ -21,11 +21,13 @@
           [attr.alt]="friend.name">
       </a>
       <ng-template #noLink>
-        <img
-          class="img-fluid friends__image"
-          src="assets/images/{{ friend.img }}.png"
-          srcset="assets/images/{{friend.img}}.png 1x, assets/images/{{friend.img}}@2x.png 2x"
-          [attr.alt]="friend.name">
+        <span class="friends__link">
+          <img
+            class="img-fluid friends__image"
+            src="assets/images/{{ friend.img }}.png"
+            srcset="assets/images/{{friend.img}}.png 1x, assets/images/{{friend.img}}@2x.png 2x"
+            [attr.alt]="friend.name">
+        </span>
       </ng-template>
 
     </li>

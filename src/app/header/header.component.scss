@@ -1,4 +1,4 @@
-@import "../../assets/sass/variables";
+@import "../../assets/sass/settings/settings";
 
 .header {
   top: -100%;
@@ -19,5 +19,16 @@
 
   &--show {
     top: 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__emoji {
+    display: inline-block;
+    margin-right: $space-medium;
+    vertical-align: middle;
   }
 }

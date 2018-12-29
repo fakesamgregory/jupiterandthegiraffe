@@ -1,17 +1,17 @@
-@import "../../assets/sass/variables";
+@import "../../assets/sass/settings/settings";
 
 .footer {
   background-color: $color-gray-dark;
   color: $color-white;
   z-index: 3;
-  padding: $margin-small 0 $margin-large;
+  padding: $space-small 0 $space-large;
   position: relative;
 
   &__title {
     color: lighten($color-gray-dark, 15%);
     border-bottom-color: lighten($color-gray-dark, 15%);
     margin-bottom: 0;
-    padding-bottom: $margin-small;
+    padding-bottom: $space-small;
   }
 
   &__link {
@@ -27,7 +27,7 @@
   }
 
   &__social-link {
-    margin-right: $margin-large;
+    margin-right: $space-large;
   }
 
   &__list-item {

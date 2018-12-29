@@ -1,0 +1,4 @@
+blockquote q {
+  font-family: $main-font;
+  @include font-size(15);
+}

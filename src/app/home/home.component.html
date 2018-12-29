@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <h1 class="sr-only">Jupiter and the Giraffe</h1>
 
-    <div class="row equal-heights home__about">
+    <div class="row equal-heights home__about section">
       <section class="col-sm">
         <header>
           <h2>
@@ -34,7 +34,7 @@
 
     <app-friends-component></app-friends-component>
 
-    <section class="home__blog">
+    <section class="home__blog section">
       <header>
         <h2>Blog</h2>
       </header>
@@ -42,29 +42,32 @@
         <p>Read our latest blogs.</p>
 
         <div class="row">
-          <section *ngFor="let blog of blogs;"  class="home__blog col-md">
+          <article *ngFor="let blog of blogs;"  class="home__blog col-md">
             <header>
               <h3>
-                <a [href]="blog.blog.link">{{blog.blog.title.rendered}}</a>
+                <a [href]="blog.blog.link" class="home__blog-title-link">{{blog.blog.title.rendered}}</a>
               </h3>
             </header>
 
-            <a [href]="blog.blog.link">
-              <div class="home__blog-image" *ngIf="blog.image.source_url" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}"></div>
+            <a [href]="blog.blog.link" class="home__blog-image-link">
+              <div class="home__blog-image" *ngIf="blog.image.source_url" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
+                <span class="home__blog-tag" aria-hidden="false">Category: {{blog.category.name}}</span>
+              </div>
             </a>
 
             <div class="home__blog-info">
-              By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[1]}}.{{blog.date[2]}}.{{blog.date[0]}}</strong>
+              By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[2]}}.{{blog.date[1]}}.{{blog.date[0]}}</strong>
             </div>
 
             <div [innerHTML]="blog.blog.excerpt.rendered"></div>
-          </section>
+          </article>
         </div>
 
-        <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
+        <p>
+          <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
+        </p>
       </div>
     </section>
-
   </div>
 </section>
 

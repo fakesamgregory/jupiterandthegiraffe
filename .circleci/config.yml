@@ -78,7 +78,7 @@ jobs:
 
       - run:
           name: Install Serverless CLI and dependencies
-          command: npm i -g serverless
+          command: npm i serverless
 
       - run:
           name: Deploy Severless

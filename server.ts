@@ -9,7 +9,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as compression from 'compression';
 
-import {join} from 'path';
+import {join, resolve} from 'path';
 
 enableProdMode();
 
@@ -36,7 +36,7 @@ app.set('views', './dist/browser');
 
 app.route('/sitemap.xml')
   .get((req, res) => {
-    res.sendFile(path.resolve(path.join(__dirname, '/sitemap.xml')));
+    res.sendFile(resolve(join(__dirname, '/sitemap.xml')));
   });
 
 app.get('/redirect/**', (req, res) => {

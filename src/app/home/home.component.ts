@@ -13,7 +13,7 @@ import {from, Observable, forkJoin} from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   public blogs: Array<object> = [];
-  private url = 'http://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
+  private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   constructor(private http: HttpClient) { }
 

@@ -36,7 +36,7 @@
   }
 
   &__logo-text {
-    font-family: $main-font;
+    font-family: $title-font;
     color: $color-primary;
     @include font-size(84);
     position: absolute;
@@ -46,7 +46,7 @@
   }
 
   &__text {
-    font-family: $main-font;
+    font-family: $title-font;
     padding: 10px 0;
     @include font-size(14);
 

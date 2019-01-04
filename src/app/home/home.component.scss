@@ -15,6 +15,15 @@
 
   &__about {
     margin-bottom: $margin-xlarge;
+    margin-top: 0;
+  }
+
+  &__about-who {
+    margin-bottom: $margin-xlarge;
+
+    @include md {
+      margin-bottom: 0;
+    }
   }
 
   &__blog-info {

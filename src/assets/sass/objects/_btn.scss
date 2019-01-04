@@ -5,6 +5,7 @@
   line-height: 1.2;
   width: 100%;
   padding: $space-medium;
+  appearance: none;
 
   @include md {
     width: auto;

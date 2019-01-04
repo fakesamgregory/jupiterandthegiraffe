@@ -3,7 +3,7 @@
     <h1 class="sr-only">Jupiter and the Giraffe</h1>
 
     <div class="row equal-heights home__about section">
-      <section class="col-sm">
+      <section class="col-sm home__about-who">
         <header>
           <h2>
             <span data-aos="fade-up">Who are Jupiter <br>and the Giraffe?</span>
@@ -67,6 +67,7 @@
           <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
         </p>
       </div>
+      <p *ngIf="error">There was an error fetching the blogs...</p>
     </section>
   </div>
 </section>

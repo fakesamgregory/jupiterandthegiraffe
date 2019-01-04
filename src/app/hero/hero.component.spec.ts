@@ -5,7 +5,6 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {TrustHtmlPipe} from '../trust-html.pipe';
 import {LogoComponent} from '../logo/logo.component';
-import {SnowComponent} from '../snow/snow.component';
 
 describe('HeroComponent', () => {
   let component: HeroComponent;
@@ -13,7 +12,7 @@ describe('HeroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroComponent, TrustHtmlPipe, LogoComponent, SnowComponent ],
+      declarations: [ HeroComponent, TrustHtmlPipe, LogoComponent ],
       imports: [RouterTestingModule, HttpClientModule]
     })
     .compileComponents();

@@ -20,7 +20,9 @@ const binaryMimeTypes = [
   'text/xml',
   'image/x-icon',
   'image/svg+xml',
-    'application/x-font-ttf'
+  'application/x-font-ttf',
+  'application/font-woff2',
+  'application/font-woff'
 ];
 
 server.app.use(awsServerlessExpressMiddleware.eventContext());

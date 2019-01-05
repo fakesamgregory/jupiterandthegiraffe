@@ -72,4 +72,10 @@
       text-decoration: none;
     }
   }
+
+  &__title-break {
+    @include md {
+      display: block;
+    }
+  }
 }

@@ -47,7 +47,7 @@
         <div class="row">
           <article *ngFor="let blog of blogs;"  class="home__blog col-md">
             <header>
-              <h3>
+              <h3 class="home__blog-title">
                 <a [href]="blog.blog.link" class="home__blog-title-link">{{blog.blog.title.rendered}}</a>
               </h3>
             </header>

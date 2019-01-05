@@ -8,7 +8,7 @@
     margin-top: 0;
     margin-bottom: 10px;
     font-family: $title-font;
-    @include font-size(34);
+    @include font-size(36);
 
     @include md {
       @include font-size(55);

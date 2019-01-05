@@ -5,7 +5,9 @@
   &__image {
     max-width: 150px;
     max-height: 175px;
+    width: 100%;
     transition: transform .3s ease;
+    opacity: 0.8;
 
     @include md {
       max-height: 130px;
@@ -16,7 +18,7 @@
   &__link {
     display: block;
     align-self: center;
-    padding: 20px;
+    margin: 10px;
 
     @include md {
       margin: 40px;
@@ -27,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 
     @include md {
       min-height: 100px;
@@ -44,6 +47,9 @@
   }
 
   &__list {
-    margin: $space-large;
+    margin-top: $space-xlrg;
+    @include md {
+      margin: 90px $space-large $space-large $space-large;
+    }
   }
 }

@@ -23,8 +23,6 @@ export class HomeComponent implements OnInit {
       .subscribe((blogs: Array<any>) => {
         blogs.forEach((blog) => {
 
-          console.log(blog);
-
           try {
             const author = this.http.get(blog._links.author[0].href);
             const image = this.http.get(blog._links['wp:featuredmedia'][0].href);

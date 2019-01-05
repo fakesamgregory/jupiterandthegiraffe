@@ -5,6 +5,11 @@
   margin-top: 100px;
   &__links {
     margin-right: $space-large;
-    @include font-size($heading-2)
+    color: $color-black;
+    @include font-size($heading-2);
+
+    @include hover-focus {
+      color: $color-oldBrick;
+    }
   }
 }

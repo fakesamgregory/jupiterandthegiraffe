@@ -32,7 +32,10 @@
   }
 
   &__logo {
-    margin: 0 auto;
+    margin: 0 15px;
+    @include md {
+      margin: 0 auto;
+    }
   }
 
   &__logo-text {
@@ -53,5 +56,9 @@
     @include md {
       @include font-size(18);
     }
+  }
+
+  &__text-wrap {
+    margin: 0 15px;
   }
 }

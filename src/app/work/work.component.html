@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <section class="section">
+<div class="work white-bg">
+  <section class="container-fluid">
     <header>
       <h2>Projects</h2>
     </header>
@@ -10,7 +10,7 @@
       <h3 *ngSwitchCase="404">
         {{error.status}}: {{ error.statusText }}
       </h3>
-      <ul class="row work" *ngSwitchDefault="">
+      <ul class="row work__list" *ngSwitchDefault="">
         <li class="col-md-4 col-sm-6 work__item" *ngFor="let workItem of work.work; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
           <a *ngIf="workItem.link; else noLink" [routerLink]="workItem.link">
             <img
@@ -23,7 +23,7 @@
             <h4>The brief:</h4>
             <p>{{workItem.content}}</p>
 
-            <p>View case study<app-dots-component></app-dots-component></p>
+            <p class="work__case-study">View case study<app-dots-component></app-dots-component></p>
           </a>
 
           <ng-template #noLink>

@@ -1,11 +1,26 @@
 @import "../../assets/sass/settings/settings";
+@import "../../assets/sass/tools/tools";
 
 .work {
-  list-style: none;
-  padding: 0;
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
 
   &__item {
     margin-bottom: $margin-xlarge;
+
+    a {
+      color: $color-black;
+
+      @include hover-focus {
+        color: $color-oldBrick;
+
+        .work__case-study {
+          font-weight: 700;
+        }
+      }
+    }
   }
 
   &__tags {

@@ -1,4 +1,6 @@
 .case-study {
+  padding-top: 0;
+
   &__credits-list {
     font-size: 2rem;
     list-style: none;
@@ -15,6 +17,8 @@
   }
 
   &__image {
-    margin-bottom: $space-large;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

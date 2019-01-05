@@ -3,7 +3,7 @@
 
 .hero {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto $space-large auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +12,7 @@
 
   &.home-page {
     height: 100vh;
+    margin-bottom: 0;
 
     @include md {
       min-height: 500px;

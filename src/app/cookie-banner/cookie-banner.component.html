@@ -1,0 +1,9 @@
+<div class="cookie-banner" *ngIf="showCookie">
+  <div class="container-fluid cookie-banner__inner">
+    <p>
+      By using this website you agree to our cookie policy. <a [routerLink]="['privacy-policy']">Learn more</a>.
+    </p>
+
+    <button type="button" (click)="dismiss()" class="btn btn--primary-outline">Got it</button>
+  </div>
+</div>

@@ -39,6 +39,8 @@ import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-cond
 import {EpochBrandWebsiteComponent} from './epoch-brand-website/epoch-brand-website.component';
 
 import { SnowComponent } from './snow/snow.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
 
 @NgModule({
   imports: [
@@ -77,7 +79,9 @@ import { SnowComponent } from './snow/snow.component';
     TermsAndConditionsComponent,
     EpochBrandWebsiteComponent,
     GetInTouchComponent,
-    SnowComponent
+    SnowComponent,
+    PrivacyPolicyComponent,
+    CookieBannerComponent
   ],
   providers: [
     FormatDataService,

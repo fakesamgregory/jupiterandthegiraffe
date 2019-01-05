@@ -3,11 +3,15 @@
   color: $color-white;
   position: fixed;
   right: -100%;
-  bottom: 70px;
+  bottom: 100px;
   width: 70px;
   transition: right ease .5s;
   z-index: 90;
   padding-left: $space-small;
+
+  @include md {
+    bottom: 70px;
+  }
 
   &--active {
     right: 0;

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
-  templateUrl: './who.component.html'
+  templateUrl: './who.component.html',
+  styleUrls: ['./who.component.scss']
 })
 export class WhoComponent {
   constructor(private meta: Meta, private titleService: Title) {

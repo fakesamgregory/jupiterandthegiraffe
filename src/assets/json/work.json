@@ -33,12 +33,6 @@
       "image": "3dux-wordpress.jpg",
       "tags": ["web development"],
       "content": "For 3DUX, we created a bespoke Wordpress theme. This theme needed a login area where clients could request to see their more sensitive work."
-    },
-    {
-      "title": "Wasp Plumbing SEO",
-      "image": "wasp-seo.jpg",
-      "tags": ["web development"],
-      "content": "Wasp Plumbing came to us to improve their search engine presence (SEO). We used markup to identify to search engine the details about their business and gave consultancy advice on how they can enhance their presence"
     }
   ]
 }

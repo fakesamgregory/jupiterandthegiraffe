@@ -52,4 +52,10 @@
       margin: 90px $space-large $space-large $space-large;
     }
   }
+
+  &__title-break {
+    @include md {
+      display: block;
+    }
+  }
 }

@@ -39,4 +39,16 @@
   &--lg {
     padding: 1rem 2rem;
   }
+
+  &--dark {
+    border-color: $color-black;
+    color: $color-black;
+
+    &:hover,
+    &:focus {
+      background-color: $color-black;
+      color: $color-white;
+      outline: none;
+    }
+  }
 }

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WhoComponent } from './who.component';
 import {GetInTouchComponent} from '../get-in-touch/get-in-touch.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('WhoComponent', () => {
   let component: WhoComponent;
@@ -9,7 +10,8 @@ describe('WhoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WhoComponent, GetInTouchComponent]
+      declarations: [ WhoComponent, GetInTouchComponent],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));

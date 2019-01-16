@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   isKeyboardUser = false;
   hasBeenHome = false;
   hideCookie = false;
-  @ViewChild('footer', {read: ElementRef}) footer:ElementRef;
+  @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
   public ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) {

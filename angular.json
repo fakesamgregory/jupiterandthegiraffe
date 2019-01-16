@@ -20,7 +20,8 @@
               "src/assets",
               "src/favicon.ico",
               "src/images",
-              "src/json"
+              "src/json",
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/assets/sass/main.scss"

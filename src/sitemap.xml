@@ -19,12 +19,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.jupiterandthegiraffe.com/</loc>
-    <lastmod>2018-12-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.jupiterandthegiraffe.com/what-we-do</loc>
     <lastmod>2018-12-29</lastmod>
     <changefreq>daily</changefreq>
@@ -55,12 +49,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.jupiterandthegiraffe.com/veratrak</loc>
-    <lastmod>2018-12-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.jupiterandthegiraffe.com/boombocs</loc>
     <lastmod>2018-12-29</lastmod>
     <changefreq>daily</changefreq>
@@ -72,8 +60,10 @@
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-<<<<<<< Updated upstream
+  <url>
+    <loc>https://www.jupiterandthegiraffe.com/privacy-policy</loc>
+    <lastmod>2018-12-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
-=======
-</urlset>
->>>>>>> Stashed changes

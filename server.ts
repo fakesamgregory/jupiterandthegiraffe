@@ -35,7 +35,7 @@ app.set('view engine', 'html');
 app.set('views', './dist/browser');
 
 app.get('/sitemap.xml', (req, res) => {
-  res.sendFile(join(DIST_FOLDER, 'sitemap.xml'));
+  res.sendFile(join(DIST_FOLDER, 'browser', 'sitemap.xml'));
 });
 
 app.get('/redirect/**', (req, res) => {

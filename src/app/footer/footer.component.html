@@ -1,5 +1,5 @@
-<footer class="footer">
-    <div class="container">
+<footer class="footer" ngClass="{'footer--hide': hide}">
+    <div class="container-fluid">
       <blockquote class="text-center">
         <q>You've made it to the bottom!</q>
         <footer>- Jupiter and the Giraffe <span aria-hidden="true">🚀</span></footer>
@@ -51,18 +51,24 @@
           </a>
         </li>
       </ul>
-      <ul class="footer__menu list-unstyled list-inline">
-        <li
-          *ngFor="let item of general"
-          class="list-inline-item"
-          [ngClass]="item.class"
-        >
-          <a *ngIf="item.url" [routerLink]="item.url" class="footer__link">{{item.name}}</a>
-        </li>
-        <li class="list-inline-item pull-right">
-          © {{ today | date:'yyyy' }} Jupiter and the Giraffe
-        </li>
-      </ul>
+      <div class="row">
+        <div class="col-md-8">
+          <ul class="footer__menu list-unstyled list-inline">
+            <li
+              *ngFor="let item of general"
+              class="list-inline-item"
+              [ngClass]="item.class"
+            >
+              <a *ngIf="item.url" [routerLink]="item.url" class="footer__link">{{item.name}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 footer__menu">
+          <div class="pull-right">
+            © {{ today | date:'yyyy' }} Jupiter and the Giraffe
+          </div>
+        </div>
+      </div>
       <span class="footer__giraffe">
         <img [src]="'assets/images/giraffe.png'" [srcset]="'assets/images/giraffe@2x.png 2x'" alt="">
       </span>

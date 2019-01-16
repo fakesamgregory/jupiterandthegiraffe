@@ -1,7 +1,7 @@
 import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
-import {Component, HostListener, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {AosToken} from './aos';
@@ -19,6 +19,9 @@ export class AppComponent implements OnInit {
   isHome = false;
   isKeyboardUser = false;
   hasBeenHome = false;
+  hideCookie = false;
+  footerPos = 0;
+  @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
   public ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
@@ -29,7 +32,6 @@ export class AppComponent implements OnInit {
       }
     }
   }
-
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: any,
@@ -60,6 +62,12 @@ export class AppComponent implements OnInit {
           this.window.scrollTo(0, 0);
         }
       });
+
+    router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.footerPos = this.footer.nativeElement.getBoundingClientRect().top;
+      });
   }
 
   public getRouterOutletState(outlet) {
@@ -74,7 +82,9 @@ export class AppComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      this.showHeader = (this.window.scrollY > 400);
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      this.showHeader = (scrollY > 400);
+      this.hideCookie = (scrollY > this.footerPos);
     }
   }
 

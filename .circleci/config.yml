@@ -95,7 +95,7 @@ jobs:
 
       - run:
           name: Invalidate code
-          command: aws cloudfront create-invalidation --distribution-id E24T90EA7EBZTQ --paths /*
+          command: aws cloudfront create-invalidation --distribution-id E24T90EA7EBZTQ --paths *
 
 
   test:

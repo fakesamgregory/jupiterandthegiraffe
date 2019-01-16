@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CookieBannerComponent implements OnInit {
   public showCookie = false;
-  private _hide = '';
+  private _hide = false;
 
   @Input()
   set hide(hide: boolean) {

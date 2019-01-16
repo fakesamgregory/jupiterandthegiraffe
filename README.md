@@ -1,4 +1,4 @@
-# JupiterAndTheGiraffe
+# JupiterAndTheGiraffe 🚀
 
 - [Production Site - JupiterandtheGiraffe.com](http://jupiterandthegiraffe.com)
 - [Dev Site - dev.JupiterandtheGiraffe.com](http://dev.jupiterandthegiraffe.com)
@@ -6,16 +6,6 @@
 Project road-map - [https://trello.com/b/HINcNI0y/jupiter-and-the-giraffe-website-roadmap](Trello)
 
 Feel free to add issues using Github issues.
-
-## Docker 
-
-### dev
-`docker-compose up -d --build --remove-orphans`
-### prod
-`docker build -t jupiterandthegiraffe .`
-
-`docker run -it -p 80:4200 jupiterandthegiraffe`
-
 
 ## Development server
 

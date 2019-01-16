@@ -15,11 +15,12 @@ export class FooterComponent implements OnInit {
     {url: '/work', name: 'Our work', class: 'footer__general-item'},
     {url: '/who-we-are', name: 'About', class: 'footer__general-item'},
     {url: '/contact', name: 'Work With Us', class: 'footer__general-item'},
-    {url: '/terms-and-conditions', name: 'Terms and Conditions', class: 'footer__general-item'}
+    {url: '/terms-and-conditions', name: 'Terms and Conditions', class: 'footer__general-item'},
+    {url: '/privacy-policy', name: 'Privacy Policy', class: 'footer__general-item'}
   ];
   today: number = Date.now();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http

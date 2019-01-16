@@ -35,6 +35,10 @@
     border-bottom: 1px solid lighten($color-gray-dark, 15%);
   }
 
+  blockquote {
+    margin: $space-large 0;
+  }
+
   &__giraffe {
     position: absolute;
     right: 20px;

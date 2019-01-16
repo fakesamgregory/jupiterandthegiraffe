@@ -36,13 +36,17 @@
     }
   }
 
+  &__blog-title {
+    height: 50px;
+  }
+
   &__blog-info {
     margin-bottom: $space-medium;
     margin-top: $space-medium;
   }
 
   &__blog-image {
-    height: 280px;
+    height: 250px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -66,6 +70,12 @@
   &__blog-title-link {
     @include hover-focus {
       text-decoration: none;
+    }
+  }
+
+  &__title-break {
+    @include md {
+      display: block;
     }
   }
 }

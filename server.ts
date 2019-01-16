@@ -34,9 +34,7 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', './dist/browser');
 
-app.get('/sitemap.xml', (req, res) => {
-  res.sendFile(join(DIST_FOLDER, 'browser', 'sitemap.xml'));
-});
+app.get('/sitemap.xml', express.static('./dist/browser/sitemap.xml'));
 
 app.get('/redirect/**', (req, res) => {
   const location = req.url.substring(10);

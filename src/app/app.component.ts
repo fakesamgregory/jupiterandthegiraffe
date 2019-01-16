@@ -6,13 +6,11 @@ import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
-import { fadeAnimation } from './fade-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [fadeAnimation]
 })
 export class AppComponent implements OnInit {
   showHeader = false;
@@ -68,10 +66,6 @@ export class AppComponent implements OnInit {
       .subscribe((event: NavigationEnd) => {
         this.footerPos = this.footer.nativeElement.getBoundingClientRect().top;
       });
-  }
-
-  public getRouterOutletState(outlet) {
-    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
   scrollUp(e) {

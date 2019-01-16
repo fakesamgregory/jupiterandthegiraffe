@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   isKeyboardUser = false;
   hasBeenHome = false;
   hideCookie = false;
+  footerPos = 0;
   @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
   public ngOnInit(): void {

@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit {
   ];
   today: number = Date.now();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http

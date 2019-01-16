@@ -10,6 +10,11 @@
   padding: $space-medium 0;
   background: $color-malibu;
   color: $color-black;
+  transition: bottom .3s ease;
+
+  &--hide {
+    bottom: -100%;
+  }
 
   &__inner {
     display: flex;

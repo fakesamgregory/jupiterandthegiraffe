@@ -1,4 +1,4 @@
-<div class="cookie-banner" *ngIf="showCookie">
+<div class="cookie-banner" *ngIf="showCookie" [ngClass]="{'cookie-banner--hide': hide}">
   <div class="container-fluid cookie-banner__inner">
     <p>
       By using this website you agree to our cookie policy. <a [routerLink]="['privacy-policy']">Learn more</a>.

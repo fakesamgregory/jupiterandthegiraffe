@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-cookie-banner',
@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CookieBannerComponent implements OnInit {
   public showCookie = false;
+  private _hide = '';
+
+  @Input()
+  set hide(hide: boolean) {
+    this._hide = hide;
+  }
+
+  get hide(): string { return this._hide; }
 
   constructor() { }
 

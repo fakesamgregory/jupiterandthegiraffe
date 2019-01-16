@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import { of } from 'rxjs';
 
 import {DotsComponent} from '../dots/dots.component';
+import {GetInTouchComponent} from '../get-in-touch/get-in-touch.component';
 
 describe('WorkComponent', () => {
   let component: WorkComponent;
@@ -12,7 +13,7 @@ describe('WorkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkComponent, DotsComponent ],
+      declarations: [ WorkComponent, DotsComponent, GetInTouchComponent ],
       providers: [
         {
           provide: ActivatedRoute,

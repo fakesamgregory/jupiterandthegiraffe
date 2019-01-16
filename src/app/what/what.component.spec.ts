@@ -4,6 +4,7 @@ import { WhatComponent } from './what.component';
 import {RouterModule} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {DotsComponent} from '../dots/dots.component';
+import {GetInTouchComponent} from '../get-in-touch/get-in-touch.component';
 
 describe('WhatComponent', () => {
   let component: WhatComponent;
@@ -11,7 +12,7 @@ describe('WhatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WhatComponent, DotsComponent ],
+      declarations: [ WhatComponent, DotsComponent, GetInTouchComponent ],
       imports: [RouterModule, RouterTestingModule]
     })
     .compileComponents();

@@ -2,15 +2,17 @@ import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
 import {Component, HostListener, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import {Router, NavigationStart} from '@angular/router';
+import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
+import { fadeAnimation } from './fade-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [fadeAnimation]
 })
 export class AppComponent implements OnInit {
   showHeader = false;
@@ -58,6 +60,10 @@ export class AppComponent implements OnInit {
           this.window.scrollTo(0, 0);
         }
       });
+  }
+
+  public getRouterOutletState(outlet) {
+    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
   scrollUp(e) {

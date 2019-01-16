@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
                   date: blog.date.split('T')[0].split('-'),
                   category: data[2]
                 };
+                console.log(data[2])
                 this.blogs.push(obj);
               });
           } catch (e) {

@@ -20,7 +20,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// const DIST_FOLDER = join(process.cwd(), 'dist');
+const DIST_FOLDER = join(process.cwd(), 'dist');
 
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
 
@@ -34,9 +34,10 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', './dist/browser');
 
-app.get('/sitemap.xml', (req, res) => {
-  res.sendFile(resolve(join(__dirname, '/sitemap.xml')));
-});
+app.route('/sitemap.xml')
+  .get((req, res) => {
+    res.sendFile(join(DIST_FOLDER, 'sitemap.xml'));
+  });
 
 app.get('/redirect/**', (req, res) => {
   const location = req.url.substring(10);

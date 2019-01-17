@@ -39,9 +39,9 @@ export class TermsAndConditionsComponent implements OnInit {
   ngOnInit() {
     this.http
       .get(`${this.url}/pages/144`)
-      .subscribe((blogs: Array<any>) => {
-        this.content = blogs.content.rendered;
-        this.title = blogs.title.rendered;
-        });
+      .subscribe((content: any) => {
+        this.content = content.content.rendered;
+        this.title = content.title.rendered;
+      });
   }
 }

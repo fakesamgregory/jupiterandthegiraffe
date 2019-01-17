@@ -78,4 +78,16 @@
       display: block;
     }
   }
+
+  &__blog {
+    margin-top: $space-large;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include md {
+      margin-top: 0;
+    }
+  }
 }

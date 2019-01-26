@@ -1,25 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroComponent } from './hero.component';
+import { HomeComponent } from './home.component';
+import {FriendsComponent} from './friends/friends.component';
+import {DotsComponent} from '../../global/dots/dots.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
-import {TrustHtmlPipe} from '../trust-html.pipe';
-import {LogoComponent} from '../global/logo/logo.component';
+import {SnowComponent} from '../../global/snow/snow.component';
 
-describe('HeroComponent', () => {
-  let component: HeroComponent;
-  let fixture: ComponentFixture<HeroComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroComponent, TrustHtmlPipe, LogoComponent ],
+      declarations: [ HomeComponent, FriendsComponent, DotsComponent, SnowComponent ],
       imports: [RouterTestingModule, HttpClientModule]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeroComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

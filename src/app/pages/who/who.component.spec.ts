@@ -1,24 +1,23 @@
-import { async, TestBed, ComponentFixture } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VeratrakComponent } from './veratrak.component';
+import { WhoComponent } from './who.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('VeratrakComponent', () => {
-  let component: VeratrakComponent;
-  let fixture: ComponentFixture<VeratrakComponent>;
-
+describe('WhoComponent', () => {
+  let component: WhoComponent;
+  let fixture: ComponentFixture<WhoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VeratrakComponent, GetInTouchComponent ],
-      imports: [RouterTestingModule]
+      declarations: [ WhoComponent, GetInTouchComponent],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VeratrakComponent);
+    fixture = TestBed.createComponent(WhoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

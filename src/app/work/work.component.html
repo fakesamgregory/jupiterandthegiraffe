@@ -12,7 +12,7 @@
       </h3>
       <ul class="row work__list" *ngSwitchDefault="">
         <li class="col-md-4 col-sm-6 work__item" *ngFor="let workItem of work.work; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
-          <a *ngIf="workItem.link; else noLink" [routerLink]="workItem.link">
+          <a *ngIf="workItem.link; else noLink" [routerLink]="'/case-study' + workItem.link">
             <img
               *ngIf="workItem.image"
               [src]="'assets/images/' + workItem.image"

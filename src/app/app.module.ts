@@ -32,15 +32,32 @@ import {DataService} from './data.service';
 import {WorkResolverService} from './work/work-resolver.service';
 import {WorkDetailService} from './work/work-detail/work-detail.service';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {NorthstarComponent} from './northstar/northstar.component';
-import {BoombocsComponent} from './boombocs/boombocs.component';
+import {NorthstarComponent} from './case-studies/northstar/northstar.component';
+import {BoombocsComponent} from './case-studies/boombocs/boombocs.component';
 import {GetInTouchComponent} from './get-in-touch/get-in-touch.component';
 import {TermsAndConditionsComponent} from './terms-and-conditions/terms-and-conditions.component';
-import {EpochBrandWebsiteComponent} from './epoch-brand-website/epoch-brand-website.component';
+import {EpochBrandWebsiteComponent} from './case-studies/epoch-brand-website/epoch-brand-website.component';
 
 import { SnowComponent } from './snow/snow.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
+import { BrandingComponent } from './what/branding/branding.component';
+import { DesignComponent } from './what/design/design.component';
+import { ToneOfVoiceComponent } from './misc/tone-of-voice/tone-of-voice.component';
+import { MessagingComponent } from './misc/messaging/messaging.component';
+import { TypographyComponent } from './misc/typography/typography.component';
+import { PhotographyComponent } from './misc/photography/photography.component';
+import { CmsComponent } from './misc/cms/cms.component';
+import { EcommerceComponent } from './misc/ecommerce/ecommerce.component';
+import { WordpressComponent } from './wordpress/wordpress.component';
+import { ShopifyComponent } from './misc/shopify/shopify.component';
+import { VueComponent } from './misc/vue/vue.component';
+import { AngularComponent } from './misc/angular/angular.component';
+import { ReactComponent } from './misc/react/react.component';
+import { UxComponent } from './misc/ux/ux.component';
+import { LocationComponent } from './misc/location/location.component';
+import { WebDevelopmentComponent } from './what/web-development/web-development.component';
+import { StrategyComponent } from './what/strategy/strategy.component';
 
 @NgModule({
   imports: [
@@ -81,7 +98,24 @@ import { CookieBannerComponent } from './cookie-banner/cookie-banner.component';
     GetInTouchComponent,
     SnowComponent,
     PrivacyPolicyComponent,
-    CookieBannerComponent
+    CookieBannerComponent,
+    BrandingComponent,
+    DesignComponent,
+    ToneOfVoiceComponent,
+    MessagingComponent,
+    TypographyComponent,
+    PhotographyComponent,
+    CmsComponent,
+    EcommerceComponent,
+    WordpressComponent,
+    ShopifyComponent,
+    VueComponent,
+    AngularComponent,
+    ReactComponent,
+    UxComponent,
+    LocationComponent,
+    WebDevelopmentComponent,
+    StrategyComponent
   ],
   providers: [
     FormatDataService,

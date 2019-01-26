@@ -4,47 +4,135 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { WhoComponent } from './who/who.component';
 import { WhatComponent } from './what/what.component';
-import { VeratrakComponent } from './veratrak/veratrak.component';
-import { NorthstarComponent } from './northstar/northstar.component';
+import { VeratrakComponent } from './case-studies/veratrak/veratrak.component';
+import { NorthstarComponent } from './case-studies/northstar/northstar.component';
 import { WorkComponent } from './work/work.component';
 import { WorkDetailComponent } from './work/work-detail/work-detail.component';
-import { BoombocsComponent } from './boombocs/boombocs.component';
+import { BoombocsComponent } from './case-studies/boombocs/boombocs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { WorkResolverService } from './work/work-resolver.service';
-import { WorkDetailService } from './work/work-detail/work-detail.service';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
-import { EpochBrandWebsiteComponent } from './epoch-brand-website/epoch-brand-website.component';
+import { EpochBrandWebsiteComponent } from './case-studies/epoch-brand-website/epoch-brand-website.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
+import {ToneOfVoiceComponent} from './misc/tone-of-voice/tone-of-voice.component';
+import {MessagingComponent} from './misc/messaging/messaging.component';
+import {PhotographyComponent} from './misc/photography/photography.component';
+import {TypographyComponent} from './misc/typography/typography.component';
+import {CmsComponent} from './misc/cms/cms.component';
+import {EcommerceComponent} from './misc/ecommerce/ecommerce.component';
+import {WordpressComponent} from './wordpress/wordpress.component';
+import {ShopifyComponent} from './misc/shopify/shopify.component';
+import {VueComponent} from './misc/vue/vue.component';
+import {AngularComponent} from './misc/angular/angular.component';
+import {ReactComponent} from './misc/react/react.component';
+import {LocationComponent} from './misc/location/location.component';
+import {DesignComponent} from './what/design/design.component';
+import {WebDevelopmentComponent} from './what/web-development/web-development.component';
+import {BrandingComponent} from './what/branding/branding.component';
+import {UxComponent} from "./misc/ux/ux.component";
 
 const routes: Routes = [
+  // Top level pages
   { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'who-we-are', component: WhoComponent },
   { path: 'what-we-do', component: WhatComponent },
-  {
-    path: 'work',
-    component: WorkComponent,
-    resolve: { work: WorkResolverService },
-    children: [
-      { path: ':page', children: [
-          {
-            path: '',
-            component: WorkDetailComponent,
-            resolve: {
-              page: WorkDetailService
-            }
-          }
-        ]
-      }
-    ]
-  },
-  { path: 'contact', component: ContactComponent },
-  { path: 'veratrak', component: VeratrakComponent },
-  { path: 'north-star-law', component: NorthstarComponent },
-  { path: 'boombocs', component: BoombocsComponent },
-  { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
+  { path: 'services', redirectTo: '/what-we-do' },
+  { path: 'service', redirectTo: '/what-we-do' },
+  { path: 'webdevelopment', redirectTo: '/service/webdevelopment' },
+  { path: 'design', redirectTo: '/service/design' },
+  { path: 'branding', redirectTo: '/service/branding' },
+  { path: 'veratrak', redirectTo: '/case-study/veratrak'},
+  { path: 'north-star-law', redirectTo: '/case-study/north-star-law'},
+  { path: 'boombocs', redirectTo: '/case-study/boombocs'},
+  { path: 'epoch-brand-website', redirectTo: '/case-study/epoch-brand-website'},
+
+  // Case studies
+  {
+    path: 'case-study',
+    children: [
+      { path: 'veratrak', component: VeratrakComponent },
+      { path: 'north-star-law', component: NorthstarComponent },
+      { path: 'boombocs', component: BoombocsComponent },
+      { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent }
+    ]
+  },
+
+  // Services
+  {
+    path: 'service',
+    children: [
+      { path: 'design', component: DesignComponent },
+      { path: 'branding', component: BrandingComponent },
+      { path: 'webdevelopment', component: WebDevelopmentComponent },
+    ]
+  },
+
+  // Design topics, locations
+  {
+    path: 'design',
+    children: [
+      { path: 'ux', component: UxComponent },
+      { path: 'typography', component: TypographyComponent },
+
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } }
+    ]
+  },
+
+  // Branding topics, locations
+  {
+    path: 'branding',
+    children: [
+      { path: 'tone-of-voice', component: ToneOfVoiceComponent },
+      { path: 'brand-message', component: MessagingComponent },
+      { path: 'photography', component: PhotographyComponent },
+
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'branding' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } }
+    ]
+  },
+
+  // Web Development topics, locations
+  {
+    path: 'webdevelopment',
+    children: [
+      { path: 'cms', component: CmsComponent },
+      { path: 'ecommerce', component: EcommerceComponent },
+      { path: 'wordpress', component: WordpressComponent },
+      { path: 'shopify', component: ShopifyComponent },
+      { path: 'vue', component: VueComponent },
+      { path: 'angular', component: AngularComponent },
+      { path: 'react', component: ReactComponent },
+
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'webdevelopment' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'webdevelopment' } },
+    ]
+  },
+
+  // Topics
+  { path: 'tone-of-voice', component: ToneOfVoiceComponent },
+  { path: 'brand-message', component: MessagingComponent },
+  { path: 'photography', component: PhotographyComponent },
+  { path: 'typography', component: TypographyComponent },
+  { path: 'cms', component: CmsComponent },
+  { path: 'ecommerce', component: EcommerceComponent },
+  { path: 'wordpress', component: WordpressComponent },
+  { path: 'shopify', component: ShopifyComponent },
+  { path: 'vue', component: VueComponent },
+  { path: 'angular', component: AngularComponent },
+  { path: 'react', component: ReactComponent },
+  { path: 'ux', component: UxComponent },
+
+  // Locations
+  { path: 'london', component: LocationComponent, data: { location: 'London' } },
+  { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
+
+  // Not found
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

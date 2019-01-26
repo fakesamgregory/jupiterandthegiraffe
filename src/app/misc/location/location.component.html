@@ -1,0 +1,53 @@
+<div class="white-bg">
+  <section class="container-fluid">
+    <h1>Jupiter and the Giraffe - {{location}}</h1>
+
+    <p>
+      Our company is registered in UK and Wales but operates all over the world.
+    </p>
+
+    <p>
+      We bring all our services to {{location}}, be it <a [routerLink]="['webdevelopment']" class="link-plain">web development</a>,
+      <a [routerLink]="['branding']" class="link-plain">branding</a> or <a [routerLink]="['design']" class="link-plain">design</a>.
+      As always we will start with a <a [routerLink]="['strategy']" class="link-plain">strategy workshop</a>
+      and build out your needs and solutions to your problems.
+    </p>
+
+    <section *ngIf="type === 'branding' || !type">
+      <h2>Branding</h2>
+
+      <p>
+        A brand isn't something you can see or touch, it's something you feel. What words encapsulate what your users feel when
+        they interact with your business? This is something a brand will do and we strive to get them there. Through
+        <a [routerLink]="['tone-of-voice']" class="link-plain">tone of voice</a>,
+        <a [routerLink]="['brand-messaging']" class="link-plain">brand messaging</a>,
+        <a [routerLink]="['photography']" class="link-plain">photography</a>,
+        <a [routerLink]="['typography']" class="link-plain">typography</a> and
+        <a [routerLink]="['design']" class="link-plain">design</a>. This all comes together to reflects your brand.
+      </p>
+    </section>
+
+    <section *ngIf="type === 'design' || !type">
+      <h2>Design</h2>
+
+      <p>
+        The best design has the best story. We craft this through your brand and unleash it by providing a visual wrapping to
+        your brand. Taking form, colour, composition and <a [routerLink]="['ux']">UX</a>, we create beautiful designs that your users will love.
+      </p>
+    </section>
+
+    <section *ngIf="type === 'webdevelopment' || !type">
+      <h2>Web Development</h2>
+
+      <p>
+        An amazing website can only be crafted from the best design and when it meets the latest technologies. We are experienced
+        in building enterprise-level websites and honing the skills necessary and bringing it to smaller markets. We stretch to build
+        <a [routerLink]="['cms']">CMS</a> and <a [routerLink]="['ecommerce']">eCommerce</a> sites on platforms like
+        <a [routerLink]="['wordpress']">Wordpress</a> and <a [routerLink]="['shopify']">Shopify</a> or we can use the latest
+        technologies like <a [routerLink]="['vue']">Vue</a>, <a [routerLink]="['angular']">Angular</a> or <a [routerLink]="['react']">React</a>.
+      </p>
+    </section>
+
+    <app-get-in-touch></app-get-in-touch>
+  </section>
+</div>

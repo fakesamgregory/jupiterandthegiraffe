@@ -2,6 +2,7 @@
   "work": [
     {
       "title": "EPOCH",
+      "type": "Branding",
       "link": "/epoch-brand-website",
       "image": "work-epoch.jpg",
       "tags": ["identity", "branding", "web design", "web development"],
@@ -9,6 +10,7 @@
     },
     {
       "title": "Veratrak",
+      "type": "Design",
       "link": "/veratrak",
       "image": "work-veratrak.jpg",
       "tags": ["identity", "web design", "web development"],
@@ -16,6 +18,7 @@
     },
     {
       "title": "Boombocs",
+      "type": "Design",
       "link": "/boombocs",
       "image": "work-boombocs.jpg",
       "tags": ["web design", "web development"],
@@ -23,6 +26,7 @@
     },
     {
       "title": "North Star Law",
+      "type": "Design",
       "link": "/north-star-law",
       "image": "work-north-star-law.jpg",
       "tags": ["branding", "web design", "web development"],

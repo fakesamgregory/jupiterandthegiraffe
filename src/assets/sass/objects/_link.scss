@@ -1,6 +1,7 @@
 .link {
   &-plain {
     text-decoration: none;
+    color: currentColor;
 
     &::after {
       display: none !important;

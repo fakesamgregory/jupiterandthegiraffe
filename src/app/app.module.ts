@@ -41,8 +41,8 @@ import {EpochBrandWebsiteComponent} from './case-studies/epoch-brand-website/epo
 import { SnowComponent } from './global/snow/snow.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { CookieBannerComponent } from './global/cookie-banner/cookie-banner.component';
-import { BrandingComponent } from './pages/what/branding/branding.component';
-import { DesignComponent } from './pages/what/design/design.component';
+import { BrandingComponent } from './pages/branding/branding.component';
+import { DesignComponent } from './pages/design/design.component';
 import { ToneOfVoiceComponent } from './misc/tone-of-voice/tone-of-voice.component';
 import { MessagingComponent } from './misc/messaging/messaging.component';
 import { TypographyComponent } from './misc/typography/typography.component';
@@ -56,8 +56,8 @@ import { AngularComponent } from './misc/angular/angular.component';
 import { ReactComponent } from './misc/react/react.component';
 import { UxComponent } from './misc/ux/ux.component';
 import { LocationComponent } from './misc/location/location.component';
-import { WebDevelopmentComponent } from './pages/what/web-development/web-development.component';
-import { StrategyComponent } from './pages/what/strategy/strategy.component';
+import { WebDevelopmentComponent } from './pages/web-development/web-development.component';
+import { StrategyComponent } from './pages/strategy/strategy.component';
 
 @NgModule({
   imports: [

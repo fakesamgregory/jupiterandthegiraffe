@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 import { ShopifyComponent } from './shopify.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 
 describe('ShopifyComponent', () => {
   let component: ShopifyComponent;
@@ -8,7 +10,8 @@ describe('ShopifyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShopifyComponent ]
+      declarations: [ ShopifyComponent, GetInTouchComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

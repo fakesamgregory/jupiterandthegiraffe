@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 import { BrandingComponent } from './branding.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 
 describe('BrandingComponent', () => {
   let component: BrandingComponent;
@@ -8,7 +10,8 @@ describe('BrandingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrandingComponent ]
+      declarations: [ BrandingComponent, GetInTouchComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

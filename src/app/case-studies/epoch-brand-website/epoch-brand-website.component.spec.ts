@@ -2,8 +2,8 @@ import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 
 import { EpochBrandWebsiteComponent } from './epoch-brand-website.component';
-import {DotsComponent} from '../dots/dots.component';
-import {GetInTouchComponent} from '../get-in-touch/get-in-touch.component';
+import {DotsComponent} from '../../global/dots/dots.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 
 describe('EpochBrandWebsiteComponent', () => {
   let component: EpochBrandWebsiteComponent;

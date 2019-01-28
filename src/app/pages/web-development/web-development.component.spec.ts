@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WebDevelopmentComponent } from './web-development.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('WebDevelopmentComponent', () => {
   let component: WebDevelopmentComponent;
@@ -8,7 +10,8 @@ describe('WebDevelopmentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebDevelopmentComponent ]
+      declarations: [ WebDevelopmentComponent, GetInTouchComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

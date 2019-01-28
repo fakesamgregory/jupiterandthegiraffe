@@ -27,10 +27,11 @@ import { VueComponent } from './misc/vue/vue.component';
 import { AngularComponent } from './misc/angular/angular.component';
 import { ReactComponent } from './misc/react/react.component';
 import { LocationComponent } from './misc/location/location.component';
-import { DesignComponent } from './pages/what/design/design.component';
-import { WebDevelopmentComponent } from './pages/what/web-development/web-development.component';
-import { BrandingComponent } from './pages/what/branding/branding.component';
+import { DesignComponent } from './pages/design/design.component';
+import { WebDevelopmentComponent } from './pages/web-development/web-development.component';
+import { BrandingComponent } from './pages/branding/branding.component';
 import { UxComponent } from './misc/ux/ux.component';
+import {StrategyComponent} from "./pages/strategy/strategy.component";
 
 const routes: Routes = [
   // Top level pages
@@ -41,17 +42,9 @@ const routes: Routes = [
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
-  { path: 'services', redirectTo: '/what-we-do' },
-  { path: 'service', redirectTo: '/what-we-do' },
-  { path: 'webdevelopment', redirectTo: '/service/webdevelopment' },
-  { path: 'design', redirectTo: '/service/design' },
-  { path: 'branding', redirectTo: '/service/branding' },
-  { path: 'veratrak', redirectTo: '/case-study/veratrak'},
-  { path: 'north-star-law', redirectTo: '/case-study/north-star-law'},
-  { path: 'boombocs', redirectTo: '/case-study/boombocs'},
-  { path: 'epoch-brand-website', redirectTo: '/case-study/epoch-brand-website'},
 
   // Case studies
+  { path: 'case-study', redirectTo: 'work' },
   {
     path: 'case-study',
     children: [
@@ -61,18 +54,40 @@ const routes: Routes = [
       { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent }
     ]
   },
+  { path: 'veratrak', redirectTo: 'case-study/veratrak'},
+  { path: 'north-star-law', redirectTo: 'case-study/north-star-law'},
+  { path: 'boombocs', redirectTo: 'case-study/boombocs'},
+  { path: 'epoch-brand-website', redirectTo: 'case-study/epoch-brand-website'},
 
   // Services
+  { path: 'service', redirectTo: 'what-we-do' },
   {
     path: 'service',
     children: [
-      { path: 'design', component: DesignComponent },
+      { path: 'strategy', component: StrategyComponent },
       { path: 'branding', component: BrandingComponent },
-      { path: 'webdevelopment', component: WebDevelopmentComponent },
+      { path: 'design', component: DesignComponent },
+      { path: 'web-development', component: WebDevelopmentComponent },
+    ]
+  },
+
+  // Branding topics, locations
+  { path: 'branding', redirectTo: 'service/branding' },
+  {
+    path: 'branding',
+    children: [
+      { path: 'tone-of-voice', component: ToneOfVoiceComponent },
+      { path: 'messaging', component: MessagingComponent },
+      { path: 'photography', component: PhotographyComponent },
+      { path: 'typography', component: TypographyComponent },
+
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'branding' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } }
     ]
   },
 
   // Design topics, locations
+  { path: 'design', redirectTo: 'service/design' },
   {
     path: 'design',
     children: [
@@ -84,22 +99,10 @@ const routes: Routes = [
     ]
   },
 
-  // Branding topics, locations
-  {
-    path: 'branding',
-    children: [
-      { path: 'tone-of-voice', component: ToneOfVoiceComponent },
-      { path: 'brand-message', component: MessagingComponent },
-      { path: 'photography', component: PhotographyComponent },
-
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'branding' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } }
-    ]
-  },
-
   // Web Development topics, locations
+  { path: 'web-development', redirectTo: 'service/web-development' },
   {
-    path: 'webdevelopment',
+    path: 'web-development',
     children: [
       { path: 'cms', component: CmsComponent },
       { path: 'ecommerce', component: EcommerceComponent },

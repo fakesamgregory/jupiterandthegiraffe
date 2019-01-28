@@ -31,7 +31,7 @@ import { DesignComponent } from './pages/design/design.component';
 import { WebDevelopmentComponent } from './pages/web-development/web-development.component';
 import { BrandingComponent } from './pages/branding/branding.component';
 import { UxComponent } from './misc/ux/ux.component';
-import {StrategyComponent} from "./pages/strategy/strategy.component";
+import {StrategyComponent} from './pages/strategy/strategy.component';
 
 const routes: Routes = [
   // Top level pages

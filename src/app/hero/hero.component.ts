@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-component',
@@ -8,5 +9,5 @@ import { Component, Input } from '@angular/core';
 export class HeroComponent {
   @Input() home = false;
 
-  constructor () { }
+  constructor (private router: Router) { }
 }

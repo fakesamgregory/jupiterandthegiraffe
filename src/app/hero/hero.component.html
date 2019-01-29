@@ -7,19 +7,22 @@
 
   <div class="line--top line--bottom line hero__text-wrap">
     <div class="hero__text text-center" data-aos="fade-up" data-aos-delay="400">
-      A <span class="hero__lead-letter">branding agency</span> out of this world.
+      A
+      <span *ngIf="router.url === '/'" class="hero__lead-letter">branding agency</span>
+      <a *ngIf="router.url !== '/'" class="hero__lead-letter link-plain" href="https://jupiterandthegiraffe.com">branding agency</a>
+      out of this world.
     </div>
   </div>
   <div class="row">
     <div class="col text-right">
       <div class="hero__button margin-top--lg" data-aos="zoom-out" data-aos-delay="600">
-        <a [routerLink]="['contact']" class="btn btn--lg btn--primary btn--primary-outline">Contact us</a>
+        <a [routerLink]="['/contact']" class="btn btn--lg btn--primary btn--primary-outline">Contact us</a>
       </div>
       <div class="padding--lg"></div>
     </div>
     <div class="col line line--left text-left">
       <div class="hero__button margin-top--lg" data-aos="zoom-out" data-aos-delay="900">
-        <a [routerLink]="['work']" class="btn btn--lg">Our work</a>
+        <a [routerLink]="['/work']" class="btn btn--lg">Our work</a>
       </div>
       <div class="padding--lg"></div>
     </div>

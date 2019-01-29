@@ -4,7 +4,7 @@ import { HeroComponent } from './hero.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {TrustHtmlPipe} from '../trust-html.pipe';
-import {LogoComponent} from '../logo/logo.component';
+import {LogoComponent} from '../global/logo/logo.component';
 
 describe('HeroComponent', () => {
   let component: HeroComponent;

@@ -1,9 +1,14 @@
 .link {
   &-plain {
-    text-decoration: none;
+    text-decoration: none !important;
+    color: currentColor !important;
 
     &::after {
       display: none !important;
+    }
+
+    @include hover-focus {
+      cursor: url('../images/rocket-cursor.png'), auto;
     }
   }
 }

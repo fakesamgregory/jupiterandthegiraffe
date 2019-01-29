@@ -1,0 +1,15 @@
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/tools/tools";
+
+.get-in-touch {
+  margin-top: 100px;
+  &__links {
+    margin-right: $space-large;
+    color: $color-black;
+    @include font-size($heading-2);
+
+    @include hover-focus {
+      color: $color-oldBrick;
+    }
+  }
+}

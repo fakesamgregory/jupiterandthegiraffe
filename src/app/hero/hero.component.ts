@@ -9,5 +9,5 @@ import { Router } from '@angular/router';
 export class HeroComponent {
   @Input() home = false;
 
-  constructor (private router: Router) { }
+  constructor (public router: Router) { }
 }

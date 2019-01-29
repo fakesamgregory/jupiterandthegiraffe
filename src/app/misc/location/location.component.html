@@ -24,6 +24,10 @@
         think about your company and where you want to position it and seek your competitors to get the upper hand.
       </p>
 
+      <p>
+        Learn more about <a [routerLink]="['/service/strategy']">Strategy</a>
+      </p>
+
     </section>
 
     <section *ngIf="type === 'branding' || !type">
@@ -39,6 +43,10 @@
         <a [routerLink]="['/design']" class="link-plain">design</a>. This all comes together to reflects your brand.
       </p>
 
+      <p>
+        Learn more about <a [routerLink]="['/service/branding']">Branding</a>
+      </p>
+
     </section>
 
     <section *ngIf="type === 'design' || !type">
@@ -47,6 +55,10 @@
       <p>
         The best design has the best story. We craft this through your brand and unleash it by providing a visual wrapping to
         your brand. Taking form, colour, composition and <a [routerLink]="['/ux']">UX</a>, we create beautiful designs that your users will love.
+      </p>
+
+      <p>
+        Learn more about <a [routerLink]="['/service/design']">Design</a>
       </p>
 
     </section>
@@ -62,10 +74,18 @@
         technologies like <a [routerLink]="['/web-development/vue']">Vue</a>, <a [routerLink]="['/web-development/angular']">Angular</a> or <a [routerLink]="['/web-development/react']">React</a>.
       </p>
 
+      <p>
+        Learn more about <a [routerLink]="['/service/web-development']">Development</a>
+      </p>
     </section>
+
 
     <section>
       <h2>Check out our other services</h2>
+
+      <p *ngIf="type">
+         Learn more about <a [routerLink]="['/' + location.toLowerCase()]">all our services in {{location}}</a>.
+      </p>
 
       <ul class="list-plain">
         <li><a href="https://jupiterandthegiraffe.com">Strategy <span class="sr-only">agency</span> {{location}}</a></li>

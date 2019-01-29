@@ -74,6 +74,15 @@ const routes: Routes = [
     ]
   },
 
+  {
+    path: 'strategy',
+    children: [
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } }
+    ]
+  },
+
   // Branding topics, locations
   { path: 'branding', redirectTo: 'service/branding' },
   {
@@ -86,7 +95,8 @@ const routes: Routes = [
       { path: 'identity', component: IdentityComponent },
 
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'branding' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } }
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'branding' } }
     ]
   },
 
@@ -100,7 +110,8 @@ const routes: Routes = [
       { path: 'animation', component: AnimationsComponent },
 
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } }
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } }
     ]
   },
 
@@ -120,6 +131,7 @@ const routes: Routes = [
 
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'webdevelopment' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'webdevelopment' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'webdevelopment' } },
     ]
   },
 
@@ -140,6 +152,7 @@ const routes: Routes = [
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
   { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
+  { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff' } },
 
   // Not found
   { path: 'not-found', component: NotFoundComponent },

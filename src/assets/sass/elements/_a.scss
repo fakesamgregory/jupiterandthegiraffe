@@ -48,4 +48,8 @@ a {
 
 p a:link {
   text-decoration: underline;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
 }

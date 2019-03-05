@@ -30,29 +30,33 @@
       <div class="row">
         <div class="col who__image" itemscope itemtype="http://schema.org/Person">
           <div class="media">
-            <div class="media-left">
-              <img itemprop="image" class="media-object" [src]="'assets/images/founder.jpg'"
-                   alt="Photo of Samuel Gregory"
-                   [srcset]="'assets/images/founder.jpg 1x, assets/images/founder@2x.jpg 2x'">
-            </div>
-            <div class="media-body media-bottom">
-              <h4 class="media-heading" itemprop="name">Samuel Gregory</h4>
-              <span itemprop="jobTitle">CEO/Founder</span> <br>
-              <a href="mailto:samuel@jupiterandthegiraffe.com" itemprop="email">samuel@jupiterandthegiraffe.com</a>
-            </div>
+            <a class="who__link" [routerLink]="['/samuel-gregory']">
+              <div class="media-left">
+                <img itemprop="image" class="media-object" [src]="'assets/images/founder.jpg'"
+                     alt="Photo of Samuel Gregory"
+                     [srcset]="'assets/images/founder.jpg 1x, assets/images/founder@2x.jpg 2x'">
+              </div>
+              <div class="media-body media-bottom">
+                <h4 class="media-heading" itemprop="name">Samuel Gregory</h4>
+                <span itemprop="jobTitle">CEO/Founder</span> <br>
+                <span itemprop="email">samuel@jupiterandthegiraffe.com</span>
+              </div>
+            </a>
           </div>
         </div>
         <div class="col who__image" itemscope itemtype="http://schema.org/Person">
           <div class="media">
-            <div class="media-right">
-              <img class="media-object" [src]="'assets/images/suzie.jpg'" alt="Photo of Suzannah James"
-                   [srcset]="'assets/images/suzie.jpg 1x, assets/images/suzie@2x.jpg 2x'">
-            </div>
-            <div class="media-body media-bottom">
-              <h4 class="media-heading" itemprop="name">Suzannah James</h4>
-              <span itemprop="jobTitle">Creative Director</span> <br>
-              <a href="mailto:suzannah@jupiterandthegiraffe.com" itemprop="email">suzannah@jupiterandthegiraffe.com</a>
-            </div>
+            <a class="who__link" [routerLink]="['/suzannah-james']">
+              <div class="media-right">
+                <img class="media-object" [src]="'assets/images/suzie.jpg'" alt="Photo of Suzannah James"
+                     [srcset]="'assets/images/suzie.jpg 1x, assets/images/suzie@2x.jpg 2x'">
+              </div>
+              <div class="media-body media-bottom">
+                <h4 class="media-heading" itemprop="name">Suzannah James</h4>
+                <span itemprop="jobTitle">Creative Director</span> <br>
+                <span itemprop="email">suzannah@jupiterandthegiraffe.com</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>

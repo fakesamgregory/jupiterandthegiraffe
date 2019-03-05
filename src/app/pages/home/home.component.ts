@@ -1,10 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
-import {HttpClient} from '@angular/common/http';
-import {FriendsComponent} from './friends/friends.component';
-import {WINDOW} from '../../services/window.service';
-import {map} from 'rxjs/operators';
-import {from, Observable, forkJoin} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
+import { isDevMode } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +12,7 @@ export class HomeComponent implements OnInit {
   public blogs: Array<object> = [];
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
+  public developmentMode = isDevMode();
   public styles = [
     {
       'elementType': 'geometry',
@@ -176,8 +174,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     const sequence = this.http

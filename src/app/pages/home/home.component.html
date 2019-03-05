@@ -19,14 +19,14 @@
 
       <div class="text-center padding-top--lg padding-bottom--lg">
         <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
-          <span aria-hidden="true">🧠 </span>What can we do?
+          <span aria-hidden="true" class="vertical-align">🧠 </span>What can we do?
         </a>
       </div>
     </section>
 
     <app-friends-component></app-friends-component>
 
-    <section class="section text-center">
+    <section class="text-center">
       <header>
         <h2>
           <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Creativity <div></div>without borders</span>
@@ -39,19 +39,24 @@
     </section>
   </div>
 
-  <section class="section text-center">
-    <header class="container-fluid">
-      <h2>Where are we?</h2>
-    </header>
+  <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
 
-    <agm-map [zoom]="2.5" [latitude]="0" [longitude]="135.7604227" [mapDraggable]="false" [zoomControl]="false"
+  <ng-template #map>
+    <agm-map *ngIf="!developmentMode" [zoom]="2" [latitude]="0" [longitude]="151.2092955" [mapDraggable]="false" [zoomControl]="false"
              [streetViewControl]="false" [styles]="styles">
       <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955"></agm-marker>
+      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7"></agm-marker>
     </agm-map>
-  </section>
+  </ng-template>
 
   <div class="container-fluid">
-    <section class="home__blog section">
+    <div class="text-center padding-top--lg padding-bottom--lg">
+      <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+        <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
+      </a>
+    </div>
+
+    <section class="home__blog section margin-top--lrg">
       <header>
         <h2>Discover</h2>
       </header>
@@ -109,7 +114,7 @@
       </p>
 
       <div class="section text-center">
-        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true">🚀 </span>Let's
+        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true" class="vertical-align">🚀 </span>Let's
           go!</a>
       </div>
     </section>

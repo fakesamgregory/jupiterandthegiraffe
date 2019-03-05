@@ -19,10 +19,6 @@
     display: block;
     align-self: center;
     margin: 10px;
-
-    @include md {
-      margin: 40px;
-    }
   }
 
   &__list-item {

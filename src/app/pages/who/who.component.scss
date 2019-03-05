@@ -11,4 +11,12 @@
       margin-bottom: $space-xlrg;
     }
   }
+
+  &__link {
+    color: $color-black;
+
+    @include hover-focus {
+      color: $color-oldBrick;
+    }
+  }
 }

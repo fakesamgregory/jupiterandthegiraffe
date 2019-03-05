@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SuzannahComponent } from './suzannah.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('SuzannahComponent', () => {
   let component: SuzannahComponent;
@@ -9,7 +11,8 @@ describe('SuzannahComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuzannahComponent, GetInTouchComponent ]
+      declarations: [ SuzannahComponent, GetInTouchComponent, SocialComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

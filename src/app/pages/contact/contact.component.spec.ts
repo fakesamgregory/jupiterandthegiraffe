@@ -24,9 +24,8 @@ describe('ContactComponent', () => {
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        SocialComponent
       ],
-      declarations: [ ContactComponent ]
+      declarations: [ ContactComponent, SocialComponent ]
     })
     .compileComponents();
   }));

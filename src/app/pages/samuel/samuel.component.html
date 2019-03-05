@@ -1,0 +1,66 @@
+<div class="profile white-bg">
+  <section class="container-fluid">
+    <a [routerLink]="['../']" class="profile__back">< Back</a>
+
+    <img src="/assets/images/sam-icon.jpg"
+         srcset="/assets/images/sam-icon.jpg 1x, /assets/images/sam-icon@2x.jpg 2x"
+         alt="Profile of Samuel Gregory" class="img-fluid profile__image">
+
+    <header class="text-center">
+      <h1>Samuel Gregory</h1>
+      CEO/Founder
+    </header>
+
+    <section class="section">
+      <header>
+        <h2>Your story</h2>
+      </header>
+
+      <p>
+        I started my professional career in the design and digital department at Framestore, a global visual effects giant for film and TV based in London, UK. There we got to work on smaller films with the likes of Chris Morris, Richard Ayoade and Paddy Considine but we also worked on games, apps, trailers and television shows. I also saw the beginnings on what was later to become Framestore Labs, their virtual reality department.
+      </p>
+      <p>
+        I’d always been a front-end developer doing side projects for friends, I’d also had the chance to do this a little at Framestore so when my time ended at Framestore, I decided I wanted to do it as a job. I was referred to Digital Detox (DD) which was where my professional development career began. DD was a family oriented company and the team was very close-nit. It was a great learning experience from a front-end perspective but I wanted to get more of a holistic view of project structure so I moved on to AND Digital (AND) as a product developer. Here I was encouraged to explore the many aspects of a project lifecycle and had a hand in the direction of projects and encouraged for my thinking ability and trusted for it. My always-present passion to start my own company was growing as I gained more of an understanding of how things operated.
+      </p>
+      <p>
+        Jupiter and the Giraffe officially started just before I started at AND and I continued to do development work on the side as I always had. Suzannah joined as my goto designer and so opened up the potential to do great design as well as website build. I’d always wanted to design and Suzannah was a great fit. In 2019 we made the company Limited and decided that this was something we wanted to focus on full-time. The rest is history.
+      </p>
+    </section>
+
+    <section class="section">
+      <header>
+        <h2>Favourite brands</h2>
+      </header>
+
+      <div>Apple (of course)</div>
+      Beavertown Brewery (UK)
+    </section>
+
+    <section class="section">
+      <header>
+        <h2>Recommended reading</h2>
+      </header>
+
+      <div class="row text-center">
+        <div class="col-sm-6">
+          <a href="https://amzn.to/2UsvHTu">
+            <figure>
+              <img src="/assets/images/how-to-win-friends.jpg" alt="">
+              <figcaption>How to Win Friends and Influence People - Dale Carnegie</figcaption>
+            </figure>
+          </a>
+        </div>
+        <div class="col-sm-6">
+          <a href="https://amzn.to/2GYQong">
+            <figure>
+              <img src="/assets/images/start-with-why.jpg" alt="">
+              <figcaption>Start With Why - Simon Sinek</figcaption>
+            </figure>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <app-get-in-touch [title]="'Want to work with Samuel?'"></app-get-in-touch>
+  </section>
+</div>

@@ -1,0 +1,53 @@
+<div class="profile white-bg">
+  <section class="container-fluid">
+    <a [routerLink]="['../']" class="profile__back">< Back</a>
+
+    <img src="/assets/images/suzie-icon.jpg"
+         srcset="/assets/images/suzie-icon.jpg 1x, /assets/images/suzie-icon@2x.jpg 2x"
+         alt="Profile of Suzannah James" class="img-fluid profile__image">
+
+    <header class="text-center">
+      <h1>Suzannah James</h1>
+      Creative Director
+    </header>
+
+    <section class="section">
+      <header>
+        <h2>Your story</h2>
+      </header>
+    </section>
+
+    <section class="section">
+      <header>
+        <h2>Favourite brands</h2>
+      </header>
+    </section>
+
+    <section class="section">
+      <header>
+        <h2>Recommended reading</h2>
+      </header>
+
+      <div class="row text-center">
+        <div class="col-sm-6">
+          <a href="https://amzn.to/2UsvHTu">
+            <figure>
+              <img src="/assets/images/how-to-win-friends.jpg" alt="">
+              <figcaption>How to Win Friends and Influence People - Dale Carnegie</figcaption>
+            </figure>
+          </a>
+        </div>
+        <div class="col-sm-6">
+          <a href="https://amzn.to/2GYQong">
+            <figure>
+              <img src="/assets/images/start-with-why.jpg" alt="">
+              <figcaption>Start With Why - Simon Sinek</figcaption>
+            </figure>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <app-get-in-touch [title]="'Want to work with Suzannah?'"></app-get-in-touch>
+  </section>
+</div>

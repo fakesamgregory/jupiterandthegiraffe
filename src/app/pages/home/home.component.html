@@ -2,11 +2,11 @@
   <div class="container-fluid">
     <h1 class="sr-only">Jupiter and the Giraffe</h1>
 
-    <p class="home__tagline">
+    <p class="home__tagline text-center">
       We'll help your company find its voice, establish its brand and build you a kick-ass website.
     </p>
 
-    <section class="section">
+    <section class="section text-center">
       <header>
         <h2>
           <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Your ambitions, <div></div>let loose</span>
@@ -26,7 +26,7 @@
 
     <app-friends-component></app-friends-component>
 
-    <section class="section">
+    <section class="section text-center">
       <header>
         <h2>
           <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Creativity <div></div>without borders</span>
@@ -37,7 +37,20 @@
         We travel the world in search of adventurers bringing the cream of the crop talent that is bespoke to you.
       </p>
     </section>
+  </div>
 
+  <section class="section text-center">
+    <header class="container-fluid">
+      <h2>Where are we?</h2>
+    </header>
+
+    <agm-map [zoom]="2.5" [latitude]="0" [longitude]="135.7604227" [mapDraggable]="false" [zoomControl]="false"
+             [streetViewControl]="false" [styles]="styles">
+      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955"></agm-marker>
+    </agm-map>
+  </section>
+
+  <div class="container-fluid">
     <section class="home__blog section">
       <header>
         <h2>Discover</h2>
@@ -46,7 +59,7 @@
         <p>Read our latest blogs.</p>
 
         <div class="row">
-          <article *ngFor="let blog of blogs;"  class="home__blog col-md">
+          <article *ngFor="let blog of blogs;" class="home__blog col-md">
             <header>
               <h3 class="home__blog-title">
                 <a [href]="blog.blog.link" class="home__blog-title-link" [innerHTML]="blog.blog.title.rendered"></a>
@@ -56,10 +69,14 @@
             <a [href]="blog.blog.link" class="home__blog-image-link">
               <span class="sr-only">{{blog.blog.title.rendered}}</span>
 
-              <div class="home__blog-image" *ngIf="blog.image" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
-                <span class="home__blog-tag home__blog-tag--development" aria-hidden="false" *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
-                <span class="home__blog-tag home__blog-tag--design" aria-hidden="false" *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
-                <span class="home__blog-tag home__blog-tag--business" aria-hidden="false" *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
+              <div class="home__blog-image" *ngIf="blog.image"
+                   [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
+                <span class="home__blog-tag home__blog-tag--development" aria-hidden="false"
+                      *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
+                <span class="home__blog-tag home__blog-tag--design" aria-hidden="false"
+                      *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
+                <span class="home__blog-tag home__blog-tag--business" aria-hidden="false"
+                      *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
               </div>
             </a>
 
@@ -72,11 +89,14 @@
         </div>
 
         <p>
-          <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
+          <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a>
+          <app-dots-component></app-dots-component>
         </p>
       </div>
       <p *ngIf="error">There was an error fetching the blogs...</p>
-      <p *ngIf="!blogs.length && !error">Loading blogs<app-dots-component></app-dots-component></p>
+      <p *ngIf="!blogs.length && !error">Loading blogs
+        <app-dots-component></app-dots-component>
+      </p>
     </section>
 
     <section class="section text-center">
@@ -84,8 +104,13 @@
         <h2>Ready to launch?</h2>
       </header>
 
+      <p class="home__lead">
+        Enough talking, let's get right to it.
+      </p>
+
       <div class="section text-center">
-        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true">🚀 </span>Let's go!</a>
+        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true">🚀 </span>Let's
+          go!</a>
       </div>
     </section>
 

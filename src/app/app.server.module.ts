@@ -11,13 +11,12 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
   imports: [
     BrowserModule.withServerTransition({appId: 'app-root'}),
-
     AppModule,
 
     ServerModule,
     NoopAnimationsModule,
     ModuleMapLoaderModule,
-    ServerTransferStateModule, // comment
+    ServerTransferStateModule,
   ]
 })
 export class AppServerModule {

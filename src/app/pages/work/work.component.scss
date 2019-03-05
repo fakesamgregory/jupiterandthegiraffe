@@ -33,7 +33,7 @@
   }
 
   &__tag {
-    margin: 5px 2.5px;
+    margin: 10px 2.5px;
 
     a {
       padding: 5px;
@@ -43,6 +43,7 @@
       font-size: $small-font;
       border: 1px solid $color-pickledBluewood;
       transition: background-color .3s ease;
+      @include font-size($small-font);
 
       @include hover-focus {
         background-color: $color-white;

@@ -36,6 +36,12 @@
 
   &__logo {
     font-family: $title-font;
+
+    a {
+      @include hover-focus {
+        color: $color-white;
+      }
+    }
   }
 
   &__menu {

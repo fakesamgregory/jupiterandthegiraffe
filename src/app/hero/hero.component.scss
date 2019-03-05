@@ -19,8 +19,6 @@
 
     .hero {
       &__logo {
-        @include font-size($small-font);
-
         position: absolute;
         top: $space-small;
         left: $space-medium;
@@ -29,7 +27,6 @@
           left: $space-large;
         }
       }
-
     }
   }
 

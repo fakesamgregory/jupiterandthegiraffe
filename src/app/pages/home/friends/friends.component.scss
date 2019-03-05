@@ -2,6 +2,15 @@
 @import "../../../../assets/sass/tools/tools";
 
 .friends {
+  background: $color-pickledBluewood;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0a0b13+1,0a0b13+30,2a3a47+70,2a3a47+100 */
+  background: #0a0b13; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #0a0b13 1%, #0a0b13 20%, #2a3a47 50%, #2a3a47 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #0a0b13 1%,#0a0b13 20%,#2a3a47 50%,#2a3a47 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #0a0b13 1%,#0a0b13 20%,#2a3a47 50%,#2a3a47 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0b13', endColorstr='#2a3a47',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background-attachment: fixed;
+
   &__image {
     max-width: 150px;
     max-height: 175px;
@@ -33,8 +42,6 @@
   }
 
   a {
-    transition: border-radius .3s ease;
-
     &:hover, &:focus {
       .friends__image {
         transform: translate(10px, -10px);
@@ -43,10 +50,10 @@
   }
 
   &__list {
-    margin-top: $space-xlrg;
-    @include md {
-      margin: 90px $space-large $space-large $space-large;
-    }
+    //margin-top: $space-xlrg;
+    //@include md {
+    //  margin: 90px $space-large $space-large $space-large;
+    //}
   }
 
   &__title-break {

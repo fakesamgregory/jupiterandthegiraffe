@@ -1,6 +1,8 @@
 <header class="header" [ngClass]="{'header--show': show }">
   <div class="header__logo hidden-sm">
-    Jupiter and <div></div>the Giraffe
+    <a [routerLink]="['/']">
+      Jupiter and <div></div>the Giraffe
+    </a>
   </div>
   <ul class="header__menu list-unstyled">
     <li class="hidden-sm">

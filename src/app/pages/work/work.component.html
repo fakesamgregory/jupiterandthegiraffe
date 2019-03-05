@@ -1,51 +1,61 @@
 <div class="work white-bg">
-  <section class="container-fluid">
+  <div class="container-fluid">
     <header>
       <h2>Projects</h2>
     </header>
     <p>
       Feast your eyes on the projects we've enjoyed and read about what we've done.
     </p>
-    <div [ngSwitch]="error?.status">
-      <h3 *ngSwitchCase="404">
-        {{error.status}}: {{ error.statusText }}
-      </h3>
-      <ul class="row work__list" *ngSwitchDefault="">
-        <li class="col-md-4 col-sm-6 work__item" *ngFor="let workItem of work.work; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
-          <a *ngIf="workItem.link; else noLink" [routerLink]="'/case-study' + workItem.link" class="work__item-link">
-            <img
-              *ngIf="workItem.image"
-              [src]="'assets/images/' + workItem.image"
-              alt="{{workItem.title}}"
-              class="img-thumbnail"
-            />
-            <h3>{{workItem.title}}</h3>
-            <h4>The brief:</h4>
-            <p>{{workItem.content}}</p>
+  </div>
+</div>
+<div [ngSwitch]="error?.status">
+  <h3 *ngSwitchCase="404">
+    {{error.status}}: {{ error.statusText }}
+  </h3>
+  <ul class="work__list list-unstyled" *ngSwitchDefault="">
+    <li class="work__item" *ngFor="let workItem of work.work" [style.background-image]="'url(/assets/images/' + workItem.image + ')'">
+      <a *ngIf="workItem.link; else noLink" [routerLink]="'/case-study' + workItem.link" class="work__item-link">
+        <div class="container-fluid">
+          <h3>{{workItem.title}}</h3>
+          <h4>The brief:</h4>
+          <p>{{workItem.content}}</p>
 
-            <p class="work__case-study">View case study<app-dots-component></app-dots-component></p>
-          </a>
-
-          <ng-template #noLink>
-            <img
-              *ngIf="workItem.image"
-              [src]="'assets/images/' + workItem.image"
-              alt="{{workItem.title}}"
-              class="img-thumbnail"
-            />
-            <h3>{{workItem.title}}</h3>
-            <h4>The brief:</h4>
-            <p>{{workItem.content}}</p>
-          </ng-template>
-
+          <p class="work__case-study">View case study
+            <app-dots-component></app-dots-component>
+          </p>
 
           <ul class="work__tags">
-            <li *ngFor="let tag of workItem.tags" class="work__tag"><a [routerLink]="['/service/' + tag.replace(' ', '-')]">{{ tag }}</a></li>
+            <li *ngFor="let tag of workItem.tags" class="work__tag"><a
+              [routerLink]="['/service/' + tag.replace(' ', '-')]">{{
+              tag }}</a></li>
           </ul>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </a>
 
+      <ng-template #noLink>
+        <div
+          class="work__item-link"
+        >
+          <div class="container-fluid">
+            <h3>{{workItem.title}}</h3>
+            <h4>The brief:</h4>
+            <p>{{workItem.content}}</p>
+
+            <ul class="work__tags">
+              <li *ngFor="let tag of workItem.tags" class="work__tag"><a
+                [routerLink]="['/service/' + tag.replace(' ', '-')]">{{
+                tag }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </ng-template>
+
+
+    </li>
+  </ul>
+</div>
+<div class="work white-bg">
+  <div class="container-fluid">
     <app-get-in-touch></app-get-in-touch>
-  </section>
+  </div>
 </div>

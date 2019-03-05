@@ -8,21 +8,53 @@
   }
 
   &__item {
-    margin-bottom: $space-xlrg;
-  }
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 
-  &__item-link {
-    color: $color-black;
-
-    @include hover-focus {
-      color: $color-oldBrick;
-
-      .work__case-study {
-        font-weight: 700;
-      }
+    @include md {
+      background-position: bottom center;
     }
   }
 
+  &__item-link {
+    display: block;
+    position: relative;
+    height: 100%;
+    padding: 50px 0;
+    z-index: 0;
+
+    @include md {
+      padding: 100px 0;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      background: rgba($color-mine-shaft, 0.7);
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      transition: left .3s cubic-bezier(.17,.67,.87,.31);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+
+      @include md {
+        left: 100%;
+      }
+    }
+
+    @include hover-focus {
+      color: $color-white;
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
 
   &__tags {
     display: flex;

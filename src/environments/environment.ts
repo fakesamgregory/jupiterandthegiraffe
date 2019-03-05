@@ -14,5 +14,5 @@ export const environment = {
     messagingSenderId: '434681418965'
   },
   baseHref: '/',
-  googleMapsApiKey: '${GOOGLE_MAPS_API_KEY}'
+  googleMapsApiKey: 'GOOGLE_MAPS_API_KEY'
 };

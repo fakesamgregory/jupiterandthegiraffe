@@ -29,7 +29,7 @@ jobs:
           name: Replace Environment Variables
           command: |
             echo $GOOGLE_MAPS_API_KEY
-            sed -i -e 's/${GOOGLE_MAPS_API_KEY}/piss/g' src/environments/environment.ts
+            sed -i -e 's/${GOOGLE_MAPS_API_KEY}/$GOOGLE_MAPS_API_KEY/g' src/environments/environment.ts
             cat src/environments/environment.ts
 
       - run:

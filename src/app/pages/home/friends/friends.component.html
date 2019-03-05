@@ -1,13 +1,8 @@
-<section class="section friends">
-  <header>
-    <h2>
-      <span data-aos="fade-up">Our best <span class="friends__title-break">friends!</span></span>
-    </h2>
+<section class="section friends text-center">
+  <header class="sr-only">
+    <h2>Work</h2>
   </header>
-  <p>
-    Henry Ford said <q>My best friend is the one who brings out the best in me</q>.
-    We're so proud to work with these people and the best was certainly brought out in us.
-  </p>
+
   <ul class="row list-unstyled friends__list">
     <li class="col-sm-4 col-4 friends__list-item" *ngFor="let friend of friends; let i = index"
         data-aos="fade-up"
@@ -29,7 +24,10 @@
             [attr.alt]="friend.name">
         </span>
       </ng-template>
-
     </li>
   </ul>
+
+  <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline btn--dark">
+    <span aria-hidden="true">💻 </span>See the work
+  </a>
 </section>

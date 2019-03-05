@@ -25,17 +25,21 @@ export class HomeComponent implements OnInit {
 
           try {
             const author = this.http.get(blog._links.author[0].href);
-            const image = this.http.get(blog._links['wp:featuredmedia'][0].href);
             const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);
+            const get = [author, category];
 
-            forkJoin(author, image, category)
+            if (blog._links['wp:featuredmedia']) {
+              get.push(this.http.get(blog._links['wp:featuredmedia'][0].href));
+            }
+
+            forkJoin(get)
               .subscribe(data => {
                 const obj = {
                   author: data[0],
-                  image: data[1],
+                  image: data[2] ? data[2] : { source_url: '/assets/images/blog-feature-default.jpg' },
                   blog,
                   date: blog.date.split('T')[0].split('-'),
-                  category: data[2]
+                  category: data[1]
                 };
                 this.blogs.push(obj);
               });

@@ -90,4 +90,8 @@
       margin-top: 0;
     }
   }
+
+  &__lead {
+    @include font-size($font-lead);
+  }
 }

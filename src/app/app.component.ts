@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     router.events
       .pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
-        this.isHome = (event.url === '/' && !this.hasBeenHome);
+        this.isHome = event.url === '/';
 
         if (event.url === '/') {
           this.hasBeenHome = true;

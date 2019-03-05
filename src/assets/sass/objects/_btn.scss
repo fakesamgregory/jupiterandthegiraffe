@@ -6,9 +6,15 @@
   width: 100%;
   padding: $space-medium;
   appearance: none;
+  text-decoration: none !important;
 
   @include md {
     width: auto;
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid;
   }
 
   &--primary-outline {
@@ -46,9 +52,9 @@
 
     &:hover,
     &:focus {
-      background-color: $color-black;
-      color: $color-white;
-      outline: none;
+      background-color: $color-black !important;
+      color: $color-white !important;
+      outline: none !important;
     }
   }
 }

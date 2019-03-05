@@ -6,41 +6,41 @@
       We'll help your company find its voice, establish its brand and build you a kick-ass website.
     </p>
 
-    <section class="home__about-who section">
-      <header>
-        <h2>
-          <span data-aos="fade-up">Who are Jupiter <span class="home__title-break">and the Giraffe?</span></span>
-        </h2>
-      </header>
-
-      <p>Jupiter and the Giraffe are a not-so-ordinary brand strategy and design agency. We love all things digital to the moon and back.</p>
-
-      <a [routerLink]="['/who-we-are']">Read more</a><app-dots-component></app-dots-component>
-    </section>
-
     <section class="section">
       <header>
         <h2>
-          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">What we do</span>
+          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Your ambitions, <div></div>let loose</span>
         </h2>
       </header>
 
-      <p>
-        We care about your brand as much as you do, we have experience in logo design, website design, app design,
-        branding and identity. We can help you build a brand that wows and to finish it off, build you a kick-ass website
-        to go with it.
+      <p class="home__lead">
+        Taking your spark, refining it through design and bringing your audience along for the ride.
       </p>
 
-      <a href="" [routerLink]="['/what-we-do']">
-        Read more
-      </a><app-dots-component></app-dots-component>
+      <div class="text-center padding-top--lg padding-bottom--lg">
+        <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+          <span aria-hidden="true">🧠 </span>What can we do?
+        </a>
+      </div>
     </section>
 
     <app-friends-component></app-friends-component>
 
+    <section class="section">
+      <header>
+        <h2>
+          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Creativity <div></div>without borders</span>
+        </h2>
+      </header>
+
+      <p class="home__lead">
+        We travel the world in search of adventurers bringing the cream of the crop talent that is bespoke to you.
+      </p>
+    </section>
+
     <section class="home__blog section">
       <header>
-        <h2>Blog</h2>
+        <h2>Discover</h2>
       </header>
       <div *ngIf="blogs.length">
         <p>Read our latest blogs.</p>
@@ -56,7 +56,7 @@
             <a [href]="blog.blog.link" class="home__blog-image-link">
               <span class="sr-only">{{blog.blog.title.rendered}}</span>
 
-              <div class="home__blog-image" *ngIf="blog.image.source_url" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
+              <div class="home__blog-image" *ngIf="blog.image" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
                 <span class="home__blog-tag home__blog-tag--development" aria-hidden="false" *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
                 <span class="home__blog-tag home__blog-tag--design" aria-hidden="false" *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
                 <span class="home__blog-tag home__blog-tag--business" aria-hidden="false" *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
@@ -76,7 +76,20 @@
         </p>
       </div>
       <p *ngIf="error">There was an error fetching the blogs...</p>
+      <p *ngIf="!blogs.length && !error">Loading blogs<app-dots-component></app-dots-component></p>
     </section>
+
+    <section class="section text-center">
+      <header>
+        <h2>Ready to launch?</h2>
+      </header>
+
+      <div class="section text-center">
+        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true">🚀 </span>Let's go!</a>
+      </div>
+    </section>
+
   </div>
+
 </section>
 

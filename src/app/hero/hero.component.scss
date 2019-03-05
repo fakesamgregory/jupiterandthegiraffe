@@ -2,13 +2,12 @@
 @import "../../assets/sass/tools/tools";
 
 .hero {
-  max-width: 600px;
   margin: 0 auto $space-large auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding: 0 $space-medium;
 
   &.home-page {
     height: 100vh;
@@ -17,11 +16,31 @@
     @include md {
       min-height: 500px;
     }
+
+    .hero {
+      &__logo {
+        @include font-size($small-font);
+
+        position: absolute;
+        top: $space-small;
+        left: $space-medium;
+
+        @include md {
+          left: $space-large;
+        }
+      }
+
+    }
   }
 
   &__link {
     color: $color-white;
     text-decoration: none;
+    @include font-size(36);
+
+    @include md {
+      @include font-size(55);
+    }
 
     &:hover,
     &:focus {
@@ -33,10 +52,10 @@
   }
 
   &__logo {
-    margin: 0 15px;
-    @include md {
-      margin: 0 auto;
-    }
+    //margin: 0 15px;
+    //@include md {
+    //  margin: 0 auto;
+    //}
   }
 
   &__logo-text {

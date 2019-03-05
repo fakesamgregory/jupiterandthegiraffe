@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   public blogs: Array<object> = [];
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
-  // public developmentMode = isDevMode();
+  public developmentMode = isDevMode();
   public styles = [
     {
       'elementType': 'geometry',

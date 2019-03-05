@@ -2,8 +2,8 @@ vm_settings: &vm_settings
   working_directory: ~/app
   docker:
     - image: circleci/node:10.9.0-browsers
-    environment:
-      googleMapsApiKey: $$GOOGLE_MAPS_API_KEY
+  environment:
+    googleMapsApiKey: $$GOOGLE_MAPS_API_KEY
 
 version: 2
 jobs:

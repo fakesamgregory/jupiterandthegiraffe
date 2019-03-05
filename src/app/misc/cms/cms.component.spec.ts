@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 import { CmsComponent } from './cms.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('CmsComponent', () => {
   let component: CmsComponent;
@@ -10,7 +11,7 @@ describe('CmsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CmsComponent, GetInTouchComponent ],
+      declarations: [ CmsComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

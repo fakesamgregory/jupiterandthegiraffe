@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 import { AwsComponent } from './aws.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('AwsComponent', () => {
   let component: AwsComponent;
@@ -10,7 +11,7 @@ describe('AwsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AwsComponent, GetInTouchComponent ],
+      declarations: [ AwsComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

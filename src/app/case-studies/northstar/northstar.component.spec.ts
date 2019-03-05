@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NorthstarComponent } from './northstar.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('NorthstarComponent', () => {
   let component: NorthstarComponent;
@@ -10,7 +11,7 @@ describe('NorthstarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NorthstarComponent, GetInTouchComponent ],
+      declarations: [ NorthstarComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

@@ -8,6 +8,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -23,6 +24,7 @@ describe('ContactComponent', () => {
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
+        SocialComponent
       ],
       declarations: [ ContactComponent ]
     })

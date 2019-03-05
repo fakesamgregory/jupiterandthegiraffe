@@ -71,7 +71,7 @@ import { SocialComponent } from './global/social/social.component';
     CommonModule,
     NgtUniversalModule,
     AgmCoreModule.forRoot({
-      apiKey: ' AIzaSyAgtD8vAfbiUyqelZVAmOe5Y8Y52mWBlJ4'
+      apiKey: environment.googleMapsApiKey
     }),
 
     AppRoutingModule,

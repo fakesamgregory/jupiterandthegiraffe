@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SuzannahComponent } from './suzannah.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 
 describe('SuzannahComponent', () => {
   let component: SuzannahComponent;
@@ -8,7 +9,7 @@ describe('SuzannahComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuzannahComponent ]
+      declarations: [ SuzannahComponent, GetInTouchComponent ]
     })
     .compileComponents();
   }));

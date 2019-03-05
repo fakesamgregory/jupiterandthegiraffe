@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { EpochBrandWebsiteComponent } from './epoch-brand-website.component';
 import {DotsComponent} from '../../global/dots/dots.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('EpochBrandWebsiteComponent', () => {
   let component: EpochBrandWebsiteComponent;
@@ -12,7 +13,7 @@ describe('EpochBrandWebsiteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EpochBrandWebsiteComponent, DotsComponent, GetInTouchComponent ],
+      declarations: [ EpochBrandWebsiteComponent, DotsComponent, GetInTouchComponent, SocialComponent],
       imports: [RouterTestingModule]
     })
     .compileComponents();

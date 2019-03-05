@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SamuelComponent } from './samuel.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('SamuelComponent', () => {
   let component: SamuelComponent;
@@ -8,7 +10,7 @@ describe('SamuelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SamuelComponent ]
+      declarations: [ SamuelComponent, GetInTouchComponent, SocialComponent ]
     })
     .compileComponents();
   }));

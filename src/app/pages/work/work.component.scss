@@ -13,7 +13,7 @@
     background-size: cover;
     background-position: center center;
 
-    @include md {
+    @include lg {
       background-position: bottom center;
     }
   }
@@ -42,7 +42,7 @@
       z-index: -1;
       backdrop-filter: blur(10px);
 
-      @include md {
+      @include lg {
         left: 100%;
       }
     }

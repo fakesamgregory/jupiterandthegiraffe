@@ -17,9 +17,33 @@
   }
 
   &__image {
-    display: block;
     margin-left: auto;
     margin-right: auto;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: $color-white;
+    height: 400px;
+
+    @include md {
+      height: 700px;
+    }
+  }
+
+  &__image-text {
+    background-color: rgba($color-mine-shaft, .7);
+    width: 100%;
+    padding: $space-large;
+
+    h1 {
+      @include font-size($heading-2-mobile);
+      @include md {
+        @include font-size($heading-1-mobile);
+      }
+
+    }
   }
 
   &__back {

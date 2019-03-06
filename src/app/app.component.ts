@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   hasBeenHome = false;
   hideCookie = false;
   footerPos = 0;
+  isCaseStudy = false;
   @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
   public ngOnInit(): void {
@@ -56,6 +57,7 @@ export class AppComponent implements OnInit {
           this.hasBeenHome = true;
         }
 
+
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);
         }
@@ -65,6 +67,7 @@ export class AppComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.footerPos = this.footer.nativeElement.getBoundingClientRect().top;
+        this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
       });
   }
 

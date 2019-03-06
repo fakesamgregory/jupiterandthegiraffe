@@ -42,7 +42,10 @@
       @include md {
         @include font-size($heading-1-mobile);
       }
+    }
 
+    p {
+      margin: 0;
     }
   }
 

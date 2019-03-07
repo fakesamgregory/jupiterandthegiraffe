@@ -2,6 +2,10 @@
 @import "../../../assets/sass/tools/tools";
 
 .who {
+  &__image {
+    margin-bottom: $space-large;
+  }
+
   &__images {
     margin-top: $space-large;
     margin-bottom: $space-large;

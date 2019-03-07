@@ -9,7 +9,19 @@ import { HttpClient } from '@angular/common/http';
 export class FriendsComponent implements OnInit, AfterViewInit {
   public friends: Array<Object>;
   private postsUrl = 'assets/json/friends.json';
-  private currectActiveSlide = 0;
+  private currentActiveSlide = 1;
+  public quotes = [
+    { text: 'The folks at Jupiter and the Giraffe did a stupendous job on our website', author: 'Jonny - CEO (Boombocs)'},
+    { text: 'The end result speaks for itself', author: 'Matt Wilson - Founder (Veratrak)'},
+    {
+      text: 'From beginning to end, the project was handled efficiently <br>we would definitely use them again',
+      author: 'Olivia Kirkman - (EPOCH)'
+    },
+    {
+      text: 'I love their creative sensibility <br>and appreciate their professionalism and responsiveness',
+      author: 'Neeta Madahar'
+    }
+  ];
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
   constructor(private http: HttpClient) {}
@@ -27,10 +39,12 @@ export class FriendsComponent implements OnInit, AfterViewInit {
   }
 
   setupSlider(): void {
-    const slides = Array.prototype.slice.call(this.slider.nativeElement.children);
+    const slide = this.slider.nativeElement;
+    const slides = Array.prototype.slice.call(slide.children);
     const slideTimerSecs = 6;
 
-    this.slider.nativeElement.style.height =
+    // Sets up slider height
+    slide.style.height =
       slides.reduce((accumulator, currentValue) => {
         const height = currentValue.offsetHeight;
         currentValue.style.position = 'absolute';
@@ -42,22 +56,11 @@ export class FriendsComponent implements OnInit, AfterViewInit {
         }
       }, 0) + 'px';
 
-    slides[0].classList.add('slide--visible');
-
+    // Sets interval for timer
     setInterval(() => {
-      slides.forEach((slide, index) => {
-        slide.classList.remove('slide--visible');
-        slide.setAttribute('aria-hidden', true);
-
-        if (index === this.currectActiveSlide) {
-          slide.classList.add('slide--visible');
-          slide.setAttribute('aria-hidden', false);
-        }
-      });
-
-      this.currectActiveSlide +=  1;
-      if (this.currectActiveSlide > slides.length - 1) {
-        this.currectActiveSlide = 0;
+      this.currentActiveSlide +=  1;
+      if (this.currentActiveSlide > this.quotes.length - 1) {
+        this.currentActiveSlide = 1;
       }
     }, slideTimerSecs * 1000);
   }

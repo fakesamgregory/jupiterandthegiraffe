@@ -5,21 +5,9 @@
     </header>
 
     <div #slider class="slider" aria-live="polite">
-      <blockquote class="slide">
-        <q>The folks at Jupiter and the Giraffe did a stupendous job on our website</q>
-        <footer>Jonny - CEO (Boombocs)</footer>
-      </blockquote>
-      <blockquote class="slide">
-        <q>The end result speaks for itself</q>
-        <footer>Matt Wilson - Founder (Veratrak)</footer>
-      </blockquote>
-      <blockquote class="slide">
-        <q>From beginning to end, the project was handled efficiently <br>we would definitely use them again</q>
-        <footer>Olivia Kirkman - (EPOCH)</footer>
-      </blockquote>
-      <blockquote class="slide">
-        <q>I love their creative sensibility <br>and appreciate their professionalism and responsiveness</q>
-        <footer>Neeta Madahar</footer>
+      <blockquote class="slide" *ngFor="let quote of quotes; let i = index" [ngClass]="{'slide--visible': (i + 1) === currentActiveSlide}">
+        <q [innerHTML]="quote.text"></q>
+        <footer>{{quote.author}}</footer>
       </blockquote>
     </div>
 

@@ -4,6 +4,25 @@
       <h2>Clients</h2>
     </header>
 
+    <div #slider class="slider" aria-live="polite">
+      <blockquote class="slide">
+        <q>The folks at Jupiter and the Giraffe did a stupendous job on our website</q>
+        <footer>Jonny - CEO (Boombocs)</footer>
+      </blockquote>
+      <blockquote class="slide">
+        <q>The end result speaks for itself</q>
+        <footer>Matt Wilson - Founder (Veratrak)</footer>
+      </blockquote>
+      <blockquote class="slide">
+        <q>From beginning to end, the project was handled efficiently <br>we would definitely use them again</q>
+        <footer>Olivia Kirkman - (EPOCH)</footer>
+      </blockquote>
+      <blockquote class="slide">
+        <q>I love their creative sensibility <br>and appreciate their professionalism and responsiveness</q>
+        <footer>Neeta Madahar</footer>
+      </blockquote>
+    </div>
+
     <ul class="row list-unstyled friends__list">
       <li class="col-sm-4 col-4 friends__list-item" *ngFor="let friend of friends; let i = index"
           data-aos="fade-up"

@@ -4,4 +4,9 @@
     margin: 0 auto;
     display: block;
   }
+
+  &__book-image {
+    max-width: 150px;
+    height: auto;
+  }
 }

@@ -37,7 +37,9 @@
   }
 
   &__blog-title {
-    height: 50px;
+    @include md {
+      height: 50px;
+    }
   }
 
   &__blog-info {

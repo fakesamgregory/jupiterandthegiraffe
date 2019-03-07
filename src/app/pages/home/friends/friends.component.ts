@@ -46,7 +46,7 @@ export class FriendsComponent implements OnInit, AfterViewInit {
     // Sets up slider height
     slider.style.height =
       slides.reduce((accumulator, currentValue) => {
-        const height = currentValue.offsetHeight;
+        const height = currentValue.clientHeight;
         currentValue.style.position = 'absolute';
 
         if (height > accumulator) {

@@ -64,8 +64,12 @@
 
   .slider {
     position: relative;
-    margin: 50px 20px;
     box-sizing: content-box;
+    margin: 40px 0;
+
+    @include md {
+      margin: 50px 20px;
+    }
   }
 
   .slide {

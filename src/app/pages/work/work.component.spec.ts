@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 
 import {DotsComponent} from '../../global/dots/dots.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('WorkComponent', () => {
   let component: WorkComponent;
@@ -13,7 +14,7 @@ describe('WorkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkComponent, DotsComponent, GetInTouchComponent ],
+      declarations: [ WorkComponent, DotsComponent, GetInTouchComponent, SocialComponent ],
       providers: [
         {
           provide: ActivatedRoute,

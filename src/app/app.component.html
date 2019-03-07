@@ -8,7 +8,7 @@
     data-end="top: 350px;">
   </div>
 
-  <app-hero-component [home]="isHome"></app-hero-component>
+  <app-hero-component *ngIf="!isCaseStudy" [home]="isHome"></app-hero-component>
 
   <main>
     <router-outlet></router-outlet>

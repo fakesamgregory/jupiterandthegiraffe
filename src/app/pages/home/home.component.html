@@ -2,51 +2,75 @@
   <div class="container-fluid">
     <h1 class="sr-only">Jupiter and the Giraffe</h1>
 
-    <p class="home__tagline">
+    <p class="home__tagline text-center" data-aos="fade-in">
       We'll help your company find its voice, establish its brand and build you a kick-ass website.
     </p>
 
-    <section class="home__about-who section">
+    <section class="section text-center">
       <header>
         <h2>
-          <span data-aos="fade-up">Who are Jupiter <span class="home__title-break">and the Giraffe?</span></span>
+          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Your ambitions, <div></div>let loose</span>
         </h2>
       </header>
 
-      <p>Jupiter and the Giraffe are a not-so-ordinary brand strategy and design agency. We love all things digital to the moon and back.</p>
-
-      <a [routerLink]="['/who-we-are']">Read more</a><app-dots-component></app-dots-component>
-    </section>
-
-    <section class="section">
-      <header>
-        <h2>
-          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">What we do</span>
-        </h2>
-      </header>
-
-      <p>
-        We care about your brand as much as you do, we have experience in logo design, website design, app design,
-        branding and identity. We can help you build a brand that wows and to finish it off, build you a kick-ass website
-        to go with it.
+      <p class="home__lead">
+        Taking your spark, refining it through design and bringing your audience along for the ride.
       </p>
 
-      <a href="" [routerLink]="['/what-we-do']">
-        Read more
-      </a><app-dots-component></app-dots-component>
+      <div class="text-center padding-top--lg padding-bottom--lg">
+        <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+          <span aria-hidden="true" class="vertical-align">🧠 </span>What can we do?
+        </a>
+      </div>
     </section>
+  </div>
+</section>
 
-    <app-friends-component></app-friends-component>
+<app-friends-component></app-friends-component>
 
-    <section class="home__blog section">
+<section class="home">
+  <div class="container-fluid">
+    <section class="text-center">
       <header>
-        <h2>Blog</h2>
+        <h2>
+          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Creativity <div></div>without borders</span>
+        </h2>
+      </header>
+
+      <p class="home__lead">
+        We travel the world in search of adventurers bringing the cream of the crop talent that is bespoke to you.
+      </p>
+    </section>
+  </div>
+
+  <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
+
+  <ng-template #map>
+    <agm-map *ngIf="!developmentMode" [zoom]="2" [latitude]="0" [longitude]="151.2092955" [mapDraggable]="false" [zoomControl]="false"
+             [streetViewControl]="false" [styles]="styles">
+      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955"></agm-marker>
+      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7"></agm-marker>
+    </agm-map>
+  </ng-template>
+
+  <div class="container-fluid">
+    <div class="text-center padding-top--lg padding-bottom--lg">
+      <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+        <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
+      </a>
+    </div>
+
+    <div class="section"></div>
+
+    <section class="home__blog section margin-top--lrg">
+      <header>
+        <h2>Discover</h2>
       </header>
       <div *ngIf="blogs.length">
         <p>Read our latest blogs.</p>
 
         <div class="row">
-          <article *ngFor="let blog of blogs;"  class="home__blog col-md">
+          <article *ngFor="let blog of blogs;" class="home__blog col-md">
             <header>
               <h3 class="home__blog-title">
                 <a [href]="blog.blog.link" class="home__blog-title-link" [innerHTML]="blog.blog.title.rendered"></a>
@@ -56,10 +80,14 @@
             <a [href]="blog.blog.link" class="home__blog-image-link">
               <span class="sr-only">{{blog.blog.title.rendered}}</span>
 
-              <div class="home__blog-image" *ngIf="blog.image.source_url" [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
-                <span class="home__blog-tag home__blog-tag--development" aria-hidden="false" *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
-                <span class="home__blog-tag home__blog-tag--design" aria-hidden="false" *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
-                <span class="home__blog-tag home__blog-tag--business" aria-hidden="false" *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
+              <div class="home__blog-image" *ngIf="blog.image"
+                   [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
+                <span class="home__blog-tag home__blog-tag--development" aria-hidden="false"
+                      *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
+                <span class="home__blog-tag home__blog-tag--design" aria-hidden="false"
+                      *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
+                <span class="home__blog-tag home__blog-tag--business" aria-hidden="false"
+                      *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
               </div>
             </a>
 
@@ -72,11 +100,32 @@
         </div>
 
         <p>
-          <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a><app-dots-component></app-dots-component>
+          <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a>
+          <app-dots-component></app-dots-component>
         </p>
       </div>
       <p *ngIf="error">There was an error fetching the blogs...</p>
+      <p *ngIf="!blogs.length && !error">Loading blogs
+        <app-dots-component></app-dots-component>
+      </p>
     </section>
+
+    <section class="section text-center">
+      <header>
+        <h2>Ready to launch?</h2>
+      </header>
+
+      <p class="home__lead">
+        Enough talking, let's get right to it.
+      </p>
+
+      <div class="section text-center">
+        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true" class="vertical-align">🚀 </span>Let's
+          go!</a>
+      </div>
+    </section>
+
   </div>
+
 </section>
 

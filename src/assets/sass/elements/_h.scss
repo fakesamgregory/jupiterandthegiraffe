@@ -19,14 +19,7 @@ h2 {
   padding-bottom: $space-large;
   border-bottom: 1px solid $color-pickledBluewood;
   line-height: 1.5;
-
-  &:after {
-    content: '_';
-    opacity: 1;
-    animation: blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-  }
+  text-align: center;
 
   @include md {
     @include font-size($heading-2);

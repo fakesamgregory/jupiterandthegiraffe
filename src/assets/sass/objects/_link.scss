@@ -6,9 +6,5 @@
     &::after {
       display: none !important;
     }
-
-    @include hover-focus {
-      cursor: url('../images/rocket-cursor.png'), auto;
-    }
   }
 }

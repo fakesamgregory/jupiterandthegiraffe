@@ -3,6 +3,7 @@ import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import { VeratrakComponent } from './veratrak.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('VeratrakComponent', () => {
   let component: VeratrakComponent;
@@ -11,7 +12,7 @@ describe('VeratrakComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VeratrakComponent, GetInTouchComponent ],
+      declarations: [ VeratrakComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

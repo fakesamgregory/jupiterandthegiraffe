@@ -11,6 +11,7 @@
   background: $color-malibu;
   color: $color-black;
   transition: bottom .3s ease;
+  @include font-size($small-font);
 
   &--hide {
     bottom: -100%;
@@ -36,6 +37,7 @@
     width: auto;
     padding-left: $space-large;
     padding-right: $space-large;
+    @include font-size($small-font);
 
     @include hover-focus {
       color: $color-white;

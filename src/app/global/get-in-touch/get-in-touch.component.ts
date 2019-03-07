@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-get-in-touch',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./get-in-touch.component.scss']
 })
 export class GetInTouchComponent {
+  @Input() title: string;
   constructor() { }
 }

@@ -6,32 +6,39 @@
   width: 100%;
   padding: $space-medium;
   appearance: none;
+  text-decoration: none !important;
 
   @include md {
     width: auto;
   }
 
+  &--outline {
+    background-color: transparent;
+    border: 1px solid;
+  }
+
   &--primary-outline {
     background-color: transparent;
     backdrop-filter: blur(3px);
-    border: 1px solid $white;
-    color: $white;
+    border: 1px solid $color-white;
+    color: $color-white;
 
     &:hover,
     &:focus {
-      background-color: $white;
-      color: $black;
+      background-color: $color-white;
+      color: $color-black;
     }
   }
 
-  &--white {
-    border-color: $white;
-    color: $white;
+  &--white,
+  &--light {
+    border-color: $color-white;
+    color: $color-white;
 
     &:hover,
     &:focus {
-      background-color: $white;
-      color: $black;
+      background-color: $color-white;
+      color: $color-black;
       outline: none;
     }
   }
@@ -46,9 +53,9 @@
 
     &:hover,
     &:focus {
-      background-color: $color-black;
-      color: $color-white;
-      outline: none;
+      background-color: $color-black !important;
+      color: $color-white !important;
+      outline: none !important;
     }
   }
 }

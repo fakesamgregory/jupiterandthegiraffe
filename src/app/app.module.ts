@@ -10,6 +10,7 @@ import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {RECAPTCHA_SETTINGS, RecaptchaSettings} from 'ng-recaptcha';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { AgmCoreModule } from '@agm/core';
 
 import { AosToken, aos } from './aos';
 import {environment} from '../environments/environment';
@@ -61,11 +62,17 @@ import { StrategyComponent } from './pages/strategy/strategy.component';
 import { IdentityComponent } from './misc/identity/identity.component';
 import { AnimationsComponent } from './misc/animations/animations.component';
 import { AwsComponent } from './misc/aws/aws.component';
+import { SamuelComponent } from './pages/samuel/samuel.component';
+import { SuzannahComponent } from './pages/suzannah/suzannah.component';
+import { SocialComponent } from './global/social/social.component';
 
 @NgModule({
   imports: [
     CommonModule,
     NgtUniversalModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsApiKey,
+    }),
 
     AppRoutingModule,
 
@@ -121,7 +128,10 @@ import { AwsComponent } from './misc/aws/aws.component';
     StrategyComponent,
     IdentityComponent,
     AnimationsComponent,
-    AwsComponent
+    AwsComponent,
+    SamuelComponent,
+    SuzannahComponent,
+    SocialComponent
   ],
   providers: [
     FormatDataService,

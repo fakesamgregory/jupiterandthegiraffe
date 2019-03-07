@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BoombocsComponent } from './boombocs.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('BoombocsComponent', () => {
   let component: BoombocsComponent;
@@ -10,7 +11,7 @@ describe('BoombocsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoombocsComponent, GetInTouchComponent ],
+      declarations: [ BoombocsComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

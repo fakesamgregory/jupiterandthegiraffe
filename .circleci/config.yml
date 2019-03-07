@@ -26,6 +26,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Replace Environment Variables
+          command: sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.ts
+
+      - run:
           name: Build project
           command: npm run build
 
@@ -79,6 +83,13 @@ jobs:
       - run:
           name: Install Serverless CLI and dependencies
           command: npm i serverless
+
+      - run:
+          name: Replace Environment Variables
+          command: |
+            sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.ts
+            sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.serverless.ts
+            sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.prod.ts
 
       - run:
           name: Deploy Severless

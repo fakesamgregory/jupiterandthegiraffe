@@ -2,13 +2,21 @@
 @import "../../../assets/sass/tools/tools";
 
 .who {
-  &__image {
+  &__images {
     margin-top: $space-large;
     margin-bottom: $space-large;
 
     @include md {
       margin-top: $space-xlrg;
       margin-bottom: $space-xlrg;
+    }
+  }
+
+  &__link {
+    color: $color-black;
+
+    @include hover-focus {
+      color: $color-oldBrick;
     }
   }
 }

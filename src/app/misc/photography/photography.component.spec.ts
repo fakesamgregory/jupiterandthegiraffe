@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 import { PhotographyComponent } from './photography.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
+import {SocialComponent} from '../../global/social/social.component';
 
 describe('PhotographyComponent', () => {
   let component: PhotographyComponent;
@@ -10,7 +11,7 @@ describe('PhotographyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotographyComponent, GetInTouchComponent ],
+      declarations: [ PhotographyComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

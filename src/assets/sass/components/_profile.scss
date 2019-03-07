@@ -1,0 +1,12 @@
+.profile {
+  &__image {
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  &__book-image {
+    max-width: 150px;
+    height: auto;
+  }
+}

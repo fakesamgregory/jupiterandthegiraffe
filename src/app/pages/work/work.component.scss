@@ -8,21 +8,53 @@
   }
 
   &__item {
-    margin-bottom: $space-xlrg;
-  }
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 
-  &__item-link {
-    color: $color-black;
-
-    @include hover-focus {
-      color: $color-oldBrick;
-
-      .work__case-study {
-        font-weight: 700;
-      }
+    @include lg {
+      background-position: bottom center;
     }
   }
 
+  &__item-link {
+    display: block;
+    position: relative;
+    height: 100%;
+    padding: 50px 0;
+    z-index: 0;
+
+    @include md {
+      padding: 100px 0;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      background: rgba($color-mine-shaft, 0.7);
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      transition: left .3s cubic-bezier(.17,.67,.87,.31);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+
+      @include lg {
+        left: 100%;
+      }
+    }
+
+    @include hover-focus {
+      color: $color-white;
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
 
   &__tags {
     display: flex;
@@ -33,20 +65,21 @@
   }
 
   &__tag {
-    margin: 5px 2.5px;
+    margin: 10px 2.5px;
 
     a {
       padding: 5px;
-      background-color: $color-oldBrick;
+      //background-color: $color-oldBrick;
       color: $color-white;
       border-radius: 5px;
       font-size: $small-font;
-      border: 1px solid $color-pickledBluewood;
+      border: 1px solid $color-white;
       transition: background-color .3s ease;
+      @include font-size($small-font);
 
       @include hover-focus {
         background-color: $color-white;
-        color: $color-oldBrick;
+        color: $color-black;
       }
     }
   }

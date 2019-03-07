@@ -90,4 +90,16 @@
       margin-top: 0;
     }
   }
+
+  &__lead {
+    @include font-size($font-lead);
+
+    @include md {
+      @include font-size($font-lead-desk);
+    }
+  }
+}
+
+agm-map {
+  height: 400px;
 }

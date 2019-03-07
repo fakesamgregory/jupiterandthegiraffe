@@ -18,10 +18,6 @@
             Good to see you. We were just talking about you! Drop us a line and let us know why you're here.
           </p>
 
-          <p>Email us at <a href="mailto:salam@jupiterandthegiraffe.com?subject=Hey I'm on your website!!" class="underline">salam@jupiterandthegiraffe.com</a>.</p>
-
-          <div class="text-center">or</div>
-
           <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
             <label>
               Name:
@@ -81,25 +77,28 @@
           </div>
 
         </ng-template>
-
       </section>
       <section class="col-md-6">
         <header>
-          <h2>Referral Scheme</h2>
+          <h2>Jobs!</h2>
         </header>
-        <div class="text-center">
-          <span class="fa-stack fa-3x">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-gbp fa-stack-1x color-white"></i>
-          </span>
-        </div>
-
 
         <p>
-          We love to give. If you know someone that needs our help,
-          put their contact details in the message and you may be rewarded with 10% of the final invoice amount if we're
-          successful in landing the work. Kerching!
+          We’re always on the lookout for super awesome remote creatives. If you’re a UX designer, graphic designer,
+          copywriter, developer or project manager then get in touch!
         </p>
+
+        <p><a href="mailto:jobs@jupiterandthegiraffe.com">jobs@jupiterandthegiraffe.com</a></p>
+
+        <div class="margin-top--lg margin-bottom--lg">
+          <app-social></app-social>
+        </div>
+
+        <p><strong>Jupiter and the Giraffe Ltd.</strong></p>
+
+        <p>C/O Wis Accountancy Ltd, 4, Imperial Place, Maxwell Road, Borehamwood, England, WD6 1JN</p>
+
+        <p>Company number: 11769481</p>
       </section>
     </div>
   </div>

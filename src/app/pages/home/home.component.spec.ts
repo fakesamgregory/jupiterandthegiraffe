@@ -6,6 +6,7 @@ import {DotsComponent} from '../../global/dots/dots.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {SnowComponent} from '../../global/snow/snow.component';
+import {AgmCoreModule} from '@agm/core';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -14,7 +15,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent, FriendsComponent, DotsComponent, SnowComponent ],
-      imports: [RouterTestingModule, HttpClientModule]
+      imports: [RouterTestingModule, HttpClientModule, AgmCoreModule.forRoot({})]
     })
     .compileComponents();
   }));

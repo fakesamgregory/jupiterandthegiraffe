@@ -1,5 +1,4 @@
 button {
-  //-webkit-appearance: button;
   color: $color-black;
   display: inline-block;
   text-align: center;
@@ -13,11 +12,10 @@ button {
   background-color: $color-white;
   @include font-size($base-font);
 
-  &:hover:not([disabled]), &:focus:not([disabled]) {
-    background: transparent;
-    cursor: pointer;
-    border-color: $color-white;
+  @include hover-focus {
+    background-color: transparent;
     color: $color-white;
+    border-color: $color-white;
   }
 
   &[type="submit"] {

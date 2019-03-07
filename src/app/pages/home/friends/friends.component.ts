@@ -39,12 +39,12 @@ export class FriendsComponent implements OnInit, AfterViewInit {
   }
 
   setupSlider(): void {
-    const slide = this.slider.nativeElement;
-    const slides = Array.prototype.slice.call(slide.children);
+    const slider = this.slider.nativeElement;
+    const slides = Array.prototype.slice.call(slider.children);
     const slideTimerSecs = 6;
 
     // Sets up slider height
-    slide.style.height =
+    slider.style.height =
       slides.reduce((accumulator, currentValue) => {
         const height = currentValue.offsetHeight;
         currentValue.style.position = 'absolute';

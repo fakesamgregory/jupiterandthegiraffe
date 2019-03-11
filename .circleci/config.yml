@@ -63,6 +63,10 @@ jobs:
           name: AWS Sync
           command: aws --region eu-west-1 s3 sync ./dist/browser s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
 
+      - run:
+          name: Invalidate code
+          command: aws cloudfront create-invalidation --distribution-id E1AOX2C775FJYO --paths /*
+
   build_deploy_prod:
     <<: *vm_settings
     steps:

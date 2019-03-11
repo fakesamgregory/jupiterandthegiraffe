@@ -38,27 +38,29 @@ export class EmailPopupComponent implements OnInit {
     if (!post.b_name && !post.b_email && !post.b_comment) {
       this.sending = true;
 
-      let url = `${this.emailSignupUrl}`;
+      setTimeout(() => {
+        let url = `${this.emailSignupUrl}`;
 
-      Object.keys(post).forEach(item => {
-        if (post[item]) {
-          url += `&${item}=${post[item]}`;
-        }
-      });
-
-      this.http.jsonp(url, 'c')
-        .subscribe(response => {
-          this.sending = false;
-          if (response.result && response.result !== 'error') {
-            this.submitted = response;
-          } else {
-            this.error = response.msg;
+        Object.keys(post).forEach(item => {
+          if (post[item]) {
+            url += `&${item}=${post[item]}`;
           }
-        }, error => {
-          this.sending = false;
-          console.error(error);
-          this.error = 'Sorry, an error occurred.';
         });
+
+        this.http.jsonp(url, 'c')
+          .subscribe(response => {
+            this.sending = false;
+            if (response.result && response.result !== 'error') {
+              this.submitted = response;
+            } else {
+              this.error = response.msg;
+            }
+          }, error => {
+            this.sending = false;
+            console.error(error);
+            this.error = 'Sorry, an error occurred.';
+          });
+      }, 1000);
     }
   }
 }

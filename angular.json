@@ -21,7 +21,9 @@
               "src/favicon.ico",
               "src/images",
               "src/json",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/share-image.jpg",
+              "src/logo.png"
             ],
             "styles": [
               "src/assets/sass/main.scss"

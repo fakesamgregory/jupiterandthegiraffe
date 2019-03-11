@@ -1,15 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vue',
   templateUrl: './vue.component.html',
   styleUrls: ['./vue.component.scss']
 })
-export class VueComponent implements OnInit {
+export class VueComponent {
 
-  constructor() { }
+  constructor(private meta: Meta, private titleService: Title) {
+    const TITLE = 'Vue.js';
+    const DESC =
+      'Vue is an open-source framework for building front-end JavaScript applications.';
 
-  ngOnInit() {
+    this.titleService.setTitle(TITLE);
+
+    this.meta.updateTag({
+      name: 'description',
+      content: DESC,
+    });
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: TITLE,
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content: DESC,
+    });
+    this.meta.updateTag({
+      itemprop: 'name',
+      content: TITLE,
+    });
   }
 
 }

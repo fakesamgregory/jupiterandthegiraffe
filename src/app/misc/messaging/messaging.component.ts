@@ -32,5 +32,6 @@ export class MessagingComponent {
       itemprop: 'name',
       content: TITLE,
     });
+  }
 
 }

@@ -19,7 +19,7 @@ export class EmailPopupComponent implements OnInit {
   public sending = false;
   public error = '';
   private emailSignupUrl =
-    'http://jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&amp;id=467e3cb96c';
+    '//jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&amp;id=467e3cb96c';
 
   constructor(
     private fb: FormBuilder,

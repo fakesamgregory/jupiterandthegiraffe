@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { WordpressService } from './wordpress.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('WordpressService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [WordpressService]
+      providers: [WordpressService],
+      imports: [HttpClientTestingModule]
     });
   });
 

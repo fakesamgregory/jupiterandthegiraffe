@@ -8,6 +8,7 @@ import {WordpressService} from '../../../services/wordpress.service';
 })
 export class FriendsComponent implements OnInit, AfterViewInit {
   public friends: Array<Object>;
+  public quotes: Array<Object>;
   private currentActiveSlide = 1;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
@@ -24,13 +25,15 @@ export class FriendsComponent implements OnInit, AfterViewInit {
     this.wordpress.getPostType('quotes')
       .subscribe((quotes: Array<any>) => {
         this.quotes = quotes;
-        this.setupSlider();
+        setTimeout(() => {
+          this.setupSlider();
+        }, 0);
       });
   }
 
   private setupSlider(): void {
     const slider = this.slider.nativeElement;
-    const slides = Array.prototype.slice.call(slider.children);
+    const slides = [].slice.call(slider.children);
     const slideTimerSecs = 6;
 
     // Sets up slider height

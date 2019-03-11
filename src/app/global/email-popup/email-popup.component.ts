@@ -1,6 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+
+interface MailchimpResponse {
+  result: string;
+  msg: string;
+}
 
 @Component({
   selector: 'app-email-popup',
@@ -10,8 +15,9 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 export class EmailPopupComponent implements OnInit {
   @Input() windowClose: object;
   public emailSignup: FormGroup;
-  public submitted = false;
+  public submitted = null;
   public sending = false;
+  public error = '';
   private emailSignupUrl =
     'http://jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&amp;id=467e3cb96c';
 
@@ -48,7 +54,7 @@ export class EmailPopupComponent implements OnInit {
         });
 
         this.http.jsonp(url, 'c')
-          .subscribe(response => {
+          .subscribe((response: MailchimpResponse) => {
             this.sending = false;
             if (response.result && response.result !== 'error') {
               this.submitted = response;
@@ -57,7 +63,6 @@ export class EmailPopupComponent implements OnInit {
             }
           }, error => {
             this.sending = false;
-            console.error(error);
             this.error = 'Sorry, an error occurred.';
           });
       }, 1000);

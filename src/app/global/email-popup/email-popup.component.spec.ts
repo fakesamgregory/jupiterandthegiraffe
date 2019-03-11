@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EmailPopupComponent } from './email-popup.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('EmailPopupComponent', () => {
   let component: EmailPopupComponent;
@@ -8,7 +10,8 @@ describe('EmailPopupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmailPopupComponent ]
+      declarations: [ EmailPopupComponent ],
+      imports: [FormsModule, HttpClientTestingModule, ReactiveFormsModule]
     })
     .compileComponents();
   }));

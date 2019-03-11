@@ -20,7 +20,7 @@ export class WordpressService {
   }
 
   public getPosts(options?: object) {
-    const query = options ? '?' : '';
+    let query = options ? '?' : '';
     if (options) {
       Object.keys(options).forEach(item => {
         if (item && options[item]) {

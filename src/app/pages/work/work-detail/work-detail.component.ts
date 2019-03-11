@@ -20,5 +20,4 @@ export class WorkDetailComponent implements OnInit {
         (error: Error) => this.error = error
       );
   }
-
 }

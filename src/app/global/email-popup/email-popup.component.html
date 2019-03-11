@@ -1,9 +1,11 @@
 <div id="mc_embed_signup" class="email-popup">
   <div class="email-popup__form">
     <div *ngIf="submitted; else signup">
-      <h3 class="h3 email-popup__header">Success!</h3>
+      <h3 class="h3 email-popup__header">
+        Success!
+      </h3>
 
-      <p>
+      <p *ngIf="submitted">
         {{submitted.msg}}
       </p>
     </div>
@@ -16,10 +18,14 @@
         target="_blank"
         novalidate
         [formGroup]="emailSignup"
-        (ngSubmit)="sendForm(emailSignup.value).bind(this)"
+        (ngSubmit)="sendForm(emailSignup.value)"
       >
         <div id="mc_embed_signup_scroll">
-          <h3 class="h3 email-popup__header">Stay en brand.</h3>
+          <h3 class="h3 email-popup__header">
+            Stay en brand.
+          </h3>
+
+          <p *ngIf="error" [innerHTML]="error"></p>
 
           <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
             <label for="b_name">Name: </label>

@@ -8,20 +8,7 @@ import {WordpressService} from '../../../services/wordpress.service';
 })
 export class FriendsComponent implements OnInit, AfterViewInit {
   public friends: Array<Object>;
-  private postsUrl = 'assets/json/friends.json';
   private currentActiveSlide = 1;
-  public quotes = [
-    { text: 'The folks at Jupiter and the Giraffe did a stupendous job on our website', author: 'Jonny - CEO (Boombocs)'},
-    { text: 'The end result speaks for itself', author: 'Matt Wilson - Founder (Veratrak)'},
-    {
-      text: 'From beginning to end, the project was handled efficiently <br>we would definitely use them again',
-      author: 'Olivia Kirkman - (EPOCH)'
-    },
-    {
-      text: 'I love their creative sensibility <br>and appreciate their professionalism and responsiveness',
-      author: 'Neeta Madahar'
-    }
-  ];
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
   constructor(private wordpress: WordpressService) {}
@@ -34,7 +21,11 @@ export class FriendsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.setupSlider();
+    this.wordpress.getPostType('quotes')
+      .subscribe((quotes: Array<any>) => {
+        this.quotes = quotes;
+        this.setupSlider();
+      });
   }
 
   private setupSlider(): void {

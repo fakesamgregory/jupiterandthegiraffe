@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { WordpressComponent } from './wordpress.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('WordpressComponent', () => {
   let component: WordpressComponent;
@@ -12,7 +13,7 @@ describe('WordpressComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WordpressComponent, GetInTouchComponent, SocialComponent ],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule, HttpClientModule]
     })
     .compileComponents();
   }));

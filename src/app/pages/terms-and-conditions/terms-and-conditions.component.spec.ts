@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TermsAndConditionsComponent } from './terms-and-conditions.component';
-import {HttpClientModule} from '@angular/common/http';
+import {WordpressComponent} from '../../misc/wordpress/wordpress.component';
 
 describe('TermsAndConditionsComponent', () => {
   let component: TermsAndConditionsComponent;
@@ -10,7 +10,7 @@ describe('TermsAndConditionsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TermsAndConditionsComponent ],
-      imports: [ HttpClientModule ]
+      imports: [ WordpressComponent ]
     })
     .compileComponents();
   }));

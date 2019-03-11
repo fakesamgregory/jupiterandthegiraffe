@@ -6,8 +6,8 @@
 
     <div #slider class="slider" aria-live="polite">
       <blockquote class="slide" *ngFor="let quote of quotes; let i = index" [ngClass]="{'slide--visible': (i + 1) === currentActiveSlide}">
-        <q [innerHTML]="quote.text"></q>
-        <footer>{{quote.author}}</footer>
+        <div [innerHTML]="quote.content.rendered"></div>
+        <footer [innerHTML]="quote.title.rendered"></footer>
       </blockquote>
     </div>
 

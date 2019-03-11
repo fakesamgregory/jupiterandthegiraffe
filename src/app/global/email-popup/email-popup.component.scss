@@ -1,0 +1,15 @@
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/tools/tools";
+
+.email-popup {
+  padding: $space-small 0;
+
+  &__button {
+    float: none;
+    margin: 0;
+  }
+
+  &__input {
+    margin-bottom: 0;
+  }
+}

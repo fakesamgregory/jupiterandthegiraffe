@@ -1,8 +1,8 @@
 import {NgtUniversalModule} from '@ng-toolkit/universal';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-import {FormatDataService} from './format-data.service';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import {FormatDataService} from './services/format-data.service';
 import {Angulartics2Module} from 'angulartics2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
@@ -65,6 +65,7 @@ import { AwsComponent } from './misc/aws/aws.component';
 import { SamuelComponent } from './pages/samuel/samuel.component';
 import { SuzannahComponent } from './pages/suzannah/suzannah.component';
 import { SocialComponent } from './global/social/social.component';
+import { EmailPopupComponent } from './global/email-popup/email-popup.component';
 
 @NgModule({
   imports: [
@@ -84,7 +85,8 @@ import { SocialComponent } from './global/social/social.component';
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientJsonpModule,
   ],
   declarations: [
     AppComponent,
@@ -131,7 +133,8 @@ import { SocialComponent } from './global/social/social.component';
     AwsComponent,
     SamuelComponent,
     SuzannahComponent,
-    SocialComponent
+    SocialComponent,
+    EmailPopupComponent
   ],
   providers: [
     FormatDataService,

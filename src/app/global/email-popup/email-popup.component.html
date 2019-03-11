@@ -1,0 +1,60 @@
+<div id="mc_embed_signup" class="email-popup">
+  <div class="email-popup__form">
+    <div *ngIf="submitted; else signup">
+      <h3 class="h3 email-popup__header">Success!</h3>
+
+      <p>
+        {{submitted.msg}}
+      </p>
+    </div>
+
+    <ng-template #signup>
+      <form
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="validate"
+        target="_blank"
+        novalidate
+        [formGroup]="emailSignup"
+        (ngSubmit)="sendForm(emailSignup.value).bind(this)"
+      >
+        <div id="mc_embed_signup_scroll">
+          <h3 class="h3 email-popup__header">Stay en brand.</h3>
+
+          <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
+            <label for="b_name">Name: </label>
+            <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+
+            <label for="b_email">Email: </label>
+            <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com"
+                   id="b_email">
+
+            <label for="b_comment">Comment: </label>
+            <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+          </div>
+
+          <div class="row align-items-end">
+            <div class="col">
+              <div class="mc-field-group">
+                <label for="MERGE0" class="sr-only">Email Address:</label>
+                <input type="email" formControlName="MERGE0" name="MERGE0" value="" required class="required email-popup__input"
+                       id="MERGE0" [readonly]="sending" placeholder="email address">
+              </div>
+            </div>
+            <div class="col">
+              <button
+                type="submit"
+                name="subscribe"
+                id="mc-embedded-subscribe"
+                class="btn email-popup__button"
+                [disabled]="!emailSignup.valid || sending"
+              >
+                Subscribe <span [ngClass]="{'fa fa-spinner fa-spin': sending}" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+  </div>
+</div>

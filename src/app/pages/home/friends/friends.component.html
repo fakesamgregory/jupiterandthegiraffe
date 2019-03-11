@@ -4,10 +4,10 @@
       <h2>Clients</h2>
     </header>
 
-    <div #slider class="slider" aria-live="polite">
-      <blockquote class="slide" *ngFor="let quote of quotes; let i = index" [ngClass]="{'slide--visible': (i + 1) === currentActiveSlide}">
-        <q [innerHTML]="quote.text"></q>
-        <footer>{{quote.author}}</footer>
+    <div #slider class="slider" aria-live="polite" *ngIf="quotes.length">
+      <blockquote class="slide" #slide *ngFor="let quote of quotes; let i = index" [ngClass]="{'slide--visible': (i + 1) === currentActiveSlide}">
+        <div [innerHTML]="quote.content.rendered"></div>
+        <footer [innerHTML]="quote.title.rendered"></footer>
       </blockquote>
     </div>
 
@@ -16,20 +16,18 @@
           data-aos="fade-up"
           [attr.data-aos-delay]="i * 150"
       >
-        <a [routerLink]="friend.page" class="friends__link" *ngIf="friend.page; else noLink;">
+        <a [routerLink]="makeUrl(friend.content.rendered)" class="friends__link" *ngIf="friend.content.rendered; else noLink;">
           <img
             class="img-fluid friends__image"
-            src="assets/images/{{ friend.img }}.png"
-            srcset="assets/images/{{friend.img}}.png 1x, assets/images/{{friend.img}}@2x.png 2x"
-            [attr.alt]="friend.name">
+            [src]="friend._embedded['wp:featuredmedia'][0].source_url"
+            [attr.alt]="friend.title.rendered">
         </a>
         <ng-template #noLink>
           <span class="friends__link">
             <img
               class="img-fluid friends__image"
-              src="assets/images/{{ friend.img }}.png"
-              srcset="assets/images/{{friend.img}}.png 1x, assets/images/{{friend.img}}@2x.png 2x"
-              [attr.alt]="friend.name">
+              [src]="friend._embedded['wp:featuredmedia'][0].source_url"
+              [attr.alt]="friend.title.rendered">
           </span>
         </ng-template>
       </li>

@@ -1,46 +1,37 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {WordpressService} from '../../../services/wordpress.service';
 
 @Component({
   selector: 'app-friends-component',
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnInit, AfterViewInit {
+export class FriendsComponent implements OnInit {
   public friends: Array<Object>;
-  private postsUrl = 'assets/json/friends.json';
+  public quotes = [];
   private currentActiveSlide = 1;
-  public quotes = [
-    { text: 'The folks at Jupiter and the Giraffe did a stupendous job on our website', author: 'Jonny - CEO (Boombocs)'},
-    { text: 'The end result speaks for itself', author: 'Matt Wilson - Founder (Veratrak)'},
-    {
-      text: 'From beginning to end, the project was handled efficiently <br>we would definitely use them again',
-      author: 'Olivia Kirkman - (EPOCH)'
-    },
-    {
-      text: 'I love their creative sensibility <br>and appreciate their professionalism and responsiveness',
-      author: 'Neeta Madahar'
-    }
-  ];
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
-  constructor(private http: HttpClient) {}
+  constructor(private wordpress: WordpressService) {}
 
   ngOnInit(): void {
-    this.http
-      .get(this.postsUrl)
-      .subscribe((data: Object) => {
-        this.friends = data['friends'];
+    this.wordpress.getPostType('friends')
+      .subscribe((friends: Array<any>) => {
+        this.friends = friends;
+      });
+
+    this.wordpress.getPostType('quotes')
+      .subscribe((quotes: Array<any>) => {
+        this.quotes = quotes;
+        setTimeout(() => {
+          this.setupSlider();
+        }, 0);
       });
   }
 
-  ngAfterViewInit(): void {
-    this.setupSlider();
-  }
-
-  setupSlider(): void {
+  private setupSlider(): void {
     const slider = this.slider.nativeElement;
-    const slides = Array.prototype.slice.call(slider.children);
+    const slides = [].slice.call(slider.children);
     const slideTimerSecs = 6;
 
     // Sets up slider height
@@ -63,5 +54,9 @@ export class FriendsComponent implements OnInit, AfterViewInit {
         this.currentActiveSlide = 1;
       }
     }, slideTimerSecs * 1000);
+  }
+
+  public makeUrl(content: string): string {
+    return `/${content.replace(/(<([^>]+)>)/ig, '').trim()}`;
   }
 }

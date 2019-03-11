@@ -1,7 +1,6 @@
-import {Component, isDevMode} from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { HttpClient } from '@angular/common/http';
 import {Meta, Title} from '@angular/platform-browser';
 
 export interface Item { name: string; email: string; message: string; html: string; date: string; }
@@ -24,7 +23,6 @@ export class ContactComponent {
   constructor(
     private fb: FormBuilder,
     public db: AngularFireDatabase,
-    private http: HttpClient,
     private meta: Meta,
     private titleService: Title
   ) {
@@ -68,7 +66,6 @@ export class ContactComponent {
   }
 
   sendForm(post) {
-    console.log(post);
     const company = post.company ? ` from ${post.company}` : '';
 
     this.name = post.name;

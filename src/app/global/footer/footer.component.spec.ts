@@ -2,7 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FooterComponent } from './footer.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientModule} from '@angular/common/http';
+import {WordpressService} from '../../services/wordpress.service';
+import {EmailPopupComponent} from '../email-popup/email-popup.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MockWordpressService} from '../../services/wordpress.mockservice';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -10,8 +14,13 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ],
-      imports: [RouterTestingModule, HttpClientModule]
+      declarations: [ FooterComponent, EmailPopupComponent ],
+      imports: [RouterTestingModule, FormsModule, ReactiveFormsModule],
+      providers: [
+        { provide: WordpressService, useClass: MockWordpressService },
+        HttpClient,
+        HttpHandler
+      ]
     })
     .compileComponents();
   }));
@@ -24,5 +33,9 @@ describe('FooterComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

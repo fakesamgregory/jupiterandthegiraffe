@@ -12,7 +12,7 @@ describe('WordpressComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WordpressComponent, GetInTouchComponent, SocialComponent ],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     })
     .compileComponents();
   }));

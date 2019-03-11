@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
-import {HttpClient} from '@angular/common/http';
+import {WordpressService} from '../../services/wordpress.service';
 
 @Component({
   selector: 'app-terms-and-conditions',
@@ -12,7 +12,7 @@ export class TermsAndConditionsComponent implements OnInit {
   public content = '';
   public title = '';
 
-  constructor(private meta: Meta, private titleService: Title, private http: HttpClient) {
+  constructor(private meta: Meta, private titleService: Title, private wordpress: WordpressService) {
     const TITLE = 'Terms and Conditions';
     const DESC = 'Check out our T&C\'s';
 
@@ -37,8 +37,7 @@ export class TermsAndConditionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http
-      .get(`${this.url}/pages/144`)
+    this.wordpress.getPageId(144)
       .subscribe((content: any) => {
         this.content = content.content.rendered;
         this.title = content.title.rendered;

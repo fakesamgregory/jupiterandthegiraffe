@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {WordpressService} from '../../../services/wordpress.service';
 
 @Component({
   selector: 'app-friends-component',
@@ -24,13 +24,12 @@ export class FriendsComponent implements OnInit, AfterViewInit {
   ];
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
-  constructor(private http: HttpClient) {}
+  constructor(private wordpress: WordpressService) {}
 
   ngOnInit(): void {
-    this.http
-      .get(this.postsUrl)
-      .subscribe((data: Object) => {
-        this.friends = data['friends'];
+    this.wordpress.getPostType('friends')
+      .subscribe((friends: Array<any>) => {
+        this.friends = friends;
       });
   }
 
@@ -38,7 +37,7 @@ export class FriendsComponent implements OnInit, AfterViewInit {
     this.setupSlider();
   }
 
-  setupSlider(): void {
+  private setupSlider(): void {
     const slider = this.slider.nativeElement;
     const slides = Array.prototype.slice.call(slider.children);
     const slideTimerSecs = 6;
@@ -63,5 +62,9 @@ export class FriendsComponent implements OnInit, AfterViewInit {
         this.currentActiveSlide = 1;
       }
     }, slideTimerSecs * 1000);
+  }
+
+  public makeUrl(content: string): string {
+    return `/${content.replace(/(<([^>]+)>)/ig, '').trim()}`;
   }
 }

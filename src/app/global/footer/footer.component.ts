@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 
 import 'assets/images/giraffe.png';
 import 'assets/images/giraffe@2x.png';
+import {WordpressService} from '../../services/wordpress.service';
 
 @Component({
   selector: 'app-footer-component',
@@ -20,11 +20,16 @@ export class FooterComponent implements OnInit {
   ];
   today: number = Date.now();
 
-  constructor(private http: HttpClient) { }
+  constructor(private wordpress: WordpressService) { }
 
   ngOnInit(): void {
-    this.http
-      .get('assets/json/friends.json')
-      .subscribe(data => this.brands = data['friends']);
+    this.wordpress.getPostType('friends')
+      .subscribe((friends: Array<any>) => {
+        this.brands = friends.filter(friend => friend.excerpt.rendered);
+      });
+  }
+
+  public makeUrl(content: string): string {
+    return content.replace(/(<([^>]+)>)/ig, '').trim();
   }
 }

@@ -16,20 +16,18 @@
           data-aos="fade-up"
           [attr.data-aos-delay]="i * 150"
       >
-        <a [routerLink]="friend.page" class="friends__link" *ngIf="friend.page; else noLink;">
+        <a [routerLink]="makeUrl(friend.content.rendered)" class="friends__link" *ngIf="friend.content.rendered; else noLink;">
           <img
             class="img-fluid friends__image"
-            src="assets/images/{{ friend.img }}.png"
-            srcset="assets/images/{{friend.img}}.png 1x, assets/images/{{friend.img}}@2x.png 2x"
-            [attr.alt]="friend.name">
+            [src]="friend._embedded['wp:featuredmedia'][0].source_url"
+            [attr.alt]="friend.title.rendered">
         </a>
         <ng-template #noLink>
           <span class="friends__link">
             <img
               class="img-fluid friends__image"
-              src="assets/images/{{ friend.img }}.png"
-              srcset="assets/images/{{friend.img}}.png 1x, assets/images/{{friend.img}}@2x.png 2x"
-              [attr.alt]="friend.name">
+              [src]="friend._embedded['wp:featuredmedia'][0].source_url"
+              [attr.alt]="friend.title.rendered">
           </span>
         </ng-template>
       </li>

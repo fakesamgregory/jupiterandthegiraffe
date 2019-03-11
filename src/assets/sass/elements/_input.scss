@@ -13,5 +13,11 @@ input {
   &:focus {
     border-left-color: $color-green-haze;
     outline: none;
+    transition: border-left-color .3s ease;
+
+    &:invalid {
+      border-left-color: $color-oldBrick;
+    }
   }
+
 }

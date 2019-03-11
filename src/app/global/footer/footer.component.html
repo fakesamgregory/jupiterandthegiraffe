@@ -10,10 +10,17 @@
         </header>
         <ul class="list-unstyled">
           <li *ngFor="let brand of brands" class="footer__list-item">
-            <a [href]="brand.url" target="_blank" class="footer__link">{{brand.name}}</a>
+            <a [href]="makeUrl(brand.excerpt.rendered)" target="_blank" class="footer__link">
+              {{brand.title.rendered}}
+            </a>
           </li>
         </ul>
       </section>
+
+      <div class="row">
+        <div class="col-md-10"><app-email-popup></app-email-popup></div>
+      </div>
+
       <ul class="footer__social list-unstyled list-inline">
         <li>
           <a href="https://www.linkedin.com/company/jupiter-and-the-giraffe/" class="link-plain footer__social-link" title="Jupiter and the Giraffe Linkedin profile">

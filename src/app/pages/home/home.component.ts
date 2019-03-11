@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { isDevMode } from '@angular/core';
+import {WordpressService} from '../../services/wordpress.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -174,14 +175,12 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private wordpress: WordpressService, private http: HttpClient) {}
 
   ngOnInit() {
-    const sequence = this.http
-      .get(`${this.url}/posts?per_page=2`)
+    const sequence = this.wordpress.getPosts({'per_page': 2})
       .subscribe((blogs: Array<any>) => {
         blogs.forEach((blog) => {
-
           try {
             const author = this.http.get(blog._links.author[0].href);
             const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);

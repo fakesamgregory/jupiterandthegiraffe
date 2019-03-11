@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FriendsComponent } from './friends.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {WordpressService} from '../../../services/wordpress.service';
-import {HttpClient, HttpHandler} from '@angular/common/http';
+import {MockWordpressService} from '../../../services/wordpress.mockservice';
 
 describe('FriendsComponent', () => {
   let component: FriendsComponent;
@@ -14,10 +14,8 @@ describe('FriendsComponent', () => {
       declarations: [ FriendsComponent ],
       imports: [RouterTestingModule],
       providers: [
-        WordpressService,
-        HttpClient,
-        HttpHandler
-      ]
+        { provide: WordpressService, useClass: MockWordpressService }
+      ],
     })
     .compileComponents();
   }));
@@ -30,5 +28,9 @@ describe('FriendsComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

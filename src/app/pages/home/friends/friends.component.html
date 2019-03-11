@@ -4,7 +4,7 @@
       <h2>Clients</h2>
     </header>
 
-    <div #slider class="slider" aria-live="polite">
+    <div #slider class="slider" aria-live="polite" *ngIf="quotes.length">
       <blockquote class="slide" #slide *ngFor="let quote of quotes; let i = index" [ngClass]="{'slide--visible': (i + 1) === currentActiveSlide}">
         <div [innerHTML]="quote.content.rendered"></div>
         <footer [innerHTML]="quote.title.rendered"></footer>

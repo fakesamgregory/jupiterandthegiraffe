@@ -5,6 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {WordpressService} from '../../services/wordpress.service';
 import {EmailPopupComponent} from '../email-popup/email-popup.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MockWordpressService} from '../../services/wordpress.mockservice';
 import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('FooterComponent', () => {
@@ -16,7 +17,7 @@ describe('FooterComponent', () => {
       declarations: [ FooterComponent, EmailPopupComponent ],
       imports: [RouterTestingModule, FormsModule, ReactiveFormsModule],
       providers: [
-        WordpressService,
+        { provide: WordpressService, useClass: MockWordpressService },
         HttpClient,
         HttpHandler
       ]
@@ -32,5 +33,9 @@ describe('FooterComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

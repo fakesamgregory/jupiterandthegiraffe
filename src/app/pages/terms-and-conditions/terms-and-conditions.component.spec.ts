@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TermsAndConditionsComponent } from './terms-and-conditions.component';
 import {WordpressService} from '../../services/wordpress.service';
-import {HttpClient, HttpHandler} from '@angular/common/http';
+import {MockWordpressService} from '../../services/wordpress.mockservice';
 
 describe('TermsAndConditionsComponent', () => {
   let component: TermsAndConditionsComponent;
@@ -12,9 +12,7 @@ describe('TermsAndConditionsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ TermsAndConditionsComponent ],
       providers: [
-        WordpressService,
-        HttpClient,
-        HttpHandler
+        { provide: WordpressService, useClass: MockWordpressService }
       ],
     })
     .compileComponents();
@@ -28,5 +26,9 @@ describe('TermsAndConditionsComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

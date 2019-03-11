@@ -6,9 +6,9 @@ import {WordpressService} from '../../../services/wordpress.service';
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnInit, AfterViewInit {
+export class FriendsComponent implements OnInit {
   public friends: Array<Object>;
-  public quotes: Array<Object>;
+  public quotes = [];
   private currentActiveSlide = 1;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
@@ -19,9 +19,7 @@ export class FriendsComponent implements OnInit, AfterViewInit {
       .subscribe((friends: Array<any>) => {
         this.friends = friends;
       });
-  }
 
-  ngAfterViewInit(): void {
     this.wordpress.getPostType('quotes')
       .subscribe((quotes: Array<any>) => {
         this.quotes = quotes;

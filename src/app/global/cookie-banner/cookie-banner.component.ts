@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-cookie-banner',
@@ -16,7 +18,10 @@ export class CookieBannerComponent implements OnInit {
 
   get hide(): boolean { return this._hide; }
 
-  constructor() { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: any
+  ) { }
 
   ngOnInit() {
     if (!this.getCookie('cookieAcknowledged')) {
@@ -25,14 +30,19 @@ export class CookieBannerComponent implements OnInit {
   }
 
   getCookie(name) {
-    const v = document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
+    let v;
+    if (!isPlatformBrowser(this.platformId)) {
+      v = this.document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
+    }
     return v ? v[2] : null;
   }
 
   setCookie(name, value, days) {
-    const d = new Date;
-    d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
-    document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;
+    if (!isPlatformBrowser(this.platformId)) {
+      const d = new Date;
+      d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+      this.document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;
+    }
   }
 
   dismiss() {

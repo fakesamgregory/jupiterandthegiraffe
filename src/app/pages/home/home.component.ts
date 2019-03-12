@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { isDevMode } from '@angular/core';
 import {WordpressService} from '../../services/wordpress.service';
 import {HttpClient} from '@angular/common/http';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,7 @@ export class HomeComponent implements OnInit {
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   public developmentMode = isDevMode();
+  public isClient = false;
   public styles = [
     {
       'elementType': 'geometry',
@@ -175,9 +178,14 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor(private wordpress: WordpressService, private http: HttpClient) {}
+  constructor(
+    private wordpress: WordpressService,
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit() {
+    this.isClient = isPlatformBrowser(this.platformId);
     const sequence = this.wordpress.getPosts({'per_page': 2})
       .subscribe((blogs: Array<any>) => {
         blogs.forEach((blog) => {

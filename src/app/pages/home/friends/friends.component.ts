@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {WordpressService} from '../../../services/wordpress.service';
 
 @Component({
@@ -6,10 +6,11 @@ import {WordpressService} from '../../../services/wordpress.service';
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnInit {
+export class FriendsComponent implements OnInit, OnDestroy {
   public friends: Array<Object>;
   public quotes = [];
   private currentActiveSlide = 1;
+  private timeout = null;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
   constructor(private wordpress: WordpressService) {}
@@ -23,10 +24,16 @@ export class FriendsComponent implements OnInit {
     this.wordpress.getPostType('quotes')
       .subscribe((quotes: Array<any>) => {
         this.quotes = quotes;
-        setTimeout(() => {
+        this.timeout = setTimeout(() => {
           this.setupSlider();
         }, 0);
       });
+  }
+
+  ngOnDestroy() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
   private setupSlider(): void {

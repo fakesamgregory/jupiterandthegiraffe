@@ -3,7 +3,8 @@ import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
 import {Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
-import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+import { Angulartics2Facebook } from 'angulartics2/facebook';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
 
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
               @Inject(DOCUMENT) private document: any,
               @Inject(WINDOW) private window: Window,
               router: Router,
-              public angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+              angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
+              angulartics2Facebook: Angulartics2Facebook,
               @Inject(AosToken) aos) {
 
     if (isPlatformBrowser(this.platformId)) {
@@ -46,7 +48,8 @@ export class AppComponent implements OnInit {
       });
     }
 
-    angulartics2GoogleAnalytics.startTracking();
+    angulartics2GoogleTagManager.startTracking();
+    angulartics2Facebook.startTracking();
 
     router.events
       .pipe(filter(event => event instanceof NavigationStart))

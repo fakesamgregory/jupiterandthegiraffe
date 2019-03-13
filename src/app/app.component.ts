@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
               @Inject(DOCUMENT) private document: any,
               @Inject(WINDOW) private window: Window,
               router: Router,
-              // private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              // private angulartics2Facebook: Angulartics2Facebook,
+              private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
+              private angulartics2Facebook: Angulartics2Facebook,
               @Inject(AosToken) aos) {
 
     if (isPlatformBrowser(this.platformId)) {
@@ -48,8 +48,8 @@ export class AppComponent implements OnInit {
       });
     }
 
-    // angulartics2GoogleTagManager.startTracking();
-    // angulartics2Facebook.startTracking();
+    angulartics2GoogleTagManager.startTracking();
+    angulartics2Facebook.startTracking();
 
     router.events
       .pipe(filter(event => event instanceof NavigationStart))
@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
       this.showHeader = (scrollY > 400);
       this.hideCookie = (scrollY > this.footerPos);
     }

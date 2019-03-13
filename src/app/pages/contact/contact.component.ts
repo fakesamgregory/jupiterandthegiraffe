@@ -1,4 +1,4 @@
-import {Component, Inject, isDevMode} from '@angular/core';
+import {Component, Inject, isDevMode, PLATFORM_ID} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Meta, Title} from '@angular/platform-browser';

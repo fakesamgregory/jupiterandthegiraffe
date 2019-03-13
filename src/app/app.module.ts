@@ -83,7 +83,7 @@ import { EmailPopupComponent } from './global/email-popup/email-popup.component'
     FormsModule,
     ReactiveFormsModule,
 
-    Angulartics2Module.forRoot([Angulartics2Facebook, Angulartics2GoogleTagManager]),
+    Angulartics2Module.forRoot(),
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     AngularFireModule.initializeApp(environment.firebase),

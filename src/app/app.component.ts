@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
               @Inject(DOCUMENT) private document: any,
               @Inject(WINDOW) private window: Window,
               router: Router,
-              angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              angulartics2Facebook: Angulartics2Facebook,
+              private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
+              private angulartics2Facebook: Angulartics2Facebook,
               @Inject(AosToken) aos) {
 
     if (isPlatformBrowser(this.platformId)) {

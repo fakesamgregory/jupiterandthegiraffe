@@ -3,7 +3,7 @@ import { ContactComponent } from './contact.component';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { RecaptchaModule } from 'ng-recaptcha';
-import {Angulartics2} from 'angulartics2';
+import {Angulartics2, Angulartics2Module} from 'angulartics2';
 
 import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +29,8 @@ describe('ContactComponent', () => {
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        Angulartics2Module.forRoot(),
       ],
       declarations: [ ContactComponent, SocialComponent ],
       providers: [

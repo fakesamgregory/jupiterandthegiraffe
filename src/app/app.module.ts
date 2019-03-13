@@ -4,6 +4,8 @@ import {NgModule} from '@angular/core';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormatDataService} from './services/format-data.service';
 import {Angulartics2Module} from 'angulartics2';
+import {Angulartics2Facebook} from 'angulartics2/facebook';
+import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';

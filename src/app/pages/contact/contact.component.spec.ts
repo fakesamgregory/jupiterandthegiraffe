@@ -3,11 +3,19 @@ import { ContactComponent } from './contact.component';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { RecaptchaModule } from 'ng-recaptcha';
+import {Angulartics2, Angulartics2Module} from 'angulartics2';
 
 import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import {SocialComponent} from '../../global/social/social.component';
+import {WINDOW} from '@ng-toolkit/universal';
+
+const mockAngulartics2 = {
+  eventTrack: {
+    event: () => true,
+  }
+};
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -22,8 +30,13 @@ describe('ContactComponent', () => {
         AngularFireModule.initializeApp(environment.firebase),
         FormsModule,
         ReactiveFormsModule,
+        Angulartics2Module.forRoot(),
       ],
-      declarations: [ ContactComponent, SocialComponent ]
+      declarations: [ ContactComponent, SocialComponent ],
+      providers: [
+        {provide: WINDOW},
+        { provide: Angulartics2, useValue: mockAngulartics2 },
+      ]
     })
     .compileComponents();
   }));

@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
               @Inject(WINDOW) private window: Window,
               router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              private angulartics2Facebook: Angulartics2Facebook,
+              // private angulartics2Facebook: Angulartics2Facebook,
               @Inject(AosToken) aos) {
 
     if (isPlatformBrowser(this.platformId)) {
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     }
 
     angulartics2GoogleTagManager.startTracking();
-    angulartics2Facebook.startTracking();
+    // angulartics2Facebook.startTracking();
 
     router.events
       .pipe(filter(event => event instanceof NavigationStart))

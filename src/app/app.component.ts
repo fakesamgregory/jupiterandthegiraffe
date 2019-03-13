@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
               @Inject(DOCUMENT) private document: any,
               @Inject(WINDOW) private window: Window,
               router: Router,
-              private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
+              // private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
               // private angulartics2Facebook: Angulartics2Facebook,
               @Inject(AosToken) aos) {
 
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
       });
     }
 
-    angulartics2GoogleTagManager.startTracking();
+    // angulartics2GoogleTagManager.startTracking();
     // angulartics2Facebook.startTracking();
 
     router.events

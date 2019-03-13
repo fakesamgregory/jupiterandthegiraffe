@@ -4,6 +4,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Meta, Title} from '@angular/platform-browser';
 import {Angulartics2} from 'angulartics2';
 import {isPlatformBrowser} from '@angular/common';
+import {WINDOW} from '@ng-toolkit/universal';
 
 export interface Item { name: string; email: string; message: string; html: string; date: string;
 }

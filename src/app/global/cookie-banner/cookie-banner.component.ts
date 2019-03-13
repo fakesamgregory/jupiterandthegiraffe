@@ -31,14 +31,14 @@ export class CookieBannerComponent implements OnInit {
 
   getCookie(name) {
     let v;
-    if (!isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId)) {
       v = this.document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
     }
     return v ? v[2] : null;
   }
 
   setCookie(name, value, days) {
-    if (!isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId)) {
       const d = new Date;
       d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
       this.document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;

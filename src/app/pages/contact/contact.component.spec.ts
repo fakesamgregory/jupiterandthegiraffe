@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import {SocialComponent} from '../../global/social/social.component';
+import {Angulartics2} from 'angulartics2';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
@@ -22,6 +23,7 @@ describe('ContactComponent', () => {
         AngularFireModule.initializeApp(environment.firebase),
         FormsModule,
         ReactiveFormsModule,
+        Angulartics2,
       ],
       declarations: [ ContactComponent, SocialComponent ]
     })

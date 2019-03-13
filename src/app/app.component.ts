@@ -69,7 +69,9 @@ export class AppComponent implements OnInit {
     router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
+        if (isPlatformBrowser(this.platformId)) {
+          this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
+        }
         this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
       });
   }

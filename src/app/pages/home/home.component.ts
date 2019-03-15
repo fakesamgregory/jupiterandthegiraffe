@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   public developmentMode = isDevMode();
-  public isClient = false;
   public styles = [
     {
       'elementType': 'geometry',
@@ -180,12 +179,10 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private wordpress: WordpressService,
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
-    this.isClient = isPlatformBrowser(this.platformId);
     const sequence = this.wordpress.getPosts({'per_page': 2})
       .subscribe((blogs: Array<any>) => {
         blogs.forEach((blog) => {

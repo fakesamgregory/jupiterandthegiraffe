@@ -24,29 +24,28 @@ export class CookieBannerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (!this.getCookie('cookieAcknowledged')) {
-      this.showCookie = true;
+    if (isPlatformBrowser(this.platformId)) {
+      if (!this.getCookie('cookieAcknowledged')) {
+        this.showCookie = true;
+      }
     }
   }
 
   getCookie(name) {
-    let v;
-    if (!isPlatformBrowser(this.platformId)) {
-      v = this.document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
-    }
+    const v = this.document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
     return v ? v[2] : null;
   }
 
   setCookie(name, value, days) {
-    if (!isPlatformBrowser(this.platformId)) {
-      const d = new Date;
-      d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
-      this.document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;
-    }
+    const d = new Date;
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+    this.document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;
   }
 
   dismiss() {
-    this.setCookie('cookieAcknowledged', true, 365);
-    this.showCookie = false;
+    if (isPlatformBrowser(this.platformId)) {
+      this.setCookie('cookieAcknowledged', true, 365);
+      this.showCookie = false;
+    }
   }
 }

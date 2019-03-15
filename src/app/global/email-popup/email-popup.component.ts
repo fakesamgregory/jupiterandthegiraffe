@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 
@@ -12,11 +12,12 @@ interface MailchimpResponse {
   templateUrl: './email-popup.component.html',
   styleUrls: ['./email-popup.component.scss']
 })
-export class EmailPopupComponent implements OnInit {
+export class EmailPopupComponent implements OnDestroy {
   @Input() windowClose: object;
   public emailSignup: FormGroup;
   public submitted = null;
   public sending = false;
+  private timeout = null;
   public error = '';
   private emailSignupUrl =
     '//jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&amp;id=467e3cb96c';
@@ -28,7 +29,10 @@ export class EmailPopupComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
   createForm() {
@@ -44,7 +48,7 @@ export class EmailPopupComponent implements OnInit {
     if (!post.b_name && !post.b_email && !post.b_comment) {
       this.sending = true;
 
-      setTimeout(() => {
+      this.timeout = setTimeout(() => {
         let url = `${this.emailSignupUrl}`;
 
         Object.keys(post).forEach(item => {

@@ -102,19 +102,6 @@ jobs:
           name: Deploy Severless
           command: npm run build:serverless:deploy
 
-  invalidate_code:
-    docker:
-      - image: circleci/python:2.7
-    steps:
-
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-
-      - run:
-          name: Invalidate code
-          command: aws cloudfront create-invalidation --distribution-id E24T90EA7EBZTQ --paths /*
-
 
   test:
     <<: *vm_settings
@@ -199,15 +186,6 @@ workflows:
       - build_deploy_prod:
           requires:
             - hold
-          filters:
-            tags:
-              only: /[0-9]+(\.[0-9]+)*/
-            branches:
-              ignore: /.*/
-
-      - invalidate_code:
-          requires:
-            - build_deploy_prod
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/

@@ -11,7 +11,7 @@ export class IdentityComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'Brand identity';
     const DESC =
-      'Your brand identity (or logo) is usually the first thing people see. It\'s the most iconic part of your brand ' +
+      'Your brand identity (corporate/company logo) is usually the first thing people see. It\'s the most iconic part of your brand ' +
       'so shouldn\'t be understated.';
 
     this.titleService.setTitle(TITLE);

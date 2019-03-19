@@ -8,8 +8,7 @@ import {Meta, Title} from '@angular/platform-browser';
 export class WhatComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'What We Do - Branding, Websites, UX/UI, Logos';
-    const DESC = 'We care about your brand as much as you do, we have experience in logo design and corporate identity.' +
-      'To finish it off, we can build you a kickass website to go with it.';
+    const DESC = 'We do brand strategy, brand identity, website design and development. User-centric thinking and design thinking';
 
     this.titleService.setTitle( TITLE );
 

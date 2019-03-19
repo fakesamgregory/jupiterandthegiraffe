@@ -11,8 +11,7 @@ export class EcommerceComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'ecommerce';
     const DESC =
-      'Short for \'Electronic Commerce\', Ecommerce refers to the selling of goods online. ' +
-      'It can also be attributed to any kind of transaction online.';
+      'Wordpress or Shopify websites we can build themes on these ecommerce platforms including woocommerce';
 
     this.titleService.setTitle(TITLE);
 

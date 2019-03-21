@@ -49,6 +49,7 @@
 
     li {
       display: inline-block;
+      margin-right: $space-large;
 
       @include md {
         margin-left: $space-large;

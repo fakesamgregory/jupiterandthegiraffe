@@ -11,27 +11,29 @@
       </blockquote>
     </div>
 
-    <ul class="row list-unstyled friends__list">
-      <li class="col-sm-4 col-4 friends__list-item" *ngFor="let friend of friends; let i = index"
-          data-aos="fade-up"
-          [attr.data-aos-delay]="i * 150"
-      >
-        <a [routerLink]="makeUrl(friend.content.rendered)" class="friends__link" *ngIf="friend.content.rendered; else noLink;">
-          <img
-            class="img-fluid friends__image"
-            [src]="friend._embedded['wp:featuredmedia'][0].source_url"
-            [attr.alt]="friend.title.rendered">
-        </a>
-        <ng-template #noLink>
+    <div (appDeferLoad)="showMyElement=true">
+      <ul class="row list-unstyled friends__list" *ngIf="showMyElement">
+        <li class="col-sm-4 col-4 friends__list-item" *ngFor="let friend of friends; let i = index"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="i * 150"
+        >
+          <a [routerLink]="makeUrl(friend.content.rendered)" class="friends__link" *ngIf="friend.content.rendered; else noLink;">
+            <img
+              class="img-fluid friends__image"
+              [src]="friend._embedded['wp:featuredmedia'][0].source_url"
+              [attr.alt]="friend.title.rendered">
+          </a>
+          <ng-template #noLink>
           <span class="friends__link">
             <img
               class="img-fluid friends__image"
               [src]="friend._embedded['wp:featuredmedia'][0].source_url"
               [attr.alt]="friend.title.rendered">
           </span>
-        </ng-template>
-      </li>
-    </ul>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
 
     <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline btn--light">
       <span aria-hidden="true" class="vertical-align">💻 </span>See the work

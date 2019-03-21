@@ -4,57 +4,26 @@
       <h2>Who is Jupiter and who is the Giraffe?</h2>
     </header>
 
-    <p>Seek and ye shall find...</p>
+    <div [innerHTML]="content.content.rendered" *ngIf="content"></div>
 
-    <p>
-      Jupiter and the Giraffe believe daring creativity shouldn’t be reserved for the big guys.
-      Empowering all types of business to be different and stand tall among the giants.
-    </p>
-
-    <p>
-      We travel the world in search of the most ambitious people and hire a collective of the best freelancers so that
-      we can offer exceptional talent,
-      a range of creative thinking, and solutions that are bespoke to your business.
-      We go beyond the Ort-Cloud of delivery and create solutions that take your goals to the next level.
-    </p>
-
-    <p>
-      We solve business challenges through the medium of creativity and design be that a brand or your website.
-    </p>
-
-    <section class="who__images">
+    <section class="who__images" *ngIf="team">
       <header>
         <h3>Our fleet</h3>
       </header>
 
       <div class="row">
-        <div class="col who__image" itemscope itemtype="http://schema.org/Person">
+        <div class="col who__image" itemscope itemtype="http://schema.org/Person" *ngFor="let member of team">
           <div class="media">
-            <a class="who__link" [routerLink]="['/samuel-gregory']">
+            <a class="who__link" [routerLink]="['/' + member.slug]">
               <div class="media-left">
-                <img itemprop="image" class="media-object" [src]="'assets/images/founder.jpg'"
-                     alt="Photo of Samuel Gregory"
-                     [srcset]="'assets/images/founder.jpg 1x, assets/images/founder@2x.jpg 2x'">
+                <img itemprop="image" class="media-object" [src]="member._embedded['wp:featuredmedia'][0].source_url"
+                     [alt]="'Photo of ' + member.title.rendered"
+                     [srcset]="member._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x, ' + member._embedded['wp:featuredmedia'][0].source_url + ' 2x'">
               </div>
               <div class="media-body media-bottom">
-                <h4 class="media-heading" itemprop="name">Samuel Gregory</h4>
-                <span itemprop="jobTitle">CEO/Founder</span> <br>
-                <span itemprop="email">samuel@jupiterandthegiraffe.com</span>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col who__image" itemscope itemtype="http://schema.org/Person">
-          <div class="media">
-            <a class="who__link" [routerLink]="['/suzannah-james']">
-              <div class="media-right">
-                <img class="media-object" [src]="'assets/images/suzie.jpg'" alt="Photo of Suzannah James"
-                     [srcset]="'assets/images/suzie.jpg 1x, assets/images/suzie@2x.jpg 2x'">
-              </div>
-              <div class="media-body media-bottom">
-                <h4 class="media-heading" itemprop="name">Suzannah James</h4>
-                <span itemprop="jobTitle">Creative Director</span> <br>
-                <span itemprop="email">suzannah@jupiterandthegiraffe.com</span>
+                <h4 class="media-heading" itemprop="name">{{member.title.rendered}}</h4>
+                <span itemprop="jobTitle">{{member.acf.title}}</span> <br>
+                <span itemprop="email">{{member.acf.email}}</span>
               </div>
             </a>
           </div>
@@ -67,23 +36,7 @@
         <h3>Our process</h3>
       </header>
 
-      <p>
-        Jupiter and the Giraffe are a <a href="https://jupiterandthegiraffe.com" class="link-plain"><strong>brand
-        strategy</strong></a> and
-        <a href="https://jupiterandthegiraffe.com" class="link-plain"><strong>design agency</strong></a>.
-        We specialise in helping companies understand their pain points better and establish a brand that reflects the
-        true values of the organisation.
-      </p>
-
-      <p>
-        Having worked in <a href="https://jupiterandthegiraffe.com" class="link-plain">global enterprise companies</a>,
-        we understand the tools and techniques that
-        got them to the top, but we don't want to work with global enterprise organisations. They're sluggish and wont
-        experiment
-        the way the web demands us to be. We believe those learnings can be applied to <a
-        href="https://jupiterandthegiraffe.com" class="link-plain">SME branding</a>
-        and help them look professional where competition is tough.
-      </p>
+      <div [innerHTML]="content.acf.value" *ngIf="content"></div>
     </section>
 
     <app-get-in-touch></app-get-in-touch>

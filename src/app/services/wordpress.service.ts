@@ -20,7 +20,7 @@ export class WordpressService {
   }
 
   public getPosts(options?: object) {
-    let query = options ? '?' : '';
+    let query = options ? '&' : '';
     if (options) {
       Object.keys(options).forEach(item => {
         if (item && options[item]) {
@@ -29,6 +29,6 @@ export class WordpressService {
       });
     }
     return  this.http
-      .get(`${this.url}/posts${query.slice(0, -1)}`);
+      .get(`${this.url}/posts?_embed${query.slice(0, -1)}`);
   }
 }

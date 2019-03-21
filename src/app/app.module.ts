@@ -68,6 +68,7 @@ import { SamuelComponent } from './pages/samuel/samuel.component';
 import { SuzannahComponent } from './pages/suzannah/suzannah.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
+import { DeferLoadDirective } from './defer-load.directive';
 
 @NgModule({
   imports: [
@@ -136,7 +137,8 @@ import { EmailPopupComponent } from './global/email-popup/email-popup.component'
     SamuelComponent,
     SuzannahComponent,
     SocialComponent,
-    EmailPopupComponent
+    EmailPopupComponent,
+    DeferLoadDirective
   ],
   providers: [
     FormatDataService,

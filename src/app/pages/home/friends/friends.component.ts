@@ -11,6 +11,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   public quotes = [];
   private currentActiveSlide = 1;
   private timeout = null;
+  public showMyElement = false;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
   constructor(private wordpress: WordpressService) {}

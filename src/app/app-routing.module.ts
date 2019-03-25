@@ -78,7 +78,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'strategy', redirectTo: 'service/strategy' },
+  { path: 'strategy', component: StrategyComponent },
   {
     path: 'strategy',
     children: [

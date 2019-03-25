@@ -50,7 +50,7 @@ export class WhatComponent {
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
 
-      if (this.scrollInterval) {
+      if (Boolean(this.scrollInterval)) {
         this.window.clearTimeout(this.scrollInterval);
       }
 

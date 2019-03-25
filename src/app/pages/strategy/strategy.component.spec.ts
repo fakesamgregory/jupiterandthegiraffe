@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { StrategyComponent } from './strategy.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('StrategyComponent', () => {
   let component: StrategyComponent;
@@ -11,7 +12,7 @@ describe('StrategyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StrategyComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ StrategyComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

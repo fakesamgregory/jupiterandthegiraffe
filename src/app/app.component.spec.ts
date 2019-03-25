@@ -37,9 +37,6 @@ describe('AppComponent', () => {
         {provide: Angulartics2GoogleTagManager, useValue: {
           startTracking: () => true,
         }},
-        {provide: Angulartics2Facebook, useValue: {
-          startTracking: () => true,
-        }},
         { provide: AosToken, useValue: aos },
       ]
     }).compileComponents();

@@ -10,7 +10,7 @@ import {WINDOW} from '@ng-toolkit/universal';
 export class WhatComponent {
   public fixSidebar = false;
   public fixedCSS: object;
-  private scrollInterval: object;
+  private scrollInterval;
   public activeIndex = null;
   @ViewChild('fixedWrap') fixedWrap: ElementRef;
   @ViewChild('scrollSection') scrollSection: ElementRef;
@@ -65,7 +65,7 @@ export class WhatComponent {
     }
   }
 
-  public goToSection(event: object, index: number): void {
+  public goToSection(event, index: number): void {
     event.preventDefault();
     const offset = this.window.pageYOffset || this.document.documentElement.scrollTop;
     this.window.scrollTo({

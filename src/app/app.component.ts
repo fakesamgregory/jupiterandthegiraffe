@@ -4,7 +4,6 @@ import {WINDOW} from '@ng-toolkit/universal';
 import {Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
-import { Angulartics2Facebook } from 'angulartics2/facebook';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
 
@@ -38,7 +37,6 @@ export class AppComponent implements OnInit {
               @Inject(WINDOW) private window: Window,
               router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              private angulartics2Facebook: Angulartics2Facebook,
               @Inject(AosToken) aos) {
 
     if (isPlatformBrowser(this.platformId)) {
@@ -48,8 +46,7 @@ export class AppComponent implements OnInit {
       });
     }
 
-    angulartics2GoogleTagManager.startTracking();
-    angulartics2Facebook.startTracking();
+    this.angulartics2GoogleTagManager.startTracking();
 
     router.events
       .pipe(filter(event => event instanceof NavigationStart))
@@ -59,7 +56,6 @@ export class AppComponent implements OnInit {
         if (event.url === '/') {
           this.hasBeenHome = true;
         }
-
 
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);

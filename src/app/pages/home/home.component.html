@@ -80,14 +80,16 @@
             <a [href]="blog.blog.link" class="home__blog-image-link">
               <span class="sr-only">{{blog.blog.title.rendered}}</span>
 
-              <div class="home__blog-image" *ngIf="blog.image"
-                   [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
-                <span class="home__blog-tag home__blog-tag--development" aria-hidden="false"
-                      *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
-                <span class="home__blog-tag home__blog-tag--design" aria-hidden="false"
-                      *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
-                <span class="home__blog-tag home__blog-tag--business" aria-hidden="false"
-                      *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
+              <div (appDeferLoad)="showMyElement=true" *ngIf="blog.image">
+                <div class="home__blog-image" *ngIf="showMyElement"
+                     [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
+                  <span class="home__blog-tag home__blog-tag--development" aria-hidden="false"
+                        *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
+                  <span class="home__blog-tag home__blog-tag--design" aria-hidden="false"
+                        *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
+                  <span class="home__blog-tag home__blog-tag--business" aria-hidden="false"
+                        *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
+                </div>
               </div>
             </a>
 

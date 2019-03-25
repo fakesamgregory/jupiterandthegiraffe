@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 
 export class MockWordpressService {
   getPageId() {
-    return of({});
+    return of();
   }
 
   getPostType() {

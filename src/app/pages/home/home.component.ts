@@ -190,16 +190,15 @@ export class HomeComponent implements OnInit {
             const author = this.http.get(blog._links.author[0].href);
             const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);
             const get = [author, category];
-
-            if (blog._links['wp:featuredmedia']) {
-              get.push(this.http.get(blog._links['wp:featuredmedia'][0].href));
-            }
+            const image = blog._embedded['wp:featuredmedia'];
 
             forkJoin(get)
               .subscribe(data => {
                 const obj = {
                   author: data[0],
-                  image: data[2] ? data[2] : {source_url: '/assets/images/blog-feature-default.jpg'},
+                  image: image
+                    ? blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                    : {source_url: '/assets/images/blog-feature-default-min.jpg'},
                   blog,
                   date: blog.date.split('T')[0].split('-'),
                   category: data[1],

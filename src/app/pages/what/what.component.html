@@ -4,73 +4,85 @@
       <h1 class="sr-only">What we do</h1>
     </header>
 
-    <section>
-      <header>
-        <h2>Strategy</h2>
-      </header>
+    <div class="row">
+      <div class="col-4 what-we-do__fixed-titles-wrap" #fixedWrap>
+        <div class="what-we-do__fixed-titles" [ngClass]="{'what-we-do__fixed-titles--fixed': fixSidebar}" [ngStyle]="fixedCSS">
+          <div class="h2 what-we-do__fixed-title">Strategy</div>
+          <div class="h2 what-we-do__fixed-title">Brand</div>
+          <div class="h2 what-we-do__fixed-title">Design</div>
+          <div class="h2 what-we-do__fixed-title">Development</div>
+        </div>
+      </div>
+      <div class="col-8">
+        <section>
+          <header>
+            <h2>Strategy</h2>
+          </header>
 
-      <h3>Measure twice, draw once</h3>
+          <h3>Measure twice, draw once</h3>
 
-      <p class="what-we-do--tagline">
-        We kick things off the right way with a facilitated <a [routerLink]="['/service/strategy']">Strategy</a> session.
-        We get to know your company, your problems, your users and your goals so there’s method to our madness.
-        It’s plain sailing from then on in.
-      </p>
+          <p class="what-we-do--tagline">
+            We kick things off the right way with a facilitated <a [routerLink]="['/service/strategy']">Strategy</a> session.
+            We get to know your company, your problems, your users and your goals so there’s method to our madness.
+            It’s plain sailing from then on in.
+          </p>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        Tell me more about <a [routerLink]="['/service/strategy']">brand strategy</a>?
-      </p>
-    </section>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            Tell me more about <a [routerLink]="['/service/strategy']">brand strategy</a>?
+          </p>
+        </section>
 
-    <section class="section">
-      <header>
-        <h2>Branding</h2>
-      </header>
+        <section class="section">
+          <header>
+            <h2>Branding</h2>
+          </header>
 
-      <h3>Move people</h3>
+          <h3>Move people</h3>
 
-      <p class="what-we-do--tagline">
-        The power to appeal means through your <a [routerLink]="['/service/branding']">branding</a> you’ll get the customers you desire.
-      </p>
+          <p class="what-we-do--tagline">
+            The power to appeal means through your <a [routerLink]="['/service/branding']">branding</a> you’ll get the customers you desire.
+          </p>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        Find out about our <a [routerLink]="['/service/branding']">branding</a> service.
-      </p>
-    </section>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            Find out about our <a [routerLink]="['/service/branding']">branding</a> service.
+          </p>
+        </section>
 
-    <section class="section">
-      <header>
-        <h2>Design</h2>
-      </header>
+        <section class="section">
+          <header>
+            <h2>Design</h2>
+          </header>
 
-      <h3>We love making shit look cool</h3>
+          <h3>We love making shit look cool</h3>
 
-      <p class="what-we-do--tagline">
-        We believe great <a [routerLink]="['/service/design']">design</a> is everything so we go to great lengths to make sure your design compliments your brand perfectly.
-        From websites to beer labels graphic design exists at the core and we apply it to whatever challenge you bring.
-      </p>
+          <p class="what-we-do--tagline">
+            We believe great <a [routerLink]="['/service/design']">design</a> is everything so we go to great lengths to make sure your design compliments your brand perfectly.
+            From websites to beer labels graphic design exists at the core and we apply it to whatever challenge you bring.
+          </p>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        Tell me more about your <a [routerLink]="['/service/design']">design</a> service.
-      </p>
-    </section>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            Tell me more about your <a [routerLink]="['/service/design']">design</a> service.
+          </p>
+        </section>
 
-    <section class="section">
-      <header>
-        <h2>Websites</h2>
-      </header>
+        <section class="section">
+          <header>
+            <h2>Websites</h2>
+          </header>
 
-      <h3>Make sure it screams how awesome you are when you’re not able to</h3>
+          <h3>Make sure it screams how awesome you are when you’re not able to</h3>
 
-      <p class="what-we-do--tagline">
-        We build beautiful and enjoyable <a [routerLink]="['/service/web-development']">online</a> experiences that lets your brand shine through.
-        Whether it’s a marketing site or an ecommerce system, let the tech evaporate from your concern.
-      </p>
+          <p class="what-we-do--tagline">
+            We build beautiful and enjoyable <a [routerLink]="['/service/web-development']">online</a> experiences that lets your brand shine through.
+            Whether it’s a marketing site or an ecommerce system, let the tech evaporate from your concern.
+          </p>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        What's this <a [routerLink]="['/service/web-development']">web development</a> service all about?
-      </p>
-    </section>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            What's this <a [routerLink]="['/service/web-development']">web development</a> service all about?
+          </p>
+        </section>
+      </div>
+    </div>
 
     <app-get-in-touch></app-get-in-touch>
   </section>

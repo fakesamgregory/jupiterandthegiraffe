@@ -28,4 +28,20 @@
     border: 1px solid $color-mine-shaft;
     text-align: center;
   }
+
+  &__fixed-title {
+    text-align: left;
+    border: none;
+    margin-bottom: 50px;
+  }
+
+  &__fixed-titles-wrap {
+    position: relative;
+  }
+
+  &__fixed-titles {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    padding-top: 100px;
+  }
 }

@@ -11,8 +11,7 @@ export class DesignComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'Design';
     const DESC =
-      'Extending from your brand, we take every aspect of who your users are and we\'ll design you something that far ' +
-      'exceeds what they expect';
+      'Speak to us about Website, packaging, stationary & event design. We work with graphic designers all around the world';
 
     this.titleService.setTitle(TITLE);
 

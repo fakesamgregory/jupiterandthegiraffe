@@ -11,7 +11,7 @@ export class WordpressComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'Wordpress';
     const DESC =
-      'Wordpress is our go-to CMS';
+      'We have extensive experience in Wordpress CMS websites. Design, building selling Wordpress themes';
 
     this.titleService.setTitle(TITLE);
 

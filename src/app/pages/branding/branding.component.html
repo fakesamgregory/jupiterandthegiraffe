@@ -1,5 +1,7 @@
-<div class="white-bg">
+<div class="white-bg white-bg--with-image">
   <section class="container-fluid">
+    <img src="/assets/images/brand.jpg" alt="">
+
     <app-back-button></app-back-button>
 
     <header>
@@ -12,35 +14,53 @@
       that will scale and grow along with your company's ambitions and ultimate success.
     </p>
 
-    <p>
-      We work tirelessly with you to think about the "what's", "who's", "where's" and "when's"
-      when it comes to your audience to help sculpt the perfect brand.
-      We’re all about engaging your audience through a jaw-dropping logo, wicked <a [routerLink]="['/branding/typography']">typography</a>,
-      striking colours and a resonating <a [routerLink]="['/branding/tone-of-voice']">tone of voice</a> along with a strategy that will stick.
-      We're not messing around.
-    </p>
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">Brand Strategy</h2>
+      </header>
 
-    <p>
-      We also work with you to understand and highlight your <a [routerLink]="['/branding/messaging']">brand messaging</a>,
-      and use <a [routerLink]="['/branding/photography']">photography</a>, iconography and animation to compose all these
-      elements together to build your perfect brand.
-    </p>
+      <p class="text-lead">
+        We work tirelessly with you to think about the "what's", "who's", "where's" and "when's" when it comes to your
+        audience to help sculpt the perfect brand.
+        We help you work out your brand positioning in the market and give you that perfect
+        <a [routerLink]="['/branding/tone-of-voice']">tone-of-voice</a>
+        to help you resonate and connect with your audience in a way you didn't think was possible.
+      </p>
+    </section>
+
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">Brand Guidelines/Brand Identity</h2>
+      </header>
+
+      <p class="text-lead">
+        We build out you brand guidelines too with visual assets like a jaw-dropping logo, wicked <a [routerLink]="['/branding/typography']">typography</a>,
+        striking colours, We're not messing around.
+      </p>
+
+      <p class="text-lead">
+        We also work with you to understand and highlight your <a [routerLink]="['/branding/messaging']">brand messaging</a>,
+        and use <a [routerLink]="['/branding/photography']">photography</a>, iconography and animation to compose all these
+        elements together to build your perfect brand.
+      </p>
+    </section>
 
     <p>
       If your interested in developing your Brand, we'd love for you to get in touch with us.
     </p>
 
+    <app-get-in-touch></app-get-in-touch>
+
     <section>
       <h2>Check out our other services</h2>
 
       <ul class="list-plain">
-        <li><a href="https://jupiterandthegiraffe.com">Strategy</a></li>
+        <li><a [routerLink]="'/strategy'">Brand Strategy</a></li>
         <li><a href="https://jupiterandthegiraffe.com">Branding Agency</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Design Agency</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Web Development Agency</a></li>
+        <li><a [routerLink]="'/design'">Design Agency</a></li>
+        <li><a [routerLink]="'/web-development'">Web Development Agency</a></li>
       </ul>
     </section>
 
-    <app-get-in-touch></app-get-in-touch>
   </section>
 </div>

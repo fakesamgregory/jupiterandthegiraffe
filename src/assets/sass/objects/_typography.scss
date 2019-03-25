@@ -10,6 +10,14 @@
   &-right {
     text-align: right;
   }
+
+  &-lead {
+    @include font-size($font-lead);
+
+    @include md {
+      @include font-size($font-lead-desk);
+    }
+  }
 }
 
 .color {

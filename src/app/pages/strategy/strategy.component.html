@@ -1,5 +1,7 @@
-<div class="white-bg">
+<div class="white-bg white-bg--with-image">
   <section class="container-fluid">
+    <img src="/assets/images/strategy.jpg" alt="">
+
     <app-back-button></app-back-button>
 
     <header>
@@ -13,24 +15,63 @@
     </p>
 
     <p>
+      Strategy can be incredible insightful to you and us which is why we run it as a separate service. It allows us
+      to really outline the problem we are trying to solve and so it helps us act more like a partner working with you than
+      for you. It gives us the ability to think as a collective even when you're not around.
+    </p>
+
+    <p>
       What comes out of this is a fully fledged plan of action where everyone is clear and fully involved.
     </p>
+
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">Brand Positioning</h2>
+      </header>
+
+      <p class="text-lead">
+        We facilitate a brand positioning exercise which puts all your values in the spotlight and we find your true calling.
+      </p>
+    </section>
+
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">User Personas</h2>
+      </header>
+
+      <p class="text-lead">
+        We outline your ideal customers so that we can speak directly to them making sure whatever we produce is falls
+        in line with their values, wants and needs.
+      </p>
+    </section>
+
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">Goals</h2>
+      </header>
+
+      <p class="text-lead">
+        We finalise the session with a clear, prioritised list of goals that will guarantee the results when it comes to
+        your return on investment.
+      </p>
+    </section>
 
     <p>
       If your business have some pain-points that you think we can help with, holla at us!
     </p>
 
-    <section>
+    <app-get-in-touch></app-get-in-touch>
+
+    <section class="white-bg__section">
       <h2>Check out our other services</h2>
 
       <ul class="list-plain">
-        <li><a href="https://jupiterandthegiraffe.com">Strategy</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Branding Agency</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Design Agency</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Web Development Agency</a></li>
+        <li><a href="https://jupiterandthegiraffe.com">Brand Strategy</a></li>
+        <li><a [routerLink]="'/branding'">Branding Agency</a></li>
+        <li><a [routerLink]="'/design'">Design Agency</a></li>
+        <li><a [routerLink]="'/web-development'">Web Development Agency</a></li>
       </ul>
     </section>
 
-    <app-get-in-touch></app-get-in-touch>
   </section>
 </div>

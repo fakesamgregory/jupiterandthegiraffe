@@ -11,8 +11,7 @@ export class WebDevelopmentComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'Web Development';
     const DESC =
-      'We\'re confident we can build the site you need, using elegant user experience (UX) and making it accessible to all. ' +
-      'We have your users in mind.';
+      'We can build Wordpress websites, ecommerce and Shopify sites as well as singe-page applications in React, Vue and Angular';
 
     this.titleService.setTitle(TITLE);
 

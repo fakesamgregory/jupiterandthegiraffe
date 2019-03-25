@@ -12,7 +12,7 @@ export class StrategyComponent {
     const TITLE = 'Strategy';
     const DESC =
       'This stage in the project gives us the opportunity to delve deeper into your pain points to better understand ' +
-      'your problems.';
+      'your problems. Brand strategy, corporate strategy and marketing strategy.';
 
     this.titleService.setTitle(TITLE);
 

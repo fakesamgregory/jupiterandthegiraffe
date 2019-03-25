@@ -23,8 +23,7 @@ export class WhatComponent {
     @Inject(DOCUMENT) private document: Document
   ) {
     const TITLE = 'Strategy, Branding, Websites, UX/UI, Logos, Brand Stratey';
-    const DESC = 'We care about your brand as much as you do, we have experience in logo design and corporate identity.' +
-      'To finish it off, we can build you a kickass website to go with it.';
+    const DESC = 'We do brand strategy, brand identity, website design and development. User-centric thinking and design thinking';
 
     this.titleService.setTitle( TITLE );
 

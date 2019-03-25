@@ -11,8 +11,7 @@ export class AwsComponent {
   constructor(private meta: Meta, private titleService: Title) {
     const TITLE = 'Amazon Web Services (AWS)';
     const DESC =
-      'Amazon Web Services is our chose partner for infrastructure as it provides a reliable place for our websites to be hosted in ' +
-      'for a cheap price.';
+      'Amazon Web Services (AWS) is our chose partner for infrastructure and website hosting, domain name registration and pipeline';
 
     this.titleService.setTitle(TITLE);
 

@@ -9,7 +9,10 @@ export class DeferLoadDirective implements AfterViewInit {
 
   constructor (
     private _element: ElementRef
-  ) { }
+  ) {
+    this._element.nativeElement.style.opacity = 0;
+    this._element.nativeElement.style.transition = 'opacity .3s ease';
+  }
 
   public ngAfterViewInit () {
     this._intersectionObserver = new IntersectionObserver(entries => {
@@ -22,6 +25,9 @@ export class DeferLoadDirective implements AfterViewInit {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (this.checkIfIntersecting(entry)) {
         this.appDeferLoad.emit();
+        setTimeout(() => {
+          this._element.nativeElement.style.opacity = 1;
+        }, 100);
         this._intersectionObserver.unobserve(<Element>(this._element.nativeElement));
         this._intersectionObserver.disconnect();
       }

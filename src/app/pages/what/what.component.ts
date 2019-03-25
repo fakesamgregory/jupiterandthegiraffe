@@ -10,7 +10,10 @@ import {WINDOW} from '@ng-toolkit/universal';
 export class WhatComponent {
   public fixSidebar = false;
   public fixedCSS: object;
+  private scrollInterval: object;
+  public activeIndex = null;
   @ViewChild('fixedWrap') fixedWrap: ElementRef;
+  @ViewChild('scrollSection') scrollSection: ElementRef;
 
   constructor(
     private meta: Meta,
@@ -19,7 +22,7 @@ export class WhatComponent {
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document
   ) {
-    const TITLE = 'What We Do - Branding, Websites, UX/UI, Logos';
+    const TITLE = 'Strategy, Branding, Websites, UX/UI, Logos, Brand Stratey';
     const DESC = 'We care about your brand as much as you do, we have experience in logo design and corporate identity.' +
       'To finish it off, we can build you a kickass website to go with it.';
 
@@ -46,13 +49,29 @@ export class WhatComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
-      console.log(scrollY, this.fixedWrap.nativeElement.getBoundingClientRect().top);
-      this.fixSidebar = (scrollY > this.fixedWrap.nativeElement.getBoundingClientRect().top);
-      this.fixedCSS = this.fixSidebar ? {
-        top: 0,
-        left: `${this.fixedWrap.nativeElement.getBoundingClientRect().left}px`,
-      } : {};
+
+      if (this.scrollInterval) {
+        this.window.clearTimeout(this.scrollInterval);
+      }
+
+      this.scrollInterval = this.window.setTimeout(() => {
+        [].forEach.call(this.scrollSection.nativeElement.children, (section, index: number) => {
+          const isThisSection = section.getBoundingClientRect().top <= (this.window.innerHeight / 2);
+
+          if (isThisSection) {
+            this.activeIndex = index;
+          }
+        });
+      }, 100);
     }
+  }
+
+  public goToSection(event: object, index: number): void {
+    event.preventDefault();
+    const offset = this.window.pageYOffset || this.document.documentElement.scrollTop;
+    this.window.scrollTo({
+      top: (this.scrollSection.nativeElement.children[index].getBoundingClientRect().top + offset) - 100,
+      behavior: 'smooth'
+    });
   }
 }

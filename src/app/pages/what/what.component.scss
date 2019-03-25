@@ -33,15 +33,56 @@
     text-align: left;
     border: none;
     margin-bottom: 50px;
+    opacity: .3;
+    transition: opacity .3s ease, color .3s ease;
+    display: block;
+    color: $color-black !important;
+
+    &--active {
+      opacity: 1;
+      color: $color-malibu !important;
+    }
   }
 
   &__fixed-titles-wrap {
     position: relative;
+    display: none;
+
+    @include md {
+      display: block;
+    }
   }
 
   &__fixed-titles {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    padding-top: 100px;
+    top: 0;
+
+    &--no-title {
+      .what-we-do__fixed-title {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__first-section {
+    padding-top: 50px;
+    @include md {
+      padding-top: 100px;
+    }
+  }
+
+  &__intro {
+    @include md {
+      min-height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
   }
 }

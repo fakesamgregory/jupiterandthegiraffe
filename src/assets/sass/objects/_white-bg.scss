@@ -6,4 +6,12 @@
   a {
     color: $color-oldBrick;
   }
+
+  &--with-image {
+    padding-top: 0;
+  }
+
+  &__section {
+    margin: $space-xlrg 0;
+  }
 }

@@ -1,77 +1,99 @@
 <div class="what-we-do white-bg text-center">
-  <section class="container-fluid">
-    <header>
-      <h1 class="sr-only">What we do</h1>
-    </header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 what-we-do__fixed-titles-wrap">
+        <div class="what-we-do__fixed-titles what-we-do__first-section" #fixedWrap [ngClass]="{'what-we-do__fixed-titles--no-title': !activeIndex}">
+          <a href="#" (click)="goToSection($event, 1)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 1}">Strategy</a>
+          <a href="#" (click)="goToSection($event, 2)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 2}">Branding</a>
+          <a href="#" (click)="goToSection($event, 3)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 3}">Design</a>
+          <a href="#" (click)="goToSection($event, 4)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 4}">Development</a>
+        </div>
+      </div>
+      <div class="col-md-8" #scrollSection>
+        <section class="what-we-do__intro what-we-do__first-section">
+          <header>
+            <h1 class="what-we-do__title">What we do</h1>
+          </header>
 
-    <section>
-      <header>
-        <h2>Strategy</h2>
-      </header>
+          <p>
+            We believe in user-centric, design thinking that must align with your brand. We achieve this by running
+            brand strategy sessions with all our clients and deliver all the way through to the execution, be it branding,
+            design or development.
+          </p>
+        </section>
 
-      <h3>Measure twice, draw once</h3>
+        <section class="section">
+          <header>
+            <h2 id="strategy">Strategy</h2>
+          </header>
 
-      <p class="what-we-do--tagline">
-        We kick things off the right way with a facilitated <a [routerLink]="['/service/strategy']">Strategy</a> session.
-        We get to know your company, your problems, your users and your goals so there’s method to our madness.
-        It’s plain sailing from then on in.
-      </p>
+          <h3>Measure twice, draw once</h3>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        Tell me more about <a [routerLink]="['/service/strategy']">brand strategy</a>?
-      </p>
-    </section>
+          <p class="what-we-do--tagline">
+            We kick things off the right way with a facilitated <a [routerLink]="['/service/strategy']">Strategy</a> session.
+            We get to know your company, your problems, your users and your goals so there’s method to our madness.
+            It’s plain sailing from then on in.
+          </p>
 
-    <section class="section">
-      <header>
-        <h2>Branding</h2>
-      </header>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            Tell me more about <a [routerLink]="['/service/strategy']">brand strategy</a>?
+          </p>
+        </section>
 
-      <h3>Move people</h3>
+        <section class="section">
+          <header>
+            <h2 id="branding">Branding</h2>
+          </header>
 
-      <p class="what-we-do--tagline">
-        The power to appeal means through your <a [routerLink]="['/service/branding']">branding</a> you’ll get the customers you desire.
-      </p>
+          <h3>Move people</h3>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        Find out about our <a [routerLink]="['/service/branding']">branding</a> service.
-      </p>
-    </section>
+          <p class="what-we-do--tagline">
+            It's crucial that to have great design you need a brand. Don't have your branding nailed? We've got you covered.
+            From positioning to tone-of-voice, you'll attract the right customers with a brand that looks friggin' awesome.
+          </p>
 
-    <section class="section">
-      <header>
-        <h2>Design</h2>
-      </header>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            Find out what our <a [routerLink]="['/service/branding']">branding</a> service is.
+          </p>
+        </section>
 
-      <h3>We love making shit look cool</h3>
+        <section class="section">
+          <header>
+            <h2 id="design">Design</h2>
+          </header>
 
-      <p class="what-we-do--tagline">
-        We believe great <a [routerLink]="['/service/design']">design</a> is everything so we go to great lengths to make sure your design compliments your brand perfectly.
-        From websites to beer labels graphic design exists at the core and we apply it to whatever challenge you bring.
-      </p>
+          <h3>We love making shit look cool</h3>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        Tell me more about your <a [routerLink]="['/service/design']">design</a> service.
-      </p>
-    </section>
+          <p class="what-we-do--tagline">
+            We believe great <a [routerLink]="['/service/design']">design</a> is everything so we go to great lengths to
+            make sure your design compliments your brand perfectly. Websites, beer labels, products or illustration,
+            graphic design exists at the core and we apply it to whatever challenge you bring.
+          </p>
 
-    <section class="section">
-      <header>
-        <h2>Websites</h2>
-      </header>
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            Tell me more about your <a [routerLink]="['/service/design']">design</a> service.
+          </p>
+        </section>
 
-      <h3>Make sure it screams how awesome you are when you’re not able to</h3>
+        <section class="section">
+          <header>
+            <h2 id="development">Development</h2>
+          </header>
 
-      <p class="what-we-do--tagline">
-        We build beautiful and enjoyable <a [routerLink]="['/service/web-development']">online</a> experiences that lets your brand shine through.
-        Whether it’s a marketing site or an ecommerce system, let the tech evaporate from your concern.
-      </p>
+          <h3>Make sure it screams how awesome you are when you’re not able to.</h3>
 
-      <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-        What's this <a [routerLink]="['/service/web-development']">web development</a> service all about?
-      </p>
-    </section>
+          <p class="what-we-do--tagline">
+            We build beautiful and enjoyable <a [routerLink]="['/service/web-development']">online experiences</a> that let your brand shine.
+            Whether its a marketing site or an ecommerce system, let the tech evaporate from your concern and engage your audience.
+          </p>
+
+          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+            What's this <a [routerLink]="['/service/web-development']">web development</a> service all about?
+          </p>
+        </section>
+      </div>
+    </div>
 
     <app-get-in-touch></app-get-in-touch>
-  </section>
+  </div>
 </div>

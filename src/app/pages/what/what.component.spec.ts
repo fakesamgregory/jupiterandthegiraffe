@@ -6,6 +6,8 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {DotsComponent} from '../../global/dots/dots.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
+import {WINDOW} from '@ng-toolkit/universal';
 
 describe('WhatComponent', () => {
   let component: WhatComponent;
@@ -13,8 +15,11 @@ describe('WhatComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WhatComponent, DotsComponent, GetInTouchComponent, SocialComponent ],
-      imports: [RouterModule, RouterTestingModule]
+      declarations: [ WhatComponent, DotsComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
+      imports: [RouterModule, RouterTestingModule],
+      providers: [
+        {provide: WINDOW},
+      ]
     })
     .compileComponents();
   }));

@@ -69,6 +69,7 @@ import { SuzannahComponent } from './pages/suzannah/suzannah.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
 import { DeferLoadDirective } from './defer-load.directive';
+import { BackButtonComponent } from './global/back-button/back-button.component';
 
 @NgModule({
   imports: [
@@ -138,7 +139,8 @@ import { DeferLoadDirective } from './defer-load.directive';
     SuzannahComponent,
     SocialComponent,
     EmailPopupComponent,
-    DeferLoadDirective
+    DeferLoadDirective,
+    BackButtonComponent
   ],
   providers: [
     FormatDataService,

@@ -70,6 +70,12 @@ $positions: top left right bottom;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
+@mixin sm() {
+  @media screen and (min-width: $screen-xs) {
+    @content;
+  }
+}
+
 @mixin md() {
   @media screen and (min-width: $screen-sm) {
     @content;

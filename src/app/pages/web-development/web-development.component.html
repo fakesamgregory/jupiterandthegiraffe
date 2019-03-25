@@ -1,33 +1,58 @@
-<div class="white-bg">
+<div class="white-bg white-bg--with-image">
   <section class="container-fluid">
-    <a [routerLink]="['../']">< Back</a>
+    <img src="/assets/images/website.jpg" alt="">
+
+    <app-back-button></app-back-button>
 
     <header>
-      <h1>Web Development</h1>
+      <h1>Development</h1>
     </header>
 
     <p>
       We’re confident we can build the site you need, using elegant user experience (UX) and making it accessible to all.
       We have your users in mind.
-      It's no good if you have the perfect website if nobody knows about it. We build with search engines in mind
-      so you can be confident your users can easily find you.
     </p>
 
-    <p>
-      We have years of experience in the industry, using technologies such as <a [routerLink]="['/web-development/react']">React</a>,
-      <a [routerLink]="['/web-development/angular']">Angular</a> and <a [routerLink]="['/web-development/vue']">Vue</a>
-      or building brochure sites to complete <a [routerLink]="['/web-development/ecommerce']">eCommerce</a>
-      and <a [routerLink]="['/web-development/wordpress']">Wordpress</a> systems or <a [routerLink]="['/web-development/shopify']">Shopify</a> themes.
-    </p>
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">Technologies</h2>
+      </header>
 
-    <p>
-      Need a <a [routerLink]="['/web-development/cms']">CMS</a>? We got you covered. With our extensive Wordpress experience
-      we can build you a website where you have complete control of the content.
-    </p>
+      <p>
+        We have years of experience in the industry, using technologies such as <a [routerLink]="['/web-development/react']">React</a>,
+        <a [routerLink]="['/web-development/angular']">Angular</a> and <a [routerLink]="['/web-development/vue']">Vue</a>
+        or building brochure sites to complete <a [routerLink]="['/web-development/ecommerce']">eCommerce</a>
+        and <a [routerLink]="['/web-development/wordpress']">Wordpress</a> systems or <a [routerLink]="['/web-development/shopify']">Shopify</a> themes.
+      </p>
+    </section>
+
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">SEO</h2>
+      </header>
+
+      <p>
+        It's no good if you have the perfect website if nobody knows about it. We also build semantic, clean and responsive
+        code so that it plays well with search engines so you can be confident your users can easily find you.
+      </p>
+    </section>
+
+    <section class="white-bg__section">
+      <header>
+        <h2 class="text-left">CMS</h2>
+      </header>
+
+      <p class="text-lead">
+        Need a <a [routerLink]="['/web-development/cms']">CMS</a>? We got you covered. With our extensive Wordpress experience
+        we can build you a website where you have complete control of the content.
+      </p>
+    </section>
 
     <p>
       If your digital capabilites are lacking and in need of some digital presence, get in contact.
     </p>
+
+    <app-get-in-touch></app-get-in-touch>
 
     <section>
       <h2>Check out our other services</h2>
@@ -40,6 +65,5 @@
       </ul>
     </section>
 
-    <app-get-in-touch></app-get-in-touch>
   </section>
 </div>

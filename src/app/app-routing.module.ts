@@ -78,12 +78,15 @@ const routes: Routes = [
     ]
   },
 
+  { path: 'strategy', redirectTo: 'service/strategy' },
   {
     path: 'strategy',
     children: [
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } }
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } },
+      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'strategy' } },
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'strategy' } }
     ]
   },
 
@@ -100,7 +103,9 @@ const routes: Routes = [
 
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'branding' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'branding' } }
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'branding' } },
+      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'branding' } },
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'branding' } }
     ]
   },
 
@@ -115,7 +120,9 @@ const routes: Routes = [
 
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } }
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } },
+      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'design' } },
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'design' } }
     ]
   },
 
@@ -136,6 +143,8 @@ const routes: Routes = [
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'webdevelopment' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'webdevelopment' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'webdevelopment' } },
+      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'webdevelopment' } },
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'webdevelopment' } },
     ]
   },
 
@@ -157,6 +166,8 @@ const routes: Routes = [
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
   { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
   { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff' } },
+  { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney' } },
+  { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney' } },
 
   // Not found
   { path: 'not-found', component: NotFoundComponent },

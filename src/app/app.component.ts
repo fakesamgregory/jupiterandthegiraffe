@@ -44,6 +44,11 @@ export class AppComponent implements OnInit {
         duration: 800,
         once: true
       });
+
+      const link = this.document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      this.document.head.appendChild(link);
+      link.setAttribute('href', this.document.URL.replace('/production', ''));
     }
 
     this.angulartics2GoogleTagManager.startTracking();

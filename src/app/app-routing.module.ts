@@ -36,7 +36,8 @@ import {IdentityComponent} from './misc/identity/identity.component';
 import {AnimationsComponent} from './misc/animations/animations.component';
 import {AwsComponent} from './misc/aws/aws.component';
 import {SamuelComponent} from './pages/samuel/samuel.component';
-import {SuzannahComponent} from './pages/suzannah/suzannah.component';
+import {AppResolverService} from './app-resolver.service';
+import {PersonComponent} from './pages/person/person.component';
 
 const routes: Routes = [
   // Top level pages
@@ -47,8 +48,7 @@ const routes: Routes = [
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
-  { path: 'samuel-gregory', component: SamuelComponent },
-  { path: 'suzannah-james', component: SuzannahComponent },
+  { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
 
   // Case studies
   { path: 'case-study', redirectTo: 'work' },
@@ -78,7 +78,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'strategy', redirectTo: 'service/strategy' },
+  { path: 'strategy', component: StrategyComponent },
   {
     path: 'strategy',
     children: [

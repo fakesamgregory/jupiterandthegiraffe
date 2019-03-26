@@ -40,21 +40,6 @@
     }
   }
 
-  a {
-    &:hover, &:focus {
-      .friends__image {
-        transform: translate(10px, -10px);
-      }
-    }
-  }
-
-  &__list {
-    //margin-top: $space-xlrg;
-    //@include md {
-    //  margin: 90px $space-large $space-large $space-large;
-    //}
-  }
-
   &__title-break {
     @include md {
       display: block;

@@ -70,6 +70,7 @@ import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
 import { DeferLoadDirective } from './defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
+import {PersonComponent} from './pages/person/person.component';
 
 @NgModule({
   imports: [
@@ -137,6 +138,7 @@ import { BackButtonComponent } from './global/back-button/back-button.component'
     AwsComponent,
     SamuelComponent,
     SuzannahComponent,
+    PersonComponent,
     SocialComponent,
     EmailPopupComponent,
     DeferLoadDirective,

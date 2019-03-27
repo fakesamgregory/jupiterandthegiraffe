@@ -38,6 +38,7 @@ import {AwsComponent} from './misc/aws/aws.component';
 import {SamuelComponent} from './pages/samuel/samuel.component';
 import {AppResolverService} from './app-resolver.service';
 import {PersonComponent} from './pages/person/person.component';
+import {PageResolverService} from './page-resolver.service';
 
 const routes: Routes = [
   // Top level pages
@@ -45,7 +46,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'who-we-are', component: WhoComponent },
   { path: 'what-we-do', component: WhatComponent },
-  { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent, resolve: { data: PageResolverService } },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },

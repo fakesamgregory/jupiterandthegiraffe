@@ -13,7 +13,7 @@ export class PageResolverService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, rstate: RouterStateSnapshot): Observable<any> {
     return this.wordress
-      .getPostType('team', {slug: route.params['name']})
+      .getPageId(144)
       .pipe(catchError(err => {
         console.log(err);
         this.router.navigate(['/not-found']);

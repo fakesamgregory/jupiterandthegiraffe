@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TermsAndConditionsComponent } from './terms-and-conditions.component';
-import {WordpressService} from '../../services/wordpress.service';
-import {MockWordpressService} from '../../services/wordpress.mockservice';
+import {RouterTestingModule} from '@angular/router/testing';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
 
 describe('TermsAndConditionsComponent', () => {
   let component: TermsAndConditionsComponent;
@@ -11,8 +12,21 @@ describe('TermsAndConditionsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TermsAndConditionsComponent ],
+      imports: [RouterTestingModule],
       providers: [
-        { provide: WordpressService, useClass: MockWordpressService }
+        { provide: ActivatedRoute, useValue: {
+          data: of({
+            data: {
+              title: {
+                rendered: 'name'
+              },
+              content: {
+                rendered: 'content'
+              },
+            },
+          }),
+          snapshot: {}
+        }}
       ],
     })
     .compileComponents();

@@ -73,6 +73,7 @@ export class AppComponent implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
           this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
         }
+
         this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
       });
   }

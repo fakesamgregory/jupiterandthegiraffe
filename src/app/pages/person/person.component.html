@@ -1,0 +1,74 @@
+<div class="profile white-bg">
+  <section class="container-fluid">
+    <a [routerLink]="['../']" class="profile__back">< Back</a>
+
+    <img *ngIf="person.acf.thumbnail_image" src="{{person.acf.thumbnail_image.sizes.medium}}"
+         srcset="{{person.acf.thumbnail_image.sizes.medium}} 1x, {{person.acf.thumbnail_image.sizes.large}} 2x"
+         alt="Profile of {{person.title.rendered}}" class="img-fluid profile__image">
+
+    <header class="text-center">
+      <h1>{{person.title.rendered}}</h1>
+      {{person.acf.title}}
+    </header>
+
+    <section class="section">
+      <header>
+        <h2>Your story</h2>
+      </header>
+
+      <div [innerHTML]="person.content.rendered"></div>
+    </section>
+
+    <section class="section" *ngIf="person.acf.favourite_things">
+      <header>
+        <h2>Favourite {{person.acf.favourite_title || 'things'}}</h2>
+      </header>
+
+      <div class="row text-center">
+        <div class="col-sm" *ngFor="let thing of person.acf.favourite_things">
+          <a *ngIf="thing.link; else noLink;" href="{{thing.link}}">
+            <figure *ngIf="thing.image; else noImage">
+              <img src="{{thing.image.url}}" alt="" class="profile__book-image">
+              <figcaption>{{thing.title}}</figcaption>
+            </figure>
+            <ng-template #noImage>{{thing.title}}</ng-template>
+          </a>
+          <ng-template #noLink>
+            <figure *ngIf="thing.image; else noImage">
+              <img src="{{thing.image.url}}" alt="" class="profile__book-image">
+              <figcaption>{{thing.title}}</figcaption>
+            </figure>
+            <ng-template #noImage>{{thing.title}}</ng-template>
+          </ng-template>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <header>
+        <h2>Favourite books</h2>
+      </header>
+
+      <div class="row text-center" *ngIf="person.acf.books">
+        <div class="col-sm" *ngFor="let book of person.acf.books">
+          <a *ngIf="book.link; else noLink;" href="{{book.link}}">
+            <figure *ngIf="book.image; else noImage">
+              <img src="{{book.image.url}}" alt="" class="profile__book-image">
+              <figcaption>{{book.title}} - {{book.author}}</figcaption>
+            </figure>
+            <ng-template #noImage>{{book.title}} - {{book.author}}</ng-template>
+          </a>
+          <ng-template #noLink>
+            <figure *ngIf="book.image; else noImage">
+              <img src="{{book.image.url}}" alt="" class="profile__book-image">
+              <figcaption>{{book.title}} - {{book.author}}</figcaption>
+            </figure>
+            <ng-template #noImage>{{book.title}} - {{book.author}}</ng-template>
+          </ng-template>
+        </div>
+      </div>
+    </section>
+
+    <app-get-in-touch [title]="'Want to work with ' + person.title.rendered.split(' ')[0]  + '?'"></app-get-in-touch>
+  </section>
+</div>

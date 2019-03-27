@@ -14,9 +14,17 @@ export class WordpressService {
       .get(`${this.url}/pages/${id}`);
   }
 
-  public getPostType(type?: string) {
+  public getPostType(type: string, options?: object) {
+    let query = options ? '&' : '';
+    if (options) {
+      Object.keys(options).forEach(item => {
+        if (item && options[item]) {
+          query += `${item}=${options[item]}&`;
+        }
+      });
+    }
     return this.http
-      .get(`${this.url}/${type}?_embed`);
+      .get(`${this.url}/${type}?_embed${query.slice(0, -1)}`);
   }
 
   public getPosts(options?: object) {

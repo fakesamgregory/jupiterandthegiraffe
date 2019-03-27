@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col who__image" itemscope itemtype="http://schema.org/Person" *ngFor="let member of team">
           <div class="media">
-            <a class="who__link" [routerLink]="['/' + member.slug]">
+            <a class="who__link" [routerLink]="['/people/' + member.slug]">
               <div class="media-left">
                 <img itemprop="image" class="media-object" [src]="member._embedded['wp:featuredmedia'][0].source_url"
                      [alt]="'Photo of ' + member.title.rendered"

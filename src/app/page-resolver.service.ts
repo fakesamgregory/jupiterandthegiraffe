@@ -7,7 +7,7 @@ import {catchError} from 'rxjs/internal/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AppResolverService implements Resolve<any> {
+export class PageResolverService implements Resolve<any> {
 
   constructor(private wordress: WordpressService, private router: Router) { }
 

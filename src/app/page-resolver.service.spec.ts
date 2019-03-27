@@ -1,11 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { PageResolverService } from './page-resolver.service';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('PageResolverService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PageResolverService]
+      providers: [PageResolverService],
+      imports: [HttpClientTestingModule, RouterTestingModule]
     });
   });
 

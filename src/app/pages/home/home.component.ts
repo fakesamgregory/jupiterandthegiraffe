@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   public developmentMode = isDevMode();
+  public showMyElement = false;
   public styles = [
     {
       'elementType': 'geometry',

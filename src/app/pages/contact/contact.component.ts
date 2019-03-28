@@ -2,7 +2,6 @@ import {Component, Inject, isDevMode, PLATFORM_ID} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Meta, Title} from '@angular/platform-browser';
-import {Angulartics2} from 'angulartics2';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
 
@@ -28,7 +27,6 @@ export class ContactComponent {
               public db: AngularFireDatabase,
               private meta: Meta,
               private titleService: Title,
-              private angulartics2: Angulartics2,
               @Inject(WINDOW) private window: Window,
               @Inject(PLATFORM_ID) private platformId: any) {
     this.createForm();
@@ -71,14 +69,6 @@ export class ContactComponent {
   }
 
   sendForm(post) {
-
-    if (isPlatformBrowser(this.platformId)) {
-      this.angulartics2.eventTrack.next({
-        action: 'click',
-        properties: {category: 'Contact', label: this.window.location},
-      });
-    }
-
     const company = post.company ? ` from ${post.company}` : '';
 
     this.name = post.name;
@@ -97,6 +87,13 @@ export class ContactComponent {
 
     if (!isDevMode()) {
       this.itemRef.push(this.item);
+
+      if (isPlatformBrowser(this.platformId)) {
+        this.window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
     }
   }
 }

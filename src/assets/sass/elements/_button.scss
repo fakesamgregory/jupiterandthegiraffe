@@ -22,6 +22,10 @@ button {
     margin: $margin-xlarge 0;
     float: right;
     position: relative;
+    background: $color-black;
+    color: $color-white;
+    padding: 10px 20px;
+    border-color: $color-black;
 
     &:before {
       content: "";
@@ -39,6 +43,8 @@ button {
     &:hover:not([disabled]), &:focus:not([disabled]) {
       outline: none;
       border-color: $color-green-haze;
+      background: $color-white;
+      color: $color-black;
 
       &:before {
         width: 100%;

@@ -27,15 +27,17 @@ exports.sendContactMessage = functions.database
 
     console.log('values', val);
 
-    if(!val.name || !val.email || !val.html) {
+    if(!val.name || !val.email || !val.html || !val.message) {
       return null;
     }
 
     return mailTransport.sendMail({
-        from: `${val.email}`,
+        from: 'Jupiter and the Giraffe <salam@jupiterandthegiraffe.com>',
         to: ['samuel@jupiterandthegiraffe.com', 'suzannah@jupiterandthegiraffe.com'],
+        replyTo: val.email,
         subject: `${val.name} contacted Jupiter and the Giraffe`,
-        html: val.html
+        html: val.html,
+        text: val.message
       })
       .then(error => error ? console.log(error) : console.log('Mail sent to: samuel@jupiterandthegiraffe.com'))
       .catch(e => console.log(e));

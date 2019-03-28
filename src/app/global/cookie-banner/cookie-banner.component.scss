@@ -15,7 +15,7 @@
   @include font-size($small-font);
 
   &--hide {
-    transform: translateY(-100%);
+    transform: translateY(100%);
   }
 
   &__inner {

@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   hideCookie = false;
   footerPos = 0;
   isCaseStudy = false;
+  private scrollInterval: any;
   @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
   public ngOnInit(): void {
@@ -80,15 +81,25 @@ export class AppComponent implements OnInit {
 
   scrollUp(e) {
     e.preventDefault();
-    this.window.scroll(0, 0);
+    this.window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
-      this.showHeader = (scrollY > 400);
-      this.hideCookie = (scrollY > this.footerPos);
+
+      if (Boolean(this.scrollInterval)) {
+        this.window.clearTimeout(this.scrollInterval);
+      }
+
+      this.scrollInterval = this.window.setTimeout(() => {
+        const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
+        this.showHeader = (scrollY > 400);
+        this.hideCookie = (scrollY > this.footerPos);
+      }, 50);
     }
   }
 

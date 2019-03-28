@@ -24,9 +24,7 @@ export class DeferLoadDirective implements AfterViewInit {
     entries.forEach((entry: IntersectionObserverEntry) => {
       if (this.checkIfIntersecting(entry)) {
         this.appDeferLoad.emit();
-        setTimeout(() => {
-          this._element.nativeElement.classList.add('lazy-load--loaded');
-        }, 100);
+        this._element.nativeElement.classList.add('lazy-load--loaded');
         this._intersectionObserver.unobserve(<Element>(this._element.nativeElement));
         this._intersectionObserver.disconnect();
       }

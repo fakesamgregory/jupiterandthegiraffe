@@ -17,9 +17,9 @@
         Taking your spark, refining it through design and bringing your audience along for the ride.
       </p>
 
-      <div class="row">
+      <div class="row" (appDeferLoad)="showMyElement=true">
         <section class="col-sm-6 text-left">
-          <img src="/assets/images/strategy.jpg" alt="">
+          <img *ngIf="showMyElement" src="/assets/images/strategy.jpg" alt="">
           <h3>Strategy</h3>
           <p>
             We kick things off the right way with a facilitated Strategy session. With you, we get to know your company,
@@ -32,7 +32,7 @@
           </p>
         </section>
         <section class="col-sm-6 text-left">
-          <img src="/assets/images/brand.jpg" alt="">
+          <img *ngIf="showMyElement" src="/assets/images/brand.jpg" alt="">
           <h3>Branding</h3>
           <p>
             Brand is more than a logo. With us, build a better brand, one that speaks to the right customers. We create a <a
@@ -45,7 +45,7 @@
           </p>
         </section>
         <section class="col-sm-6 text-left">
-          <img src="/assets/images/design.jpg" alt="">
+          <img *ngIf="showMyElement" src="/assets/images/design.jpg" alt="">
           <h3>Design</h3>
           <p>
             We believe great design is everything so we go to great lengths to make sure your design compliments your
@@ -58,7 +58,7 @@
           </p>
         </section>
         <section class="col-sm-6 text-left">
-          <img src="/assets/images/website.jpg" alt="">
+          <img *ngIf="showMyElement" src="/assets/images/website.jpg" alt="">
           <h3>Development</h3>
           <p>
             We build beautiful and enjoyable online experiences in the latest technologies. Whether it’s a

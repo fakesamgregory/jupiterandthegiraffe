@@ -15,6 +15,9 @@ exports.sendContactMessage = functions.database
   .ref('/messages/{pushKey}')
   .onCreate(event => {
     const snapshot = event.data;
+
+    console.log('Event has fired with this data', snapshot);
+
     // Only send email for new messages.
     if (!snapshot.exists()) {
       return null;
@@ -22,27 +25,18 @@ exports.sendContactMessage = functions.database
 
     const val = snapshot.val();
 
+    console.log('values', val);
+
     if(!val.name || !val.email || !val.html) {
       return null;
     }
-<<<<<<< HEAD
-
-    const mailOptions = {
-      from: `"${val.name} 🚀" <${val.email}>`,
-      to: 'samuel@jupiterandthegiraffe.com, suzannah@jupiterandthegiraffe.com',
-      subject: `${val.name} contacted JatG!!`,
-      html: val.html
-    };
-=======
->>>>>>> c3d43dec000dae3b0e5bc1c3af7dd233b33f5c3b
 
     return mailTransport.sendMail({
-        from: `"${val.name} 🚀" <${val.email}>`,
-        sender: `"${val.name} 🚀" <${val.email}>`,
-        to: 'samuel@jupiterandthegiraffe.com, suzannah@jupiterandthegiraffe.com',
-        subject: `${val.name} contacted JatG!!`,
+        from: `${val.email}`,
+        to: ['samuel@jupiterandthegiraffe.com', 'suzannah@jupiterandthegiraffe.com'],
+        subject: `${val.name} contacted Jupiter and the Giraffe`,
         html: val.html
       })
-      .then(error => error ? console.log(error) : console.log('Mail sent to: salam@jupiterandthegiraffe.com'))
+      .then(error => error ? console.log(error) : console.log('Mail sent to: samuel@jupiterandthegiraffe.com'))
       .catch(e => console.log(e));
   });

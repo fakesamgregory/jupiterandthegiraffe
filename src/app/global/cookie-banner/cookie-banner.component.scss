@@ -10,11 +10,12 @@
   padding: $space-medium 0;
   background: $color-malibu;
   color: $color-black;
-  transition: bottom .3s ease;
+  transform: translateY(0);
+  transition: transform .3s ease;
   @include font-size($small-font);
 
   &--hide {
-    bottom: -100%;
+    transform: translateY(-100%);
   }
 
   &__inner {

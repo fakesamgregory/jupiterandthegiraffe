@@ -2,10 +2,11 @@
   background-color: $color-malibu;
   color: $color-white;
   position: fixed;
-  right: -100%;
+  right: 0;
   bottom: 100px;
   width: 70px;
-  transition: right ease .5s;
+  transition: transform ease .5s;
+  transform: translateX(100px);
   z-index: 90;
   padding-left: $space-small;
 
@@ -14,7 +15,7 @@
   }
 
   &--active {
-    right: 0;
+    transform: translateX(0);
   }
 
   &:focus,

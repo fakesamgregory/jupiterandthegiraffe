@@ -2,8 +2,8 @@
 @import "../../../assets/sass/tools/tools";
 
 .header {
-  top: -100%;
-  transition: top ease .5s;
+  transform: translateY(-100%);
+  transition: transform ease .5s;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -26,7 +26,7 @@
   }
 
   &--show {
-    top: 0;
+    transform: translateY(0);
   }
 
   &__emoji {

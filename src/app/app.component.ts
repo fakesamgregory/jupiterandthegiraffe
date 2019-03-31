@@ -1,7 +1,7 @@
 import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
-import {Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
@@ -12,7 +12,7 @@ import {filter} from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   showHeader = false;
   isHome = false;
   isKeyboardUser = false;
@@ -30,6 +30,12 @@ export class AppComponent implements OnInit {
       if (bases.length > 0) {
         bases[0].setAttribute('href', environment.baseHref);
       }
+    }
+  }
+
+  public ngOnDestroy() {
+    if (this.scrollInterval) {
+      clearTimeout(this.scrollInterval);
     }
   }
 

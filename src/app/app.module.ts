@@ -4,8 +4,6 @@ import {NgModule} from '@angular/core';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormatDataService} from './services/format-data.service';
 import {Angulartics2Module} from 'angulartics2';
-import {Angulartics2Facebook} from 'angulartics2/facebook';
-import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
@@ -64,13 +62,12 @@ import { StrategyComponent } from './pages/strategy/strategy.component';
 import { IdentityComponent } from './misc/identity/identity.component';
 import { AnimationsComponent } from './misc/animations/animations.component';
 import { AwsComponent } from './misc/aws/aws.component';
-import { SamuelComponent } from './pages/samuel/samuel.component';
-import { SuzannahComponent } from './pages/suzannah/suzannah.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
 import { DeferLoadDirective } from './defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
 import {PersonComponent} from './pages/person/person.component';
+import {CaseStudyComponent} from './pages/case-study/case-study.component';
 
 @NgModule({
   imports: [
@@ -136,13 +133,12 @@ import {PersonComponent} from './pages/person/person.component';
     IdentityComponent,
     AnimationsComponent,
     AwsComponent,
-    SamuelComponent,
-    SuzannahComponent,
     PersonComponent,
     SocialComponent,
     EmailPopupComponent,
     DeferLoadDirective,
-    BackButtonComponent
+    BackButtonComponent,
+    CaseStudyComponent
   ],
   providers: [
     FormatDataService,

@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {empty, Observable} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
+import {Observable, empty} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
 
-@Injectable()
-export class WorkResolverService implements Resolve<any> {
-  private _workUrl = 'assets/json/work.json';
+@Injectable({
+  providedIn: 'root'
+})
+export class PageResolverService implements Resolve<any> {
 
-  constructor(private wordpress: WordpressService, private router: Router) { }
+  constructor(private wordress: WordpressService, private router: Router) { }
 
-  resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<any> {
-    return this.wordpress.getPostType('friends')
+  resolve(route: ActivatedRouteSnapshot, rstate: RouterStateSnapshot): Observable<any> {
+    return this.wordress
+      .getPageId(144)
       .pipe(catchError(err => {
         console.log(err);
         this.router.navigate(['/not-found']);
         return empty();
       }));
   }
-
 }

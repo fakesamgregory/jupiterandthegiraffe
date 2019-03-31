@@ -35,10 +35,11 @@ import {StrategyComponent} from './pages/strategy/strategy.component';
 import {IdentityComponent} from './misc/identity/identity.component';
 import {AnimationsComponent} from './misc/animations/animations.component';
 import {AwsComponent} from './misc/aws/aws.component';
-import {SamuelComponent} from './pages/samuel/samuel.component';
-import {AppResolverService} from './app-resolver.service';
+import {AppResolverService} from './pages/person/app-resolver.service';
 import {PersonComponent} from './pages/person/person.component';
-import {PageResolverService} from './page-resolver.service';
+import {PageResolverService} from './pages/terms-and-conditions/page-resolver.service';
+import {CaseStudyComponent} from './pages/case-study/case-study.component';
+import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.service';
 
 const routes: Routes = [
   // Top level pages
@@ -54,13 +55,11 @@ const routes: Routes = [
   // Case studies
   { path: 'case-study', redirectTo: 'work' },
   {
-    path: 'case-study',
-    children: [
-      { path: 'veratrak', component: VeratrakComponent },
-      { path: 'north-star-law', component: NorthstarComponent },
-      { path: 'boombocs', component: BoombocsComponent },
-      { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent }
-    ]
+    path: 'case-study/:work',
+    component: CaseStudyComponent,
+    resolve: {
+      work: CaseStudyResolverService
+    }
   },
   { path: 'veratrak', redirectTo: 'case-study/veratrak'},
   { path: 'north-star-law', redirectTo: 'case-study/north-star-law'},
@@ -75,7 +74,7 @@ const routes: Routes = [
       { path: 'strategy', component: StrategyComponent },
       { path: 'branding', component: BrandingComponent },
       { path: 'design', component: DesignComponent },
-      { path: 'web-development', component: WebDevelopmentComponent },
+      { path: 'development', component: WebDevelopmentComponent },
     ]
   },
 
@@ -128,9 +127,9 @@ const routes: Routes = [
   },
 
   // Web Development topics, locations
-  { path: 'web-development', redirectTo: 'service/web-development' },
+  { path: 'development', redirectTo: 'service/development' },
   {
-    path: 'web-development',
+    path: 'development',
     children: [
       { path: 'cms', component: CmsComponent },
       { path: 'ecommerce', component: EcommerceComponent },

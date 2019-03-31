@@ -31,7 +31,6 @@ import {SectionComponent} from './global/section/section.component';
 import {TrustHtmlPipe} from './trust-html.pipe';
 import {DataService} from './data.service';
 import {WorkResolverService} from './pages/work/work-resolver.service';
-import {WorkDetailService} from './pages/work/work-detail/work-detail.service';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {NorthstarComponent} from './case-studies/northstar/northstar.component';
 import {BoombocsComponent} from './case-studies/boombocs/boombocs.component';
@@ -98,53 +97,27 @@ import {CaseStudyComponent} from './pages/case-study/case-study.component';
     FooterComponent,
     HeroComponent,
     HeaderComponent,
-    WhatComponent,
     LogoComponent,
     FriendsComponent,
     TrustHtmlPipe,
     NotFoundComponent,
     NorthstarComponent,
-    ContactComponent,
     SectionComponent,
     BoombocsComponent,
     TermsAndConditionsComponent,
     EpochBrandWebsiteComponent,
     GetInTouchComponent,
     SnowComponent,
-    PrivacyPolicyComponent,
     CookieBannerComponent,
-    BrandingComponent,
-    DesignComponent,
-    ToneOfVoiceComponent,
-    MessagingComponent,
-    TypographyComponent,
-    PhotographyComponent,
-    CmsComponent,
-    EcommerceComponent,
-    WordpressComponent,
-    ShopifyComponent,
-    VueComponent,
-    AngularComponent,
-    ReactComponent,
-    UxComponent,
-    LocationComponent,
-    WebDevelopmentComponent,
-    StrategyComponent,
-    IdentityComponent,
-    AnimationsComponent,
-    AwsComponent,
-    PersonComponent,
     SocialComponent,
     EmailPopupComponent,
     DeferLoadDirective,
     BackButtonComponent,
-    CaseStudyComponent
   ],
   providers: [
     FormatDataService,
     DataService,
     WorkResolverService,
-    WorkDetailService,
     WINDOW_PROVIDERS,
     { provide: AosToken, useValue: aos },
     {

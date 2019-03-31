@@ -7,7 +7,6 @@ import { WhatComponent } from './pages/what/what.component';
 import { VeratrakComponent } from './case-studies/veratrak/veratrak.component';
 import { NorthstarComponent } from './case-studies/northstar/northstar.component';
 import { WorkComponent } from './pages/work/work.component';
-import { WorkDetailComponent } from './pages/work/work-detail/work-detail.component';
 import { BoombocsComponent } from './case-studies/boombocs/boombocs.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -187,7 +186,31 @@ export const routableComponents = [
   VeratrakComponent,
   NorthstarComponent,
   WorkComponent,
-  WorkDetailComponent,
   ContactComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  CaseStudyComponent,
+  BrandingComponent,
+  DesignComponent,
+  ToneOfVoiceComponent,
+  MessagingComponent,
+  TypographyComponent,
+  PhotographyComponent,
+  CmsComponent,
+  EcommerceComponent,
+  WordpressComponent,
+  ShopifyComponent,
+  VueComponent,
+  AngularComponent,
+  ReactComponent,
+  UxComponent,
+  LocationComponent,
+  WebDevelopmentComponent,
+  StrategyComponent,
+  IdentityComponent,
+  AnimationsComponent,
+  AwsComponent,
+  PersonComponent,
+  PrivacyPolicyComponent,
+  ContactComponent,
+  WhatComponent,
 ];

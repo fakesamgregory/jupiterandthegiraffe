@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {WordpressService} from '../../../services/wordpress.service';
 import {forkJoin} from 'rxjs';
 
@@ -7,7 +7,7 @@ import {forkJoin} from 'rxjs';
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnInit, OnDestroy {
+export class FriendsComponent implements OnDestroy {
   public friends: Array<any>;
   public quotes = [];
   private currentActiveSlide = 1;
@@ -15,9 +15,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   public showMyElement = false;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
-  constructor(private wordpress: WordpressService) {}
-
-  ngOnInit(): void {
+  constructor(private wordpress: WordpressService) {
     this.wordpress.getPageId(293)
       .subscribe((content: any) => {
         const friendPageContent =

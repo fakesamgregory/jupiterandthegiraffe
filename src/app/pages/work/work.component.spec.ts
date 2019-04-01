@@ -18,7 +18,29 @@ describe('WorkComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: { data: of({work: 'hello'}) }
+          useValue: {
+            data: of({
+              work: [{
+                _embedded: {
+                  'wp:featuredmedia': [
+                    {source_url: ''}
+                  ]
+                },
+                acf: {
+                  title: 'title'
+                },
+                title: {
+                  rendered: 'name'
+                },
+                excerpt: {
+                  rendered: 'excerpt'
+                },
+                content: {
+                  rendered: 'content'
+                },
+              }]
+            })
+          }
         }
       ],
       imports: [RouterTestingModule]

@@ -17,7 +17,7 @@
             <a class="who__link" [routerLink]="['/people/' + member.slug]">
               <div class="media-left">
                 <img itemprop="image" class="media-object" [src]="member._embedded['wp:featuredmedia'][0].source_url"
-                     [alt]="'Photo of ' + member.title.rendered"
+                     [alt]="'Headshot of ' + member.title.rendered"
                      [srcset]="member._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x, ' + member._embedded['wp:featuredmedia'][0].source_url + ' 2x'">
               </div>
               <div class="media-body media-bottom">

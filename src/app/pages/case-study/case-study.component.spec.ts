@@ -1,24 +1,53 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoombocsComponent } from './case-study.component';
+import { CaseStudyComponent } from './case-study.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
 
-describe('BoombocsComponent', () => {
-  let component: BoombocsComponent;
-  let fixture: ComponentFixture<BoombocsComponent>;
+describe('CaseStudyComponent', () => {
+  let component: CaseStudyComponent;
+  let fixture: ComponentFixture<CaseStudyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoombocsComponent, GetInTouchComponent, SocialComponent ],
-      imports: [RouterTestingModule]
+      declarations: [ CaseStudyComponent, GetInTouchComponent, SocialComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      providers: [
+        { provide: ActivatedRoute, useValue: {
+          data: of({
+            work: [{
+              _embedded: {
+                'wp:featuredmedia': [
+                  { source_url: ''}
+                ]
+              },
+              acf: {
+                title: 'title'
+              },
+              title: {
+                rendered: 'name'
+              },
+              excerpt: {
+                rendered: 'excerpt'
+              },
+              content: {
+                rendered: 'content'
+              },
+            }],
+          }),
+          snapshot: {}
+        }}
+      ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoombocsComponent);
+    fixture = TestBed.createComponent(CaseStudyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

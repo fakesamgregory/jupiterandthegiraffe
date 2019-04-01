@@ -29,7 +29,7 @@ const defaults = {
   content: {
     rendered: ''
   }
-}
+};
 
 export class MockWordpressService {
   getPageId() {

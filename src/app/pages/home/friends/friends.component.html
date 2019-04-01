@@ -23,9 +23,9 @@
         <ng-template #noLink>
         <span class="friends__link">
           <img
-            *ngIf="showMyElement"
+            *ngIf="showMyElement && friend.acf.logo"
             class="img-fluid friends__image"
-            [src]="friend._embedded['wp:featuredmedia'][0].source_url"
+            [src]="friend.acf.logo"
             [attr.alt]="friend.title.rendered">
         </span>
         </ng-template>

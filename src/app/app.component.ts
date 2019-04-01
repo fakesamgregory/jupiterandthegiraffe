@@ -68,10 +68,6 @@ export class AppComponent implements OnInit, OnDestroy {
         if (event.url === '/') {
           this.hasBeenHome = true;
         }
-
-        if (isPlatformBrowser(this.platformId)) {
-          this.window.scrollTo(0, 0);
-        }
       });
 
     router.events
@@ -79,6 +75,10 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((event: NavigationEnd) => {
         if (isPlatformBrowser(this.platformId)) {
           this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
+        }
+
+        if (isPlatformBrowser(this.platformId)) {
+          this.window.scrollTo(0, 0);
         }
 
         this.isCaseStudy = event.urlAfterRedirects.includes('case-study');

@@ -25,7 +25,7 @@
           <img
             *ngIf="showMyElement && friend.acf.logo"
             class="img-fluid friends__image"
-            [src]="friend.acf.logo"
+            [src]="friend.acf.logo.url"
             [attr.alt]="friend.title.rendered">
         </span>
         </ng-template>

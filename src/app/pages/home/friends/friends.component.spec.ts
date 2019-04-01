@@ -14,7 +14,7 @@ describe('FriendsComponent', () => {
       declarations: [ FriendsComponent ],
       imports: [RouterTestingModule],
       providers: [
-        { provide: WordpressService, useClass: MockWordpressService }
+        { provide: WordpressService, useClass: MockWordpressService },
       ],
     })
     .compileComponents();

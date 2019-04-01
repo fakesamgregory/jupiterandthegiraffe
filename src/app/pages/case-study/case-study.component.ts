@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'app-work',
-  templateUrl: './work.component.html',
-  styleUrls: ['./work.component.scss']
+  selector: 'app-case-study',
+  templateUrl: './case-study.component.html',
+  styleUrls: ['./case-study.component.scss']
 })
-export class WorkComponent {
-  public work;
-  public error;
+export class CaseStudyComponent {
+  public content;
 
   constructor(private meta: Meta, private titleService: Title, private actr: ActivatedRoute, private router: Router) {
     this.actr.data
-      .subscribe(res => this.work = res.work);
+      .subscribe(res => this.content = res.work[0]);
 
-    if (!this.work) {
+    if (!this.content) {
       this.router.navigate(['/not-found']);
     } else {
-      const TITLE = 'Our Work - Feast your eyes on our body of work';
-      const DESC = 'There\s many things we have done. Websites, branding, UX/UI, logos, Wordpress, stylguides';
+      const TITLE = `${this.content.title.rendered} - ${this.content.acf.work_type}`;
+      const DESC = this.content.excerpt.rendered.replace(/<[^>]*>/g, '');
 
       this.titleService.setTitle(TITLE);
 

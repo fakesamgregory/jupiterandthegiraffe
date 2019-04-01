@@ -7,7 +7,6 @@ import { WhatComponent } from './pages/what/what.component';
 import { VeratrakComponent } from './case-studies/veratrak/veratrak.component';
 import { NorthstarComponent } from './case-studies/northstar/northstar.component';
 import { WorkComponent } from './pages/work/work.component';
-import { WorkDetailComponent } from './pages/work/work-detail/work-detail.component';
 import { BoombocsComponent } from './case-studies/boombocs/boombocs.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -35,10 +34,11 @@ import {StrategyComponent} from './pages/strategy/strategy.component';
 import {IdentityComponent} from './misc/identity/identity.component';
 import {AnimationsComponent} from './misc/animations/animations.component';
 import {AwsComponent} from './misc/aws/aws.component';
-import {SamuelComponent} from './pages/samuel/samuel.component';
-import {AppResolverService} from './app-resolver.service';
+import {AppResolverService} from './pages/person/app-resolver.service';
 import {PersonComponent} from './pages/person/person.component';
-import {PageResolverService} from './page-resolver.service';
+import {PageResolverService} from './pages/terms-and-conditions/page-resolver.service';
+import {CaseStudyComponent} from './pages/case-study/case-study.component';
+import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.service';
 
 const routes: Routes = [
   // Top level pages
@@ -54,13 +54,11 @@ const routes: Routes = [
   // Case studies
   { path: 'case-study', redirectTo: 'work' },
   {
-    path: 'case-study',
-    children: [
-      { path: 'veratrak', component: VeratrakComponent },
-      { path: 'north-star-law', component: NorthstarComponent },
-      { path: 'boombocs', component: BoombocsComponent },
-      { path: 'epoch-brand-website', component: EpochBrandWebsiteComponent }
-    ]
+    path: 'case-study/:work',
+    component: CaseStudyComponent,
+    resolve: {
+      work: CaseStudyResolverService
+    }
   },
   { path: 'veratrak', redirectTo: 'case-study/veratrak'},
   { path: 'north-star-law', redirectTo: 'case-study/north-star-law'},
@@ -75,7 +73,7 @@ const routes: Routes = [
       { path: 'strategy', component: StrategyComponent },
       { path: 'branding', component: BrandingComponent },
       { path: 'design', component: DesignComponent },
-      { path: 'web-development', component: WebDevelopmentComponent },
+      { path: 'development', component: WebDevelopmentComponent },
     ]
   },
 
@@ -128,9 +126,9 @@ const routes: Routes = [
   },
 
   // Web Development topics, locations
-  { path: 'web-development', redirectTo: 'service/web-development' },
+  { path: 'development', redirectTo: 'service/development' },
   {
-    path: 'web-development',
+    path: 'development',
     children: [
       { path: 'cms', component: CmsComponent },
       { path: 'ecommerce', component: EcommerceComponent },
@@ -188,7 +186,31 @@ export const routableComponents = [
   VeratrakComponent,
   NorthstarComponent,
   WorkComponent,
-  WorkDetailComponent,
   ContactComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  CaseStudyComponent,
+  BrandingComponent,
+  DesignComponent,
+  ToneOfVoiceComponent,
+  MessagingComponent,
+  TypographyComponent,
+  PhotographyComponent,
+  CmsComponent,
+  EcommerceComponent,
+  WordpressComponent,
+  ShopifyComponent,
+  VueComponent,
+  AngularComponent,
+  ReactComponent,
+  UxComponent,
+  LocationComponent,
+  WebDevelopmentComponent,
+  StrategyComponent,
+  IdentityComponent,
+  AnimationsComponent,
+  AwsComponent,
+  PersonComponent,
+  PrivacyPolicyComponent,
+  ContactComponent,
+  WhatComponent,
 ];

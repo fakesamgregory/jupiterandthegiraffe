@@ -4,8 +4,6 @@ import {NgModule} from '@angular/core';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormatDataService} from './services/format-data.service';
 import {Angulartics2Module} from 'angulartics2';
-import {Angulartics2Facebook} from 'angulartics2/facebook';
-import {Angulartics2GoogleTagManager} from 'angulartics2/gtm';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
@@ -33,7 +31,6 @@ import {SectionComponent} from './global/section/section.component';
 import {TrustHtmlPipe} from './trust-html.pipe';
 import {DataService} from './data.service';
 import {WorkResolverService} from './pages/work/work-resolver.service';
-import {WorkDetailService} from './pages/work/work-detail/work-detail.service';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {NorthstarComponent} from './case-studies/northstar/northstar.component';
 import {BoombocsComponent} from './case-studies/boombocs/boombocs.component';
@@ -64,13 +61,12 @@ import { StrategyComponent } from './pages/strategy/strategy.component';
 import { IdentityComponent } from './misc/identity/identity.component';
 import { AnimationsComponent } from './misc/animations/animations.component';
 import { AwsComponent } from './misc/aws/aws.component';
-import { SamuelComponent } from './pages/samuel/samuel.component';
-import { SuzannahComponent } from './pages/suzannah/suzannah.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
 import { DeferLoadDirective } from './defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
 import {PersonComponent} from './pages/person/person.component';
+import {CaseStudyComponent} from './pages/case-study/case-study.component';
 
 @NgModule({
   imports: [
@@ -101,54 +97,27 @@ import {PersonComponent} from './pages/person/person.component';
     FooterComponent,
     HeroComponent,
     HeaderComponent,
-    WhatComponent,
     LogoComponent,
     FriendsComponent,
     TrustHtmlPipe,
     NotFoundComponent,
     NorthstarComponent,
-    ContactComponent,
     SectionComponent,
     BoombocsComponent,
     TermsAndConditionsComponent,
     EpochBrandWebsiteComponent,
     GetInTouchComponent,
     SnowComponent,
-    PrivacyPolicyComponent,
     CookieBannerComponent,
-    BrandingComponent,
-    DesignComponent,
-    ToneOfVoiceComponent,
-    MessagingComponent,
-    TypographyComponent,
-    PhotographyComponent,
-    CmsComponent,
-    EcommerceComponent,
-    WordpressComponent,
-    ShopifyComponent,
-    VueComponent,
-    AngularComponent,
-    ReactComponent,
-    UxComponent,
-    LocationComponent,
-    WebDevelopmentComponent,
-    StrategyComponent,
-    IdentityComponent,
-    AnimationsComponent,
-    AwsComponent,
-    SamuelComponent,
-    SuzannahComponent,
-    PersonComponent,
     SocialComponent,
     EmailPopupComponent,
     DeferLoadDirective,
-    BackButtonComponent
+    BackButtonComponent,
   ],
   providers: [
     FormatDataService,
     DataService,
     WorkResolverService,
-    WorkDetailService,
     WINDOW_PROVIDERS,
     { provide: AosToken, useValue: aos },
     {

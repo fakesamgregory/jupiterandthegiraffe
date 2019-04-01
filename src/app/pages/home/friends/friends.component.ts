@@ -1,25 +1,30 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {WordpressService} from '../../../services/wordpress.service';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-friends-component',
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnInit, OnDestroy {
-  public friends: Array<Object>;
+export class FriendsComponent implements OnDestroy {
+  public friends: Array<any>;
   public quotes = [];
   private currentActiveSlide = 1;
   private timeout = null;
   public showMyElement = false;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
-  constructor(private wordpress: WordpressService) {}
+  constructor(private wordpress: WordpressService) {
+    this.wordpress.getPageId(293)
+      .subscribe((content: any) => {
+        const friendPageContent =
+          content.acf.featured_friends.map(friend => this.wordpress.getPostTypeById(friend.friends.post_type, friend.friends.ID));
 
-  ngOnInit(): void {
-    this.wordpress.getPostType('friends')
-      .subscribe((friends: Array<any>) => {
-        this.friends = friends;
+        forkJoin(friendPageContent)
+          .subscribe((friends) => {
+            this.friends = friends;
+          });
       });
 
     this.wordpress.getPostType('quotes')

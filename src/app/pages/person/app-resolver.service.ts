@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {WordpressService} from './services/wordpress.service';
+import {WordpressService} from '../../services/wordpress.service';
 import {Observable, empty} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
 

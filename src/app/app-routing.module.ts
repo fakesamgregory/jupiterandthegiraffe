@@ -4,15 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { WhoComponent } from './pages/who/who.component';
 import { WhatComponent } from './pages/what/what.component';
-import { VeratrakComponent } from './case-studies/veratrak/veratrak.component';
-import { NorthstarComponent } from './case-studies/northstar/northstar.component';
 import { WorkComponent } from './pages/work/work.component';
-import { BoombocsComponent } from './case-studies/boombocs/boombocs.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { WorkResolverService } from './pages/work/work-resolver.service';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
-import { EpochBrandWebsiteComponent } from './case-studies/epoch-brand-website/epoch-brand-website.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ToneOfVoiceComponent } from './misc/tone-of-voice/tone-of-voice.component';
 import { MessagingComponent } from './misc/messaging/messaging.component';
@@ -39,6 +35,8 @@ import {PersonComponent} from './pages/person/person.component';
 import {PageResolverService} from './pages/terms-and-conditions/page-resolver.service';
 import {CaseStudyComponent} from './pages/case-study/case-study.component';
 import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.service';
+import {ServiceResolverComponent} from './pages/service/service-resolver.service';
+import {ServiceComponent} from './pages/service/service.component';
 
 const routes: Routes = [
   // Top level pages
@@ -67,6 +65,13 @@ const routes: Routes = [
 
   // Services
   { path: 'service', redirectTo: 'what-we-do' },
+  {
+    path: 'service/:service',
+    component: ServiceComponent,
+    resolve: {
+      work: ServiceResolverComponent
+    }
+  },
   {
     path: 'service',
     children: [
@@ -183,8 +188,6 @@ export const routableComponents = [
   HomeComponent,
   WhoComponent,
   WhatComponent,
-  VeratrakComponent,
-  NorthstarComponent,
   WorkComponent,
   ContactComponent,
   NotFoundComponent,
@@ -213,4 +216,5 @@ export const routableComponents = [
   PrivacyPolicyComponent,
   ContactComponent,
   WhatComponent,
+  ServiceComponent,
 ];

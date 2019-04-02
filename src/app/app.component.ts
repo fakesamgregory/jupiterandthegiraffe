@@ -2,7 +2,7 @@ import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
 import {Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
-import {Router, NavigationStart, NavigationEnd} from '@angular/router';
+import {Router, NavigationStart, NavigationEnd, ActivatedRoute} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: any,
               @Inject(WINDOW) private window: Window,
-              router: Router,
+              private router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
               @Inject(AosToken) aos) {
 
@@ -60,7 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.angulartics2GoogleTagManager.startTracking();
 
-    router.events
+    this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
         this.isHome = event.url === '/';
@@ -70,12 +70,15 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       });
 
-    router.events
+
+    this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         if (isPlatformBrowser(this.platformId)) {
           this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
         }
+
+        console.log(this.router);
 
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);

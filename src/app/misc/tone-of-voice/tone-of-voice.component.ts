@@ -9,7 +9,7 @@ import {Meta, Title} from '@angular/platform-browser';
 export class ToneOfVoiceComponent {
 
   constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Tone of voice';
+    const TITLE = 'Tone of voice | Jupiter and the Giraffe';
     const DESC =
       'Simply put, tone of voice is the personality of anything your company says. This can range for excitable to serious. ' +
       'Jupiter and the Giraffes tone of voice, for instance, is casual, quirky and personable (now you can\'t unsee it, right?)';

@@ -6,6 +6,9 @@ import {Router, NavigationStart, NavigationEnd, ActivatedRoute} from '@angular/r
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
+import {HighlightedFriendsService} from "./stores/highlighted-friends.service";
+import {WordpressService} from "./services/wordpress.service";
+import {forkJoin} from "rxjs/index";
 
 @Component({
   selector: 'app-root',
@@ -44,7 +47,9 @@ export class AppComponent implements OnInit, OnDestroy {
               @Inject(WINDOW) private window: Window,
               private router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              @Inject(AosToken) aos) {
+              @Inject(AosToken) aos,
+              public friendsStore: HighlightedFriendsService,
+              private wordpress: WordpressService) {
 
     if (isPlatformBrowser(this.platformId)) {
       aos.init({
@@ -78,13 +83,28 @@ export class AppComponent implements OnInit, OnDestroy {
           this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
         }
 
-        console.log(this.router);
-
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);
         }
 
         this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
+      });
+
+    this.loadFriends();
+  }
+
+  private loadFriends(): void {
+    this.wordpress.getPageId(293)
+      .subscribe((content: any) => {
+        const friendPageContent =
+          content.acf.featured_friends.map(friend =>
+            this.wordpress.getPostTypeById(friend.friends.post_type, friend.friends.ID));
+
+        forkJoin(friendPageContent)
+          .subscribe((friends) => {
+            console.log(friends);
+            friends.forEach(friend => this.friendsStore.addFriend(friend));
+          });
       });
   }
 

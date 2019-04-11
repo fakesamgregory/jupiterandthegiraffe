@@ -1,5 +1,5 @@
 <div [ngClass]="{'keyboard-user': isKeyboardUser}">
-  <app-header-component [show]="showHeader"></app-header-component>
+  <app-header-component [show]="showHeader || isCaseStudy"></app-header-component>
 
   <app-stars-component></app-stars-component>
   <div

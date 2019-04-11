@@ -11,8 +11,8 @@ export class BackButtonComponent {
 
   constructor(private location: Location) { }
 
-  goBack() {
+  goBack($event) {
+    $event.preventDefault();
     this.location.back();
   }
-
 }

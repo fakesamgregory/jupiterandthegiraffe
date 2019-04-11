@@ -1,18 +1,18 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CaseStudyResolverService } from './service-resolver.service';
+import { ServiceResolverComponent } from './service-resolver.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('CaseStudyResolverService', () => {
+describe('ServiceResolverComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CaseStudyResolverService],
+      providers: [ServiceResolverComponent],
       imports: [HttpClientTestingModule, RouterTestingModule]
     });
   });
 
-  it('should be created', inject([CaseStudyResolverService], (service: CaseStudyResolverService) => {
+  it('should be created', inject([ServiceResolverComponent], (service: ServiceResolverComponent) => {
     expect(service).toBeTruthy();
   }));
 });

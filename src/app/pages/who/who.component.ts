@@ -17,8 +17,9 @@ export class WhoComponent {
     this.wordpress.getPageId(260)
       .subscribe(content => this.content = content);
 
-    const TITLE = 'Who we are - We are Jupiter and the Giraffe';
-    const DESC = 'Jupiter and the Giraffe are a not-so-ordinary branding agency. We love all things digital to the moon and back.';
+    const TITLE = 'Who are Jupiter and the Giraffe | Jupiter and the Giraffe';
+    const DESC = 'Jupiter and the Giraffe are a not-so-ordinary branding agency. We specialise in Brand Strategy, Brand ' +
+      'Identity and Brand Experience.';
 
     this.titleService.setTitle( TITLE );
 

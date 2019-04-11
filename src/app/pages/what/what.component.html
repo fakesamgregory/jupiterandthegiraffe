@@ -4,9 +4,8 @@
       <div class="col-4 what-we-do__fixed-titles-wrap">
         <div class="what-we-do__fixed-titles what-we-do__first-section" #fixedWrap [ngClass]="{'what-we-do__fixed-titles--no-title': !activeIndex}">
           <a href="#" (click)="goToSection($event, 1)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 1}">Strategy</a>
-          <a href="#" (click)="goToSection($event, 2)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 2}">Branding</a>
-          <a href="#" (click)="goToSection($event, 3)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 3}">Design</a>
-          <a href="#" (click)="goToSection($event, 4)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 4}">Development</a>
+          <a href="#" (click)="goToSection($event, 2)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 2}">Identity</a>
+          <a href="#" (click)="goToSection($event, 3)" class="h2 what-we-do__fixed-title" [ngClass]="{'what-we-do__fixed-title--active': activeIndex === 3}">Experience</a>
         </div>
       </div>
       <div class="col-md-8" #scrollSection>
@@ -16,79 +15,63 @@
           </header>
 
           <p>
-            We believe in user-centric, design thinking that must align with your brand. We achieve this by running
-            brand strategy sessions with all our clients and deliver all the way through to the execution, be it branding,
-            design or development.
+            We offer 3 services that make up what we consider 'brand'. Let us handle them all to get the best, most consistent
+            result. We also allow you to jump in at any point in the brand lifecycle and take advantage no matter
+            what stage of 'brand ready' you are.
           </p>
         </section>
 
         <section class="section">
           <header>
-            <h2 id="strategy">Strategy</h2>
+            <h2 id="strategy">Brand Strategy</h2>
           </header>
 
           <h3>Measure twice, draw once</h3>
 
           <p class="what-we-do--tagline">
-            We kick things off the right way with a facilitated <a [routerLink]="['/service/strategy']">Strategy</a> session.
+            We kick things off the right way with a facilitated Strategy session.
             We get to know your company, your problems, your users and your goals so there’s method to our madness.
             It’s plain sailing from then on in.
           </p>
 
           <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-            Tell me more about <a [routerLink]="['/service/strategy']">brand strategy</a>?
+            Learn more about <a [routerLink]="['/service/brand-strategy']">Strategy</a>.
           </p>
         </section>
 
         <section class="section">
           <header>
-            <h2 id="branding">Branding</h2>
+            <h2 id="branding">Brand Identity</h2>
           </header>
 
           <h3>Move people</h3>
 
           <p class="what-we-do--tagline">
-            It's crucial that to have great design you need a brand. Don't have your branding nailed? We've got you covered.
-            From positioning to tone-of-voice, you'll attract the right customers with a brand that looks friggin' awesome.
+            Identity establishes your brand assets and guidelines. We provide a launchpad for your brand
+            and everything you do herein with rich, daring design driven by
+            <a href="#" (click)="goToSection($event, 1)">Strategy</a>.
           </p>
 
           <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-            Find out what our <a [routerLink]="['/service/branding']">branding</a> service is.
+            Find out what <a [routerLink]="['/service/brand-identity']">Identity</a> is.
           </p>
         </section>
 
         <section class="section">
           <header>
-            <h2 id="design">Design</h2>
+            <h2 id="design">Brand Experience</h2>
           </header>
 
           <h3>We love making shit look cool</h3>
 
           <p class="what-we-do--tagline">
-            We believe great <a [routerLink]="['/service/design']">design</a> is everything so we go to great lengths to
-            make sure your design compliments your brand perfectly. Websites, beer labels, products or illustration,
-            graphic design exists at the core and we apply it to whatever challenge you bring.
+            Experience is where we take your brand to the stratosphere and
+            beyond. Experience takes everything we've build from <a href="#" (click)="goToSection($event, 1)">Strategy</a>
+            and <a href="#" (click)="goToSection($event, 2)">Identity</a> and sets its jet fuel on fire be it digital or print.
           </p>
 
           <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-            Tell me more about your <a [routerLink]="['/service/design']">design</a> service.
-          </p>
-        </section>
-
-        <section class="section">
-          <header>
-            <h2 id="development">Development</h2>
-          </header>
-
-          <h3>Make sure it screams how awesome you are when you’re not able to.</h3>
-
-          <p class="what-we-do--tagline">
-            We build beautiful and enjoyable <a [routerLink]="['/service/development']">online experiences</a> that let your brand shine.
-            Whether its a marketing site or an ecommerce system, let the tech evaporate from your concern and engage your audience.
-          </p>
-
-          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
-            What's this <a [routerLink]="['/service/development']">web development</a> service all about?
+            See what <a [routerLink]="['/service/brand-experience']">Experience</a> can do for you.
           </p>
         </section>
       </div>

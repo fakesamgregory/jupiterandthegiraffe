@@ -9,7 +9,7 @@ import {Meta, Title} from '@angular/platform-browser';
 export class TypographyComponent {
 
   constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Typography';
+    const TITLE = 'Typography | Jupiter and the Giraffe';
     const DESC =
       'The right font choice is crucial to your brand as it\'s a key visual element to anything you produce. ' +
       'We take so much into account when choosing you a typeface and combination type.';

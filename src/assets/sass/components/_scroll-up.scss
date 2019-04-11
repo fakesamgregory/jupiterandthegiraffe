@@ -4,44 +4,27 @@
   position: fixed;
   right: 0;
   bottom: 100px;
-  width: 70px;
-  transition: transform ease .5s;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: transform ease .5s, opacity .3s ease;
   transform: translateX(100px);
   z-index: 90;
-  padding-left: $space-small;
+  text-align: center;
+  height: 35px;
+  opacity: .5;
 
   @include md {
     bottom: 70px;
   }
 
   &--active {
-    transform: translateX(0);
+    transform: translateX(-20px);
   }
 
   &:focus,
   &:hover {
     color: inherit;
     text-decoration: none;
-  }
-
-
-  &:before,
-  &:after {
-    content: "";
-    background: transparent;
-  }
-
-  &:after {
-    border-top: 12px solid $color-malibu;
-    border-bottom: 12px solid $color-malibu;
-    border-left: 8px solid transparent;
-    position: absolute;
-    left: -8px;
-    bottom: 0;
-    top: 0;
-  }
-
-  @media screen and (max-width: $screen-sm - 1) {
-    padding: 7px;
+    opacity: .8;
   }
 }

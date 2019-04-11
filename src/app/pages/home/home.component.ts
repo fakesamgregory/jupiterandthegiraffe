@@ -1,18 +1,16 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import { forkJoin } from 'rxjs';
+import {Component} from '@angular/core';
 import { isDevMode } from '@angular/core';
+import {BlogStoreService} from '../../stores/blog-store.service';
+import {forkJoin} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
 import {HttpClient} from '@angular/common/http';
-import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  public blogs: Array<object> = [];
+export class HomeComponent {
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   public developmentMode = isDevMode();
@@ -178,39 +176,38 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor(
-    private wordpress: WordpressService,
-    private http: HttpClient
-  ) { }
+  constructor(private wordpress: WordpressService, private http: HttpClient, public blogStore: BlogStoreService) {
+    this.blogStore.blogs$.subscribe(data => {
+      if (!data.length) {
+        this.wordpress.getPosts({'per_page': 2})
+          .subscribe((blogs: Array<any>) => {
+            blogs.forEach((blog) => {
+              try {
+                const author = this.http.get(blog._links.author[0].href);
+                const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);
+                const get = [author, category];
+                const image = blog._embedded['wp:featuredmedia'];
 
-  ngOnInit() {
-    const sequence = this.wordpress.getPosts({'per_page': 2})
-      .subscribe((blogs: Array<any>) => {
-        blogs.forEach((blog) => {
-          try {
-            const author = this.http.get(blog._links.author[0].href);
-            const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);
-            const get = [author, category];
-            const image = blog._embedded['wp:featuredmedia'];
-
-            forkJoin(get)
-              .subscribe(data => {
-                const obj = {
-                  author: data[0],
-                  image: image
-                    ? blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
-                    : {source_url: '/assets/images/blog-feature-default-min.jpg'},
-                  blog,
-                  date: blog.date.split('T')[0].split('-'),
-                  category: data[1],
-                };
-                this.blogs.push(obj);
-              });
-          } catch (e) {
-            console.log(e);
-            this.error = e;
-          }
-        });
-      });
+                forkJoin(get)
+                  .subscribe(data => {
+                    const obj = {
+                      author: data[0],
+                      image: image
+                        ? blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
+                        : {source_url: '/assets/images/blog-feature-default-min.jpg'},
+                      blog,
+                      date: blog.date.split('T')[0].split('-'),
+                      category: data[1],
+                    };
+                    this.blogStore.addBlog(obj);
+                  });
+              } catch (e) {
+                console.log(e);
+                this.error = e;
+              }
+            });
+          });
+      }
+    });
   }
 }

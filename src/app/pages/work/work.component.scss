@@ -38,12 +38,12 @@
       right: 0;
       left: 0;
       bottom: 0;
-      transition: left .3s cubic-bezier(.17,.67,.87,.31);
+      transition: transform .3s cubic-bezier(.17,.67,.87,.31);
       z-index: -1;
       backdrop-filter: blur(10px);
 
       @include lg {
-        left: 100%;
+        transform: translateX(100%);
       }
     }
 
@@ -51,7 +51,7 @@
       color: $color-white;
 
       &::after {
-        left: 0;
+        transform: translateX(0);
       }
     }
   }

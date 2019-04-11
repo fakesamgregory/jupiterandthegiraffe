@@ -9,11 +9,13 @@
           <h2 class="footer__title heading-3">Brands</h2>
         </header>
         <ul class="list-unstyled">
-          <li *ngFor="let brand of brands" class="footer__list-item">
-            <a [href]="makeUrl(brand.excerpt.rendered)" target="_blank" class="footer__link">
-              {{brand.title.rendered}}
-            </a>
-          </li>
+          <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
+            <li class="footer__list-item" *ngIf="brand.acf.website">
+              <a [href]="brand.acf.website" target="_blank" class="footer__link">
+                {{brand.title.rendered}}
+              </a>
+            </li>
+          </ng-container>
         </ul>
       </section>
 
@@ -63,13 +65,15 @@
       <div class="row">
         <div class="col-md-8">
           <ul class="footer__menu list-unstyled list-inline">
-            <li
-              *ngFor="let item of general"
-              class="list-inline-item"
-              [ngClass]="item.class"
-            >
-              <a *ngIf="item.url" [routerLink]="item.url" class="footer__link">{{item.name}}</a>
-            </li>
+            <ng-container *ngFor="let item of general">
+              <li
+                class="list-inline-item"
+                [ngClass]="item.class"
+                *ngIf="item.url"
+              >
+                <a [routerLink]="item.url" class="footer__link">{{item.name}}</a>
+              </li>
+            </ng-container>
           </ul>
         </div>
         <div class="col-md-4 footer__menu">

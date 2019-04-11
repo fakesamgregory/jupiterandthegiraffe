@@ -4,7 +4,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AosToken, aos } from './aos';
 
 import { AppComponent } from './app.component';
-import {HeroComponent} from './hero/hero.component';
+import {HeroComponent} from './global/hero/hero.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TrustHtmlPipe} from './trust-html.pipe';
 import {HttpClientModule} from '@angular/common/http';

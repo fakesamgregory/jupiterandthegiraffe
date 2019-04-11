@@ -13,13 +13,16 @@ export class WorkComponent {
 
   constructor(private meta: Meta, private titleService: Title, private actr: ActivatedRoute, private router: Router) {
     this.actr.data
-      .subscribe(res => this.work = res.work);
+      .subscribe(res => {
+        console.log(res);
+        this.work = res.work;
+      });
 
     if (!this.work) {
       this.router.navigate(['/not-found']);
     } else {
       const TITLE = 'Our Work - Feast your eyes on our body of work';
-      const DESC = 'There\s many things we have done. Websites, branding, UX/UI, logos, Wordpress, stylguides';
+      const DESC = 'There\s many things we have done. Websites, brand-identity, UX/UI, logos, Wordpress, stylguides';
 
       this.titleService.setTitle(TITLE);
 

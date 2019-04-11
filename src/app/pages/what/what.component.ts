@@ -22,8 +22,8 @@ export class WhatComponent {
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document
   ) {
-    const TITLE = 'Strategy, Branding, Websites, UX/UI, Logos, Brand Stratey';
-    const DESC = 'We do brand strategy, brand identity, website design and development. User-centric thinking and design thinking';
+    const TITLE = 'What We Do | Jupiter and the Giraffe';
+    const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience.';
 
     this.titleService.setTitle( TITLE );
 

@@ -9,10 +9,10 @@ import {Meta, Title} from '@angular/platform-browser';
 export class UxComponent {
 
   constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'User Experience (UX)';
+    const TITLE = 'User Experience | Jupiter and the Giraffe';
     const DESC =
-      'User Experience is a core part to website development. UX strips away all of the design and focuses on the user journey\'s. ' +
-      'This helps optimise those journey\'s and make your website or app as easy to use as possible.';
+      'User Experience is a core part to website development. UX strips away all of the brand-experience and focuses ' +
+      'on the user journey\'s. This helps optimise those journey\'s and make your website or app as easy to use as possible.';
 
     this.titleService.setTitle(TITLE);
 

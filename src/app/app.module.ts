@@ -21,7 +21,7 @@ import {AppRoutingModule, routableComponents} from './app-routing.module';
 import {DotsComponent} from './global/dots/dots.component';
 import {StarsComponent} from './global/stars/stars.component';
 import {FooterComponent} from './global/footer/footer.component';
-import {HeroComponent} from './hero/hero.component';
+import {HeroComponent} from './global/hero/hero.component';
 import {HeaderComponent} from './global/header/header.component';
 import {LogoComponent} from './global/logo/logo.component';
 import {FriendsComponent} from './pages/home/friends/friends.component';

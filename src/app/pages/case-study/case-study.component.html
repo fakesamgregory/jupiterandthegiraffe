@@ -1,24 +1,21 @@
 <section class="case-study white-bg">
   <div [style.background-image]="'url(' + content._embedded['wp:featuredmedia'][0].source_url + ')'" class="case-study__image">
-    <div class="container-fluid">
-      <a [routerLink]="['../']" class="case-study__back">< Back</a>
-    </div>
 
-    <div class="case-study__image-text">
-      <header class="container-fluid">
-        <h1>{{content.title.rendered}}</h1>
-        <p>{{content.acf.work_type}}</p>
-        <strong>Launched: {{content.date | date}}</strong>
-      </header>
-    </div>
   </div>
 
-  <div class="section">
-    <div class="container-fluid">
-
-      <div [innerHTML]="content.content.rendered"></div>
-
-      <app-get-in-touch></app-get-in-touch>
+  <div class="container-fluid">
+    <div class="case-study__back">
+      <app-back-button></app-back-button>
     </div>
+
+    <div class="case-study__title-content">
+      <h1 class="case-study__heading">{{content.title.rendered}}</h1>
+      <p>{{content.acf.work_type}}</p>
+      <strong>Launched: {{content.date | date}}</strong>
+    </div>
+
+    <div [innerHTML]="content.content.rendered"></div>
+
+    <app-get-in-touch></app-get-in-touch>
   </div>
 </section>

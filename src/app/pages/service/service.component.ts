@@ -16,7 +16,7 @@ export class ServiceComponent {
 
     const TITLE = `${this.content.title.rendered} | Jupiter and the Giraffe`;
     const DESC =
-      'Branding, brand strategy, brand identity (logo), tone of voice, corporate, content, marketing strategy, brand messaging';
+      'Branding, brand brand-strategy, brand identity (logo), tone of voice, corporate, content, marketing brand-strategy, brand messaging';
 
     this.titleService.setTitle(TITLE);
 

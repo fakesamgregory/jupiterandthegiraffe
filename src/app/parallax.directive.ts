@@ -7,7 +7,7 @@ import {WINDOW} from '@ng-toolkit/universal';
 })
 export class ParallaxDirective {
 
-  @Input('ratio') parallaxRatio = 1;
+  @Input('ratio') ratio = 1;
   public initialTop = 0;
   private scrollInterval: any;
 
@@ -23,7 +23,7 @@ export class ParallaxDirective {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      this.eleRef.nativeElement.style.transform = `translateY(${(this.initialTop - (this.window.scrollY * this.parallaxRatio))}px)`;
+      this.eleRef.nativeElement.style.transform = `translateY(${(this.initialTop - (this.window.scrollY * this.ratio))}px)`;
     }
   }
 

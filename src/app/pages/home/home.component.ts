@@ -177,8 +177,8 @@ export class HomeComponent {
   ];
 
   constructor(private wordpress: WordpressService, private http: HttpClient, public blogStore: BlogStoreService) {
-    this.blogStore.blogs$.subscribe(blogs => {
-      if (!blogs.length) {
+    this.blogStore.blogs$.subscribe(storedBlogs => {
+      if (!storedBlogs.length) {
         this.wordpress.getPosts({'per_page': 2})
           .subscribe((blogs: Array<any>) => {
             blogs.forEach((blog) => {

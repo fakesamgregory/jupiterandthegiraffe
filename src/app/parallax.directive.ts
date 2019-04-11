@@ -16,8 +16,10 @@ export class ParallaxDirective {
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(WINDOW) private window: Window,
   ) {
-    this.initialTop = this.eleRef.nativeElement.getBoundingClientRect().top;
-    this.eleRef.nativeElement.style.transition = 'transform .3s ease';
+    if (isPlatformBrowser(this.platformId)) {
+      this.initialTop = this.eleRef.nativeElement.getBoundingClientRect().top;
+      this.eleRef.nativeElement.style.transition = 'transform .3s ease';
+    }
   }
 
   @HostListener('window:scroll', ['$event'])

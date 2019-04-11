@@ -2,7 +2,7 @@ import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
 import {Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
-import {Router, NavigationStart, NavigationEnd, ActivatedRoute} from '@angular/router';
+import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';

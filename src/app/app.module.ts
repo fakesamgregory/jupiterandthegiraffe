@@ -40,6 +40,7 @@ import { EmailPopupComponent } from './global/email-popup/email-popup.component'
 import { DeferLoadDirective } from './defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
 import { ServiceComponent } from './pages/service/service.component';
+import { ParallaxDirective } from './parallax.directive';
 
 @NgModule({
   imports: [
@@ -84,6 +85,7 @@ import { ServiceComponent } from './pages/service/service.component';
     DeferLoadDirective,
     BackButtonComponent,
     ServiceComponent,
+    ParallaxDirective,
   ],
   providers: [
     FormatDataService,

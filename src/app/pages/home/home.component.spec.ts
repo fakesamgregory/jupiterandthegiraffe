@@ -17,9 +17,6 @@ describe('HomeComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent, FriendsComponent, DotsComponent, SnowComponent ],
       imports: [RouterTestingModule, HttpClientModule, AgmCoreModule.forRoot({})],
-      providers: [
-        {provide: WINDOW},
-      ]
     })
       .compileComponents();
   }));

@@ -7,6 +7,7 @@ import {SocialComponent} from '../../global/social/social.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('CaseStudyComponent', () => {
   let component: CaseStudyComponent;
@@ -14,7 +15,7 @@ describe('CaseStudyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CaseStudyComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ CaseStudyComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [
         { provide: ActivatedRoute, useValue: {

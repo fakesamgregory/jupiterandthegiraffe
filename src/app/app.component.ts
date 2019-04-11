@@ -102,7 +102,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
         forkJoin(friendPageContent)
           .subscribe((friends) => {
-            console.log(friends);
             friends.forEach(friend => this.friendsStore.addFriend(friend));
           });
       });

@@ -13,10 +13,7 @@ export class WorkComponent {
 
   constructor(private meta: Meta, private titleService: Title, private actr: ActivatedRoute, private router: Router) {
     this.actr.data
-      .subscribe(res => {
-        console.log(res);
-        this.work = res.work;
-      });
+      .subscribe(res => this.work = res.work);
 
     if (!this.work) {
       this.router.navigate(['/not-found']);

@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { TypographyComponent } from './typography.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('TypographyComponent', () => {
   let component: TypographyComponent;
@@ -11,7 +12,7 @@ describe('TypographyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypographyComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ TypographyComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

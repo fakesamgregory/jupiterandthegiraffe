@@ -7,8 +7,8 @@ import {RouterTestingModule} from '@angular/router/testing';
 describe('ServiceResolverComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ServiceResolverComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      providers: [ServiceResolverComponent]
     });
   });
 

@@ -1,25 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WebsiteDevelopmentComponent } from './website-development.component';
+import { AnimationsComponent } from './animations.component';
 import {BackButtonComponent} from '../../global/back-button/back-button.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 
-describe('WebsiteDevelopmentComponent', () => {
-  let component: WebsiteDevelopmentComponent;
-  let fixture: ComponentFixture<WebsiteDevelopmentComponent>;
+describe('AnimationsComponent', () => {
+  let component: AnimationsComponent;
+  let fixture: ComponentFixture<AnimationsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WebsiteDevelopmentComponent, BackButtonComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ AnimationsComponent, BackButtonComponent, SocialComponent, GetInTouchComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WebsiteDevelopmentComponent);
+    fixture = TestBed.createComponent(AnimationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

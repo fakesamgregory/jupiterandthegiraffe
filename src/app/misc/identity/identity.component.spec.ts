@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { IdentityComponent } from './identity.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('IdentityComponent', () => {
   let component: IdentityComponent;
@@ -11,7 +12,7 @@ describe('IdentityComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IdentityComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ IdentityComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

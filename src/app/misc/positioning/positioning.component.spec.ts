@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PositioningComponent } from './positioning.component';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SocialComponent} from '../../global/social/social.component';
+import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 
 describe('PositioningComponent', () => {
   let component: PositioningComponent;
@@ -8,7 +12,8 @@ describe('PositioningComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PositioningComponent ]
+      declarations: [ PositioningComponent, BackButtonComponent, SocialComponent, GetInTouchComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

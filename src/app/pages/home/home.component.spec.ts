@@ -21,7 +21,7 @@ describe('HomeComponent', () => {
         {provide: WINDOW},
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

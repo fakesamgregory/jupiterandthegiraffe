@@ -6,7 +6,7 @@ import {WINDOW} from '@ng-toolkit/universal';
   selector: '[appParallax]'
 })
 export class ParallaxDirective {
-
+  // tslint:disable-next-line:no-input-rename
   @Input('ratio') ratio = 1;
   public initialTop = 0;
   private scrollInterval: any;

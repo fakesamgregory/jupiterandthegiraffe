@@ -1,8 +1,8 @@
-import { ParralaxDirective } from './parallax.directive';
+import { ParallaxDirective } from './parallax.directive';
 
-describe('ParralaxDirective', () => {
+describe('ParallaxDirective', () => {
   it('should create an instance', () => {
-    const directive = new ParralaxDirective();
+    const directive = new ParallaxDirective();
     expect(directive).toBeTruthy();
   });
 });

@@ -1,9 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import { isDevMode } from '@angular/core';
 import {BlogStoreService} from '../../stores/blog-store.service';
 import {forkJoin} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
 import {HttpClient} from '@angular/common/http';
+import {WINDOW} from '@ng-toolkit/universal';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,7 @@ export class HomeComponent {
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   public developmentMode = isDevMode();
+  public isBrowser = false;
   public showMyElement = false;
   public styles = [
     {
@@ -176,7 +179,15 @@ export class HomeComponent {
     }
   ];
 
-  constructor(private wordpress: WordpressService, private http: HttpClient, public blogStore: BlogStoreService) {
+  constructor(
+    private wordpress: WordpressService,
+    private http: HttpClient,
+    public blogStore: BlogStoreService,
+    @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(WINDOW) private window: Window,
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+
     this.blogStore.blogs$.subscribe(storedBlogs => {
       if (!storedBlogs.length) {
         this.wordpress.getPosts({'per_page': 2})

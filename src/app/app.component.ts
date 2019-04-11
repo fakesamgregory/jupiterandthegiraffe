@@ -6,6 +6,9 @@ import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
+import {HighlightedFriendsService} from './stores/highlighted-friends.service';
+import {WordpressService} from './services/wordpress.service';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -42,9 +45,11 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: any,
               @Inject(WINDOW) private window: Window,
-              router: Router,
+              private router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              @Inject(AosToken) aos) {
+              @Inject(AosToken) aos,
+              public friendsStore: HighlightedFriendsService,
+              private wordpress: WordpressService) {
 
     if (isPlatformBrowser(this.platformId)) {
       aos.init({
@@ -60,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.angulartics2GoogleTagManager.startTracking();
 
-    router.events
+    this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
         this.isHome = event.url === '/';
@@ -70,7 +75,8 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       });
 
-    router.events
+
+    this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         if (isPlatformBrowser(this.platformId)) {
@@ -82,6 +88,22 @@ export class AppComponent implements OnInit, OnDestroy {
         }
 
         this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
+      });
+
+    this.loadFriends();
+  }
+
+  private loadFriends(): void {
+    this.wordpress.getPageId(293)
+      .subscribe((content: any) => {
+        const friendPageContent =
+          content.acf.featured_friends.map(friend =>
+            this.wordpress.getPostTypeById(friend.friends.post_type, friend.friends.ID));
+
+        forkJoin(friendPageContent)
+          .subscribe((friends) => {
+            friends.forEach(friend => this.friendsStore.addFriend(friend));
+          });
       });
   }
 

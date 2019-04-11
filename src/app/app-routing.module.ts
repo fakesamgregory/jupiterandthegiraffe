@@ -4,41 +4,32 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { WhoComponent } from './pages/who/who.component';
 import { WhatComponent } from './pages/what/what.component';
-import { VeratrakComponent } from './case-studies/veratrak/veratrak.component';
-import { NorthstarComponent } from './case-studies/northstar/northstar.component';
 import { WorkComponent } from './pages/work/work.component';
-import { BoombocsComponent } from './case-studies/boombocs/boombocs.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { WorkResolverService } from './pages/work/work-resolver.service';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
-import { EpochBrandWebsiteComponent } from './case-studies/epoch-brand-website/epoch-brand-website.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { ToneOfVoiceComponent } from './misc/tone-of-voice/tone-of-voice.component';
-import { MessagingComponent } from './misc/messaging/messaging.component';
-import { PhotographyComponent } from './misc/photography/photography.component';
 import { TypographyComponent } from './misc/typography/typography.component';
-import { CmsComponent } from './misc/cms/cms.component';
-import { EcommerceComponent } from './misc/ecommerce/ecommerce.component';
-import { WordpressComponent } from './misc/wordpress/wordpress.component';
-import { ShopifyComponent } from './misc/shopify/shopify.component';
-import { VueComponent } from './misc/vue/vue.component';
-import { AngularComponent } from './misc/angular/angular.component';
-import { ReactComponent } from './misc/react/react.component';
-import { LocationComponent } from './misc/location/location.component';
-import { DesignComponent } from './pages/design/design.component';
-import { WebDevelopmentComponent } from './pages/web-development/web-development.component';
-import { BrandingComponent } from './pages/branding/branding.component';
+import { LocationComponent } from './pages/location/location.component';
+import { BrandExperienceComponent } from './pages/brand-experience/brand-experience.component';
+import { BrandIdentityComponent } from './pages/brand-identity/brand-identity.component';
+import { BrandStrategyComponent } from './pages/brand-strategy/brand-strategy.component';
 import { UxComponent } from './misc/ux/ux.component';
-import {StrategyComponent} from './pages/strategy/strategy.component';
 import {IdentityComponent} from './misc/identity/identity.component';
-import {AnimationsComponent} from './misc/animations/animations.component';
-import {AwsComponent} from './misc/aws/aws.component';
 import {AppResolverService} from './pages/person/app-resolver.service';
 import {PersonComponent} from './pages/person/person.component';
 import {PageResolverService} from './pages/terms-and-conditions/page-resolver.service';
 import {CaseStudyComponent} from './pages/case-study/case-study.component';
 import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.service';
+import {ServiceResolverComponent} from './pages/service/service-resolver.service';
+import {ServiceComponent} from './pages/service/service.component';
+import {WebsiteDesignComponent} from './misc/website-design/website-design.component';
+import {WebsiteDevelopmentComponent} from './misc/website-development/website-development.component';
+import {PositioningComponent} from './misc/positioning/positioning.component';
+import {AnimationsComponent} from './misc/animations/animations.component';
+import {CorporateStoryComponent} from './misc/corporate-story/corporate-story.component';
 
 const routes: Routes = [
   // Top level pages
@@ -67,20 +58,27 @@ const routes: Routes = [
 
   // Services
   { path: 'service', redirectTo: 'what-we-do' },
+  // {
+  //   path: 'service/:service',
+  //   component: ServiceComponent,
+  //   resolve: {
+  //     work: ServiceResolverComponent
+  //   }
+  // },
   {
     path: 'service',
     children: [
-      { path: 'strategy', component: StrategyComponent },
-      { path: 'branding', component: BrandingComponent },
-      { path: 'design', component: DesignComponent },
-      { path: 'development', component: WebDevelopmentComponent },
+      { path: 'brand-strategy', component: BrandStrategyComponent },
+      { path: 'brand-identity', component: BrandIdentityComponent },
+      { path: 'brand-experience', component: BrandExperienceComponent },
     ]
   },
 
-  { path: 'strategy', component: StrategyComponent },
   {
-    path: 'strategy',
+    path: 'service/brand-strategy',
     children: [
+      { path: 'positioning', component: PositioningComponent },
+
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } },
@@ -89,77 +87,41 @@ const routes: Routes = [
     ]
   },
 
-  // Branding topics, locations
-  { path: 'branding', redirectTo: 'service/branding' },
   {
-    path: 'branding',
+    path: 'service/brand-identity',
     children: [
       { path: 'tone-of-voice', component: ToneOfVoiceComponent },
-      { path: 'messaging', component: MessagingComponent },
-      { path: 'photography', component: PhotographyComponent },
       { path: 'typography', component: TypographyComponent },
       { path: 'identity', component: IdentityComponent },
+      { path: 'corporate-story', component: CorporateStoryComponent },
 
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'branding' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'branding' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'branding' } },
-      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'branding' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'branding' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'identity' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'identity' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'identity' } },
+      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'identity' } },
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'identity' } }
     ]
   },
 
-  // Design topics, locations
-  { path: 'design', redirectTo: 'service/design' },
   {
-    path: 'design',
+    path: 'service/brand-experience',
     children: [
       { path: 'ux', component: UxComponent },
-      { path: 'typography', component: TypographyComponent },
-      { path: 'animation', component: AnimationsComponent },
+      { path: 'website-design', component: WebsiteDesignComponent },
+      { path: 'website-development', component: WebsiteDevelopmentComponent },
+      { path: 'animations', component: AnimationsComponent },
 
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } },
-      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'design' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'design' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'experience' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'experience' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'experience' } },
+      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'experience' } },
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'experience' } }
     ]
   },
 
-  // Web Development topics, locations
-  { path: 'development', redirectTo: 'service/development' },
-  {
-    path: 'development',
-    children: [
-      { path: 'cms', component: CmsComponent },
-      { path: 'ecommerce', component: EcommerceComponent },
-      { path: 'wordpress', component: WordpressComponent },
-      { path: 'shopify', component: ShopifyComponent },
-      { path: 'vue', component: VueComponent },
-      { path: 'angular', component: AngularComponent },
-      { path: 'react', component: ReactComponent },
-      { path: 'aws', component: AwsComponent },
-
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'webdevelopment' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'webdevelopment' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'webdevelopment' } },
-      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'webdevelopment' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'webdevelopment' } },
-    ]
-  },
-
-  // Topics
-  { path: 'tone-of-voice', component: ToneOfVoiceComponent },
-  { path: 'brand-message', component: MessagingComponent },
-  { path: 'photography', component: PhotographyComponent },
-  { path: 'typography', component: TypographyComponent },
-  { path: 'cms', component: CmsComponent },
-  { path: 'ecommerce', component: EcommerceComponent },
-  { path: 'wordpress', component: WordpressComponent },
-  { path: 'shopify', component: ShopifyComponent },
-  { path: 'vue', component: VueComponent },
-  { path: 'angular', component: AngularComponent },
-  { path: 'react', component: ReactComponent },
-  { path: 'ux', component: UxComponent },
+  { path: 'brand-strategy', component: BrandStrategyComponent },
+  { path: 'brand-identity', redirectTo: 'service/brand-identity' },
+  { path: 'brand-experience', redirectTo: 'service/brand-experience' },
 
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
@@ -183,34 +145,26 @@ export const routableComponents = [
   HomeComponent,
   WhoComponent,
   WhatComponent,
-  VeratrakComponent,
-  NorthstarComponent,
   WorkComponent,
   ContactComponent,
   NotFoundComponent,
   CaseStudyComponent,
-  BrandingComponent,
-  DesignComponent,
+  BrandIdentityComponent,
+  BrandExperienceComponent,
   ToneOfVoiceComponent,
-  MessagingComponent,
   TypographyComponent,
-  PhotographyComponent,
-  CmsComponent,
-  EcommerceComponent,
-  WordpressComponent,
-  ShopifyComponent,
-  VueComponent,
-  AngularComponent,
-  ReactComponent,
   UxComponent,
   LocationComponent,
-  WebDevelopmentComponent,
-  StrategyComponent,
+  BrandStrategyComponent,
   IdentityComponent,
-  AnimationsComponent,
-  AwsComponent,
   PersonComponent,
   PrivacyPolicyComponent,
   ContactComponent,
   WhatComponent,
+  ServiceComponent,
+  AnimationsComponent,
+  CorporateStoryComponent,
+  PositioningComponent,
+  WebsiteDevelopmentComponent,
+  WebsiteDesignComponent,
 ];

@@ -18,55 +18,40 @@
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
-        <section class="col-sm-6 text-left">
+        <section class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up">
           <img *ngIf="showMyElement" src="/assets/images/strategy.jpg" alt="">
-          <h3>Strategy</h3>
+          <h3>Brand Strategy</h3>
           <p>
             We kick things off the right way with a facilitated Strategy session. With you, we get to know your company,
-            your
-            problems, your users and your goals so there’s method to our madness. It’s plain sailing from then on in.
+            your problems, your users and your goals so there’s method to our madness. It’s plain sailing from then on in.
           </p>
 
           <p>
-            Learn more about <a [routerLink]="['/service/strategy']">Strategy</a>.
+            Learn more about <a [routerLink]="['/service/brand-strategy']">Strategy</a>.
           </p>
         </section>
-        <section class="col-sm-6 text-left">
-          <img *ngIf="showMyElement" src="/assets/images/brand.jpg" alt="">
-          <h3>Branding</h3>
-          <p>
-            Brand is more than a logo. With us, build a better brand, one that speaks to the right customers. We create a <a
-            [routerLink]="['/service/branding']">brand strategy</a> that
-            showcases your values as well as positioning you in a market where you'll stand out.
-          </p>
-
-          <p>
-            Learn more about <a [routerLink]="['/service/branding']">branding</a>.
-          </p>
-        </section>
-        <section class="col-sm-6 text-left">
+        <section class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up" data-aos-delay="300">
           <img *ngIf="showMyElement" src="/assets/images/design.jpg" alt="">
-          <h3>Design</h3>
+          <h3>Brand Identity</h3>
+          <p>
+            Brand is more than a logo. It's the feeling every customer gets at every touch point with you.
+            It's voice, it's message, it's brand guidelines, it's who you are and what you stand for.
+          </p>
+
+          <p>
+            Find out what <a [routerLink]="['/service/brand-identity']">Identity</a> is.
+          </p>
+        </section>
+        <section class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up" data-aos-delay="600">
+          <img *ngIf="showMyElement" src="/assets/images/experience.jpg" alt="">
+          <h3>Brand Experience</h3>
           <p>
             We believe great design is everything so we go to great lengths to make sure your design compliments your
-            brand perfectly. From websites to beer labels graphic design exists at the core and we apply it to whatever
-            challenge you bring.
+            brand perfectly. From websites to beer labels, graphic design exists at the core. Just below brand.
           </p>
 
           <p>
-            Learn more about <a [routerLink]="['/service/design']">design</a>.
-          </p>
-        </section>
-        <section class="col-sm-6 text-left">
-          <img *ngIf="showMyElement" src="/assets/images/website.jpg" alt="">
-          <h3>Development</h3>
-          <p>
-            We build beautiful and enjoyable online experiences in the latest technologies. Whether it’s a
-            marketing site or an ecommerce system, let the tech evaporate from your concern and engage your audience.
-          </p>
-
-          <p>
-            Learn more about <a [routerLink]="['/service/development']">websites</a>.
+            See what <a [routerLink]="['/service/brand-experience']">Experience</a> can do for you.
           </p>
         </section>
       </div>
@@ -120,11 +105,11 @@
       <header>
         <h2>Discover</h2>
       </header>
-      <div *ngIf="blogs.length">
+      <div *ngIf="blogStore.blogs$ | async">
         <p>Read our latest blogs.</p>
 
         <div class="row">
-          <article *ngFor="let blog of blogs;" class="home__blog col-md">
+          <article *ngFor="let blog of blogStore.blogs$ | async" class="home__blog col-md">
             <header>
               <h3 class="home__blog-title">
                 <a [href]="blog.blog.link" class="home__blog-title-link" [innerHTML]="blog.blog.title.rendered"></a>
@@ -137,17 +122,25 @@
               <div (appDeferLoad)="showMyElement=true" *ngIf="blog.image">
                 <div class="home__blog-image" *ngIf="showMyElement"
                      [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
-                  <span class="home__blog-tag home__blog-tag--development" aria-hidden="false"
-                        *ngIf="blog.category.slug === 'development'">Category: {{blog.category.name}}</span>
-                  <span class="home__blog-tag home__blog-tag--design" aria-hidden="false"
-                        *ngIf="blog.category.slug === 'design'">Category: {{blog.category.name}}</span>
-                  <span class="home__blog-tag home__blog-tag--business" aria-hidden="false"
-                        *ngIf="blog.category.slug === 'business'">Category: {{blog.category.name}}</span>
+
+                  <span
+                    class="home__blog-tag"
+                    [ngClass]="{
+                      'home__blog-tag--development': blog.category.slug === 'brand-experience',
+                      'home__blog-tag--design': blog.category.slug === 'brand-identity',
+                      'home__blog-tag--business': blog.category.slug === 'business',
+                      'home__blog-tag--strategy': blog.category.slug === 'brand-strategy'
+                    }"
+                    aria-hidden="false"
+                  >
+                    Category: {{blog.category.name}}
+                  </span>
                 </div>
               </div>
             </a>
 
             <div class="home__blog-info">
+              <a [href]="blog.author.link"><img [src]="blog.author.avatar_urls['48']" alt="" class="home__blog-icon"></a>
               By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[2]}}.{{blog.date[1]}}.{{blog.date[0]}}</strong>
             </div>
 
@@ -155,13 +148,15 @@
           </article>
         </div>
 
-        <p>
-          <a href="https://blog.jupiterandthegiraffe.com">Read more on our blog</a>
-          <app-dots-component></app-dots-component>
-        </p>
+        <div class="text-center padding-top--lg padding-bottom--lg">
+          <a href="https://blog.jupiterandthegiraffe.com" class="btn btn--lg btn--outline btn--dark">
+            <span aria-hidden="true" class="vertical-align">📕️️ </span>Read more on our blog
+          </a>
+        </div>
+
       </div>
       <p *ngIf="error">There was an error fetching the blogs...</p>
-      <p *ngIf="!blogs.length && !error">Loading blogs
+      <p *ngIf="!blogStore.blogs$ && !error">Loading blogs
         <app-dots-component></app-dots-component>
       </p>
     </section>

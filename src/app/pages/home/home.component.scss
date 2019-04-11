@@ -67,6 +67,27 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    backdrop-filter: blur(2px);
+
+    &--development {
+      background-color: $color-malibu;
+    }
+    &--design {
+      background-color: $color-green-haze;
+    }
+    &--business {
+      background-color: $color-pickledBluewood;
+    }
+    &--strategy {
+      background-color: $color-confetti;
+      color: $color-black;
+    }
+  }
+
+  &__blog-icon {
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-right: 5px;
   }
 
   &__blog-title-link {

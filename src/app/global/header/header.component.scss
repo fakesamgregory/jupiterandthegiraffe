@@ -2,20 +2,32 @@
 @import "../../../assets/sass/tools/tools";
 
 .header {
-  transform: translateY(-100%);
-  transition: transform ease .5s;
   position: fixed;
   width: 100%;
   z-index: 10;
-  background-color: rgba($color-black, .9);
-  backdrop-filter: blur(5px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: $space-small 15px;
 
+  &:before {
+    background-color: rgba($color-black, .9);
+    backdrop-filter: blur(5px);
+    content: '';
+    display: block;
+    transform: translateY(-100%);
+    transition: transform ease .5s;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    box-shadow: 0 0 5px rgba($color-black, .3);
+  }
+
   @include md {
-    padding: $space-small $space-large;
+    padding: 15px;
   }
 
   &__text {
@@ -26,7 +38,9 @@
   }
 
   &--show {
-    transform: translateY(0);
+    &:before {
+      transform: translateY(0);
+    }
   }
 
   &__emoji {

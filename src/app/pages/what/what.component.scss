@@ -16,7 +16,7 @@
     margin: $space-large 0;
 
     @include md {
-      @include font-size($heading-2);
+      @include font-size(20);
       margin: $space-xlrg 0;
     }
   }
@@ -33,14 +33,20 @@
     text-align: left;
     border: none;
     margin-bottom: 50px;
-    opacity: .3;
-    transition: opacity .3s ease, color .3s ease;
+    opacity: .1;
+    transition: opacity .3s ease, color .3s ease, transform .3s ease;
     display: block;
     color: $color-black !important;
 
     &--active {
       opacity: 1;
       color: $color-malibu !important;
+      transform: translateX(5px);
+    }
+
+    &:hover:not(&--active) {
+      opacity: .3;
+      transform: translateX(5px);
     }
   }
 
@@ -74,7 +80,7 @@
 
   &__intro {
     @include md {
-      min-height: 500px;
+      min-height: 400px;
       display: flex;
       justify-content: center;
       align-items: center;

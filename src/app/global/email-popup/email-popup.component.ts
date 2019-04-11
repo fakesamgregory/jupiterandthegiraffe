@@ -20,7 +20,7 @@ export class EmailPopupComponent implements OnDestroy {
   private timeout = null;
   public error = '';
   private emailSignupUrl =
-    '//jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&amp;id=467e3cb96c';
+    '//jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&id=467e3cb96c';
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +38,7 @@ export class EmailPopupComponent implements OnDestroy {
   createForm() {
     this.emailSignup = this.fb.group({
       MERGE0: ['', Validators.compose([Validators.required, Validators.email])],
+      MERGE1: ['', Validators.compose([Validators.required])],
       b_name: [''],
       b_email: [''],
       b_comment: [''],

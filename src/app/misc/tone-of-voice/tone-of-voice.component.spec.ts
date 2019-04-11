@@ -4,6 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { ToneOfVoiceComponent } from './tone-of-voice.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('ToneOfVoiceComponent', () => {
   let component: ToneOfVoiceComponent;
@@ -11,7 +12,7 @@ describe('ToneOfVoiceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToneOfVoiceComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ ToneOfVoiceComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterTestingModule]
     })
     .compileComponents();

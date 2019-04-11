@@ -6,8 +6,6 @@ import {catchError} from 'rxjs/internal/operators';
 
 @Injectable()
 export class WorkResolverService implements Resolve<any> {
-  private _workUrl = 'assets/json/work.json';
-
   constructor(private wordpress: WordpressService, private router: Router) { }
 
   resolve(
@@ -21,5 +19,4 @@ export class WorkResolverService implements Resolve<any> {
         return empty();
       }));
   }
-
 }

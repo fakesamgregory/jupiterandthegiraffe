@@ -14,4 +14,10 @@
   &__section {
     margin: $space-xlrg 0;
   }
+
+  &__service-list {
+    @include md {
+      order: 1;
+    }
+  }
 }

@@ -19,7 +19,7 @@ export class WorkComponent {
       this.router.navigate(['/not-found']);
     } else {
       const TITLE = 'Our Work - Feast your eyes on our body of work';
-      const DESC = 'There\s many things we have done. Websites, branding, UX/UI, logos, Wordpress, stylguides';
+      const DESC = 'There\s many things we have done. Websites, brand-identity, UX/UI, logos, Wordpress, stylguides';
 
       this.titleService.setTitle(TITLE);
 

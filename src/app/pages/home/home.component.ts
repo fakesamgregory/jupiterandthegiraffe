@@ -177,8 +177,8 @@ export class HomeComponent {
   ];
 
   constructor(private wordpress: WordpressService, private http: HttpClient, public blogStore: BlogStoreService) {
-    this.blogStore.blogs$.subscribe(data => {
-      if (!data.length) {
+    this.blogStore.blogs$.subscribe(blogs => {
+      if (!blogs.length) {
         this.wordpress.getPosts({'per_page': 2})
           .subscribe((blogs: Array<any>) => {
             blogs.forEach((blog) => {
@@ -189,15 +189,15 @@ export class HomeComponent {
                 const image = blog._embedded['wp:featuredmedia'];
 
                 forkJoin(get)
-                  .subscribe(data => {
+                  .subscribe(blogData => {
                     const obj = {
-                      author: data[0],
+                      author: blogData[0],
                       image: image
                         ? blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
                         : {source_url: '/assets/images/blog-feature-default-min.jpg'},
                       blog,
                       date: blog.date.split('T')[0].split('-'),
-                      category: data[1],
+                      category: blogData[1],
                     };
                     this.blogStore.addBlog(obj);
                   });

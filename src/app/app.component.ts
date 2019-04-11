@@ -6,9 +6,9 @@ import {Router, NavigationStart, NavigationEnd, ActivatedRoute} from '@angular/r
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
-import {HighlightedFriendsService} from "./stores/highlighted-friends.service";
-import {WordpressService} from "./services/wordpress.service";
-import {forkJoin} from "rxjs/index";
+import {HighlightedFriendsService} from './stores/highlighted-friends.service';
+import {WordpressService} from './services/wordpress.service';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-root',

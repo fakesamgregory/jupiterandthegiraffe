@@ -4,8 +4,6 @@ import {BlogStoreService} from '../../stores/blog-store.service';
 import {forkJoin} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
 import {HttpClient} from '@angular/common/http';
-import {WINDOW} from '@ng-toolkit/universal';
-import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -183,11 +181,7 @@ export class HomeComponent {
     private wordpress: WordpressService,
     private http: HttpClient,
     public blogStore: BlogStoreService,
-    @Inject(PLATFORM_ID) private platformId: any,
-    @Inject(WINDOW) private window: Window,
   ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-
     this.blogStore.blogs$.subscribe(storedBlogs => {
       if (!storedBlogs.length) {
         this.wordpress.getPosts({'per_page': 2})

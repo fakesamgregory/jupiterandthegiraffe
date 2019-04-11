@@ -85,13 +85,11 @@
   <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
 
   <ng-template #map>
-    <ng-container *ngIf="isBrowser">
-      <agm-map [zoom]="2" [latitude]="0" [longitude]="151.2092955" [mapDraggable]="false" [zoomControl]="false"
-               [streetViewControl]="false" [styles]="styles">
-        <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955"></agm-marker>
-        <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7"></agm-marker>
-      </agm-map>
-    </ng-container>
+    <agm-map [zoom]="2" [latitude]="0" [longitude]="151.2092955" [mapDraggable]="false" [zoomControl]="false"
+             [streetViewControl]="false" [styles]="styles">
+      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955"></agm-marker>
+      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7"></agm-marker>
+    </agm-map>
   </ng-template>
 
   <div class="container-fluid">

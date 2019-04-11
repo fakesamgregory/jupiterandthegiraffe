@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StarsComponent } from './stars.component';
+import {ParallaxDirective} from '../../parallax.directive';
+import {WINDOW} from '@ng-toolkit/universal';
 
 describe('StarsComponent', () => {
   let component: StarsComponent;
@@ -8,7 +10,10 @@ describe('StarsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StarsComponent ]
+      declarations: [ StarsComponent, ParallaxDirective ],
+      providers: [
+        {provide: WINDOW},
+      ]
     })
     .compileComponents();
   }));

@@ -8,7 +8,6 @@ import {HeroComponent} from './global/hero/hero.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TrustHtmlPipe} from './trust-html.pipe';
 import {HttpClientModule} from '@angular/common/http';
-import { Angulartics2Facebook } from 'angulartics2/facebook';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {StarsComponent} from './global/stars/stars.component';
 import {FooterComponent} from './global/footer/footer.component';
@@ -16,6 +15,7 @@ import {HeaderComponent} from './global/header/header.component';
 import {LogoComponent} from './global/logo/logo.component';
 import {CookieBannerComponent} from './global/cookie-banner/cookie-banner.component';
 import {EmailPopupComponent} from './global/email-popup/email-popup.component';
+import {ParallaxDirective} from './parallax.directive';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -30,6 +30,7 @@ describe('AppComponent', () => {
         LogoComponent,
         CookieBannerComponent,
         EmailPopupComponent,
+        ParallaxDirective,
       ],
       imports: [ RouterTestingModule, HttpClientModule, ReactiveFormsModule],
       providers: [

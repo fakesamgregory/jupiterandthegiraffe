@@ -16,7 +16,7 @@
         <a
           [routerLink]="'/case-study/' + friend.slug"
           class="friends__link"
-          *ngIf="friend.content.rendered; else noLink;"
+          *ngIf="friend.type !== 'image'; else noLink;"
           data-aos="fade-up"
           [attr.data-aos-delay]="100 * i"
         >
@@ -34,10 +34,11 @@
           [attr.data-aos-delay]="100 * i"
         >
           <img
-            *ngIf="showMyElement && friend.acf.logo"
+            *ngIf="showMyElement && friend.filename"
             class="img-fluid friends__image"
-            [src]="friend.acf.logo.url"
-            [attr.alt]="friend.title.rendered"
+            [src]="friend.sizes.large"
+            srcset="{{friend.sizes.medium}} 1x, {{friend.sizes.large}} 2x"
+            [attr.alt]="friend.alt"
           >
         </span>
         </ng-template>

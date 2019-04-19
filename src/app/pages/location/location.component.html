@@ -16,7 +16,7 @@
     </p>
 
     <section *ngIf="type === 'strategy' || !type">
-      <h2>Strategy</h2>
+      <h2>Brand Strategy</h2>
 
       <p>
         This stage in the project gives us the opportunity to delve deeper into your pain points to better understand
@@ -31,16 +31,20 @@
     </section>
 
     <section *ngIf="type === 'identity' || !type">
-      <h2>Branding</h2>
+      <h2>Brand Identity</h2>
 
       <p>
         A brand isn't something you can see or touch, it's something you feel. What words encapsulate what your users feel when
         they interact with your business? This is something a brand will do and we strive to get them there. Through
-        <a [routerLink]="['/brand-identity/tone-of-voice']" class="link-plain">tone of voice</a>,
-        <a [routerLink]="['/brand-identity/brand-messaging']" class="link-plain">brand messaging</a>,
-        <a [routerLink]="['/brand-identity/photography']" class="link-plain">photography</a>,
-        <a [routerLink]="['/brand-identity/typography']" class="link-plain">typography</a> and
+        <a [routerLink]="['/service/brand-identity/tone-of-voice']" class="link-plain">tone of voice</a>,
+        <a [routerLink]="['/service/brand-identity/brand-messaging']" class="link-plain">brand messaging</a>,
+        <a [routerLink]="['/service/brand-identity/photography']" class="link-plain">photography</a>,
+        <a [routerLink]="['/service/brand-identity/typography']" class="link-plain">typography</a> and
         <a [routerLink]="['/service/brand-experience']" class="link-plain">design</a>. This all comes together to reflects your brand.
+      </p>
+
+      <p>
+        Brand Identity brings visual aspects to these 'feelings' giving you a styleguide.
       </p>
 
       <p>
@@ -50,15 +54,15 @@
     </section>
 
     <section *ngIf="type === 'experience' || !type">
-      <h2>Design</h2>
+      <h2>Brand Experience</h2>
 
       <p>
-        The best design has the best story. We craft this through your brand and unleash it by providing a visual wrapping to
-        your brand. Taking form, colour, composition and <a [routerLink]="['/ux']">UX</a>, we create beautiful designs that your users will love.
+        The best design has the best story. We craft this through your brand and unleash it by providing an experience
+        that can take many forms.
       </p>
 
       <p>
-        Learn more about <a [routerLink]="['/service/brand-experience']">Design</a>
+        Learn more about our <a [routerLink]="['/service/brand-experience']">Brand Experience</a>.
       </p>
 
     </section>
@@ -77,7 +81,6 @@
         <li><a href="https://jupiterandthegiraffe.com">Brand Experience<span class="sr-only"> agency</span> {{location}}</a></li>
       </ul>
     </section>
-
 
     <app-get-in-touch></app-get-in-touch>
   </section>

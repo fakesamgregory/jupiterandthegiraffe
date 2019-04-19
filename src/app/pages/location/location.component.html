@@ -16,7 +16,7 @@
     </p>
 
     <section *ngIf="type === 'strategy' || !type">
-      <h2>Strategy</h2>
+      <h2>Brand Strategy</h2>
 
       <p>
         This stage in the project gives us the opportunity to delve deeper into your pain points to better understand
@@ -31,7 +31,7 @@
     </section>
 
     <section *ngIf="type === 'identity' || !type">
-      <h2>Branding</h2>
+      <h2>Brand Identity</h2>
 
       <p>
         A brand isn't something you can see or touch, it's something you feel. What words encapsulate what your users feel when
@@ -44,21 +44,25 @@
       </p>
 
       <p>
+        Brand Identity brings visual aspects to these 'feelings' giving you a styleguide.
+      </p>
+
+      <p>
         Learn more about <a [routerLink]="['/service/brand-identity']">Branding</a>
       </p>
 
     </section>
 
     <section *ngIf="type === 'experience' || !type">
-      <h2>Design</h2>
+      <h2>Brand Experience</h2>
 
       <p>
-        The best design has the best story. We craft this through your brand and unleash it by providing a visual wrapping to
-        your brand. Taking form, colour, composition and <a [routerLink]="['/ux']">UX</a>, we create beautiful designs that your users will love.
+        The best design has the best story. We craft this through your brand and unleash it by providing an experience
+        that can take many forms.
       </p>
 
       <p>
-        Learn more about <a [routerLink]="['/service/brand-experience']">Design</a>
+        Learn more about our <a [routerLink]="['/service/brand-experience']">Brand Experience</a>.
       </p>
 
     </section>

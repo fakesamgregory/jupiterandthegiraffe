@@ -8,7 +8,7 @@ import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
 import {HighlightedFriendsService} from './stores/highlighted-friends.service';
 import {WordpressService} from './services/wordpress.service';
-import {forkJoin} from 'rxjs';
+import {forkJoin, of} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -97,13 +97,17 @@ export class AppComponent implements OnInit, OnDestroy {
     this.wordpress.getPageId(293)
       .subscribe((content: any) => {
         const friendPageContent =
-          content.acf.featured_friends.map(friend =>
-            this.wordpress.getPostTypeById(friend.friends.post_type, friend.friends.ID));
+          content.acf.featured_friends.map(friend => {
+            if (friend.friends) {
+              return this.wordpress.getPostTypeById(friend.friends.post_type, friend.friends.ID);
+            }
+
+            return of(friend.image);
+          });
 
         forkJoin(friendPageContent)
-          .subscribe((friends) => {
-            friends.forEach(friend => this.friendsStore.addFriend(friend));
-          });
+          .subscribe((friends) =>
+            friends.forEach(friend => this.friendsStore.addFriend(friend)));
       });
   }
 

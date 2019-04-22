@@ -7,22 +7,18 @@
     </header>
 
     <div class="row">
-      <div class="col-sm" [innerHTML]="content.acf.intro_text"></div>
-      <div class="col-sm">
+      <div class="col-sm" [innerHTML]="content.content.rendered"></div>
+      <div class="col-sm flex-column d-flex">
+        <ul class="white-bg__service-list">
+          <li *ngFor="let service of content.acf.services" class="col-6">
+            <a [routerLink]="service.link" *ngIf="service.link; else noLink">{{service.service}}</a>
+            <ng-template #noLink>{{service.service}}</ng-template>
+          </li>
+        </ul>
+
         <img src="{{content._embedded['wp:featuredmedia'][0].source_url}}" alt="">
       </div>
     </div>
-
-    <div [innerHTML]="content.content.rendered"></div>
-
-    <h2>{{content.title.rendered}} Services</h2>
-
-    <ul class="row">
-      <li *ngFor="let service of content.acf.services" class="col-6">
-        <a href="{{service.link}}" *ngIf="service.link; else noLink">{{service.service}}</a>
-        <ng-template #noLink>{{service.service}}</ng-template>
-      </li>
-    </ul>
 
     <app-get-in-touch></app-get-in-touch>
 

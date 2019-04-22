@@ -18,41 +18,20 @@
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
-        <section class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up">
-          <img *ngIf="showMyElement" src="/assets/images/strategy.jpg" alt="">
-          <h3>Brand Strategy</h3>
-          <p>
-            We kick things off the right way with a facilitated Strategy session. With you, we get to know your company,
-            your problems, your users and your goals so there’s method to our madness. It’s plain sailing from then on
-            in.
-          </p>
+        <section *ngFor="let service of services; let i = index;" class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="300 * i">
+          <img
+            *ngIf="showMyElement"
+            [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
+            [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
+            [alt]="service._embedded['wp:featuredmedia'][0].alt_text"
+          >
+
+          <h3>{{service.title.rendered}}</h3>
+
+          <div [innerHTML]="service.acf.intro_text"></div>
 
           <p>
-            Learn more about <a [routerLink]="['/service/brand-strategy']">Strategy</a>.
-          </p>
-        </section>
-        <section class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up" data-aos-delay="300">
-          <img *ngIf="showMyElement" src="/assets/images/design.jpg" alt="">
-          <h3>Brand Identity</h3>
-          <p>
-            Brand is more than a logo. It's the feeling every customer gets at every touch point with you.
-            It's voice, it's message, it's brand guidelines, it's who you are and what you stand for.
-          </p>
-
-          <p>
-            Find out what <a [routerLink]="['/service/brand-identity']">Identity</a> is.
-          </p>
-        </section>
-        <section class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up" data-aos-delay="600">
-          <img *ngIf="showMyElement" src="/assets/images/experience.jpg" alt="">
-          <h3>Brand Experience</h3>
-          <p>
-            We believe great design is everything so we go to great lengths to make sure your design compliments your
-            brand perfectly. From websites to beer labels, graphic design exists at the core. Just below brand.
-          </p>
-
-          <p>
-            See what <a [routerLink]="['/service/brand-experience']">Experience</a> can do for you.
+            Learn more about <a [routerLink]="'/service/' + service.slug">{{service.title.rendered}}</a>.
           </p>
         </section>
       </div>

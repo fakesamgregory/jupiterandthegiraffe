@@ -8,7 +8,7 @@ import {Meta, Title} from '@angular/platform-browser';
 export class BrandStrategyComponent {
 
   constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Brand Strategy | Jupiter and the Girafe';
+    const TITLE = 'Brand Strategy | Strategic Brand Management | Jupiter and the Girafe';
     const DESC =
       'Delve deeper than you thought was possible, we help set the stage for a brand that is set for success.';
 

@@ -30,13 +30,14 @@ import {WebsiteDevelopmentComponent} from './misc/website-development/website-de
 import {PositioningComponent} from './misc/positioning/positioning.component';
 import {AnimationsComponent} from './misc/animations/animations.component';
 import {CorporateStoryComponent} from './misc/corporate-story/corporate-story.component';
+import {WhatResolverService} from './pages/what/what-resolver.service';
 
 const routes: Routes = [
   // Top level pages
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'who-we-are', component: WhoComponent },
-  { path: 'what-we-do', component: WhatComponent },
+  { path: 'what-we-do', component: WhatComponent, resolve: { data: WhatResolverService} },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent, resolve: { data: PageResolverService } },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
@@ -58,26 +59,16 @@ const routes: Routes = [
 
   // Services
   { path: 'service', redirectTo: 'what-we-do' },
-  // {
-  //   path: 'service/:service',
-  //   component: ServiceComponent,
-  //   resolve: {
-  //     work: ServiceResolverComponent
-  //   }
-  // },
   {
-    path: 'service',
-    children: [
-      { path: 'brand-strategy', component: BrandStrategyComponent },
-      { path: 'brand-identity', component: BrandIdentityComponent },
-      { path: 'brand-experience', component: BrandExperienceComponent },
-    ]
+    path: 'service/:service',
+    component: ServiceComponent,
+    resolve: { data: ServiceResolverComponent }
   },
 
   {
     path: 'service/brand-strategy',
     children: [
-      { path: 'positioning', component: PositioningComponent },
+      { path: 'brand-positioning', component: PositioningComponent },
 
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
@@ -119,7 +110,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'brand-strategy', component: BrandStrategyComponent },
+  { path: 'brand-strategy', redirectTo: 'service/brand-strategy' },
   { path: 'brand-identity', redirectTo: 'service/brand-identity' },
   { path: 'brand-experience', redirectTo: 'service/brand-experience' },
 

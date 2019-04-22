@@ -9,7 +9,7 @@ import {Meta, Title} from '@angular/platform-browser';
 export class PositioningComponent {
 
   constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Positioning | Jupiter and the Giraffe';
+    const TITLE = 'Brand Positioning | Jupiter and the Giraffe';
     const DESC =
       'We help establish what position in the market you exist in. As the old saying goes, if you try and speak to everyone, ' +
       'you\'re speaking to no one.';

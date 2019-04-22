@@ -175,6 +175,7 @@ export class HomeComponent {
       ]
     }
   ];
+  public services: any;
 
   constructor(
     private wordpress: WordpressService,
@@ -213,5 +214,8 @@ export class HomeComponent {
           });
       }
     });
+
+    this.wordpress.getPostType('services')
+      .subscribe(data => this.services = data);
   }
 }

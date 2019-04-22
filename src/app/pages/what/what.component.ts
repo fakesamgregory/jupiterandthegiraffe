@@ -2,6 +2,7 @@ import {Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild} fro
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   templateUrl: './what.component.html',
@@ -12,6 +13,8 @@ export class WhatComponent {
   public fixedCSS: object;
   private scrollInterval;
   public activeIndex = null;
+  public content: any;
+  public services: any;
   @ViewChild('fixedWrap') fixedWrap: ElementRef;
   @ViewChild('scrollSection') scrollSection: ElementRef;
 
@@ -20,29 +23,36 @@ export class WhatComponent {
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(WINDOW) private window: Window,
-    @Inject(DOCUMENT) private document: Document
-  ) {
-    const TITLE = 'What We Do | Jupiter and the Giraffe';
-    const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience.';
+    @Inject(DOCUMENT) private document: Document,
+    private actr: ActivatedRoute,
+    private router: Router) {
+    this.actr.data
+      .subscribe(res => {
+        this.content = res.data[1];
+        this.services = res.data[0];
 
-    this.titleService.setTitle( TITLE );
+        const TITLE = 'What We Do | Jupiter and the Giraffe';
+        const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience.';
 
-    this.meta.updateTag({
-      name: 'description',
-      content: DESC
-    });
-    this.meta.updateTag({
-      name: 'twitter:title',
-      content: TITLE
-    });
-    this.meta.updateTag({
-      name: 'twitter:description',
-      content: DESC
-    });
-    this.meta.updateTag({
-      itemprop: 'name',
-      content: TITLE
-    });
+        this.titleService.setTitle( TITLE );
+
+        this.meta.updateTag({
+          name: 'description',
+          content: DESC
+        });
+        this.meta.updateTag({
+          name: 'twitter:title',
+          content: TITLE
+        });
+        this.meta.updateTag({
+          name: 'twitter:description',
+          content: DESC
+        });
+        this.meta.updateTag({
+          itemprop: 'name',
+          content: TITLE
+        });
+      });
   }
 
   @HostListener('window:scroll', [])

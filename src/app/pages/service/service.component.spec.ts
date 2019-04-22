@@ -19,14 +19,17 @@ describe('ServiceComponent', () => {
       providers: [
         { provide: ActivatedRoute, useValue: {
           data: of({
-            work: [{
+            data: [{
               _embedded: {
                 'wp:featuredmedia': [
                   { source_url: ''}
                 ]
               },
               acf: {
-                title: 'title'
+                title: 'title',
+                services: [
+                  {link: '/this/link', service: 'this title'},
+                ]
               },
               title: {
                 rendered: 'name'

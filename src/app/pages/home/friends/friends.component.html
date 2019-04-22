@@ -37,7 +37,7 @@
           <img
             *ngIf="showMyElement && friend.filename"
             class="img-fluid friends__image"
-            [src]="friend.sizes.large"
+            [src]="friend.sizes.medium"
             srcset="{{friend.sizes.medium}} 1x, {{friend.sizes.fullsize}} 2x"
             [attr.alt]="friend.alt"
           >

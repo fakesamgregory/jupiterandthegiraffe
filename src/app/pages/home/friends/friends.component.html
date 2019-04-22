@@ -23,7 +23,8 @@
           <img
             *ngIf="showMyElement && friend.acf.logo"
             class="img-fluid friends__image"
-            [src]="friend.acf.logo.url"
+            [src]="friend.acf.logo.sizes.medium"
+            srcset="{{friend.acf.logo.sizes.medium}} 1x, {{friend.acf.logo.sizes.large}} 2x"
             [attr.alt]="friend.title.rendered"
           >
         </a>
@@ -37,7 +38,7 @@
             *ngIf="showMyElement && friend.filename"
             class="img-fluid friends__image"
             [src]="friend.sizes.large"
-            srcset="{{friend.sizes.medium}} 1x, {{friend.sizes.large}} 2x"
+            srcset="{{friend.sizes.medium}} 1x, {{friend.sizes.fullsize}} 2x"
             [attr.alt]="friend.alt"
           >
         </span>

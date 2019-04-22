@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-sm" [innerHTML]="content.content.rendered"></div>
       <div class="col-sm flex-column d-flex">
-        <ul class="white-bg__service-list">
+        <ul class="white-bg__service-list row">
           <li *ngFor="let service of content.acf.services" class="col-6">
             <a [routerLink]="service.link" *ngIf="service.link; else noLink">{{service.service}}</a>
             <ng-template #noLink>{{service.service}}</ng-template>

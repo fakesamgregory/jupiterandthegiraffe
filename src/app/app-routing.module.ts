@@ -13,9 +13,6 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { ToneOfVoiceComponent } from './misc/tone-of-voice/tone-of-voice.component';
 import { TypographyComponent } from './misc/typography/typography.component';
 import { LocationComponent } from './pages/location/location.component';
-import { BrandExperienceComponent } from './pages/brand-experience/brand-experience.component';
-import { BrandIdentityComponent } from './pages/brand-identity/brand-identity.component';
-import { BrandStrategyComponent } from './pages/brand-strategy/brand-strategy.component';
 import { UxComponent } from './misc/ux/ux.component';
 import {IdentityComponent} from './misc/identity/identity.component';
 import {AppResolverService} from './pages/person/app-resolver.service';
@@ -140,13 +137,10 @@ export const routableComponents = [
   ContactComponent,
   NotFoundComponent,
   CaseStudyComponent,
-  BrandIdentityComponent,
-  BrandExperienceComponent,
   ToneOfVoiceComponent,
   TypographyComponent,
   UxComponent,
   LocationComponent,
-  BrandStrategyComponent,
   IdentityComponent,
   PersonComponent,
   PrivacyPolicyComponent,

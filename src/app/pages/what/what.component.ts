@@ -31,7 +31,7 @@ export class WhatComponent {
         this.content = res.data[1];
         this.services = res.data[0];
 
-        const TITLE = 'What We Do | Jupiter and the Giraffe';
+        const TITLE = 'Brand Strategy, Brand Identity, Brand Experience | Jupiter and the Giraffe';
         const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience.';
 
         this.titleService.setTitle( TITLE );
@@ -49,9 +49,15 @@ export class WhatComponent {
           content: DESC
         });
         this.meta.updateTag({
-          itemprop: 'name',
+          property: 'og:title',
           content: TITLE
         });
+        if (isPlatformBrowser(this.platformId)) {
+          this.meta.updateTag({
+            property: 'og:url',
+            content: this.window.location.href,
+          });
+        }
       });
   }
 

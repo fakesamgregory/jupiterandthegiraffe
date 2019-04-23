@@ -30,7 +30,7 @@
 
           <h3 *ngIf="service.acf.subtitle">{{service.acf.subtitle}}</h3>
 
-          <div class="what-we-do--tagline" [innerHTML]="service.acf.intro_text" *ngIf="service.acf.intro_text"></div>
+          <div class="what-we-do--tagline" [innerHTML]="service.excerpt.rendered" *ngIf="service.excerpt.rendered"></div>
 
           <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
             Learn more about <a [routerLink]="'/service/' + service.slug">{{service.title.rendered}}</a>.

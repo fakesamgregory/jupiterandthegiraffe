@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {WINDOW} from '@ng-toolkit/universal';
 
 import { WebsiteDesignComponent } from './website-design.component';
 import {BackButtonComponent} from '../../global/back-button/back-button.component';
@@ -13,7 +14,10 @@ describe('WebsiteDesignComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ WebsiteDesignComponent, BackButtonComponent, GetInTouchComponent, SocialComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
+      providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+      ]
     })
     .compileComponents();
   }));

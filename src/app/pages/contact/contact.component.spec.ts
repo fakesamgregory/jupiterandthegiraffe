@@ -34,7 +34,7 @@ describe('ContactComponent', () => {
       ],
       declarations: [ ContactComponent, SocialComponent ],
       providers: [
-        {provide: WINDOW},
+        {provide: WINDOW, useValue: { ...WINDOW, ...{location: { href: 'this/url'}}}},
         { provide: Angulartics2, useValue: mockAngulartics2 },
       ]
     })

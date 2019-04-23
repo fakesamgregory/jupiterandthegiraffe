@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
+import {isPlatformBrowser} from '@angular/common';
+import {WINDOW} from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-identity',
@@ -8,8 +10,11 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class IdentityComponent {
 
-  constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Brand identity';
+  constructor(private meta: Meta,
+              private titleService: Title,
+              @Inject(WINDOW) private window: Window,
+              @Inject(PLATFORM_ID) private platformId: any) {
+    const TITLE = 'Identity | Brand Identity | Jupiter and the Giraffe';
     const DESC =
       'Your brand identity (corporate/company logo) is usually the first thing people see. It\'s the most iconic part of your brand ' +
       'so shouldn\'t be understated.';
@@ -17,7 +22,7 @@ export class IdentityComponent {
     this.titleService.setTitle(TITLE);
 
     this.meta.updateTag({
-      name: 'description',
+      property: 'og:description',
       content: DESC,
     });
     this.meta.updateTag({
@@ -29,9 +34,15 @@ export class IdentityComponent {
       content: DESC,
     });
     this.meta.updateTag({
-      itemprop: 'name',
+      property: 'og:title',
       content: TITLE,
     });
+    if (isPlatformBrowser(this.platformId)) {
+      this.meta.updateTag({
+        property: 'og:url',
+        content: this.window.location.href,
+      });
+    }
   }
 
 }

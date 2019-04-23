@@ -1,11 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {ActivatedRoute, Router} from '@angular/router';
+import {of} from 'rxjs';
+import {WINDOW} from '@ng-toolkit/universal';
 
 import { PersonComponent } from './person.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {ActivatedRoute, Router} from '@angular/router';
-import {of} from 'rxjs';
+import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('PersonComponent', () => {
   let component: PersonComponent;
@@ -13,9 +15,10 @@ describe('PersonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonComponent, GetInTouchComponent, SocialComponent ],
+      declarations: [ PersonComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterTestingModule],
       providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             person: [{

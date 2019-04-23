@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {isPlatformBrowser} from '@angular/common';
+import {WINDOW} from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-service',
@@ -14,32 +16,52 @@ export class ServiceComponent {
     private meta: Meta,
     private titleService: Title,
     private actr: ActivatedRoute,
-    private router: Router) {
+    @Inject(PLATFORM_ID) private platformId,
+    @Inject(WINDOW) private window: Window) {
     this.actr.data
-      .subscribe(res => this.content = res.data[0]);
+      .subscribe(res => {
+        this.content = res.data[0];
 
-    const TITLE = `${this.content.title.rendered} | Jupiter and the Giraffe`;
-    const DESC =
-      'Branding, brand, brand-strategy, brand identity (logo), tone of voice, corporate, content, marketing brand-strategy, ' +
-      'brand messaging';
+        const TITLE = `${this.content.title.rendered} | Jupiter and the Giraffe`;
+        const DESC = this.content.excerpt.rendered.replace(/<[^>]+>/gm, '');
 
-    this.titleService.setTitle(TITLE);
+        this.titleService.setTitle(TITLE);
 
-    this.meta.updateTag({
-      name: 'description',
-      content: DESC,
-    });
-    this.meta.updateTag({
-      name: 'twitter:title',
-      content: TITLE,
-    });
-    this.meta.updateTag({
-      name: 'twitter:description',
-      content: DESC,
-    });
-    this.meta.updateTag({
-      itemprop: 'name',
-      content: TITLE,
-    });
+        this.meta.updateTag({
+          property: 'og:image',
+          content: this.content._embedded['wp:featuredmedia'][0].source_url,
+        });
+        this.meta.updateTag({
+          name: 'twitter:image',
+          content: this.content._embedded['wp:featuredmedia'][0].source_url,
+        });
+        this.meta.updateTag({
+          name: 'twitter:image:alt',
+          content: this.content._embedded['wp:featuredmedia'][0].alt || '',
+        });
+        this.meta.updateTag({
+          property: 'og:description',
+          content: DESC,
+        });
+        this.meta.updateTag({
+          name: 'twitter:description',
+          content: DESC,
+        });
+        this.meta.updateTag({
+          name: 'twitter:title',
+          content: TITLE,
+        });
+        this.meta.updateTag({
+          property: 'og:title',
+          content: TITLE,
+        });
+
+        if (isPlatformBrowser(this.platformId)) {
+          this.meta.updateTag({
+            property: 'og:url',
+            content: this.window.location.href,
+          });
+        }
+      });
   }
 }

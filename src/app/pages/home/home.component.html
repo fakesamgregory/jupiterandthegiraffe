@@ -28,7 +28,7 @@
 
           <h3>{{service.title.rendered}}</h3>
 
-          <div [innerHTML]="service.acf.intro_text"></div>
+          <div [innerHTML]="service.excerpt.rendered"></div>
 
           <p>
             Learn more about <a [routerLink]="'/service/' + service.slug">{{service.title.rendered}}</a>.

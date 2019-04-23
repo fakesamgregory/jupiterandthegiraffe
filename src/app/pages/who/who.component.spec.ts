@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {WINDOW} from '@ng-toolkit/universal';
 
 import { WhoComponent } from './who.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
@@ -16,6 +17,7 @@ describe('WhoComponent', () => {
       declarations: [ WhoComponent, GetInTouchComponent, SocialComponent],
       imports: [ RouterTestingModule ],
       providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
         { provide: WordpressService, useClass: MockWordpressService }
       ],
     })

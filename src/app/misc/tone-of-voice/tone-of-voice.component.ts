@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
+import {WINDOW} from '@ng-toolkit/universal';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-tone-of-voice',
@@ -8,8 +10,11 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class ToneOfVoiceComponent {
 
-  constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Tone of voice | Jupiter and the Giraffe';
+  constructor(private meta: Meta,
+              private titleService: Title,
+              @Inject(WINDOW) private window: Window,
+              @Inject(PLATFORM_ID) private platformId: any) {
+    const TITLE = 'Tone of voice | Brand Identity | Jupiter and the Giraffe';
     const DESC =
       'Simply put, tone of voice is the personality of anything your company says. This can range for excitable to serious. ' +
       'Jupiter and the Giraffes tone of voice, for instance, is casual, quirky and personable (now you can\'t unsee it, right?)';
@@ -17,7 +22,7 @@ export class ToneOfVoiceComponent {
     this.titleService.setTitle(TITLE);
 
     this.meta.updateTag({
-      name: 'description',
+      property: 'og:description',
       content: DESC,
     });
     this.meta.updateTag({
@@ -29,9 +34,15 @@ export class ToneOfVoiceComponent {
       content: DESC,
     });
     this.meta.updateTag({
-      itemprop: 'name',
+      property: 'og:title',
       content: TITLE,
     });
+    if (isPlatformBrowser(this.platformId)) {
+      this.meta.updateTag({
+        property: 'og:url',
+        content: this.window.location.href,
+      });
+    }
   }
 
 }

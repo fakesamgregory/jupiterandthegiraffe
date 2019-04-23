@@ -1,5 +1,5 @@
 <div class="white-bg">
-  <section class="container-fluid">
+  <section class="container-fluid" *ngIf="content">
     <h1>{{content.title.rendered}}</h1>
 
     <div [innerHTML]="content.content.rendered"></div>

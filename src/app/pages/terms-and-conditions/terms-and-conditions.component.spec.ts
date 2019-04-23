@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { TermsAndConditionsComponent } from './terms-and-conditions.component';
-import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
+import {WINDOW} from '@ng-toolkit/universal';
+
+import { TermsAndConditionsComponent } from './terms-and-conditions.component';
 
 describe('TermsAndConditionsComponent', () => {
   let component: TermsAndConditionsComponent;
@@ -12,8 +12,8 @@ describe('TermsAndConditionsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TermsAndConditionsComponent ],
-      imports: [RouterTestingModule],
       providers: [
+        { provide: WINDOW, useValue: { location: { href: 'this/url' } } },
         { provide: ActivatedRoute, useValue: {
           data: of({
             data: {

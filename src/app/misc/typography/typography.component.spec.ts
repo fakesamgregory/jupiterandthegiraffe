@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
+import {WINDOW} from '@ng-toolkit/universal';
 
 import { TypographyComponent } from './typography.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
@@ -13,7 +14,10 @@ describe('TypographyComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TypographyComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
+      providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+      ]
     })
     .compileComponents();
   }));

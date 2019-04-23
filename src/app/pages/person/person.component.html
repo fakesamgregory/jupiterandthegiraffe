@@ -1,6 +1,6 @@
 <div class="profile white-bg">
   <section class="container-fluid">
-    <a [routerLink]="['../']" class="profile__back">< Back</a>
+    <app-back-button></app-back-button>
 
     <img *ngIf="person.acf.thumbnail_image" src="{{person.acf.thumbnail_image.sizes.medium}}"
          srcset="{{person.acf.thumbnail_image.sizes.medium}} 1x, {{person.acf.thumbnail_image.sizes.large}} 2x"

@@ -1,12 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {WINDOW} from '@ng-toolkit/universal';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
 
 import { CaseStudyComponent } from './case-study.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {SocialComponent} from '../../global/social/social.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
 import {BackButtonComponent} from '../../global/back-button/back-button.component';
 
 describe('CaseStudyComponent', () => {
@@ -18,6 +19,7 @@ describe('CaseStudyComponent', () => {
       declarations: [ CaseStudyComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             work: [{

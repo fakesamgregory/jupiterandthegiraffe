@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
+import {WINDOW} from '@ng-toolkit/universal';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-website-development',
@@ -8,16 +10,32 @@ import {Meta, Title} from '@angular/platform-browser';
 })
 export class WebsiteDevelopmentComponent {
 
-  constructor(private meta: Meta, private titleService: Title) {
-    const TITLE = 'Website Development | Jupiter and the Giraffe';
+  constructor(private meta: Meta,
+              private titleService: Title,
+              @Inject(WINDOW) private window: Window,
+              @Inject(PLATFORM_ID) private platformId: any) {
+    const TITLE = 'Website Development | Brand Experience | Jupiter and the Giraffe';
     const DESC =
-      'We\'re confident we can build the site you need, using elegant user experience (UX) and making it accessible to all. ' +
-      'We have your users in mind.';
+      'Responsive website builds on AWS architecture. Ecommerce, SEO and Wordpress websites. Shopify sites. React, Vue, ' +
+      'Angular and static website builder.';
 
     this.titleService.setTitle(TITLE);
 
     this.meta.updateTag({
-      name: 'description',
+      property: 'og:image',
+      content: 'https://jupiterandthegiraffe.com/assets/images/website.jpg',
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: 'https://jupiterandthegiraffe.com/assets/images/website.jpg',
+    });
+    this.meta.updateTag({
+      name: 'twitter:image:alt',
+      content: 'Fingers typing on a laptop',
+    });
+
+    this.meta.updateTag({
+      property: 'og:description',
       content: DESC,
     });
     this.meta.updateTag({
@@ -29,9 +47,16 @@ export class WebsiteDevelopmentComponent {
       content: DESC,
     });
     this.meta.updateTag({
-      itemprop: 'name',
+      property: 'og:title',
       content: TITLE,
     });
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.meta.updateTag({
+        property: 'og:url',
+        content: this.window.location.href,
+      });
+    }
   }
 
 }

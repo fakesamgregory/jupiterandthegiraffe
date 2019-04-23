@@ -1,12 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
+import {WINDOW} from '@ng-toolkit/universal';
 
 import { ServiceComponent } from './service.component';
 import {BackButtonComponent} from '../../global/back-button/back-button.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {SocialComponent} from '../../global/social/social.component';
-import {ActivatedRoute} from '@angular/router';
-import {of} from 'rxjs';
 
 describe('ServiceComponent', () => {
   let component: ServiceComponent;
@@ -17,6 +18,7 @@ describe('ServiceComponent', () => {
       declarations: [ ServiceComponent, BackButtonComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule],
       providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             data: [{

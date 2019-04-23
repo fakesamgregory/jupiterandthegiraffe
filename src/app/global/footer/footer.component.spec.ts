@@ -17,7 +17,6 @@ describe('FooterComponent', () => {
       declarations: [ FooterComponent, EmailPopupComponent ],
       imports: [RouterTestingModule, FormsModule, ReactiveFormsModule],
       providers: [
-        { provide: WordpressService, useClass: MockWordpressService },
         HttpClient,
         HttpHandler
       ]

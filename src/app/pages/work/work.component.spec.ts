@@ -3,6 +3,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import { WorkComponent } from './work.component';
 import {ActivatedRoute} from '@angular/router';
 import { of } from 'rxjs';
+import {WINDOW} from '@ng-toolkit/universal';
 
 import {DotsComponent} from '../../global/dots/dots.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';
@@ -16,6 +17,7 @@ describe('WorkComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ WorkComponent, DotsComponent, GetInTouchComponent, SocialComponent ],
       providers: [
+        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
         {
           provide: ActivatedRoute,
           useValue: {

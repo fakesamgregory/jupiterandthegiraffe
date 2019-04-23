@@ -33,7 +33,7 @@ export class ContactComponent {
     this.itemRef = db.list('messages');
     this.item = this.itemRef.valueChanges();
 
-    const TITLE = 'Contact Us - Website development';
+    const TITLE = 'Contact Us | Jobs or Projects | Brand Strategy, Brand Identity, Brand Experience';
     const DESC = 'Good to see you. We were just talking about you! Drop us a line and let us know why you\'re here. ' +
       'If you know someone that needs our help, put their contact details in the message and you may be rewarded with ' +
       '10% of the final invoice ';
@@ -41,7 +41,7 @@ export class ContactComponent {
     this.titleService.setTitle(TITLE);
 
     this.meta.updateTag({
-      name: 'description',
+      property: 'og:description',
       content: DESC,
     });
     this.meta.updateTag({
@@ -53,9 +53,15 @@ export class ContactComponent {
       content: DESC,
     });
     this.meta.updateTag({
-      itemprop: 'name',
+      property: 'og:title',
       content: TITLE,
     });
+    if (isPlatformBrowser(this.platformId)) {
+      this.meta.updateTag({
+        property: 'og:url',
+        content: this.window.location.href,
+      });
+    }
   }
 
   createForm() {

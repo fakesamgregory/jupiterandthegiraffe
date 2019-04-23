@@ -2,7 +2,7 @@ import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
-import {isPlatformBrowser} from "@angular/common";
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-work',

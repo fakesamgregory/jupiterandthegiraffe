@@ -121,8 +121,6 @@ jobs:
 
       - run: npm run lint
 
-      - run: npm test
-
 workflows:
   version: 2
   build_and_test:

@@ -16,6 +16,7 @@ describe('ServiceComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ServiceComponent, BackButtonComponent, GetInTouchComponent, SocialComponent ],
+      imports: [RouterTestingModule],
       providers: [
         {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {

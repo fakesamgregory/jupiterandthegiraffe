@@ -41,6 +41,10 @@ export class WhatComponent {
           content: DESC
         });
         this.meta.updateTag({
+          property: 'og:description',
+          content: DESC,
+        });
+        this.meta.updateTag({
           name: 'twitter:title',
           content: TITLE
         });

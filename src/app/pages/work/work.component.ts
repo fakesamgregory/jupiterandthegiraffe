@@ -48,6 +48,10 @@ export class WorkComponent {
             content: DESC
           });
           this.meta.updateTag({
+            name: 'description',
+            content: DESC,
+          });
+          this.meta.updateTag({
             name: 'twitter:description',
             content: DESC
           });

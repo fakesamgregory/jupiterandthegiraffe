@@ -32,7 +32,7 @@ export class WhatComponent {
         this.services = res.data[0];
 
         const TITLE = 'Brand Strategy, Brand Identity, Brand Experience | Jupiter and the Giraffe';
-        const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience. ' + 
+        const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience. ' +
               'From Strategy, to brand, to design to experience.';
 
         this.titleService.setTitle( TITLE );

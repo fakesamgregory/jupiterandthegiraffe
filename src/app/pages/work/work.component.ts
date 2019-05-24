@@ -26,8 +26,8 @@ export class WorkComponent {
         if (!this.work) {
           this.router.navigate(['/not-found']);
         } else {
-          const TITLE = 'Our Work - Feast your eyes on our body of work';
-          const DESC = 'There\s many things we have done. Websites, brand-identity, UX/UI, logos, Wordpress, styleguides';
+          const TITLE = 'Projects | Jupiter and the Giraffe';
+          const DESC = 'Bringing the most creative branders, designers and developers into a tactical and strategic execution of work.';
 
           this.titleService.setTitle(TITLE);
 

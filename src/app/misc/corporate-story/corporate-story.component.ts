@@ -26,6 +26,10 @@ export class CorporateStoryComponent {
       content: DESC,
     });
     this.meta.updateTag({
+      name: 'description',
+      content: DESC,
+    });
+    this.meta.updateTag({
       name: 'twitter:title',
       content: TITLE,
     });

@@ -2,17 +2,13 @@
   <section class="container-fluid">
     <a [routerLink]="['../']">< Back</a>
 
-    <h1>Jupiter and the Giraffe<span *ngIf="type"> - {{type}}</span> - {{location}}</h1>
-
-    <p>
-      Our company is registered in UK and Wales but operates all over the world.
-    </p>
+    <h1>Jupiter and the Giraffe<span *ngIf="type"> {{type}} Agency</span> {{location}}</h1>
 
     <p>
       We bring all our services to {{location}}, be it <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> Brand Identity</a> or
       <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> Brand Experience</a>.
       As always we will start with a <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> Brand Strategy</a> workshop
-      and build out your needs and solutions to your problems.
+      and build out your needs and solutions to your problems. 
     </p>
 
     <section *ngIf="type === 'strategy' || !type">
@@ -20,8 +16,14 @@
 
       <p>
         This stage in the project gives us the opportunity to delve deeper into your pain points to better understand
-        your problems and pain points. We encourage you to dig deep and think about your audience and build user profiles,
-        think about your company and where you want to position it and seek your competitors to get the upper hand.
+        your problems and the goals your business has. We encourage you to dig deep and think about your audience and build user profiles,
+        think about your company and where you want to position it and seek your competitors to get the upper hand. 
+        This helps us build a picture of your organisation and allows us to build a brand that align to these goals. 
+      </p>
+      
+      <p>
+        Having your business goals as a pillar enable us to be the most creative brand strategy agency and deliver you something
+        that is both unique and functional.
       </p>
 
       <p>
@@ -40,7 +42,12 @@
         <a [routerLink]="['/service/brand-identity/brand-messaging']" class="link-plain">brand messaging</a>,
         <a [routerLink]="['/service/brand-identity/photography']" class="link-plain">photography</a>,
         <a [routerLink]="['/service/brand-identity/typography']" class="link-plain">typography</a> and
-        <a [routerLink]="['/service/brand-experience']" class="link-plain">design</a>. This all comes together to reflects your brand.
+        <a [routerLink]="['/service/brand-experience']" class="link-plain">creative design</a>. This all comes together to reflects your brand.      
+      </p>
+      
+      <p>
+        This service also aims to design you an an engaging identity. The design of your logo should also be an extension of your brand and the values it holds. 
+        Your brands logo should immediately encapsulate the right audience and connect with the right customer.
       </p>
 
       <p>

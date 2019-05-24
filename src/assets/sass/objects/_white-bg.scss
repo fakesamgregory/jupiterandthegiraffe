@@ -19,5 +19,9 @@
     @include md {
       order: 1;
     }
+    
+    a {
+      color: inherit;
+    }
   }
 }

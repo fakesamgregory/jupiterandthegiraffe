@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
 import {WordpressService} from '../../services/wordpress.service';
-import {map} from "rxjs/internal/operators";
 
 @Component({
   selector: 'app-case-study',

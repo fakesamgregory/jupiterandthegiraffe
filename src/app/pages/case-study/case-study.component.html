@@ -1,20 +1,35 @@
 <section class="case-study white-bg">
   <div [style.background-image]="'url(' + content._embedded['wp:featuredmedia'][0].source_url + ')'" class="case-study__image">
-
+    <div class="container-fluid">
+      <h1 class="case-study__heading">{{content.title.rendered}}</h1>
+    </div>
   </div>
 
   <div class="container-fluid">
-    <div class="case-study__back">
-      <app-back-button></app-back-button>
+    <div class="row case-study__main-info">
+      <div class="col-sm-6 case-study__info">
+        <p [innerHTML]="content.excerpt.rendered">
+        <hr>
+        <p *ngIf="content.acf.work_type"><strong>Services:</strong> {{content.acf.work_type}}</p>
+        <p *ngIf="content.acf.link"><strong>Link: </strong> <a [href]="content.acf.link">{{content.acf.link_text}}</a></p>
+      </div>
+      <div class="col-sm-4 offset-md-2">
+        <ul *ngIf="content.acf.crew" class="case-study__crew-list">
+          <li *ngFor="let member of content.acf.crew">
+            <strong>{{member.role}}: </strong>
+            <a *ngIf="member.link; else noLink" [href]="member.link">{{member.name}}</a>
+            <ng-template #noLink>{{member.name}}</ng-template>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="case-study__title-content">
-      <h1 class="case-study__heading">{{content.title.rendered}}</h1>
-      <p>{{content.acf.work_type}}</p>
-      <strong>Launched: {{content.date | date}}</strong>
-    </div>
+    <div [innerHTML]="content.content.rendered" class="case-study__main-text"></div>
 
-    <div [innerHTML]="content.content.rendered"></div>
+    <div class="case-study__nav">
+      <a [routerLink]="['/work']" style="margin-right: auto">Back to Projects</a>
+      <a [href]="'/case-study/' + nextCaseStudy.slug" *ngIf="nextCaseStudy" style="margin-left: auto">Next Project</a>
+    </div>
 
     <app-get-in-touch></app-get-in-touch>
   </div>

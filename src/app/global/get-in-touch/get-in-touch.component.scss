@@ -1,7 +1,11 @@
 @import "../../../assets/sass/settings/settings";
 
 .get-in-touch {
-  margin-top: 100px;
+  h2 {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 
   .btn {
     color: $color-mine-shaft;

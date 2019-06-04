@@ -30,7 +30,7 @@ export class WordpressService {
       });
     }
     return this.http
-      .get(`${this.url}/${type}?_embed${query.slice(0, -1)}`);
+      .get<any[]>(`${this.url}/${type}?_embed${query.slice(0, -1)}`);
   }
 
   public getPostTypeById(type: string, id: number) {

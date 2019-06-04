@@ -2,6 +2,7 @@
   padding: 20px 0;
   background: $color-white;
   color: $color-black;
+  padding-bottom: $space-large;
 
   a {
     color: $color-oldBrick;
@@ -19,7 +20,7 @@
     @include md {
       order: 1;
     }
-    
+
     a {
       color: inherit;
     }

@@ -1,24 +1,7 @@
 .home {
-  a {
-    color: $color-black;
-
-    @include hover-focus {
-      text-decoration: underline;
+    &__blog {
+        .more-link {
+            color: $color-black;
+          }
     }
-  }
-
-  &__blog {
-    a {
-      &:after {
-        display: none !important;
-      }
-    }
-  }
-
-  h2 {
-    @include md {
-      @include font-size($heading-1);
-    }
-  }
 }
-

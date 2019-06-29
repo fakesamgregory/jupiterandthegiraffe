@@ -1,20 +1,24 @@
 <section class="home">
   <div class="container-fluid">
-    <h1 class="sr-only">Jupiter and the Giraffe</h1>
+    <h1 class="sr-only">Jupiter and the Giraffe | Brand Strategy & Design</h1>
 
     <p class="home__tagline text-center" data-aos="fade-in">
-      We'll help your company find its voice, establish its brand and build you a kick-ass website.
+      Jupiter and the Giraffe are a
+      <span style="display: block">nomadic brand strategy and design studio</span>
+      that help elevate biotech products
     </p>
 
-    <section class="section text-center">
+    <section class="section text-center home__services">
       <header>
         <h2>
-          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Your ambitions, <div></div>let loose</span>
+          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Services</span>
         </h2>
       </header>
 
       <p class="home__lead">
-        Taking your spark, refining it through design and bringing your audience along for the ride.
+        We take your big idea, refine it through business strategy, 
+        execute it through bold design. We then build it into an unforgettable experience
+        helping your biotech product reach those who need it.
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
@@ -42,6 +46,59 @@
         </a>
       </div>
     </section>
+
+    <section class="section text-center" *ngIf="this.work">
+      <div class="home__work-content">
+        <header>
+          <h2><span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Latest work</span></h2>
+        </header>  
+      
+        <p class="home__lead">
+          We specifically design and create for the biotech industry because we know how it works.
+          <span style="display: block">Branding builds trust and assurance with your product beyond words.</span>  
+        </p>
+    
+        <div class="row">
+          <div class="col-md-8">
+            <a 
+              class="home__work-item"
+              [ngStyle]="{'background-image': 'url(' + this.work[0]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            >
+              <span class="text">
+                <span>{{this.work[0].acf.extra_info}}</span>
+                <span class="home__work-case-study">View case study</span>
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <div
+            class="home__work-item"
+            [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            >
+            <span class="text">
+                <span class="home__work-extra-info">{{this.work[1].acf.extra_info}}</span>
+                <span class="home__work-case-study">View case study</span>
+              </span>
+            </div>
+            <div
+            class="home__work-item"
+            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            >
+            <span class="text">
+              <span class="home__work-extra-info">{{this.work[2].acf.extra_info}}</span>
+              <span class="home__work-case-study">View case study</span>
+            </span>
+            </div>
+          </div>
+        </div>
+    
+        <div class="text-center padding-top--lg padding-bottom--lg">
+          <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline btn--dark">
+            View the rest of our portfolio
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
 </section>
 
@@ -57,7 +114,7 @@
       </header>
 
       <p class="home__lead">
-        We travel the world in search of adventurers bringing the cream of the crop talent that is bespoke to you.
+        We believe in the remote working revolution, travelling the world bringing the cream of the crop talent that is bespoke to your needs.
       </p>
     </section>
   </div>
@@ -86,48 +143,44 @@
         <h2>Discover</h2>
       </header>
       <div *ngIf="blogStore.blogs$ | async">
-        <p>Read our latest blogs.</p>
+        <article *ngFor="let blog of blogStore.blogs$ | async" class="home__blog">
+          <header>
+            <h3 class="home__blog-title">
+              <a [href]="blog.blog.link" class="home__blog-title-link" [innerHTML]="blog.blog.title.rendered"></a>
+            </h3>
+          </header>
 
-        <div class="row">
-          <article *ngFor="let blog of blogStore.blogs$ | async" class="home__blog col-md">
-            <header>
-              <h3 class="home__blog-title">
-                <a [href]="blog.blog.link" class="home__blog-title-link" [innerHTML]="blog.blog.title.rendered"></a>
-              </h3>
-            </header>
+          <a [href]="blog.blog.link" class="home__blog-image-link">
+            <span class="sr-only">{{blog.blog.title.rendered}}</span>
 
-            <a [href]="blog.blog.link" class="home__blog-image-link">
-              <span class="sr-only">{{blog.blog.title.rendered}}</span>
+            <div (appDeferLoad)="showMyElement=true" *ngIf="blog.image">
+              <div class="home__blog-image" *ngIf="showMyElement"
+                    [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
 
-              <div (appDeferLoad)="showMyElement=true" *ngIf="blog.image">
-                <div class="home__blog-image" *ngIf="showMyElement"
-                     [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
-
-                  <span
-                    class="home__blog-tag"
-                    [ngClass]="{
-                      'home__blog-tag--development': blog.category.slug === 'brand-experience',
-                      'home__blog-tag--design': blog.category.slug === 'brand-identity',
-                      'home__blog-tag--business': blog.category.slug === 'business',
-                      'home__blog-tag--strategy': blog.category.slug === 'brand-strategy'
-                    }"
-                    aria-hidden="false"
-                  >
-                    Category: {{blog.category.name}}
-                  </span>
-                </div>
+                <span
+                  class="home__blog-tag"
+                  [ngClass]="{
+                    'home__blog-tag--development': blog.category.slug === 'brand-experience',
+                    'home__blog-tag--design': blog.category.slug === 'brand-identity',
+                    'home__blog-tag--business': blog.category.slug === 'business',
+                    'home__blog-tag--strategy': blog.category.slug === 'brand-strategy'
+                  }"
+                  aria-hidden="false"
+                >
+                  Category: {{blog.category.name}}
+                </span>
               </div>
-            </a>
-
-            <div class="home__blog-info">
-              <a [href]="blog.author.link"><img [src]="blog.author.avatar_urls['48']" alt=""
-                                                class="home__blog-icon"></a>
-              By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[2]}}.{{blog.date[1]}}.{{blog.date[0]}}</strong>
             </div>
+          </a>
 
-            <div [innerHTML]="blog.blog.excerpt.rendered"></div>
-          </article>
-        </div>
+          <div class="home__blog-info">
+            <a [href]="blog.author.link"><img [src]="blog.author.avatar_urls['48']" alt=""
+                                              class="home__blog-icon"></a>
+            By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[2]}}.{{blog.date[1]}}.{{blog.date[0]}}</strong>
+          </div>
+
+          <div [innerHTML]="blog.blog.excerpt.rendered"></div>
+        </article>
 
         <div class="text-center padding-top--lg padding-bottom--lg">
           <a href="https://blog.jupiterandthegiraffe.com" class="btn btn--lg btn--outline btn--dark">
@@ -151,7 +204,7 @@
         Enough talking, let's get right to it.
       </p>
 
-      <div class="section text-center">
+      <div class="text-center">
         <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark"><span aria-hidden="true"
                                                                                         class="vertical-align">🚀 </span>Let's
           go!</a>

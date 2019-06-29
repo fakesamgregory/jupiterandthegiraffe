@@ -13,7 +13,6 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { ToneOfVoiceComponent } from './misc/tone-of-voice/tone-of-voice.component';
 import { TypographyComponent } from './misc/typography/typography.component';
 import { LocationComponent } from './pages/location/location.component';
-import { UxComponent } from './misc/ux/ux.component';
 import {IdentityComponent} from './misc/identity/identity.component';
 import {AppResolverService} from './pages/person/app-resolver.service';
 import {PersonComponent} from './pages/person/person.component';
@@ -22,10 +21,7 @@ import {CaseStudyComponent} from './pages/case-study/case-study.component';
 import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.service';
 import {ServiceResolverComponent} from './pages/service/service-resolver.service';
 import {ServiceComponent} from './pages/service/service.component';
-import {WebsiteDesignComponent} from './misc/website-design/website-design.component';
-import {WebsiteDevelopmentComponent} from './misc/website-development/website-development.component';
 import {PositioningComponent} from './misc/positioning/positioning.component';
-import {AnimationsComponent} from './misc/animations/animations.component';
 import {CorporateStoryComponent} from './misc/corporate-story/corporate-story.component';
 import {WhatResolverService} from './pages/what/what-resolver.service';
 
@@ -94,11 +90,6 @@ const routes: Routes = [
   {
     path: 'service/brand-experience',
     children: [
-      { path: 'ux', component: UxComponent },
-      { path: 'website-design', component: WebsiteDesignComponent },
-      { path: 'website-development', component: WebsiteDevelopmentComponent },
-      { path: 'animations', component: AnimationsComponent },
-
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'experience' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'experience' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'experience' } },
@@ -139,7 +130,6 @@ export const routableComponents = [
   CaseStudyComponent,
   ToneOfVoiceComponent,
   TypographyComponent,
-  UxComponent,
   LocationComponent,
   IdentityComponent,
   PersonComponent,
@@ -147,9 +137,6 @@ export const routableComponents = [
   ContactComponent,
   WhatComponent,
   ServiceComponent,
-  AnimationsComponent,
   CorporateStoryComponent,
   PositioningComponent,
-  WebsiteDevelopmentComponent,
-  WebsiteDesignComponent,
 ];

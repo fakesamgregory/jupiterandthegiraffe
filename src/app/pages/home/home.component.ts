@@ -192,7 +192,8 @@ export class HomeComponent {
   ) {
 
     const TITLE = '🚀 Jupiter and the Giraffe | Remote branding & design studio for biotech';
-    const DESC = 'We do branding and design for biotech products. Because revolutionary technology needs revolutionary branding. Contact us now!';
+    const DESC = 'We do branding and design for biotech products. Because revolutionary technology needs ' +
+                  'revolutionary design. Contact us now!';
 
     this.titleService.setTitle(TITLE);
 
@@ -260,6 +261,6 @@ export class HomeComponent {
       .subscribe(data => this.services = data);
 
     this.wordpress.getPostType('friends')
-      .subscribe(data => this.work = data)
+      .subscribe(data => this.work = data);
   }
 }

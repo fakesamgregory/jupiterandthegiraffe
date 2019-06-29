@@ -4,6 +4,9 @@ import {BlogStoreService} from '../../stores/blog-store.service';
 import {forkJoin} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
 import {HttpClient} from '@angular/common/http';
+import { Meta, Title } from '@angular/platform-browser';
+import { WINDOW } from '@ng-toolkit/universal';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +16,7 @@ import {HttpClient} from '@angular/common/http';
 export class HomeComponent {
   private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
+  public work: Object;
   public developmentMode = isDevMode();
   public showMyElement = false;
   public styles = [
@@ -181,10 +185,48 @@ export class HomeComponent {
     private wordpress: WordpressService,
     private http: HttpClient,
     public blogStore: BlogStoreService,
+    private meta: Meta,
+    private titleService: Title,
+    @Inject(WINDOW) private window: Window,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {
+
+    const TITLE = '🚀 Jupiter and the Giraffe | Remote branding & design studio for biotech';
+    const DESC = 'We do branding and design for biotech products. Because revolutionary technology needs ' +
+                  'revolutionary design. Contact us now!';
+
+    this.titleService.setTitle(TITLE);
+
+    this.meta.updateTag({
+      property: 'og:description',
+      content: DESC,
+    });
+    this.meta.updateTag({
+      name: 'description',
+      content: DESC,
+    });
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: TITLE,
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content: DESC,
+    });
+    this.meta.updateTag({
+      property: 'og:title',
+      content: TITLE,
+    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.meta.updateTag({
+        property: 'og:url',
+        content: this.window.location.href,
+      });
+    }
+
     this.blogStore.blogs$.subscribe(storedBlogs => {
       if (!storedBlogs.length) {
-        this.wordpress.getPosts({'per_page': 2})
+        this.wordpress.getPosts({'per_page': 1})
           .subscribe((blogs: Array<any>) => {
             blogs.forEach((blog) => {
               try {
@@ -217,5 +259,8 @@ export class HomeComponent {
 
     this.wordpress.getPostType('services')
       .subscribe(data => this.services = data);
+
+    this.wordpress.getPostType('friends')
+      .subscribe(data => this.work = data);
   }
 }

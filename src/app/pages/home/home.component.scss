@@ -38,7 +38,7 @@
 
   &__blog-title {
     @include md {
-      height: 50px;
+      min-height: 50px;
     }
   }
 
@@ -114,11 +114,154 @@
     }
   }
 
+  
   &__lead {
     @include font-size($font-lead);
-
+    
     @include md {
       @include font-size($font-lead-desk);
+    }
+  }
+  
+  &__work {
+    padding: 20px 0;
+    color: $color-black;
+    position: relative;
+    
+    h2 {
+      border-bottom-color: $color-white;
+    }
+    
+  }
+
+  &__work-extra-info {
+    @include md {
+      display: none;
+    }
+  }
+
+  &__work-case-study {
+    font-family: $body-font;
+  }
+  
+  &__work-item {
+    background-size: cover;
+    position: relative;
+    display: block;
+    color: $color-white;
+    margin-bottom: 20px;
+
+    @include  lg {
+      margin-bottom: 0;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      font-family: $title-font;
+
+      @include lg {
+        opacity: 0;
+        transform: translateY(-30%);
+        transition: transform .2s ease, opacity .2s ease;
+      }
+    }
+    
+    span {
+      display: block;
+      text-align: center;
+      padding: 0 30px;
+
+      + span {
+        margin-top: 20px;
+      }
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: rgba($color-black, .6);
+      
+      @include lg {
+        background-color: rgba($color-black, 0);
+      }
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      transition: background-color .3s ease;
+    }
+    
+    @include hover-focus {
+      .text {
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+
+      &::before {
+        background-color: rgba($color-black, .6);
+      }
+
+      .home__work-case-study {
+        text-decoration: underline;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 56.25%; 
+    }
+
+    + .home__work-item {
+      margin-top: 18px;
+    }
+  }
+
+  &__work-image {
+    position: relative;
+  }
+
+  &__work-caption {
+    &--light {
+      color: $color-white;
+    }
+  }
+
+  &__work-link {
+  
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    justify-content: center;
+  }
+
+  &__blog {
+    a {
+      color: $color-black;
+    
+      &:after {
+        display: none !important;
+      }
+    }
+  }
+
+  h2 {
+    @include md {
+      @include font-size($heading-1);
+    }
+  }
+
+  &__services {
+    a {
+      color: $color-black;
     }
   }
 }

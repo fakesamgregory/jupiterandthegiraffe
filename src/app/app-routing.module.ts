@@ -91,8 +91,6 @@ const routes: Routes = [
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'experience' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'experience' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'experience' } },
-      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'experience' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'experience' } },
       { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'experience' } }
     ]
   },

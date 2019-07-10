@@ -10,8 +10,8 @@
         </header>
         <ul class="list-unstyled">
           <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
-            <li class="footer__list-item" *ngIf="brand.acf?.website">
-              <a [href]="brand.acf.website" target="_blank" class="footer__link">
+            <li class="footer__list-item">
+              <a [routerLink]="'/case-study/' + brand.slug" class="footer__link">
                 {{brand.title.rendered}}
               </a>
             </li>

@@ -66,11 +66,10 @@ const routes: Routes = [
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } },
-      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'strategy' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'strategy' } }
+      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'strategy' } }
     ]
   },
-
+  
   {
     path: 'service/brand-identity',
     children: [
@@ -78,15 +77,14 @@ const routes: Routes = [
       { path: 'typography', component: TypographyComponent },
       { path: 'identity', component: IdentityComponent },
       { path: 'corporate-story', component: CorporateStoryComponent },
-
+      
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'identity' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'identity' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'identity' } },
-      { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'identity' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'identity' } }
+      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'identity' } }
     ]
   },
-
+  
   {
     path: 'service/brand-experience',
     children: [
@@ -94,20 +92,20 @@ const routes: Routes = [
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'experience' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'experience' } },
       { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney', type: 'experience' } },
-      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'experience' } }
+      { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney', type: 'experience' } },
+      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'experience' } }
     ]
   },
-
+  
   { path: 'brand-strategy', redirectTo: 'service/brand-strategy' },
   { path: 'brand-identity', redirectTo: 'service/brand-identity' },
   { path: 'brand-experience', redirectTo: 'service/brand-experience' },
-
+  
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
   { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
   { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff' } },
-  { path: 'surry-hills', component: LocationComponent, data: { location: 'Surry Hills - Sydney' } },
-  { path: 'redfern', component: LocationComponent, data: { location: 'Redfern - Sydney' } },
+  { path: 'bali', component: LocationComponent, data: { location: 'Bali' } },
 
   // Not found
   { path: 'not-found', component: NotFoundComponent },

@@ -63,7 +63,8 @@
             <a 
               class="home__work-item"
               [ngStyle]="{'background-image': 'url(' + this.work[0]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            >
+              [routerLink]="'/case-study/' + this.work[0].slug"
+              >
               <span class="text">
                 <span>{{this.work[0].acf.extra_info}}</span>
                 <span class="home__work-case-study">View case study</span>
@@ -71,24 +72,26 @@
             </a>
           </div>
           <div class="col-md-4">
-            <div
+            <a
             class="home__work-item"
             [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            [routerLink]="'/case-study/' + this.work[1].slug"
             >
             <span class="text">
-                <span class="home__work-extra-info">{{this.work[1].acf.extra_info}}</span>
-                <span class="home__work-case-study">View case study</span>
-              </span>
-            </div>
-            <div
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            >
-            <span class="text">
-              <span class="home__work-extra-info">{{this.work[2].acf.extra_info}}</span>
+              <span class="home__work-extra-info">{{this.work[1].acf.extra_info}}</span>
               <span class="home__work-case-study">View case study</span>
             </span>
-            </div>
+          </a>
+          <a
+            class="home__work-item"
+            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            [routerLink]="'/case-study/' + this.work[2].slug"
+          >
+          <span class="text">
+            <span class="home__work-extra-info">{{this.work[2].acf.extra_info}}</span>
+            <span class="home__work-case-study">View case study</span>
+          </span>
+        </a>
           </div>
         </div>
     
@@ -120,11 +123,11 @@
   </div>
 
   <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
-
   <ng-template #map>
-    <agm-map [zoom]="2" [latitude]="0" [longitude]="151.2092955" [mapDraggable]="false" [zoomControl]="false"
+    <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="false" [zoomControl]="false"
              [streetViewControl]="false" [styles]="styles">
-      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955"></agm-marker>
+      <agm-marker [latitude]="-8.6478" [longitude]="115.1385"></agm-marker>
+      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7"></agm-marker>
       <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7"></agm-marker>
     </agm-map>
   </ng-template>

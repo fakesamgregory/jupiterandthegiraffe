@@ -20,16 +20,10 @@
           <h4>The brief:</h4>
 
           <div [innerHTML]="workItem.acf.brief"></div>
-
-          <p class="work__case-study">View case study
-            <app-dots-component></app-dots-component>
-          </p>
-
-          <ul class="work__tags">
-            <li *ngFor="let tag of workItem.acf.tags" class="work__tag"><a
-              [routerLink]="['/service/' + tag.replace(' ', '-')]">{{
-              tag }}</a></li>
-          </ul>
+          
+          <span class="work__tag">
+            View case study
+          </span>
         </div>
       </a>
 

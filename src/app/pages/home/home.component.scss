@@ -211,6 +211,13 @@
       }
     }
 
+    &:active {
+      &::before {
+        background-color: rgba($color-white, .6);
+        color: $color-black;
+      }
+    }
+
     &::after {
       content: '';
       display: block;

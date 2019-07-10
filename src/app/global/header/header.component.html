@@ -5,15 +5,20 @@
     </a>
   </div>
   <ul class="header__menu list-unstyled">
-    <li>
+    <li class="hidden-sm">
       <span class="header__emoji" aria-hidden="true">📖</span>
       <a [routerLink]="['/who-we-are']">Our story</a>
     </li>
 
-    <li class="hidden-sm">
+    <li>
       <span class="header__emoji" aria-hidden="true">🧠</span>
       <a [routerLink]="['/what-we-do']">What can we do?</a>
     </li>
+
+    <li>
+        <span class="header__emoji" aria-hidden="true">👍</span>
+        <a [routerLink]="['/work']">Portfolio</a>
+      </li>
 
     <li>
       <span class="header__emoji" aria-hidden="true">✉️</span>

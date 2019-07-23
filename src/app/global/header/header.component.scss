@@ -66,21 +66,24 @@
       margin-right: $space-large;
       position: relative;
 
-      &:after {
-        content: '';
-        display: block;
-        height: 1px;
-        width: 100%;
-        background-color: $color-white;
-        transform: translateX(100%);
-        opacity: 0;
-        transition: transform .3s ease, opacity .3s ease;
+      &:not(.no-hover) {
+        &:after {
+          content: '';
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $color-white;
+          transform: translateX(100%);
+          opacity: 0;
+          transition: transform .3s ease, opacity .3s ease;
+        }
+  
+        &:hover:after {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      &:hover:after {
-        opacity: 1;
-        transform: translateY(0);
-      }
 
       @include md {
         margin-right: 0;

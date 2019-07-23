@@ -16,4 +16,10 @@
       display: none !important;
     }
   }
+
+  @media screen and (max-width: $screen-md - 1) {
+    &-md-down {
+      display: none !important;
+    }
+  }
 }

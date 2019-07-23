@@ -60,6 +60,10 @@
     }
   }
 
+  &__number {
+    margin: $space-large 0 0 0;
+  }
+
   @media screen and (max-width: $screen-sm - 1) {
     .pull-right { float: none; margin-left: 0 }
   }

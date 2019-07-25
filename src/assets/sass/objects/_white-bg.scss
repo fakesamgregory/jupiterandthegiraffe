@@ -4,6 +4,27 @@
   color: $color-black;
   padding-bottom: $space-large;
 
+  .paratext {
+    margin: 100px 80px 100px 80px;
+  }
+
+  .image-text {
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+  }
+
+  .quote {
+    margin: 100px 240px 100px 240px;    
+    text-align: center;
+  }
+
+  .dash {
+    font-family: $title-font;
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+
   a {
     color: $color-oldBrick;
   }

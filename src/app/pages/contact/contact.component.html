@@ -15,10 +15,12 @@
         <h2>Contact Us</h2>
         <div *ngIf="!name; else forminfo">
           <p>
-            Good to see you. We were just talking about you! Drop us a line and let us know why you're here.
+            We were just talking about you! Drop us a line and let us know why you're here.
           </p>
 
           <p><strong>Call</strong>: +44 20 3290 9902</p>
+
+          <p>Contact us for a <strong>free consultation</strong>.</p>
 
           <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
             <label>

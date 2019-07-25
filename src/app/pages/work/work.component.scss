@@ -30,11 +30,23 @@
       padding: 100px 0;
     }
 
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      background: rgba($color-mine-shaft, 0.5);
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
     &::after {
       position: absolute;
       content: '';
       display: block;
-      background: rgba($color-mine-shaft, 0.7);
+      background: rgba($color-mine-shaft, 0.9);
       top: 0;
       right: 0;
       left: 0;

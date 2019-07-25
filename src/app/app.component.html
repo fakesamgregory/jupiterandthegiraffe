@@ -1,5 +1,10 @@
 <div [ngClass]="{'keyboard-user': isKeyboardUser}">
-  <app-header-component [show]="showHeader || isCaseStudy"></app-header-component>
+  <app-header-component 
+    [show]="showHeader" 
+    (toggleMenu)="toggleMenu()" 
+    [menuOpen]="menuOpen"
+  >
+  </app-header-component>
 
   <app-stars-component></app-stars-component>
 

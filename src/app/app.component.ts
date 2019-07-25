@@ -16,14 +16,16 @@ import {forkJoin, of} from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  showHeader = false;
-  isHome = false;
-  isKeyboardUser = false;
-  hasBeenHome = false;
-  hideCookie = false;
-  footerPos = 0;
-  isCaseStudy = false;
+  public showHeader = false;
+  public isHome = false;
+  public isKeyboardUser = false;
+  public hasBeenHome = false;
+  public hideCookie = false;
+  public footerPos = 0;
+  public isCaseStudy = false;
+  public menuOpen = false;
   private scrollInterval: any;
+
   @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
   public ngOnInit(): void {
@@ -76,9 +78,10 @@ export class AppComponent implements OnInit, OnDestroy {
       });
 
 
-    this.router.events
+      this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
+
         if (isPlatformBrowser(this.platformId)) {
           this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
         }
@@ -88,6 +91,8 @@ export class AppComponent implements OnInit, OnDestroy {
         }
 
         this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
+
+        this.toggleMenu.call(this, false);
       });
 
     this.loadFriends();
@@ -109,6 +114,10 @@ export class AppComponent implements OnInit, OnDestroy {
           .subscribe((friends) =>
             friends.forEach(friend => this.friendsStore.addFriend(friend)));
       });
+  }
+
+  public toggleMenu(forceState?) {
+    this.menuOpen = forceState !== undefined ? forceState : !this.menuOpen;
   }
 
   scrollUp(e) {

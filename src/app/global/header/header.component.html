@@ -1,31 +1,31 @@
 <header class="header" [ngClass]="{'header--show': show }" data-aos="fade-in" data-aos-delay="1200">
-  <div class="header__logo hidden-sm">
+  <div class="header__logo">
     <a [routerLink]="['/']">
       Jupiter&nbsp;and <div></div>the&nbsp;Giraffe
     </a>
   </div>
   <ul class="header__menu list-unstyled">
-    <li class="hidden-sm">
+    <li>
       <span class="header__emoji" aria-hidden="true">📖</span>
-      <a [routerLink]="['/who-we-are']">Our story</a>
+      <a routerLinkActive="header__active-link" [routerLink]="['/who-we-are']">Our story</a>
     </li>
 
     <li>
       <span class="header__emoji" aria-hidden="true">🧠</span>
-      <a [routerLink]="['/what-we-do']">What can we do?</a>
+      <a routerLinkActive="header__active-link" [routerLink]="['/what-we-do']">What can we do?</a>
     </li>
 
     <li>
         <span class="header__emoji" aria-hidden="true">👍</span>
-        <a [routerLink]="['/work']">Portfolio</a>
+        <a routerLinkActive="header__active-link" [routerLink]="['/work']">Portfolio</a>
       </li>
 
     <li>
       <span class="header__emoji" aria-hidden="true">✉️</span>
-      <a [routerLink]="['/contact']">Contact</a>
+      <a routerLinkActive="header__active-link" [routerLink]="['/contact']">Contact</a>
     </li>
 
-    <li class="hidden-md-down">
+    <li>
       <span class="header__emoji" aria-hidden="true">📕️</span>
       <a href="https://blog.jupiterandthegiraffe.com">Discover</a>
     </li>
@@ -37,3 +37,45 @@
     </li>
   </ul>
 </header>
+
+<button 
+  type="button" 
+  class="header__menu-button" 
+  [ngClass]="{'header__menu-button--open': menuOpen}" 
+  (click)="onClick()"
+>
+  <i class="fa" aria-hidden="true" [ngClass]="{'fa-bars': !menuOpen, 'fa-close': menuOpen}"></i>
+  <div class="sr-only">{{menuOpen ? 'Close' : 'Open'}} menu</div>
+</button>
+
+
+<ul class="header__menu-mobile" [ngClass]="{'header__menu-mobile--open': menuOpen}">
+  <li class="header__menu-mobile-item">
+    <a routerLinkActive="header__active-link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  </li>
+
+  <li class="header__menu-mobile-item">
+    <a routerLinkActive="header__active-link" [routerLink]="['/who-we-are']">Our story</a>
+  </li>
+
+  <li class="header__menu-mobile-item">
+    <a routerLinkActive="header__active-link" [routerLink]="['/what-we-do']">What can we do?</a>
+  </li>
+
+  <li class="header__menu-mobile-item">
+    <a routerLinkActive="header__active-link" [routerLink]="['/work']">Portfolio</a>
+  </li>
+
+  <li class="header__menu-mobile-item">
+    <a routerLinkActive="header__active-link" [routerLink]="['/contact']">Contact</a>
+  </li>
+
+  <li class="header__menu-mobile-item">
+    <a href="https://blog.jupiterandthegiraffe.com">Discover</a>
+  </li>
+  
+  <li class="header__menu-mobile-item header__menu-mobile-item--number">
+    <span class="header__menu-mobile-item-text">Call us:</span>
+    <a href="tel:442032909902">+44 20 3290 9902</a>
+  </li>
+</ul>

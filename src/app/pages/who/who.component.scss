@@ -16,7 +16,7 @@
     }
   }
 
-  &__link {
+  a.who__link {
     color: $color-black;
 
     @include hover-focus {

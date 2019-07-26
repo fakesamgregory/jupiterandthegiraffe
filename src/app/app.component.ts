@@ -24,6 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public footerPos = 0;
   public isCaseStudy = false;
   public menuOpen = false;
+  public loading = false;
   private scrollInterval: any;
 
   @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
@@ -70,17 +71,19 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
-        this.isHome = event.url === '/';
-
-        if (event.url === '/') {
-          this.hasBeenHome = true;
-        }
+        this.loading = true;
       });
-
-
+      
+      
       this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
+        this.loading = false;
+        this.isHome = event.url === '/';
+  
+        if (event.url === '/') {
+          this.hasBeenHome = true;
+        }
 
         if (isPlatformBrowser(this.platformId)) {
           this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;

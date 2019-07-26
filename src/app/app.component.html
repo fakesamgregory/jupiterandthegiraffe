@@ -12,6 +12,11 @@
 
   <app-hero-component *ngIf="!isCaseStudy" [home]="isHome"></app-hero-component>
 
+  <div class="loading" [ngClass]="{'loading--is-loading': loading}">
+    <div aria-hidden="true" class="loading__rocket">🚀</div>
+    <div>Hang tight<app-dots-component></app-dots-component></div>
+  </div>
+
   <main>
     <router-outlet></router-outlet>
   </main>

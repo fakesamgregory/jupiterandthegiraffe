@@ -24,10 +24,8 @@
     margin: 0 70px 0 70px;
   }
 
-  a {
-    a:not(.btn) {
-      color: $color-oldBrick;
-    }
+  a:not(.btn) {
+    color: $color-oldBrick;
   }
 
   &--with-image {

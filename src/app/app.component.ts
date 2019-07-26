@@ -73,14 +73,13 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((event: NavigationStart) => {
         this.loading = true;
       });
-      
-      
+
       this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.loading = false;
         this.isHome = event.url === '/';
-  
+
         if (event.url === '/') {
           this.hasBeenHome = true;
         }

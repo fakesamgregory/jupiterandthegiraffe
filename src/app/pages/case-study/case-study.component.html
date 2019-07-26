@@ -1,8 +1,7 @@
 <section class="case-study white-bg">
   <div [style.background-image]="'url(' + content._embedded['wp:featuredmedia'][0].source_url + ')'" class="case-study__image">
-    <div class="container-fluid">
-      <h1 class="case-study__heading">{{content.title.rendered}}</h1>
-    </div>
+
+  <h1 class="container-fluid case-study__heading">{{content.title.rendered}}</h1>
   </div>
 
   <div class="container-fluid">

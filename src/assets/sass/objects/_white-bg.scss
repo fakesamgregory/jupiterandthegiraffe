@@ -4,8 +4,30 @@
   color: $color-black;
   padding-bottom: $space-large;
 
-  a:not(.btn) {
-    color: $color-oldBrick;
+  .para-text {
+    margin: 100px 80px;
+  }
+
+  .image-text {
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+  }
+
+  .quote {
+    margin: 100px 240px;    
+    text-align: center;
+  }
+
+  .dash {
+    font-family: $title-font;
+    margin: 0 70px 0 70px;
+  }
+
+  a {
+    a:not(.btn) {
+      color: $color-oldBrick;
+    }
   }
 
   &--with-image {

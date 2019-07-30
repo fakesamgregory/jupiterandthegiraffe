@@ -5,7 +5,11 @@
   padding-bottom: $space-large;
 
   .para-text {
-    margin: 100px 80px;
+    margin: 50px 0 70px 0;
+    
+    @include md {
+      margin: 100px 80px;
+    }
   }
 
   .image-text {
@@ -16,13 +20,26 @@
   }
 
   .quote {
-    margin: 100px 240px;    
     text-align: center;
+    margin: 50px auto 70px auto;
+
+    @include md {
+      margin: 100px auto;
+      max-width: 600px; 
+    }
   }
 
   .dash {
     font-family: $title-font;
-    margin: 0 70px 0 70px;
+    margin: 0 20px;
+
+    @include md {
+      margin: 0 50px;
+    }
+    
+    @include lg {
+      margin: 0 70px;
+    }
   }
 
   a:not(.btn) {

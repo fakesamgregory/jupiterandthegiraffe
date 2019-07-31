@@ -1,13 +1,8 @@
 <section class="contact">
   <div class="container-fluid">
     <header>
-      <h1>
-        <div data-aos="fade-up">
-          Got work?
-        </div>
-        <div data-aos="fade-up" data-aos-delay="100">
-          Or just here to say "hey"?
-        </div>
+      <h1 class="sr-only">
+        Contact
       </h1>
     </header>
     <div class="row">
@@ -15,12 +10,8 @@
         <h2>Contact Us</h2>
         <div *ngIf="!name; else forminfo">
           <p>
-            We were just talking about you! Drop us a line and let us know why you're here.
-          </p>
-
-          <p><strong>Call</strong>: +44 20 3290 9902</p>
-
-          <p>Contact us for a <strong>free consultation</strong>.</p>
+            We were just talking about you! Drop us a line and let us know why you're here or <strong>book a consultation</strong>.
+          </p>          
 
           <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
             <label>
@@ -103,6 +94,8 @@
         <p>C/O Wis Accountancy Ltd, 4 Imperial Place, Maxwell Road, Borehamwood, England, WD6 1JN</p>
 
         <p>Company number: 11769481</p>
+
+        <p><strong>Call</strong>: +44 20 3290 9902</p>
       </section>
     </div>
   </div>

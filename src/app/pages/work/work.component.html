@@ -1,13 +1,4 @@
-<div class="work white-bg sr-only">
-  <div class="container-fluid">
-    <header>
-      <h2>Projects</h2>
-    </header>
-    <p>
-      Feast your eyes on the projects we've enjoyed and read about what we've done.
-    </p>
-  </div>
-</div>
+<h2 class="sr-only">Projects</h2>
 <div [ngSwitch]="error?.status">
   <h3 *ngSwitchCase="404">
     {{error.status}}: {{ error.statusText }}

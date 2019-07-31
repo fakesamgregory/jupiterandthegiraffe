@@ -125,7 +125,7 @@
 
   <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
   <ng-template #map>
-      <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [zoomControl]="false"
+      <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
                [streetViewControl]="false" [styles]="styles">
         <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
         <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>

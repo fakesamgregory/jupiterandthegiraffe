@@ -125,13 +125,15 @@
 
   <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
   <ng-template #map>
-    <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="false" [zoomControl]="false"
-             [streetViewControl]="false" [styles]="styles">
-      <agm-marker [latitude]="-8.6478" [longitude]="115.1385"></agm-marker>
-      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7"></agm-marker>
-      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7"></agm-marker>
-    </agm-map>
-  </ng-template>
+      <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [zoomControl]="false"
+               [streetViewControl]="false" [styles]="styles">
+        <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
+        <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
+        <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
+        <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
+        <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
+      </agm-map>
+    </ng-template>
 
   <div class="container-fluid">
     <div class="text-center padding-top--lg padding-bottom--lg">

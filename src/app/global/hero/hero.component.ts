@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeroComponent {
   @Input() home = false;
+  @Input() funnel = false;
 
   constructor (public router: Router) { }
 }

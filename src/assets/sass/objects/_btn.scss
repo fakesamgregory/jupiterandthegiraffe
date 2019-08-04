@@ -72,4 +72,24 @@
       outline: none;
     }
   }
+
+  &--strategy {
+    padding: $space-large;
+    background-color: $color-malibu;
+    border: 1px solid $color-black;
+    margin: $space-large 0;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $color-black;
+      border-color: $color-black;
+      outline: none;
+
+    }
+    
+    &::after {
+      display: none !important;
+    }
+  }
 }

@@ -66,13 +66,6 @@
     }
   }
 
-  &__logo {
-    //margin: 0 15px;
-    //@include md {
-    //  margin: 0 auto;
-    //}
-  }
-
   &__logo-text {
     font-family: $title-font;
     color: $color-primary;
@@ -95,5 +88,17 @@
 
   &__text-wrap {
     margin: 0 15px;
+  }
+
+  .btn--strategy {
+    &:hover,
+    &:focus {
+        color: $color-white;
+        border-color: $color-white;
+    }
+  }
+
+  &--funnel {
+    height: 600px;
   }
 }

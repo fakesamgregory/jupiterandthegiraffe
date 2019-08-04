@@ -4,7 +4,7 @@
       Jupiter&nbsp;and <div></div>the&nbsp;Giraffe
     </a>
   </div>
-  <ul class="header__menu list-unstyled">
+  <ul class="header__menu list-unstyled" *ngIf="!funnel">
     <li>
       <span class="header__emoji" aria-hidden="true">📖</span>
       <a routerLinkActive="header__active-link" [routerLink]="['/who-we-are']">Our story</a>
@@ -21,13 +21,13 @@
       </li>
 
     <li>
-      <span class="header__emoji" aria-hidden="true">✉️</span>
+      <span class="header__emoji" aria-hidden="true">📞</span>
       <a routerLinkActive="header__active-link" [routerLink]="['/contact']">Contact</a>
     </li>
 
     <li>
       <span class="header__emoji" aria-hidden="true">📕️</span>
-      <a href="https://blog.jupiterandthegiraffe.com">Discover</a>
+      <a href="https://blog.jupiterandthegiraffe.com">Blog</a>
     </li>
   </ul>
 </header>
@@ -37,13 +37,14 @@
   class="header__menu-button" 
   [ngClass]="{'header__menu-button--open': menuOpen}" 
   (click)="onClick()"
+  *ngIf="!funnel"
 >
   <i class="fa" aria-hidden="true" [ngClass]="{'fa-bars': !menuOpen, 'fa-close': menuOpen}"></i>
   <div class="sr-only">{{menuOpen ? 'Close' : 'Open'}} menu</div>
 </button>
 
 
-<ul class="header__menu-mobile" [ngClass]="{'header__menu-mobile--open': menuOpen}">
+<ul class="header__menu-mobile" [ngClass]="{'header__menu-mobile--open': menuOpen}" *ngIf="!funnel">
   <li class="header__menu-mobile-item">
     <a routerLinkActive="header__active-link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}">Home</a>
   </li>
@@ -65,7 +66,7 @@
   </li>
 
   <li class="header__menu-mobile-item">
-    <a href="https://blog.jupiterandthegiraffe.com">Discover</a>
+    <a href="https://blog.jupiterandthegiraffe.com">Blog</a>
   </li>
   
   <li class="header__menu-mobile-item header__menu-mobile-item--number">

@@ -24,6 +24,7 @@ import {ServiceComponent} from './pages/service/service.component';
 import {PositioningComponent} from './misc/positioning/positioning.component';
 import {CorporateStoryComponent} from './misc/corporate-story/corporate-story.component';
 import {WhatResolverService} from './pages/what/what-resolver.service';
+import { FunnelComponent } from './pages/funnel/funnel.component';
 
 const routes: Routes = [
   // Top level pages
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
+  { path: 'free-strategy', component: FunnelComponent },
 
   // Case studies
   { path: 'case-study', redirectTo: 'work' },
@@ -135,4 +137,5 @@ export const routableComponents = [
   ServiceComponent,
   CorporateStoryComponent,
   PositioningComponent,
+  FunnelComponent
 ];

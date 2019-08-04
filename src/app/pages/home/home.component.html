@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <h1 class="sr-only">Jupiter and the Giraffe | Brand Strategy & Design studio for digital products</h1>
 
-    <p class="home__tagline text-center" data-aos="fade-in">
+    <p class="home__tagline text-center" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">
       Jupiter and the Giraffe are a
-      <span style="display: block">nomadic <strong>brand strategy and design</strong> studio</span>
-      that help life-changing <strong>digital products</strong>
+      <span style="display: block"><strong>brand strategy and design</strong> studio</span>
+      that help <strong>digital products</strong> grow and
       <strong style="display: block">stand out in the market</strong>
     </p>
 
@@ -19,7 +19,7 @@
       <p class="home__lead">
         We take your big idea, refine it through business strategy and 
         execute it through bold design. We then build it into an unforgettable experience
-        helping your product tell its story effectively to the world.
+        <strong>helping your product tell its story</strong> effectively to the world and enter its new phase of growth.
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
@@ -35,9 +35,9 @@
 
           <div [innerHTML]="service.excerpt.rendered"></div>
 
-          <p>
-            Learn more about <a [routerLink]="'/service/' + service.slug">{{service.title.rendered}}</a>.
-          </p>
+          <div class="text-center">
+            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more about {{service.title.rendered}}</a>.
+          </div>
         </section>
       </div>
 
@@ -55,7 +55,8 @@
         </header>  
       
         <p class="home__lead">
-          We specifically design and create for the digital technology because we know how it works
+          Our technical understanding means we compliment <strong>development teams</strong> perfectly with our creative expertise. 
+          That's why <strong>we specifically design and create for the digital technology industry</strong>
           <span style="display: block">from startup through to commercialisation.</span>  
         </p>
     
@@ -98,6 +99,7 @@
     
         <div class="text-center padding-top--lg padding-bottom--lg">
           <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline btn--dark">
+            <i aria-hidden="true">👍</i>
             View the rest of our portfolio
           </a>
         </div>

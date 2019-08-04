@@ -18,6 +18,7 @@ import {forkJoin, of} from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   public showHeader = false;
   public isHome = false;
+  public isFunnel = false;
   public isKeyboardUser = false;
   public hasBeenHome = false;
   public hideCookie = false;
@@ -66,7 +67,9 @@ export class AppComponent implements OnInit, OnDestroy {
       link.setAttribute('href', this.document.URL.replace('/production', ''));
     }
 
-    this.angulartics2GoogleTagManager.startTracking();
+    if (environment.production) {
+      this.angulartics2GoogleTagManager.startTracking();
+    }
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
@@ -79,6 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((event: NavigationEnd) => {
         this.loading = false;
         this.isHome = event.url === '/';
+        this.isFunnel = event.url === '/free-strategy';
 
         if (event.url === '/') {
           this.hasBeenHome = true;

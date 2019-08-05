@@ -3,6 +3,7 @@
     [show]="showHeader" 
     (toggleMenu)="toggleMenu()" 
     [menuOpen]="menuOpen"
+    [funnel]="isFunnel"
   >
   </app-header-component>
 
@@ -10,7 +11,7 @@
 
   <div class="jupiter"></div>
 
-  <app-hero-component *ngIf="!isCaseStudy" [home]="isHome"></app-hero-component>
+  <app-hero-component *ngIf="!isCaseStudy" [home]="isHome" [funnel]="isFunnel"></app-hero-component>
 
   <div class="loading" [ngClass]="{'loading--is-loading': loading}">
     <div aria-hidden="true" class="loading__rocket">🚀</div>

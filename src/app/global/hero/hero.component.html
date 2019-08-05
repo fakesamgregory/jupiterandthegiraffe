@@ -1,5 +1,5 @@
-<div class="hero text-center" [ngClass]="{'home-page': home}">
-  <div class="hero__main" *ngIf="!home">
+<div class="hero text-center" [ngClass]="{'home-page': home, 'hero--funnel': funnel}">
+  <div class="hero__main" *ngIf="!home && !funnel">
     <div class="hero__logo" data-aos="fade-up" data-aos-delay="200">
       <a [routerLink]="['/']" class="hero__link">
         <app-logo></app-logo>
@@ -28,6 +28,16 @@
         <div class="padding--lg"></div>
       </div>
     </div>
+  </div>
+
+  <div class="hero__main" *ngIf="funnel">
+      <h1 data-aos="fade-in" data-aos-delay="200">1 hour free consultation</h1>
+
+      <p data-aos="fade-in" data-aos-delay="600">Kick start your digital products branding</p>
+
+      <div class="text-center" data-aos="fade-up" data-aos-delay="1000">
+        <a [routerLink]="'/contact'" class="btn btn--strategy">Book your free consultation</a>
+      </div>
   </div>
 
   <div data-aos="fade-in" data-aos-delay="200" data-aos-duration="3000" *ngIf="home">

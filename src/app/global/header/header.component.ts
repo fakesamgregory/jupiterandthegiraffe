@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent {
   @Input() public show: boolean;
   @Input() public menuOpen: boolean;
+  @Input() public funnel: boolean;
   @Output() toggleMenu = new EventEmitter();
 
   constructor() { }

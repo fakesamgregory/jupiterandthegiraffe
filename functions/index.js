@@ -44,6 +44,8 @@ exports.sendContactMessage = functions.database
       '<p>Thanks for contacting Jupiter and the Giraffe. We know how busy life can be so we appreciate ' +
       'the time you\'ve spent visiting our website.</p>' +
       '<p>Rest-assured we\'ve recieved your message loud and clear and we\'ll get back to you as soon as we can.</p>' +
+      '<p>While we get our things in order and respond, why not sign up to our monthly emails where we share branding advice and recent news?</p>' + 
+      '<p><a href="https://jupiterandthegiraffe.us20.list-manage.com/subscribe?u=c25f6fc2b7f38aa344e8d5b4a&id=467e3cb96c">Sign up here</a>.</p>' + 
       '<p>Have an awesome day,</p>' +
       '<p>The Giraffe</p>';
 

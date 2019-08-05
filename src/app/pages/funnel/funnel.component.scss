@@ -1,0 +1,86 @@
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/tools/tools";
+@import "../../../assets/sass/generic/section";
+@import "../home/friends/friends.component.scss";
+
+.free-strategy {
+    &__steps {
+        list-style: none;
+        counter-reset: steps;
+        padding: 0;
+
+        @include md {
+            display: flex;
+        }
+    }
+    
+    &__step {
+        padding: 15px;
+        text-align: center;
+        flex: 1 1 100%;
+        counter-increment: steps;
+        
+        &::before {
+            content: counter(steps);
+            font-family: $title-font;
+            color: $color-white;
+            background-color: $color-malibu;
+            padding: $space-medium;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: block;
+            // text-align: center;
+            margin: 0 auto $space-large auto;
+        }
+    }
+
+    &__section {
+        @extend .section;
+        @extend .section--break;
+        @extend .friends;
+        color: $color-white;
+        padding-bottom: 0;
+        padding-top: 0;
+
+        .btn--strategy {
+            &:hover,
+            &:focus {
+                color: $color-white;
+                border-color: $color-white;
+            }
+        }
+    }
+
+    &__testimonials-list {
+        display: flex;
+    }
+
+    &__testimonial-quote {
+        display: block;
+    }
+
+    &__testimonial-image {
+        display: block;
+        max-width: 150px;
+        border-radius: 50%;
+        margin-bottom: $space-medium;
+        margin: 0 auto $space-large auto;
+    }
+
+    &__testimonial {
+        flex: 1;
+        padding: $space-large;
+    }
+
+    &__pdf {
+        .col-sm:nth-child(2) {
+            margin-top: $space-large;
+
+            @include md {
+                order: -1;
+                margin: 0;
+            }
+        }
+    }
+}

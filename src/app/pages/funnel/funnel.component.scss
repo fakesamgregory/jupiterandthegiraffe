@@ -41,6 +41,7 @@
         @extend .friends;
         color: $color-white;
         padding-bottom: 0;
+        padding-top: 0;
 
         .btn--strategy {
             &:hover,

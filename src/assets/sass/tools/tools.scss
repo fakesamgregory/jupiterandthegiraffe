@@ -29,6 +29,7 @@ $positions: top left right bottom;
 $sm: 5px;
 $md: 15px;
 $lg: 20px;
+$xlg: 30px;
 
 @mixin the-padding($direction: "") {
 
@@ -45,6 +46,10 @@ $lg: 20px;
 
     &#{$direction}--lg {
       padding#{$direction}: $lg !important;
+    }
+
+    &#{$direction}--xlg {
+      padding#{$direction}: $xlg !important;
     }
   }
 }

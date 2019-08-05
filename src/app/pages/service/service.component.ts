@@ -18,7 +18,7 @@ export class ServiceComponent {
     private actr: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId,
     @Inject(WINDOW) private window: Window,
-    private router: Router,) {
+    private router: Router) {
     this.actr.data
       .subscribe(res => {
         if (!res.data[0]) {

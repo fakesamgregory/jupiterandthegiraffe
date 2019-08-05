@@ -27,7 +27,8 @@ export class WorkComponent {
           this.router.navigate(['/not-found']);
         } else {
           const TITLE = 'Projects | Jupiter and the Giraffe';
-          const DESC = 'Bringing the most creative branders, designers and website developers into a tactical and strategic execution of work.';
+          const DESC = 'Bringing the most creative branders, designers and website developers ' + 
+          'into a tactical and strategic execution of work.';
 
           this.titleService.setTitle(TITLE);
 

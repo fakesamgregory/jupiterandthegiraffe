@@ -67,9 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
       link.setAttribute('href', this.document.URL.replace('/production', ''));
     }
 
-    if (environment.production) {
-      this.angulartics2GoogleTagManager.startTracking();
-    }
+    this.angulartics2GoogleTagManager.startTracking();
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationStart))

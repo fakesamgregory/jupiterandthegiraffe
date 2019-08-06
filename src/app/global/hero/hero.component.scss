@@ -24,10 +24,11 @@
     }
 
     h1 {
-      @include font-size($heading-2-mobile);
+      @include font-size($heading-1-mobile);
 
       @include md {
         @include font-size($heading-1);
+        margin-bottom: 10px;
       }
     }
 

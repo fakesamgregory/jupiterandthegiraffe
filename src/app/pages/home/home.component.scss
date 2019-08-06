@@ -5,6 +5,11 @@
   padding: 20px 0;
   background: $color-white;
   color: $color-black;
+  text-align: center;
+
+  @include md {
+    text-align: left;
+  }
 
   .work {
     @include md {
@@ -12,9 +17,15 @@
     }
   }
 
+  &__tagline-wrapper {
+    height: 90vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__tagline {
     @include font-size($heading-2-mobile);
-    font-style: italic;
     margin: $space-large 0;
 
     @include md {
@@ -102,6 +113,25 @@
     }
   }
 
+  &__work-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .btn {
+      @include hover-focus {
+        background-color: $color-white;
+        color: $color-black;
+      }
+    }
+
+    h2 {
+      @include md {
+        margin-bottom: 50px; 
+        padding-bottom: 0;
+      }
+    }
+  }
+
   &__blog {
     margin-top: $space-large;
 
@@ -117,9 +147,11 @@
   
   &__lead {
     @include font-size($font-lead);
+    margin-bottom: $space-large;
     
     @include md {
       @include font-size($font-lead-desk);
+      margin-bottom: 50px;
     }
   }
   
@@ -151,6 +183,7 @@
     background-position: center;
     color: $color-white;
     margin-bottom: 20px;
+    background-color: rgba($color-black, .1);
 
     @include  lg {
       margin-bottom: 0;
@@ -261,15 +294,15 @@
     }
   }
 
-  h2 {
-    @include md {
-      @include font-size($heading-1);
-    }
-  }
-
   &__services {
     a {
       color: $color-black;
+    }
+  }
+
+  &__tagline-break {
+    @include sm {
+      display: block;
     }
   }
 }

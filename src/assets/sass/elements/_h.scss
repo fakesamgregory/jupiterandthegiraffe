@@ -15,13 +15,13 @@ h1 {
 
 h2 {
   @include font-size($heading-2-mobile);
-  margin-bottom: $space-large;
-  padding-bottom: $space-large;
-  border-bottom: 1px solid $color-pickledBluewood;
+  margin-bottom: $space-medium;
+  padding-bottom: $space-medium;
   line-height: 1.5;
   text-align: center;
-
+  
   @include md {
+    text-align: left;
     @include font-size($heading-2);
   }
 

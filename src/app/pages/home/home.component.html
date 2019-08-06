@@ -1,29 +1,92 @@
 <section class="home">
   <div class="container-fluid">
-    <h1 class="sr-only">Jupiter and the Giraffe | Brand Strategy & Design studio for SaaS and digital products</h1>
+    <h1 class="sr-only">Jupiter and the Giraffe | Brand Strategy & Design studio for life science startups</h1>
 
-    <p class="home__tagline text-center" data-aos="fade-in" data-aos-delay="200" data-aos-duration="1000">
-      Jupiter and the Giraffe are a
-      <span style="display: block"><strong>brand strategy and design</strong> studio</span>
-      that help <strong>digital products</strong> grow and
-      <strong style="display: block">stand out in the market</strong>
-    </p>
 
-    <section class="section text-center home__services">
+    <div class="home__tagline-wrapper">
+      <p class="home__tagline" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+        <span class="hidden-md-up">
+          We are a <strong>brand strategy and design</strong> studio 
+          <span class="home__tagline-break">that helps innovative <strong>life science startups</strong></span>
+          <span class="home__tagline-break">grow and <strong>stand out in the market</strong>.</span>
+        </span>
+        <span appParallax [ratio]=".15" [direction]="'horizontal'" style="display: inline-block;" class="hidden-md">
+          We are a <strong>brand strategy and design</strong> studio 
+          <span class="home__tagline-break">that helps innovative <strong>life science startups</strong></span>
+          <span class="home__tagline-break">grow and <strong>stand out in the market</strong>.</span>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <section class="section" *ngIf="this.work" style="background: #93ccf8;">
+    <div class="home__work-content container-fluid">
+      <header>
+        <h2><span style="display: inline-block;">Latest work</span></h2>
+      </header>
+  
+      <div class="row">
+        <div class="col-md-8">
+          <a 
+            class="home__work-item"
+            [ngStyle]="{'background-image': 'url(' + this.work[0]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            [routerLink]="'/case-study/' + this.work[0].slug"
+            >
+            <span class="text">
+              <span class="home__work-case-study">View case study</span>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a
+          class="home__work-item"
+          [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+          [routerLink]="'/case-study/' + this.work[1].slug"
+          >
+          <span class="text">
+            <span class="home__work-extra-info">{{this.work[1].acf.extra_info}}</span>
+            <span class="home__work-case-study">View case study</span>
+          </span>
+        </a>
+        <a
+          class="home__work-item"
+          [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+          [routerLink]="'/case-study/' + this.work[2].slug"
+        >
+          <span class="text">
+            <span class="home__work-extra-info">{{this.work[2].acf.extra_info}}</span>
+            <span class="home__work-case-study">View case study</span>
+          </span>
+        </a>
+        </div>
+      </div>
+  
+      <div class="text-center padding-top--lg padding-bottom--lg">
+        <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline">
+          <i aria-hidden="true">👍</i>
+          View the rest of our portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container-fluid">
+    <section class="section home__services">
       <header>
         <h2>
-          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Services</span>
+          <span style="display: inline-block;">Services</span>
         </h2>
       </header>
 
       <p class="home__lead">
         We take your big idea, refine it through business strategy and 
         execute it through bold design. We then build it into an unforgettable experience
-        <strong>helping your product tell its story</strong> effectively to the world and enter its new phase of growth.
+        helping you <strong>tell your story</strong> effectively to the world and 
+        enter your business into its new phase of growth.
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
-        <section *ngFor="let service of services; let i = index;" class="col-sm-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="300 * i">
+        <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="300 * i">
           <img
             *ngIf="showMyElement"
             [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
@@ -35,73 +98,14 @@
 
           <div [innerHTML]="service.excerpt.rendered"></div>
 
-          <div class="text-center">
-            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more about {{service.title.rendered}}</a>.
+          <div class="hidden-md-up">
+            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark ">Learn more about {{service.title.rendered}}</a>.
           </div>
         </section>
       </div>
-
-      <div class="text-center padding-top--lg padding-bottom--lg">
-        <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
-          <span aria-hidden="true" class="vertical-align">🧠 </span>What can we do?
-        </a>
-      </div>
-    </section>
-
-    <section class="section text-center" *ngIf="this.work">
-      <div class="home__work-content">
-        <header>
-          <h2><span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Latest work</span></h2>
-        </header>  
-      
-        <p class="home__lead">
-          Our technical understanding means we compliment <strong>development teams</strong> perfectly with our creative expertise. 
-          That's why <strong>we specifically design and create for the digital technology industry</strong>
-          <span style="display: block">from startup through to commercialisation.</span>  
-        </p>
-    
-        <div class="row">
-          <div class="col-md-8">
-            <a 
-              class="home__work-item"
-              [ngStyle]="{'background-image': 'url(' + this.work[0]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-              [routerLink]="'/case-study/' + this.work[0].slug"
-              >
-              <span class="text">
-                <span>{{this.work[0].acf.extra_info}}</span>
-                <span class="home__work-case-study">View case study</span>
-              </span>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            [routerLink]="'/case-study/' + this.work[1].slug"
-            >
-            <span class="text">
-              <span class="home__work-extra-info">{{this.work[1].acf.extra_info}}</span>
-              <span class="home__work-case-study">View case study</span>
-            </span>
-          </a>
-          <a
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            [routerLink]="'/case-study/' + this.work[2].slug"
-          >
-          <span class="text">
-            <span class="home__work-extra-info">{{this.work[2].acf.extra_info}}</span>
-            <span class="home__work-case-study">View case study</span>
-          </span>
-        </a>
-          </div>
-        </div>
-    
-        <div class="text-center padding-top--lg padding-bottom--lg">
-          <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline btn--dark">
-            <i aria-hidden="true">👍</i>
-            View the rest of our portfolio
-          </a>
+      <div class="row hidden-md">
+        <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
+            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more about {{service.title.rendered}}</a>.
         </div>
       </div>
     </section>
@@ -112,11 +116,9 @@
 
 <section class="home">
   <div class="container-fluid">
-    <section class="text-center">
+    <section>
       <header>
-        <h2>
-          <span data-aos="fade-up" style="display: inline-block;" data-aos-delay="100">Creativity <div></div>without borders</span>
-        </h2>
+        <h2>Creativity without borders</h2>
       </header>
 
       <p class="home__lead">
@@ -137,8 +139,8 @@
       </agm-map>
     </ng-template>
 
-  <div class="container-fluid">
-    <div class="text-center padding-top--lg padding-bottom--lg">
+  <div class="container-fluid text-center">
+    <div class="padding-top--lg padding-bottom--lg">
       <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
         <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
       </a>
@@ -146,73 +148,16 @@
 
     <div class="section"></div>
 
-    <section class="home__blog section margin-top--lrg">
-      <header>
-        <h2>Discover</h2>
-      </header>
-      <div *ngIf="blogStore.blogs$ | async">
-        <article *ngFor="let blog of blogStore.blogs$ | async" class="home__blog">
-          <header>
-            <h3 class="home__blog-title">
-              <a [href]="blog.blog.link" class="home__blog-title-link" [innerHTML]="blog.blog.title.rendered"></a>
-            </h3>
-          </header>
-
-          <a [href]="blog.blog.link" class="home__blog-image-link">
-            <span class="sr-only">{{blog.blog.title.rendered}}</span>
-
-            <div (appDeferLoad)="showMyElement=true" *ngIf="blog.image">
-              <div class="home__blog-image" *ngIf="showMyElement"
-                    [ngStyle]="{'background-image': 'url(' + blog.image.source_url + ')'}">
-
-                <span
-                  class="home__blog-tag"
-                  [ngClass]="{
-                    'home__blog-tag--development': blog.category.slug === 'brand-experience',
-                    'home__blog-tag--design': blog.category.slug === 'brand-identity',
-                    'home__blog-tag--business': blog.category.slug === 'business',
-                    'home__blog-tag--strategy': blog.category.slug === 'brand-strategy'
-                  }"
-                  aria-hidden="false"
-                >
-                  Category: {{blog.category.name}}
-                </span>
-              </div>
-            </div>
-          </a>
-
-          <div class="home__blog-info">
-            <a [href]="blog.author.link"><img [src]="blog.author.avatar_urls['48']" alt=""
-                                              class="home__blog-icon"></a>
-            By <a [href]="blog.author.link"><strong>{{blog.author.name}}</strong></a> on <strong>{{blog.date[2]}}.{{blog.date[1]}}.{{blog.date[0]}}</strong>
-          </div>
-
-          <div [innerHTML]="blog.blog.excerpt.rendered"></div>
-        </article>
-
-        <div class="text-center padding-top--lg padding-bottom--lg">
-          <a href="https://blog.jupiterandthegiraffe.com" class="btn btn--lg btn--outline btn--dark">
-            <span aria-hidden="true" class="vertical-align">📕️️ </span>Read more on our blog
-          </a>
-        </div>
-
-      </div>
-      <p *ngIf="error">There was an error fetching the blogs...</p>
-      <p *ngIf="!blogStore.blogs$ && !error">Loading blogs
-        <app-dots-component></app-dots-component>
-      </p>
-    </section>
-
     <section class="section text-center">
       <header>
-        <h2>Ready to launch?</h2>
+        <h2 class="text-center">Ready to launch?</h2>
       </header>
 
       <p class="home__lead">
         Enough talking, let's get right to it.
       </p>
 
-      <div class="text-center">
+      <div>
         <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--black">
           <span aria-hidden="true" class="vertical-align">🚀 </span>
           Let's go!

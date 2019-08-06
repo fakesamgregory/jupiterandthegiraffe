@@ -5,8 +5,20 @@
     }
   }
 
+  @media screen and (max-width: $screen-md - 1) {
+    &-md {
+      display: none !important;
+    }
+  }
+
   @media screen and (min-width: $screen-sm - 1) {
     &-sm-up {
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width: $screen-md - 1) {
+    &-md-up {
       display: none !important;
     }
   }

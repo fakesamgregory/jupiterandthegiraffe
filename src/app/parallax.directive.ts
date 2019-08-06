@@ -6,8 +6,9 @@ import {WINDOW} from '@ng-toolkit/universal';
   selector: '[appParallax]'
 })
 export class ParallaxDirective {
-  // tslint:disable-next-line:no-input-rename
+  // tslint:disable:no-input-rename
   @Input('ratio') ratio = 1;
+  @Input('direction') direction = 'vertical';
   public initialTop = 0;
   private scrollInterval: any;
 
@@ -25,7 +26,11 @@ export class ParallaxDirective {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
-      this.eleRef.nativeElement.style.transform = `translateY(${(this.initialTop - (this.window.scrollY * this.ratio))}px)`;
+      if (this.direction === 'horizontal') {
+        this.eleRef.nativeElement.style.transform = `translateX(${(this.initialTop + (this.window.scrollY * this.ratio))}px)`;
+      } else {
+        this.eleRef.nativeElement.style.transform = `translateY(${(this.initialTop - (this.window.scrollY * this.ratio))}px)`;
+      }
     }
   }
 

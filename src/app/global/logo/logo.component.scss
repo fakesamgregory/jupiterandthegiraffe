@@ -7,11 +7,12 @@
   &__text {
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: $title-font;
+    font-family: 'KG-SummerStorm', Arial, sans-serif;
   }
 
   &__moon {
     transition: opacity 1s ease;
+    font-family: 'KG-SummerStorm', Arial, sans-serif;
 
     animation-name: fade;
     animation-duration: 1.5s;

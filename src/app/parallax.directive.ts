@@ -6,7 +6,7 @@ import {WINDOW} from '@ng-toolkit/universal';
   selector: '[appParallax]'
 })
 export class ParallaxDirective {
-  // tslint:disable-next-line:no-input-rename
+  // tslint:disable:no-input-rename
   @Input('ratio') ratio = 1;
   @Input('direction') direction = 'vertical';
   public initialTop = 0;

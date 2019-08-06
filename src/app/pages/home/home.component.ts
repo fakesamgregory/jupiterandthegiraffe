@@ -183,8 +183,6 @@ export class HomeComponent {
 
   constructor(
     private wordpress: WordpressService,
-    private http: HttpClient,
-    public blogStore: BlogStoreService,
     private meta: Meta,
     private titleService: Title,
     @Inject(WINDOW) private window: Window,
@@ -223,39 +221,6 @@ export class HomeComponent {
         content: this.window.location.href,
       });
     }
-
-    this.blogStore.blogs$.subscribe(storedBlogs => {
-      if (!storedBlogs.length) {
-        this.wordpress.getPosts({'per_page': 1})
-          .subscribe((blogs: Array<any>) => {
-            blogs.forEach((blog) => {
-              try {
-                const author = this.http.get(blog._links.author[0].href);
-                const category = this.http.get(`${this.url}/categories/${blog.categories[0]}`);
-                const get = [author, category];
-                const image = blog._embedded['wp:featuredmedia'];
-
-                forkJoin(get)
-                  .subscribe(blogData => {
-                    const obj = {
-                      author: blogData[0],
-                      image: image
-                        ? blog._embedded['wp:featuredmedia'][0].media_details.sizes.large
-                        : {source_url: '/assets/images/blog-feature-default-min.jpg'},
-                      blog,
-                      date: blog.date.split('T')[0].split('-'),
-                      category: blogData[1],
-                    };
-                    this.blogStore.addBlog(obj);
-                  });
-              } catch (e) {
-                console.log(e);
-                this.error = e;
-              }
-            });
-          });
-      }
-    });
 
     this.wordpress.getPostType('services')
       .subscribe(data => this.services = data);

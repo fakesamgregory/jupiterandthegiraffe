@@ -1,7 +1,7 @@
 <section class="section section--break friends text-center">
   <div class="container-fluid" (appDeferLoad)="showMyElement=true">
     <header>
-      <h2>Clients</h2>
+      <h2 class="text-center">Clients</h2>
     </header>
 
     <div #slider class="slider" aria-live="polite" *ngIf="quotes.length">
@@ -46,8 +46,10 @@
       </li>
     </ul>
 
-    <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline btn--light">
-      <span aria-hidden="true" class="vertical-align">💻 </span>See the work
-    </a>
+    <div class="text-center">
+      <a [routerLink]="['/work']" class="btn btn--lg btn--outline btn--light">
+        <span aria-hidden="true" class="vertical-align">💻 </span>See the work
+      </a>
+    </div>
   </div>
 </section>

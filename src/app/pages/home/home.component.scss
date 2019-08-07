@@ -26,7 +26,7 @@
   }
 
   &__tagline {
-    @include font-size($heading-2-mobile);
+    @include font-size(24);
     margin: $space-large 0;
 
     @include md {

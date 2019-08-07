@@ -80,10 +80,10 @@
   &__text {
     font-family: $title-font;
     padding: 10px 0;
-    @include font-size(10);
+    @include font-size(14);
 
     @include md {
-      @include font-size(25);
+      @include font-size(18);
     }
   }
 

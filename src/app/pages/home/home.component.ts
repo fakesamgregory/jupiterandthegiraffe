@@ -189,9 +189,9 @@ export class HomeComponent {
     @Inject(PLATFORM_ID) private platformId: any
   ) {
 
-    const TITLE = '🚀 Jupiter and the Giraffe | Remote branding & design studio for clinical and commercial biotech';
-    const DESC = 'We do branding and design for clinical and commercial biotech products. Because revolutionary technology needs ' +
-                  'revolutionary design. Contact us now!';
+    const TITLE = 'Branding and Design for Growing Life Sciences Startups | 🚀 Jupiter and the Giraffe<';
+    const DESC = 'Helping growing life sciences startups stand out in the market because revolutionary technology '+ 
+      'needs revolutionary design. Contact us now!';
 
     this.titleService.setTitle(TITLE);
 

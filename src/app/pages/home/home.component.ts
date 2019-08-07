@@ -190,7 +190,7 @@ export class HomeComponent {
   ) {
 
     const TITLE = 'Branding and Design for Growing Tech Startups | 🚀 Jupiter and the Giraffe<';
-    const DESC = 'Helping growing tech startups stand out in the market because revolutionary technology '+
+    const DESC = 'Helping growing tech startups stand out in the market because revolutionary technology ' +
       'needs revolutionary design. Contact us now!';
 
     this.titleService.setTitle(TITLE);

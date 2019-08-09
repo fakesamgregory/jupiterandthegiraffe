@@ -29,7 +29,7 @@
         <div class="col-md-8">
           <a 
             class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[0]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
             [routerLink]="'/case-study/' + this.work[0].slug"
             >
             <span class="text">

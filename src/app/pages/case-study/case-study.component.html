@@ -1,5 +1,5 @@
 <section class="case-study white-bg">
-  <div [style.background-image]="'url(' + content._embedded['wp:featuredmedia'][0].source_url + ')'" class="case-study__image">
+  <div [style.background-image]="'url(' + content.acf.homepage_image.sizes.large + ')'" class="case-study__image">
 
   <h1 class="container-fluid case-study__heading">{{content.title.rendered}}</h1>
   </div>

@@ -226,6 +226,9 @@ export class HomeComponent {
       .subscribe(data => this.services = data);
 
     this.wordpress.getPostType('friends')
-      .subscribe(data => this.work = data);
+      .subscribe(data => {
+        this.work = data
+        console.log(data);
+        );
   }
 }

@@ -228,7 +228,6 @@ export class HomeComponent {
     this.wordpress.getPostType('friends')
       .subscribe(data => {
         this.work = data
-        console.log(data);
         );
   }
 }

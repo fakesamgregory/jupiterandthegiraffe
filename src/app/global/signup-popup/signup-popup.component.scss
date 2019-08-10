@@ -52,13 +52,12 @@
         transform: translateX(-100%);
         opacity: 0;
         transition: opacity .3s ease, transform .3s ease .3s;
-        perspective: 1000px;
         color: $color-black;
         
         &__window {
             padding: $space-large;
             transition: opacity .3s ease, transform .3s linear;
-            transform: rotateX(-10deg) translateY(20px);
+            transform: translateY(10px);
             background: $color-white;
             transform-style: preserve-3d;
             backface-visibility: hidden;
@@ -76,7 +75,7 @@
             transform: translateX(0);
             transition: opacity .3s ease;
             .dialog__window {
-                transform: rotateX(0) translateY(0);
+                transform: rotateX(0);
             }
         }
 

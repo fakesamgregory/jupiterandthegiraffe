@@ -1,4 +1,6 @@
 @import '../../../assets/sass/settings/colours';
+@import '../../../assets/sass/settings/sizings';
+@import '../../../assets/sass/tools/tools.scss';
 
 :host {
     .popup {
@@ -7,19 +9,36 @@
         transform: translateX(-100%);
         opacity: 0;
         transition: transform .3s ease, opacity .3s ease;
-        bottom: 100px;
+        bottom: 65px;
+        background: rgba($color-black, .9);
+        max-width: 320px;
+        padding: $space-large;
         
         &--show {
             opacity: 1;
             transform: translateX(0);
         }
+        
+        &__button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: transparent !important;
+            border: none !important;
+            color: $color-white;
+        }
+        
+        h2 {
+            @include font-size(20);
+        }
     }
-
-    img {
-        max-width: 200px;
+    
+    h2 {
+        margin-top: 0;
     }
-
+    
     .dialog {
+        padding: 0 $space-large;
         position: fixed;
         top: 0;
         left: 0;
@@ -34,13 +53,22 @@
         opacity: 0;
         transition: opacity .3s ease, transform .3s ease .3s;
         perspective: 1000px;
+        color: $color-black;
         
         &__window {
+            padding: $space-large;
             transition: opacity .3s ease, transform .3s linear;
-            transform: rotateX(-40deg) translateY(5px);
+            transform: rotateX(-10deg) translateY(20px);
             background: $color-white;
             transform-style: preserve-3d;
             backface-visibility: hidden;
+            max-width: 650px;
+        }
+
+        h2 {
+            @include sm-down {
+                @include font-size(20);
+            }
         }
         
         &--show {
@@ -49,6 +77,17 @@
             transition: opacity .3s ease;
             .dialog__window {
                 transform: rotateX(0) translateY(0);
+            }
+        }
+
+        &__close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include font-size(30);
+
+            @include hover-focus {
+                color: $color-black;
             }
         }
     }

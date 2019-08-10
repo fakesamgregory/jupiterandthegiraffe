@@ -1,14 +1,23 @@
 <div class="popup" [ngClass]="{'popup--show': showPrompt}">
-  <button (click)="closePrompt($event)">X</button>
-  <h2>Free PDF!</h2>
-  <p>Sign up to our mailing list to get it</p>
-  <img src="/assets/images/pdf-image-min.png" alt="11 tips to build an awesome tech brand">
+  <button (click)="closePrompt($event)" class="popup__button">X</button>
+  <h2>Free 11 tips to build an awesome tech brand PDF!</h2>
   <a href="#" (click)="toggleDialog($event)" class="btn">Download now!</a>
 </div>
 
 <div class="dialog" [ngClass]="{'dialog--show': showDialog}">
   <div class="dialog__window">
-    <button (click)="toggleDialog()">x</button>
-      <app-email-popup></app-email-popup>
+    <h2>11 tips to build an awesome tech brand PDF!</h2>
+    <p>
+      Sign up now to get <strong>instant access</strong> to this free PDF!
+    </p>
+    <div class="row">
+      <div class="col-md-8">
+        <app-email-popup></app-email-popup>
+      </div>
+      <div class="col-md-4 text-right">
+        <img src="/assets/images/pdf-image-min.png" alt="11 tips to build an awesome tech brand" class="hidden-md-down">
+      </div>
+    </div>
+    <button (click)="toggleDialog()" class="dialog__close">x</button>
   </div>
 </div>

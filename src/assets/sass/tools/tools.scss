@@ -81,6 +81,12 @@ $positions: top left right bottom;
   }
 }
 
+@mixin sm-down() {
+  @media screen and (max-width: $screen-sm) {
+    @content;
+  }
+}
+
 @mixin md() {
   @media screen and (min-width: $screen-sm) {
     @content;

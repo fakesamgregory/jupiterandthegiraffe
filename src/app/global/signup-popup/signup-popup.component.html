@@ -1,0 +1,14 @@
+<div class="popup" [ngClass]="{'popup--show': showPrompt}">
+  <button (click)="closePrompt($event)">X</button>
+  <h2>Free PDF!</h2>
+  <p>Sign up to our mailing list to get it</p>
+  <img src="/assets/images/pdf-image-min.png" alt="11 tips to build an awesome tech brand">
+  <a href="#" (click)="toggleDialog($event)" class="btn">Download now!</a>
+</div>
+
+<div class="dialog" [ngClass]="{'dialog--show': showDialog}">
+  <div class="dialog__window">
+    <button (click)="toggleDialog()">x</button>
+      <app-email-popup></app-email-popup>
+  </div>
+</div>

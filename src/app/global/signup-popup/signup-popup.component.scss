@@ -1,0 +1,55 @@
+@import '../../../assets/sass/settings/colours';
+
+:host {
+    .popup {
+        position: fixed;
+        left: 0;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform .3s ease, opacity .3s ease;
+        bottom: 100px;
+        
+        &--show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    img {
+        max-width: 200px;
+    }
+
+    .dialog {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba($color-black, .6);
+        z-index: 90;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: opacity .3s ease, transform .3s ease .3s;
+        perspective: 1000px;
+        
+        &__window {
+            transition: opacity .3s ease, transform .3s linear;
+            transform: rotateX(-40deg) translateY(5px);
+            background: $color-white;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+        
+        &--show {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity .3s ease;
+            .dialog__window {
+                transform: rotateX(0) translateY(0);
+            }
+        }
+    }
+}

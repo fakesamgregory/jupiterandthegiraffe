@@ -25,7 +25,7 @@ export class SignupPopupComponent implements OnInit {
     this.setCookie(this.cookieName, true, 365);
   }
 
-  public toggleDialog(e) {
+  public toggleDialog(e?) {
     if (e) {
       e.preventDefault();
     }

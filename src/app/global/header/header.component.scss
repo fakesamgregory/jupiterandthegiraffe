@@ -89,6 +89,7 @@
   &__menu {
     list-style: none;
     display: none;
+    margin-right: 30px;
 
     @include lg {
       display: block;

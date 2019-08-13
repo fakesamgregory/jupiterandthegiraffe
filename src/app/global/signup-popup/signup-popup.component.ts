@@ -38,7 +38,7 @@ export class SignupPopupComponent implements OnInit {
       if (!this.getCookie(this.cookieName)) {
         this.window.setTimeout(() => {
           this.showPrompt = true;
-        }, this.cookieTimeInSeconds * 1000)
+        }, this.cookieTimeInSeconds * 1000);
       }
     }
   }

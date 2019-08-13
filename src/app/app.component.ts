@@ -134,7 +134,7 @@ export class AppComponent implements OnInit, OnDestroy {
       const el = document.querySelector(target.dataset.position);
       const rect = el.getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	    top = rect.top + scrollTop;
+      top = rect.top + scrollTop;
     }
 
     this.window.scrollTo({

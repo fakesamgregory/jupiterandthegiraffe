@@ -1,15 +1,15 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
-import {isPlatformBrowser} from '@angular/common';
+import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss']
 })
-export class WorkComponent {
+export class WorkComponent implements ngOnInit {
   public work;
   public error;
 
@@ -19,7 +19,9 @@ export class WorkComponent {
     private actr: ActivatedRoute,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId,
-    @Inject(WINDOW) private window: Window) {
+    @Inject(WINDOW) private window: Window,
+    @Inject(DOCUMENT) private document: Document
+    ) {
     this.actr.data
       .subscribe(res => {
         this.work = res.work;
@@ -73,5 +75,23 @@ export class WorkComponent {
         }
       });
 
+  }
+
+  public ngOnInit(): void {
+    const el = this.document.getElementsByClassName('work__link');
+
+    this.window.setTimeout(this.applyHover.bind(this, el), 0);
+  }
+
+  private applyHover(el) {
+    this.work.forEach((workItem, index) => {
+      console.log(workItem);
+      new this.window.hoverEffect({
+        parent: el[index],
+        image1: workItem.acf.homepage_image.sizes.large + '?',
+        image2: workItem.acf.homepage_image.sizes.large + '?',
+        displacementImage: 'https://raw.githubusercontent.com/robin-dela/hover-effect/master/example/img/displacement/4.png'
+      });
+    });
   }
 }

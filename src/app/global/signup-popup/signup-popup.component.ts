@@ -16,7 +16,7 @@ export class SignupPopupComponent implements OnInit {
 
   constructor(
     @Inject(WINDOW) private window: Window,
-    @Inject(DOCUMENT) private document: Window,
+    @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {}
 

@@ -129,11 +129,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     const target = data.target;
     let top = Number(target.dataset.position);
-    
+
     if (!top) {
-      var el = document.querySelector(target.dataset.position);
-      var rect = el.getBoundingClientRect(),
-	    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const el = document.querySelector(target.dataset.position);
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 	    top = rect.top + scrollTop;
     }
 

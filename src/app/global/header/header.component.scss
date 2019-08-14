@@ -89,6 +89,7 @@
   &__menu {
     list-style: none;
     display: none;
+    margin-right: 30px;
 
     @include lg {
       display: block;
@@ -119,10 +120,9 @@
         }
       }
 
-
       @include md {
         margin-right: 0;
-        margin-left: $space-large;
+        margin-left: 30px;
       }
     }
   }

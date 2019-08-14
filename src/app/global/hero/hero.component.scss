@@ -25,10 +25,11 @@
 
     h1 {
       @include font-size($heading-1-mobile);
+      line-height: 60px;
 
       @include md {
         @include font-size($heading-1);
-        margin-bottom: 10px;
+        margin-bottom: $margin-xlarge;
       }
     }
 

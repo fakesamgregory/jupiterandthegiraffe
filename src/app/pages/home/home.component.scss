@@ -25,6 +25,11 @@
     overflow: hidden;
   }
 
+  &__tagline-border {
+    border-left: 9px solid $color-malibu;
+    padding-left: 20px;
+  }
+
   &__tagline {
     @include font-size(24);
     margin: $space-large 0;

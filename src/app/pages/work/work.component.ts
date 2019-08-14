@@ -2,7 +2,13 @@ import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
-import {isPlatformBrowser} from '@angular/common';
+import {isPlatformBrowser, DOCUMENT} from '@angular/common';
+
+declare global {
+  interface Window { hoverEffect: any; }
+}
+
+window.hoverEffect = window.hoverEffect || {};
 
 @Component({
   selector: 'app-work',
@@ -19,7 +25,9 @@ export class WorkComponent {
     private actr: ActivatedRoute,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId,
-    @Inject(WINDOW) private window: Window) {
+    @Inject(WINDOW) private window: Window,
+    @Inject(DOCUMENT) private document: Document
+    ) {
     this.actr.data
       .subscribe(res => {
         this.work = res.work;
@@ -73,5 +81,14 @@ export class WorkComponent {
         }
       });
 
+  }
+
+  public load(e) {
+    return this.window.hoverEffect({
+        parent: e.path[1],
+        image1: e.path[0].currentSrc + '?',
+        image2: e.path[0].currentSrc + '?',
+        displacementImage: '../../assets/images/displacement.png'
+      });
   }
 }

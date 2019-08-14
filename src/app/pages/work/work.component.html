@@ -1,47 +1,13 @@
 <h2 class="sr-only">Projects</h2>
-<div [ngSwitch]="error?.status">
-  <h3 *ngSwitchCase="404">
-    {{error.status}}: {{ error.statusText }}
-  </h3>
-  <ul class="work__list list-unstyled" *ngSwitchDefault="">
-    <li class="work__item" *ngFor="let workItem of work" [style.background-image]="'url(' + workItem._embedded['wp:featuredmedia'][0].source_url + ')'">
-      <a *ngIf="workItem.content.rendered; else noLink" [routerLink]="'/case-study/' + workItem.slug" class="work__item-link">
-        <div class="container-fluid">
-          <h3>{{workItem.title.rendered}}</h3>
-          <h4>The brief:</h4>
-
-          <div [innerHTML]="workItem.acf.brief"></div>
-          
-          <span class="work__tag">
-            View case study
-          </span>
-        </div>
-      </a>
-
-      <ng-template #noLink>
-        <div
-          class="work__item-link"
-        >
-          <div class="container-fluid">
-            <h3>{{workItem.title.rendered}}</h3>
-            <h4>The brief:</h4>
-            <p>{{workItem.acf.brief}}</p>
-
-            <ul class="work__tags">
-              <li *ngFor="let tag of workItem.acf.tags" class="work__tag"><a
-                [routerLink]="['/service/' + tag.replace(' ', '-')]">{{
-                tag }}</a></li>
-            </ul>
-          </div>
-        </div>
-      </ng-template>
-
-
-    </li>
-  </ul>
-</div>
 <div class="work white-bg">
   <div class="container-fluid">
+    <div class="work__item-image" *ngFor="let workItem of work; index as i;">
+      <a [routerLink]="'/case-study/' + workItem.slug" class="work__link">
+        <img class="work__image img-fluid" [src]="workItem.acf.homepage_image.sizes.large" (load)="load($event)" />
+      </a>
+    </div>
     <app-get-in-touch></app-get-in-touch>
   </div>
 </div>
+
+

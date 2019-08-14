@@ -2,100 +2,16 @@
 @import "../../../assets/sass/tools/tools";
 
 .work {
-  &__list {
-    list-style: none;
-    padding: 0;
-  }
-
-  &__item {
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    overflow: hidden;
-
-    @include lg {
-      background-position: bottom center;
-    }
-  }
-
-  &__item-link {
+  &__link {
     display: block;
     position: relative;
-    height: 100%;
-    padding: 50px 0;
-    z-index: 0;
-
-    @include md {
-      padding: 100px 0;
-    }
-
-    &::before {
-      position: absolute;
-      content: '';
-      display: block;
-      background: rgba($color-mine-shaft, 0.5);
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      z-index: -1;
-    }
-
-    &::after {
-      position: absolute;
-      content: '';
-      display: block;
-      background: rgba($color-mine-shaft, 0.9);
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      transition: transform .3s cubic-bezier(.17,.67,.87,.31);
-      z-index: -1;
-      backdrop-filter: blur(10px);
-
-      @include lg {
-        transform: translateX(100%);
-      }
-    }
-
-    @include hover-focus {
-      color: $color-white;
-
-      &::after {
-        transform: translateX(0);
-      }
-    }
   }
 
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0 -5px;
+  &__item-image {
+    text-align: center;
   }
 
-  &__tag {
-    margin: 20px auto;
-    display: inline-block;
-    padding: 5px;
-    color: $color-white;
-    border-radius: 5px;
-    font-size: $small-font;
-    border: 1px solid $color-white;
-    transition: background-color .3s ease;
-    @include font-size($small-font);
-
-    @include hover-focus {
-      background-color: $color-white;
-      color: $color-black;
-    }
-    
-    &:active {
-      background-color: transparent;
-      color: $color-white;
-    }
+  &__link {
+    margin-bottom: $space-large;
   }
 }

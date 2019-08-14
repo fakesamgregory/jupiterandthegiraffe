@@ -77,20 +77,12 @@ export class WorkComponent implements ngOnInit {
 
   }
 
-  public ngOnInit(): void {
-    const el = this.document.getElementsByClassName('work__link');
-
-    this.window.setTimeout(this.applyHover.bind(this, el), 0);
-  }
-
-  private applyHover(el) {
-    this.work.forEach((workItem, index) => {
-      new this.window.hoverEffect({
-        parent: el[index],
-        image1: workItem.acf.homepage_image.sizes.large + '?',
-        image2: workItem.acf.homepage_image.sizes.large + '?',
+  public load(e) {
+    new this.window.hoverEffect({
+        parent: e.path[1],
+        image1: e.path[0].currentSrc + '?',
+        image2: e.path[0].currentSrc + '?',
         displacementImage: '../../assets/images/displacement.png'
       });
-    });
   }
 }

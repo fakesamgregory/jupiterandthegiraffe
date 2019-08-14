@@ -4,12 +4,18 @@ import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
 import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 
+declare global {
+  interface Window { hoverEffect: any; }
+}
+
+window.hoverEffect = window.hoverEffect || {};
+
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss']
 })
-export class WorkComponent implements ngOnInit {
+export class WorkComponent {
   public work;
   public error;
 
@@ -78,7 +84,7 @@ export class WorkComponent implements ngOnInit {
   }
 
   public load(e) {
-    new this.window.hoverEffect({
+    const currentImage = new this.window.hoverEffect({
         parent: e.path[1],
         image1: e.path[0].currentSrc + '?',
         image2: e.path[0].currentSrc + '?',

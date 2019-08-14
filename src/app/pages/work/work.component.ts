@@ -1,4 +1,4 @@
-import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
@@ -84,7 +84,7 @@ export class WorkComponent {
   }
 
   public load(e) {
-    const currentImage = new this.window.hoverEffect({
+    new this.window.hoverEffect({
         parent: e.path[1],
         image1: e.path[0].currentSrc + '?',
         image2: e.path[0].currentSrc + '?',

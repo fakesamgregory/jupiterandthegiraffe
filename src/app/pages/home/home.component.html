@@ -105,7 +105,7 @@
       </div>
       <div class="row hidden-md">
         <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
-            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more about {{service.title.rendered}}</a>.
+            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more <span class="sr-only">about {{service.title.rendered}}</span></a>.
         </div>
       </div>
     </section>

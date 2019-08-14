@@ -124,6 +124,25 @@ export class AppComponent implements OnInit, OnDestroy {
     this.menuOpen = forceState !== undefined ? forceState : !this.menuOpen;
   }
 
+  public scrollTo(data) {
+    data.event.preventDefault();
+
+    const target = data.target;
+    let top = Number(target.dataset.position);
+
+    if (!top) {
+      const el = document.querySelector(target.dataset.position);
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      top = rect.top + scrollTop;
+    }
+
+    this.window.scrollTo({
+      top,
+      behavior: 'smooth',
+    });
+  }
+
   scrollUp(e) {
     e.preventDefault();
     this.window.scrollTo({

@@ -39,34 +39,25 @@
             <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
           </div>
 
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="MERGE1" class="sr-only">Email Address:</label>
-              <input type="text" formControlName="MERGE1" name="MERGE1" value="" required class="required email-popup__input"
-                     id="MERGE1" [readonly]="sending" placeholder="first name">
-            </div>
-          </div>
+          <label for="MERGE1" class="sr-only">Email Address:</label>
+          <input type="text" formControlName="MERGE1" name="MERGE1" value="" required class="required email-popup__input"
+                  id="MERGE1" [readonly]="sending" placeholder="first name">
 
-          <div class="row align-items-end">
-            <div class="col-sm">
-              <div class="mc-field-group">
-                <label for="MERGE0" class="sr-only">Email Address:</label>
-                <input type="email" formControlName="MERGE0" name="MERGE0" value="" required class="required email-popup__input"
-                       id="MERGE0" [readonly]="sending" placeholder="email address">
-              </div>
-            </div>
-            <div class="col-sm">
-              <button
-                type="submit"
-                name="subscribe"
-                id="mc-embedded-subscribe"
-                class="btn email-popup__button"
-                [disabled]="!emailSignup.valid || sending"
-              >
-                Subscribe <span [ngClass]="{'fa fa-spinner fa-spin': sending}" aria-hidden="true"></span>
-              </button>
-            </div>
+          <div class="mc-field-group">
+            <label for="MERGE0" class="sr-only">Email Address:</label>
+            <input type="email" formControlName="MERGE0" name="MERGE0" value="" required class="required email-popup__input"
+                    id="MERGE0" [readonly]="sending" placeholder="email address">
           </div>
+        
+          <button
+            type="submit"
+            name="subscribe"
+            id="mc-embedded-subscribe"
+            class="btn email-popup__button"
+            [disabled]="!emailSignup.valid || sending"
+          >
+            Subscribe <span [ngClass]="{'fa fa-spinner fa-spin': sending}" aria-hidden="true"></span>
+          </button>
         </div>
       </form>
     </ng-template>

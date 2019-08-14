@@ -20,7 +20,7 @@
             <h1 class="what-we-do__title">What we do</h1>
           </header>
 
-          <div [innerHTML]="content.content.rendered"></div>
+          <div class="what-we-do__text" [innerHTML]="content.content.rendered"></div>
         </section>
 
         <section class="section" *ngFor="let service of services">

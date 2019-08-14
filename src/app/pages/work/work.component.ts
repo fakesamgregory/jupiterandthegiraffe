@@ -89,7 +89,7 @@ export class WorkComponent implements ngOnInit {
         parent: el[index],
         image1: workItem.acf.homepage_image.sizes.large + '?',
         image2: workItem.acf.homepage_image.sizes.large + '?',
-        displacementImage: 'https://raw.githubusercontent.com/robin-dela/hover-effect/master/example/img/displacement/4.png'
+        displacementImage: '../../assets/images/displacement.png'
       });
     });
   }

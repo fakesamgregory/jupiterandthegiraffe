@@ -85,7 +85,6 @@ export class WorkComponent implements ngOnInit {
 
   private applyHover(el) {
     this.work.forEach((workItem, index) => {
-      console.log(workItem);
       new this.window.hoverEffect({
         parent: el[index],
         image1: workItem.acf.homepage_image.sizes.large + '?',

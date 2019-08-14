@@ -4,10 +4,10 @@
   <a href="#" (click)="toggleDialog($event)" class="btn">Download now!</a>
 </div>
 
-<div class="dialog" [ngClass]="{'dialog--show': showDialog}">
-  <div class="dialog__window">
-    <h2>11 tips to build an awesome tech brand PDF!</h2>
-    <p>
+<div class="dialog" [ngClass]="{'dialog--show': showDialog}" role="dialog" aria-labelledby="dialogTitle" aria-describedby="dialogDesc">
+  <section class="dialog__window">
+    <h2 id="dialogTitle">11 tips to build an awesome tech brand PDF!</h2>
+    <p id="dialogDesc">
       Sign up now to get <strong>instant access</strong> to this free PDF!
     </p>
     <div class="row">
@@ -19,5 +19,5 @@
       </div>
     </div>
     <button (click)="toggleDialog()" class="dialog__close">x</button>
-  </div>
+  </section>
 </div>

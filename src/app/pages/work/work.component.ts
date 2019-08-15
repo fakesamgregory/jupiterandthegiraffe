@@ -89,7 +89,7 @@ export class WorkComponent {
   public load(e) {
     if (isPlatformBrowser(this.platformId)) {
       const src = e.currentTarget ? e.currentTarget.src : e.path[0].currentSrc;
-      
+
       return this.window.hoverEffect({
           parent: e.currentTarget ? e.currentTarget.parentElement : e.path[1],
           image1: src + '?',

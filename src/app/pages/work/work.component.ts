@@ -8,8 +8,6 @@ declare global {
   interface Window { hoverEffect: any; }
 }
 
-window.hoverEffect = window.hoverEffect || {};
-
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
@@ -31,6 +29,7 @@ export class WorkComponent {
     this.actr.data
       .subscribe(res => {
         this.work = res.work;
+
         if (!this.work) {
           this.router.navigate(['/not-found']);
         } else {
@@ -72,6 +71,7 @@ export class WorkComponent {
             name: 'twitter:title',
             content: TITLE
           });
+
           if (isPlatformBrowser(this.platformId)) {
             this.meta.updateTag({
               property: 'og:url',
@@ -81,11 +81,15 @@ export class WorkComponent {
         }
       });
 
+    if (isPlatformBrowser(this.platformId)) {
+      this.window.hoverEffect = this.window.hoverEffect || {};
+    }
   }
 
   public load(e) {
     if (isPlatformBrowser(this.platformId)) {
       const src = e.currentTarget ? e.currentTarget.src : e.path[0].currentSrc;
+      
       return this.window.hoverEffect({
           parent: e.currentTarget ? e.currentTarget.parentElement : e.path[1],
           image1: src + '?',

@@ -84,10 +84,12 @@ export class WorkComponent {
   }
 
   public load(e) {
+    const src = e.currentTarget ? e.currentTarget.src : e.path[0].currentSrc;
+
     return this.window.hoverEffect({
-        parent: e.path[1],
-        image1: e.path[0].currentSrc + '?',
-        image2: e.path[0].currentSrc + '?',
+        parent: e.currentTarget ? e.currentTarget.parentElement : e.path[1],
+        image1: src + '?',
+        image2: src + '?',
         displacementImage: '../../assets/images/displacement.png'
       });
   }

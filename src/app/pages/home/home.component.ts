@@ -189,7 +189,7 @@ export class HomeComponent {
     @Inject(PLATFORM_ID) private platformId: any
   ) {
 
-    const TITLE = 'Branding and Design for Future-Thinking Tech Startups | 🚀 Jupiter and the Giraffe<';
+    const TITLE = 'Branding and Design for Future-Thinking Tech Startups | 🚀 Jupiter and the Giraffe';
     const DESC = 'Helping future-thinking tech startups grow and stand out in the market because revolutionary technology ' +
       'needs revolutionary design. Contact us now!';
 

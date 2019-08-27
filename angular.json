@@ -22,6 +22,7 @@
               "src/images",
               "src/json",
               "src/sitemap.xml",
+              "src/pages.xml",
               "src/share-image.jpg",
               "src/logo.png"
             ],

@@ -45,7 +45,12 @@
       <h2>Testimonials</h2>
       <div class="free-strategy__testimonials-list">
         <div class="free-strategy__testimonial" *ngFor="let testimonial of testimonials">
-          <img [src]="testimonial._embedded['wp:featuredmedia'][0].source_url" alt="" class="free-strategy__testimonial-image img-fluid">
+          <img 
+            *ngIf="testimonial._embedded" 
+            [src]="testimonial._embedded['wp:featuredmedia'][0].source_url" 
+            [alt]="testimonial._embedded['wp:featuredmedia'][0].alt_text" 
+            class="free-strategy__testimonial-image img-fluid"
+          >
           <div class="free-strategy__testimonial-quote" [innerHTML]="testimonial.content.rendered"></div>
           <div [innerHTML]="testimonial.title.rendered"></div>
         </div>

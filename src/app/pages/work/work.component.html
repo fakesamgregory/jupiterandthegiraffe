@@ -1,9 +1,16 @@
-<h2 class="sr-only">Projects</h2>
-<div class="work white-bg">
-  <div class="container-fluid">
+<h1 class="sr-only">Our Work</h1>
+<div class="work white-bg" (appDeferLoad)="showMyElement=true">
+  <div class="container-fluid" >
     <div class="work__item-image" *ngFor="let workItem of work; index as i;">
+      <h2 class="sr-only">{{workItem.title.rendered}} - {{workItem.acf.work_type}}</h2>
       <a [routerLink]="'/case-study/' + workItem.slug" class="work__link">
-        <img class="work__image img-fluid" [src]="workItem.acf.homepage_image.sizes.large" (load)="load($event)" />
+        <img 
+          class="work__image img-fluid" 
+          [src]="workItem.acf.homepage_image.sizes.large" 
+          (load)="load($event)" 
+          *ngIf="showMyElement" 
+          [alt]="workItem.acf.homepage_image.alt"
+        />
       </a>
     </div>
     <app-get-in-touch></app-get-in-touch>

@@ -1,19 +1,21 @@
 <section class="home">
   <div class="container-fluid">
-    <h1 class="sr-only">Jupiter and the Giraffe | Brand Strategy & Design studio for life science startups</h1>
+    <h1 class="sr-only">Brand Strategy & Design studio for tech startups</h1>
 
 
     <div class="home__tagline-wrapper">
       <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
         <em class="hidden-md-up home__tagline-border">
-          <span class="home__tagline-break">We are a brand strategy and design studio </span>
-          <span class="home__tagline-break">that help innovative tech startups </span>
-          <span class="home__tagline-break">grow and stand out in the market.</span>
+          <span class="home__tagline-break">We are a brand strategy and design studio</span>
+          <span class="home__tagline-break">that support tech startups who </span>
+          <span class="home__tagline-break">drive the future of humanity. </span>
+          <span class="home__tagline-break">We help them grow and stand out in the market.</span>
         </em>
         <em appParallax [ratio]=".15" [direction]="'horizontal'" style="display: inline-block;" class="hidden-md home__tagline-border">
-          <span class="home__tagline-break">We are a brand strategy and design studio </span>
-          <span class="home__tagline-break">that help innovative tech startups </span>
-          <span class="home__tagline-break">grow and stand out in the market.</span>
+          <span class="home__tagline-break">We are a brand strategy and design studio</span>
+          <span class="home__tagline-break">that support tech startups who</span>
+          <span class="home__tagline-break">drive the future of humanity. </span>
+          <span class="home__tagline-break">We help them grow and stand out in the market.</span>
         </em>
       </p>
     </div>
@@ -22,40 +24,38 @@
   <section class="section" *ngIf="this.work" style="background: #93ccf8;">
     <div class="home__work-content container-fluid">
       <header>
-        <h2><span style="display: inline-block;">Latest work</span></h2>
+        <h2>Latest work<span class="sr-only"> for tech startups</span></h2>
       </header>
   
       <div class="row">
         <div class="col-md-8">
           <a 
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
-            [routerLink]="'/case-study/' + this.work[0].slug"
+              class="home__work-item"
+              [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
+              [routerLink]="'/case-study/' + this.work[0].slug"
             >
             <span class="text">
-              <span class="home__work-case-study">View case study</span>
+                <span class="home__work-case-study">View<span class="sr-only"> {{this.work[0].title.rendered}}</span> case study</span>
             </span>
           </a>
         </div>
         <div class="col-md-4">
           <a
-          class="home__work-item"
-          [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-          [routerLink]="'/case-study/' + this.work[1].slug"
+            class="home__work-item"
+            [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            [routerLink]="'/case-study/' + this.work[1].slug"
+          >
+            <span class="text">
+                <span class="home__work-case-study">View<span class="sr-only"> {{this.work[1].title.rendered}}</span> case study</span>
+            </span>
+          </a>
+          <a
+            class="home__work-item"
+            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+            [routerLink]="'/case-study/' + this.work[2].slug"
           >
           <span class="text">
-            <span class="home__work-extra-info">{{this.work[1].acf.extra_info}}</span>
-            <span class="home__work-case-study">View case study</span>
-          </span>
-        </a>
-        <a
-          class="home__work-item"
-          [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-          [routerLink]="'/case-study/' + this.work[2].slug"
-        >
-          <span class="text">
-            <span class="home__work-extra-info">{{this.work[2].acf.extra_info}}</span>
-            <span class="home__work-case-study">View case study</span>
+            <span class="home__work-case-study">View<span class="sr-only"> {{this.work[2].title.rendered}}</span> case study</span>
           </span>
         </a>
         </div>
@@ -74,7 +74,9 @@
     <section class="section home__services">
       <header>
         <h2>
+          <div class="sr-only">Branding and Design </div>
           <span style="display: inline-block;">Services</span>
+          <div class="sr-only"> for tech startups</div>
         </h2>
       </header>
 
@@ -118,7 +120,10 @@
   <div class="container-fluid">
     <section>
       <header>
-        <h2>Creativity without borders</h2>
+        <h2>
+          <div class="sr-only">Remote Brand Strategy and Design Studio - </div>
+          Creativity without borders
+        </h2>
       </header>
 
       <p class="home__lead">

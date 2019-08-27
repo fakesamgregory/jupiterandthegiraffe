@@ -16,6 +16,7 @@ declare global {
 export class WorkComponent {
   public work;
   public error;
+  public showMyElement = false;
 
   constructor(
     private meta: Meta,

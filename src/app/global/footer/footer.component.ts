@@ -11,6 +11,7 @@ import {HighlightedFriendsService} from '../../stores/highlighted-friends.servic
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  public showMyElement = false;
   public general = [
     {url: '/work', name: 'Our work', class: 'footer__general-item'},
     {url: '/who-we-are', name: 'About', class: 'footer__general-item'},

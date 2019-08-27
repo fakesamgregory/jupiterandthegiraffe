@@ -15,7 +15,9 @@ export class FunnelComponent implements OnInit {
 
   ngOnInit() {
     this.wordpress.getPostType('quotes', {per_page: 3})
-      .subscribe((quotes: Array<any>) => this.testimonials = quotes);
+      .subscribe((quotes: Array<any>) => {
+        this.testimonials = quotes
+      });
   }
 
 }

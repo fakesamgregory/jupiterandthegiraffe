@@ -1,0 +1,14 @@
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/tools/tools";
+
+.service {
+    &__offering-heading {
+        @include font-size($base-font);
+        margin: 0;
+        padding: 0;
+
+        @include md {
+            @include font-size($base-font-desk);
+        }
+    }
+}

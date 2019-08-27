@@ -11,12 +11,14 @@
       <div class="col-sm flex-column d-flex">
         <ul class="white-bg__service-list row">
           <li *ngFor="let service of content.acf.services" class="col-sm-6">
-            <a [routerLink]="service.link" *ngIf="service.link; else noLink">{{service.service}}</a>
-            <ng-template #noLink>{{service.service}}</ng-template>
+            <h2 class="service__offering-heading">
+              <a [routerLink]="service.link" *ngIf="service.link; else noLink">{{service.service}}</a>
+              <ng-template #noLink>{{service.service}}</ng-template>
+            </h2>
           </li>
         </ul>
 
-        <img src="{{content._embedded['wp:featuredmedia'][0].source_url}}" alt="">
+        <img src="{{content._embedded['wp:featuredmedia'][0].source_url}}" [alt]="content._embedded['wp:featuredmedia'][0].alt_text">
       </div>
     </div>
 

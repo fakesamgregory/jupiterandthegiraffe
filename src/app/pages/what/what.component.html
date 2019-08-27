@@ -25,10 +25,13 @@
 
         <section class="section" *ngFor="let service of services">
           <header>
-            <h2 id="{{service.slug}}">{{service.title.rendered}}</h2>
+            <h2 id="{{service.slug}}">
+              {{service.title.rendered}}
+              <div class="sr-only"> for tech startups</div>
+            </h2>
           </header>
 
-          <h3 *ngIf="service.acf.subtitle">{{service.acf.subtitle}}</h3>
+          <div class="h3" *ngIf="service.acf.subtitle">{{service.acf.subtitle}}</div>
 
           <div class="what-we-do--tagline" [innerHTML]="service.excerpt.rendered" *ngIf="service.excerpt.rendered"></div>
 

@@ -25,9 +25,8 @@ export class WhoComponent {
       this.team = res[0];
       this.content = res[1];
 
-      const TITLE = 'Who Are We | Nomadic Brand Strategy and Design Agency, Worldwide | Jupiter and the Giraffe';
-      const DESC = 'We\'re a not-so-ordinary branding agency. Specialising in Brand Strategy, Brand ' +
-        'Identity and Brand Experience. A small team with a worldwide network of the best talent.';
+      const TITLE = 'We are a Brand Strategy and Design Studio';
+      const DESC = 'We\'re a branding studio specialising in helping tech startups who want to drive the future of humanity.';
 
       this.titleService.setTitle( TITLE );
 

@@ -25,7 +25,7 @@
             class="img-fluid friends__image"
             [src]="friend.acf.logo.sizes.medium"
             srcset="{{friend.acf.logo.sizes.medium}} 1x, {{friend.acf.logo.sizes.large}} 2x"
-            [attr.alt]="friend.title.rendered"
+            [alt]="'View ' + friend.title.rendered + ' case study'"
           >
         </a>
         <ng-template #noLink>

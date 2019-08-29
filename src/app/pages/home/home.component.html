@@ -6,14 +6,14 @@
     <div class="home__tagline-wrapper">
       <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
         <em class="hidden-md-up home__tagline-border">
-          <span class="home__tagline-break">We are a brand strategy and design studio</span>
-          <span class="home__tagline-break">that support tech startups who </span>
+          <span class="home__tagline-break">We are a brand strategy and design studio that </span>
+          <span class="home__tagline-break">support tech startups who </span>
           <span class="home__tagline-break">drive the future of humanity. </span>
           <span class="home__tagline-break">We help them grow and stand out in the market.</span>
         </em>
         <em appParallax [ratio]=".15" [direction]="'horizontal'" style="display: inline-block;" class="hidden-md home__tagline-border">
-          <span class="home__tagline-break">We are a brand strategy and design studio</span>
-          <span class="home__tagline-break">that support tech startups who</span>
+          <span class="home__tagline-break">We are a brand strategy and design studio that </span>
+          <span class="home__tagline-break">support tech startups who </span>
           <span class="home__tagline-break">drive the future of humanity. </span>
           <span class="home__tagline-break">We help them grow and stand out in the market.</span>
         </em>
@@ -116,7 +116,7 @@
 
 <app-friends-component></app-friends-component>
 
-<section class="home">
+<section class="home" (appDeferLoad)="showMyElement=true">
   <div class="container-fluid">
     <section>
       <header>
@@ -135,7 +135,7 @@
   <div *ngIf="developmentMode; else map" class="text-center">Map will not load in dev mode</div>
   <ng-template #map>
       <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
-               [streetViewControl]="false" [styles]="styles">
+               [streetViewControl]="false" [styles]="styles" *ngIf="showMyElement">
         <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
         <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
         <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>

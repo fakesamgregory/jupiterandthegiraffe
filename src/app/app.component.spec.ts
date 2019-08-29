@@ -6,7 +6,6 @@ import { AosToken, aos } from './aos';
 import { AppComponent } from './app.component';
 import {HeroComponent} from './global/hero/hero.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {TrustHtmlPipe} from './trust-html.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {StarsComponent} from './global/stars/stars.component';
@@ -26,7 +25,6 @@ describe('AppComponent', () => {
         FooterComponent,
         HeroComponent,
         HeaderComponent,
-        TrustHtmlPipe,
         LogoComponent,
         CookieBannerComponent,
         EmailPopupComponent,

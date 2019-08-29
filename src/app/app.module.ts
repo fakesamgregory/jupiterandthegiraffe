@@ -26,14 +26,11 @@ import {HeaderComponent} from './global/header/header.component';
 import {LogoComponent} from './global/logo/logo.component';
 import {FriendsComponent} from './pages/home/friends/friends.component';
 import {SectionComponent} from './global/section/section.component';
-import {TrustHtmlPipe} from './trust-html.pipe';
-import {DataService} from './data.service';
 import {WorkResolverService} from './pages/work/work-resolver.service';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {GetInTouchComponent} from './global/get-in-touch/get-in-touch.component';
 import {TermsAndConditionsComponent} from './pages/terms-and-conditions/terms-and-conditions.component';
 
-import { SnowComponent } from './global/snow/snow.component';
 import { CookieBannerComponent } from './global/cookie-banner/cookie-banner.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
@@ -74,12 +71,10 @@ import { SignupPopupComponent } from './global/signup-popup/signup-popup.compone
     HeaderComponent,
     LogoComponent,
     FriendsComponent,
-    TrustHtmlPipe,
     NotFoundComponent,
     SectionComponent,
     TermsAndConditionsComponent,
     GetInTouchComponent,
-    SnowComponent,
     CookieBannerComponent,
     SocialComponent,
     EmailPopupComponent,
@@ -91,7 +86,6 @@ import { SignupPopupComponent } from './global/signup-popup/signup-popup.compone
   ],
   providers: [
     FormatDataService,
-    DataService,
     WorkResolverService,
     WINDOW_PROVIDERS,
     { provide: AosToken, useValue: aos },

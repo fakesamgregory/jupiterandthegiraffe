@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import './dots.component.scss';
 
 @Component({
   selector: 'app-dots-component',

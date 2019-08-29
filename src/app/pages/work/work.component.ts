@@ -2,7 +2,7 @@ import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
-import {isPlatformBrowser, DOCUMENT} from '@angular/common';
+import {isPlatformBrowser} from '@angular/common';
 
 declare global {
   interface Window { hoverEffect: any; }
@@ -24,8 +24,7 @@ export class WorkComponent {
     private actr: ActivatedRoute,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId,
-    @Inject(WINDOW) private window: Window,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(WINDOW) private window: Window
     ) {
     this.actr.data
       .subscribe(res => {

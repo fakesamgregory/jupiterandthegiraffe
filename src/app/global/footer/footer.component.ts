@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 
 import 'assets/images/giraffe.png';
 import 'assets/images/giraffe@2x.png';
-import {WordpressService} from '../../services/wordpress.service';
 import {HighlightedFriendsService} from '../../stores/highlighted-friends.service';
 
 @Component({

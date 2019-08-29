@@ -1,9 +1,6 @@
 import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import { isDevMode } from '@angular/core';
-import {BlogStoreService} from '../../stores/blog-store.service';
-import {forkJoin} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
-import {HttpClient} from '@angular/common/http';
 import { Meta, Title } from '@angular/platform-browser';
 import { WINDOW } from '@ng-toolkit/universal';
 import { isPlatformBrowser } from '@angular/common';
@@ -14,7 +11,6 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  private url = 'https://blog.jupiterandthegiraffe.com/wp-json/wp/v2';
   public error: Object;
   public work: Object;
   public developmentMode = isDevMode();

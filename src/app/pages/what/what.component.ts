@@ -2,7 +2,7 @@ import {Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild} fro
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   templateUrl: './what.component.html',
@@ -24,8 +24,7 @@ export class WhatComponent {
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
-    private actr: ActivatedRoute,
-    private router: Router) {
+    private actr: ActivatedRoute) {
     this.actr.data
       .subscribe(res => {
         this.content = res.data[1];

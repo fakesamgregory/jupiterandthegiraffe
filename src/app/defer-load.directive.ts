@@ -1,4 +1,5 @@
-import {ElementRef, EventEmitter, AfterViewInit, Directive, Output} from '@angular/core';
+import {ElementRef, EventEmitter, AfterViewInit, Directive, Output, Inject, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appDeferLoad]',
@@ -8,16 +9,19 @@ export class DeferLoadDirective implements AfterViewInit {
   public _intersectionObserver: IntersectionObserver;
 
   constructor (
-    private _element: ElementRef
+    private _element: ElementRef,
+    @Inject(PLATFORM_ID) private platformId
   ) {
     this._element.nativeElement.classList.add('lazy-load');
   }
 
   public ngAfterViewInit () {
-    this._intersectionObserver = new IntersectionObserver(entries => {
-      this.checkForIntersection(entries);
-    }, {});
-    this._intersectionObserver.observe(<Element>(this._element.nativeElement));
+    if (isPlatformBrowser(this.platformId)) {
+      this._intersectionObserver = new IntersectionObserver(entries => {
+        this.checkForIntersection(entries);
+      }, {});
+      this._intersectionObserver.observe(<Element>(this._element.nativeElement));
+    }
   }
 
   private checkForIntersection = (entries: Array<IntersectionObserverEntry>) => {

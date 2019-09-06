@@ -17,7 +17,7 @@ interface MailchimpResponse {
 })
 export class HowToBuildAnEffectiveBrandComponent {
   public emailSignup: FormGroup;
-  public submitted = false;
+  public submitted = null;
   public sending = false;
   public error = '';
   private emailSignupUrl =

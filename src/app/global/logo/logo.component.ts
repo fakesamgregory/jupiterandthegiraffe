@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-logo',
@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./logo.component.scss']
 })
 export class LogoComponent {
-
+  @Input() showSlogan = false;
   constructor() { }
 }

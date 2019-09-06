@@ -19,6 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public showHeader = false;
   public isHome = false;
   public isFunnel = false;
+  public isLandingPage = false;
   public isKeyboardUser = false;
   public hasBeenHome = false;
   public hideCookie = false;
@@ -81,6 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.loading = false;
         this.isHome = event.url === '/';
         this.isFunnel = event.url === '/free-strategy';
+        this.isLandingPage = event.url === '/how-to-build-an-effective-brand';
 
         if (event.url === '/') {
           this.hasBeenHome = true;

@@ -4,6 +4,7 @@
     (toggleMenu)="toggleMenu()" 
     [menuOpen]="menuOpen"
     [funnel]="isFunnel"
+    *ngIf="!isLandingPage"
   >
   </app-header-component>
 
@@ -11,7 +12,7 @@
 
   <div class="jupiter"></div>
 
-  <app-hero-component *ngIf="!isCaseStudy" [home]="isHome" [funnel]="isFunnel"></app-hero-component>
+  <app-hero-component *ngIf="!isCaseStudy && !isLandingPage" [home]="isHome" [funnel]="isFunnel"></app-hero-component>
 
   <div class="loading" [ngClass]="{'loading--is-loading': loading}">
     <div aria-hidden="true" class="loading__rocket">🚀</div>
@@ -29,7 +30,7 @@
 
   <app-footer-component #footer></app-footer-component>
 
-  <app-signup-popup (clickHander)="scrollTo($event)"></app-signup-popup>
+  <app-signup-popup (clickHander)="scrollTo($event)" *ngIf="!isLandingPage"></app-signup-popup>
 
   <app-cookie-banner [hide]="hideCookie"></app-cookie-banner>
 </div>

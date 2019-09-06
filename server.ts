@@ -9,7 +9,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as compression from 'compression';
 
-import {join, resolve} from 'path';
+import {join} from 'path';
 
 enableProdMode();
 
@@ -38,13 +38,14 @@ app.get('/sitemap.xml', express.static('./dist/browser/sitemap.xml'));
 app.get('/pages.xml', express.static('./dist/browser/pages.xml'));
 app.get('/share-image.jpg', express.static('./dist/browser/share-image.jpg'));
 app.get('/logo.png', express.static('./dist/browser/logo.png'));
+app.get('/logo.png', express.static('./dist/browser/logo.png'));
 
 app.get('/redirect/**', (req, res) => {
   const location = req.url.substring(10);
   res.redirect(301, location);
 });
 
-app.get('*.*', express.static('./dist/browser', {
+app.get('*.*', express.static(join(__dirname, DIST_FOLDER, 'browser'), {
   maxAge: '1y'
 }));
 

@@ -32,8 +32,8 @@ export class HowToBuildAnEffectiveBrandComponent {
     private http: HttpClient,
   ) {
     this.setMetaData({
-      TITLE: 'Download Our FREE eBook "How To Build An Effective Brand" now!',
-      DESC: 'We\'re giving you FREE access to our branding book "How To Build An Effective Brand"'
+      TITLE: 'Download Our FREE eBook "How To Build An Effective Tech Brand" Now!',
+      DESC: 'We\'re giving you FREE access to our branding book "How To Build An Effective Tech Brand"'
     });
     this.createForm();
   }

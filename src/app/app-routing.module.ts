@@ -67,7 +67,7 @@ const routes: Routes = [
     path: 'service/brand-strategy',
     children: [
       { path: 'brand-positioning', component: PositioningComponent },
-      
+
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } },
@@ -110,7 +110,7 @@ const routes: Routes = [
   { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
   { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff' } },
   { path: 'bali', component: LocationComponent, data: { location: 'Bali' } },
-  
+
   // Not found
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }

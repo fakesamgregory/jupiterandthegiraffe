@@ -1,4 +1,4 @@
-<div [ngClass]="{'keyboard-user': isKeyboardUser}">
+<div [ngClass]="{'keyboard-user': isKeyboardUser}" [attr.aria-busy]="loading">
   <app-header-component 
     [show]="showHeader" 
     (toggleMenu)="toggleMenu()" 
@@ -14,7 +14,7 @@
 
   <app-hero-component *ngIf="!isCaseStudy && !isLandingPage" [home]="isHome" [funnel]="isFunnel"></app-hero-component>
 
-  <div class="loading" [ngClass]="{'loading--is-loading': loading}">
+  <div class="loading" [ngClass]="{'loading--is-loading': loading}" [attr.aria-hidden]="loading" aria-label="Loading">
     <div aria-hidden="true" class="loading__rocket">🚀</div>
     <div>Hang tight<app-dots-component></app-dots-component></div>
   </div>

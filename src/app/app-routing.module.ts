@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
   { path: 'free-strategy', component: FunnelComponent },
-  { path: 'how-to-build-an-awesome-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
+  { path: 'how-to-launch-an-awesome-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
 
   // Case studies
   { path: 'case-study', redirectTo: 'work' },

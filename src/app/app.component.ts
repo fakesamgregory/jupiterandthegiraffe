@@ -82,7 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.loading = false;
         this.isHome = event.url === '/';
         this.isFunnel = event.url === '/free-strategy';
-        this.isLandingPage = event.url === '/how-to-build-an-effective-brand';
+        this.isLandingPage = event.url === '/how-to-build-an-effective-tech-brand';
 
         if (event.url === '/') {
           this.hasBeenHome = true;

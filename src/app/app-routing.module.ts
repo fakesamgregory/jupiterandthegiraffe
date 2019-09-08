@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
   { path: 'free-strategy', component: FunnelComponent },
   { path: 'how-to-build-an-effective-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
-
+  
   // Case studies
   { path: 'case-study', redirectTo: 'work' },
   {
@@ -54,7 +54,7 @@ const routes: Routes = [
   { path: 'north-star-law', redirectTo: 'case-study/north-star-law'},
   { path: 'boombocs', redirectTo: 'case-study/boombocs'},
   { path: 'epoch-brand-website', redirectTo: 'case-study/epoch-brand-website'},
-
+  
   // Services
   { path: 'service', redirectTo: 'what-we-do' },
   {
@@ -62,19 +62,19 @@ const routes: Routes = [
     component: ServiceComponent,
     resolve: { data: ServiceResolverComponent }
   },
-
+  
   {
     path: 'service/brand-strategy',
     children: [
       { path: 'brand-positioning', component: PositioningComponent },
-
+      
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } },
       { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'strategy' } }
     ]
   },
-
+  
   {
     path: 'service/brand-identity',
     children: [
@@ -82,14 +82,14 @@ const routes: Routes = [
       { path: 'typography', component: TypographyComponent },
       { path: 'identity', component: IdentityComponent },
       { path: 'corporate-story', component: CorporateStoryComponent },
-
+      
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'identity' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'identity' } },
       { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'identity' } },
       { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'identity' } }
     ]
   },
-
+  
   {
     path: 'service/brand-experience',
     children: [
@@ -99,17 +99,18 @@ const routes: Routes = [
       { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'experience' } }
     ]
   },
-
+  
   { path: 'brand-strategy', redirectTo: 'service/brand-strategy' },
   { path: 'brand-identity', redirectTo: 'service/brand-identity' },
   { path: 'brand-experience', redirectTo: 'service/brand-experience' },
-
+  { path: 'contact-us', redirectTo: 'contact' },
+  
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
   { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
   { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff' } },
   { path: 'bali', component: LocationComponent, data: { location: 'Bali' } },
-
+  
   // Not found
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }

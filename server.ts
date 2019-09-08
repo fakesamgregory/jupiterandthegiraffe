@@ -45,6 +45,10 @@ app.get('/redirect/**', (req, res) => {
   res.redirect(301, location);
 });
 
+app.get('/index.html', (req, res) => {
+  res.redirect(301, '/');
+});
+
 app.get('*.*', express.static(join(__dirname, DIST_FOLDER, 'browser'), {
   maxAge: '1y'
 }));

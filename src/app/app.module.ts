@@ -38,7 +38,6 @@ import { DeferLoadDirective } from './defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { ParallaxDirective } from './parallax.directive';
-import { SignupPopupComponent } from './global/signup-popup/signup-popup.component';
 
 @NgModule({
   imports: [
@@ -82,7 +81,6 @@ import { SignupPopupComponent } from './global/signup-popup/signup-popup.compone
     BackButtonComponent,
     ServiceComponent,
     ParallaxDirective,
-    SignupPopupComponent,
   ],
   providers: [
     FormatDataService,

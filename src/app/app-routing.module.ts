@@ -104,7 +104,7 @@ const routes: Routes = [
   { path: 'brand-identity', redirectTo: 'service/brand-identity' },
   { path: 'brand-experience', redirectTo: 'service/brand-experience' },
   { path: 'contact-us', redirectTo: 'contact' },
-  
+
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
   { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },

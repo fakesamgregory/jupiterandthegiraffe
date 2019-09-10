@@ -1,7 +1,7 @@
 <header class="header" [ngClass]="{'header--show': show }" data-aos="fade-in" data-aos-delay="1200">
   <div class="header__logo">
     <a [routerLink]="['/']">
-      Jupiter&nbsp;and <div></div>the&nbsp;Giraffe
+      Jupiter&nbsp;and <div>the&nbsp;Giraffe</div>
     </a>
   </div>
   <ul class="header__menu list-unstyled" *ngIf="!funnel">
@@ -23,6 +23,10 @@
 
     <li>
       <a href="https://blog.jupiterandthegiraffe.com">Blog</a>
+    </li>
+    
+    <li>
+      <a [routerLink]="['/how-to-launch-an-awesome-tech-brand']">FREE eBook</a>
     </li>
   </ul>
 </header>
@@ -62,6 +66,10 @@
 
   <li class="header__menu-mobile-item">
     <a href="https://blog.jupiterandthegiraffe.com">Blog</a>
+  </li>
+  
+  <li class="header__menu-mobile-item">
+    <a [routerLink]="['/how-to-launch-an-awesome-tech-brand']">FREE eBook</a>
   </li>
   
   <li class="header__menu-mobile-item header__menu-mobile-item--number">

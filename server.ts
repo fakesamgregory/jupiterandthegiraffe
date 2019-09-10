@@ -9,7 +9,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as compression from 'compression';
 
-import {join, resolve} from 'path';
+import {join} from 'path';
 
 enableProdMode();
 
@@ -44,7 +44,11 @@ app.get('/redirect/**', (req, res) => {
   res.redirect(301, location);
 });
 
-app.get('*.*', express.static('./dist/browser', {
+app.get('/index.html', (req, res) => {
+  res.redirect(301, '/');
+});
+
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
   maxAge: '1y'
 }));
 

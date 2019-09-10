@@ -1,0 +1,87 @@
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/tools/tools";
+
+.landing-page {
+    &__logo {
+        font-size: 2em;
+        padding: 20px 0 100px 0;
+    }
+
+    &__title {
+        font-size: 2em;
+
+        &::after {
+            content: '';
+            width: 80px;
+            height: 10px;
+            background: $color-malibu;
+            display: block;
+            margin-top: $space-large;
+        }
+    }
+
+    &__title, &__subtitle {
+        em {
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-style: inherit;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.5em;
+        text-align: left;
+    }
+
+    &__form {
+        background: $color-malibu;
+
+        @include sm {
+            padding: $space-large $space-xlrg;
+        }
+    }
+
+    &__offer {
+        margin-bottom: $space-large;
+    }
+
+    &__form-elements {
+        @include sm {
+            display: flex;
+            align-items: center;
+        }
+    }
+    
+    input {
+        margin-bottom: $space-large;
+        margin-top: 0;
+
+        height: 50px;
+        @include sm {
+            margin-bottom: 0;
+            margin-right: $space-large;
+        }
+    }
+    button {
+        @include sm-down {
+            margin-top: 0;
+        }
+        @include sm {
+            float: none;
+        }
+    }
+
+    &__checklist {
+        list-style: none;
+
+        li {
+            &::before {
+                content: "\f00c";
+                margin-left: -2em;
+                padding-right: 1em;
+                font-family: 'FontAwesome';
+                color: green;
+            }
+        }
+    }
+}

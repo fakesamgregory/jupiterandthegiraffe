@@ -1,9 +1,10 @@
-<div [ngClass]="{'keyboard-user': isKeyboardUser}">
+<div [ngClass]="{'keyboard-user': isKeyboardUser}" [attr.aria-busy]="loading">
   <app-header-component 
     [show]="showHeader" 
     (toggleMenu)="toggleMenu()" 
     [menuOpen]="menuOpen"
     [funnel]="isFunnel"
+    *ngIf="!isLandingPage"
   >
   </app-header-component>
 
@@ -11,9 +12,9 @@
 
   <div class="jupiter"></div>
 
-  <app-hero-component *ngIf="!isCaseStudy" [home]="isHome" [funnel]="isFunnel"></app-hero-component>
+  <app-hero-component *ngIf="!isCaseStudy && !isLandingPage" [home]="isHome" [funnel]="isFunnel"></app-hero-component>
 
-  <div class="loading" [ngClass]="{'loading--is-loading': loading}">
+  <div class="loading" [ngClass]="{'loading--is-loading': loading}" [attr.aria-hidden]="loading" aria-label="Loading">
     <div aria-hidden="true" class="loading__rocket">🚀</div>
     <div>Hang tight<app-dots-component></app-dots-component></div>
   </div>
@@ -28,8 +29,6 @@
   </a>
 
   <app-footer-component #footer></app-footer-component>
-
-  <app-signup-popup (clickHander)="scrollTo($event)"></app-signup-popup>
 
   <app-cookie-banner [hide]="hideCookie"></app-cookie-banner>
 </div>

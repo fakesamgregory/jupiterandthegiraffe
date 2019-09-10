@@ -1,35 +1,35 @@
 .hidden {
-  @media screen and (max-width: $screen-sm - 1) {
+  @media screen and (max-width: $screen-sm) {
     &-sm {
       display: none !important;
     }
   }
 
-  @media screen and (max-width: $screen-md - 1) {
+  @media screen and (max-width: $screen-md) {
     &-md {
       display: none !important;
     }
   }
 
-  @media screen and (min-width: $screen-sm - 1) {
+  @media screen and (min-width: $screen-sm) {
     &-sm-up {
       display: none !important;
     }
   }
 
-  @media screen and (min-width: $screen-md - 1) {
+  @media screen and (min-width: $screen-md) {
     &-md-up {
       display: none !important;
     }
   }
 
-  @media screen and (max-width: $screen-xs - 1) {
+  @media screen and (max-width: $screen-xs) {
     &-xs {
       display: none !important;
     }
   }
 
-  @media screen and (max-width: $screen-md - 1) {
+  @media screen and (max-width: $screen-md) {
     &-md-down {
       display: none !important;
     }

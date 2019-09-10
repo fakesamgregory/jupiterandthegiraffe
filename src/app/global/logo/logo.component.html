@@ -2,7 +2,10 @@
   <div class="margin-bottom--sm">
     <span class="logo__moon">.</span><span class="logo__moon">.</span><span class="logo__moon">.</span><span class="logo__moon">.</span>
   </div>
-  <div class="logo__text">
-    Jupiter and<br> the Giraffe
+  <div class="logo__text" [ngClass]="{'logo__text--with-slogan': showSlogan}">
+    Jupiter&nbsp;and <div>the&nbsp;Giraffe</div>
+  </div>
+  <div class="logo__slogan" *ngIf="showSlogan">
+    A Branding Studio Out Of This World
   </div>
 </header>

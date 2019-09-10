@@ -76,7 +76,7 @@ $positions: top left right bottom;
 }
 
 @mixin sm() {
-  @media screen and (min-width: $screen-xs) {
+  @media screen and (min-width: $screen-sm) {
     @content;
   }
 }
@@ -88,7 +88,7 @@ $positions: top left right bottom;
 }
 
 @mixin md() {
-  @media screen and (min-width: $screen-sm) {
+  @media screen and (min-width: $screen-md) {
     @content;
   }
 }

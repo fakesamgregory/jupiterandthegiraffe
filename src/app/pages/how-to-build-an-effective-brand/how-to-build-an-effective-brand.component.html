@@ -1,0 +1,107 @@
+<div class="white-bg landing-page">
+  <div class="container-fluid">
+
+    <div class="landing-page__logo">
+      <app-logo [showSlogan]="true"></app-logo>
+    </div>
+
+    <div class="row landing-page__offer">
+      <div class="col-md-4">
+        <img src="/assets/images/ebookmockup-min.png" alt="" class="img-fluid">
+      </div>
+      <section class="col-md-8">
+        <h1 class="landing-page__title">
+          Is The <em>World</em> Ready For Your Tech?
+        </h1>
+
+        <h2 class="landing-page__subtitle">
+          Prepare for <em>more customers</em> than you can handle using our <em>free eBook</em> "How To Launch An Awesome Tech Brand".
+        </h2>
+
+        <p>
+          Inside, you'll learn how to:
+        </p>
+
+        <ul class="landing-page__checklist">
+          <li>Affirm your <strong>credibility</strong> as a business</li>
+          <li>Deliver your message <strong>clearly</strong></li>
+          <li><strong>Engage with your customers</strong> on an emotional level</li>
+          <li>Build <strong>customer loyalty</strong></li>
+          <li>Choose a brand name</li>
+          <li>Design an effective logo</li>
+          <li>How/where to <strong>market yourself</strong></li>
+          <li>How/when to build a sub-brand</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="row">
+      <section class="col">
+        <div class="landing-page__form">
+          <div *ngIf="submitted && submitted.result !== 'error'; else signup">
+            <h2 class="h3 email-popup__header">
+              Success!
+            </h2>
+    
+            <p>
+              {{submitted.msg}}. <strong>Please make sure you check your spam</strong>.
+            </p>
+          </div>
+          <ng-template #signup>
+              <form
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate col"
+              target="_blank"
+              novalidate
+              [formGroup]="emailSignup"
+              (ngSubmit)="sendForm(emailSignup.value)"
+            >
+                <h2>Just enter your info below so we can send you your <b>FREE</b> eBook.</h2>
+
+                <p>
+                  <b>Note:</b> <em>We will never sell, trade, spam or do anything sleazy with your information.</em>
+                </p>
+
+                <div *ngIf="submitted?.result === 'error'">
+                  <h2 class="h3 email-popup__header">
+                    Woops!
+                  </h2>
+            
+                  <p>
+                    {{submitted.msg}}
+                  </p>
+                </div>
+  
+                <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
+                  <label for="b_name">Name: </label>
+                  <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+  
+                  <label for="b_email">Email: </label>
+                  <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com"
+                          id="b_email">
+  
+                  <label for="b_comment">Comment: </label>
+                  <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+                </div>
+  
+                <div class="landing-page__form-elements">
+                  <label for="MERGE1" class="sr-only">
+                    First name
+                  </label>
+                  <input type="text" required placeholder="First name" formControlName="MERGE1" name="MERGE1" id="MERGE1" [readonly]="sending">
+  
+                  <input type="email" required placeholder="Email" formControlName="MERGE0" name="MERGE0" id="MERGE0" [readonly]="sending">
+  
+                  <button type="submit" name="subscribe" id="mc-embedded-subscribe" [disabled]="!emailSignup.valid || sending">
+                    Send my eBook
+                    <span [ngClass]="{'fa fa-spinner fa-spin': sending}" aria-hidden="true"></span>
+                  </button>
+                </div>
+            </form>
+          </ng-template>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

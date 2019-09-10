@@ -26,7 +26,8 @@
   }
 
   &__tagline-border {
-    @include lg {
+    @include md {
+      max-width: 600px;
       border-left: 9px solid $color-malibu;
       padding-left: 20px;
     }

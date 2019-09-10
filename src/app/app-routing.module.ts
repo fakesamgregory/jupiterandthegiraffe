@@ -25,6 +25,8 @@ import {PositioningComponent} from './misc/positioning/positioning.component';
 import {CorporateStoryComponent} from './misc/corporate-story/corporate-story.component';
 import {WhatResolverService} from './pages/what/what-resolver.service';
 import { FunnelComponent } from './pages/funnel/funnel.component';
+import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
+
 
 const routes: Routes = [
   // Top level pages
@@ -37,6 +39,7 @@ const routes: Routes = [
   { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
   { path: 'free-strategy', component: FunnelComponent },
+  { path: 'how-to-launch-an-awesome-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
 
   // Case studies
   { path: 'case-study', redirectTo: 'work' },
@@ -100,6 +103,7 @@ const routes: Routes = [
   { path: 'brand-strategy', redirectTo: 'service/brand-strategy' },
   { path: 'brand-identity', redirectTo: 'service/brand-identity' },
   { path: 'brand-experience', redirectTo: 'service/brand-experience' },
+  { path: 'contact-us', redirectTo: 'contact' },
 
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
@@ -137,5 +141,6 @@ export const routableComponents = [
   ServiceComponent,
   CorporateStoryComponent,
   PositioningComponent,
-  FunnelComponent
+  FunnelComponent,
+  HowToBuildAnEffectiveBrandComponent
 ];

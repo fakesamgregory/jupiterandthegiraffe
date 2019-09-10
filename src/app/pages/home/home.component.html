@@ -1,21 +1,17 @@
 <section class="home">
   <div class="container-fluid">
-    <h1 class="sr-only">Brand Strategy & Design studio for tech startups</h1>
+    <h1 class="sr-only">Brand Strategy & Design studio for future-tech companies and startups</h1>
 
 
     <div class="home__tagline-wrapper">
       <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
         <em class="hidden-md-up home__tagline-border">
-          <span class="home__tagline-break">We are a brand strategy and design studio that </span>
-          <span class="home__tagline-break">support tech startups who </span>
-          <span class="home__tagline-break">drive the future of humanity. </span>
-          <span class="home__tagline-break">We help them grow and stand out in the market.</span>
+          A brand strategy and design studio that supports technology companies who drive the future of humanity, 
+          helping them grow and stand out in the market.
         </em>
         <em appParallax [ratio]=".15" [direction]="'horizontal'" style="display: inline-block;" class="hidden-md home__tagline-border">
-          <span class="home__tagline-break">We are a brand strategy and design studio that </span>
-          <span class="home__tagline-break">support tech startups who </span>
-          <span class="home__tagline-break">drive the future of humanity. </span>
-          <span class="home__tagline-break">We help them grow and stand out in the market.</span>
+          A brand strategy and design studio that supports technology companies who drive the future of humanity, 
+          helping them grow and stand out in the market.
         </em>
       </p>
     </div>
@@ -24,7 +20,7 @@
   <section class="section" *ngIf="this.work" style="background: #93ccf8;">
     <div class="home__work-content container-fluid">
       <header>
-        <h2>Latest work<span class="sr-only"> for tech startups</span></h2>
+        <h2>Latest work<span class="sr-only"> for tech companies and startups</span></h2>
       </header>
   
       <div class="row">
@@ -76,7 +72,7 @@
         <h2>
           <div class="sr-only">Branding and Design </div>
           <span style="display: inline-block;">Services</span>
-          <div class="sr-only"> for tech startups</div>
+          <div class="sr-only"> for tech companies and startups</div>
         </h2>
       </header>
 
@@ -101,13 +97,13 @@
           <div [innerHTML]="service.excerpt.rendered"></div>
 
           <div class="hidden-md-up">
-            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark ">Learn more about {{service.title.rendered}}</a>.
+            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark ">Learn more about {{service.title.rendered}}</a>
           </div>
         </section>
       </div>
       <div class="row hidden-md">
         <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
-            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more <span class="sr-only">about {{service.title.rendered}}</span></a>.
+            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more <span class="sr-only">about {{service.title.rendered}}</span></a>
         </div>
       </div>
     </section>

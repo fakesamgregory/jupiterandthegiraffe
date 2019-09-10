@@ -13,6 +13,21 @@
             display: flex;
         }
     }
+
+    &__checklist {
+        list-style: none;
+
+        li {
+            &::before {
+                content: "\f00c";
+                margin-left: -2em;
+                padding-right: 1em;
+                font-family: 'FontAwesome';
+                color: green;
+                float: left;
+            }
+        }
+    }
     
     &__step {
         padding: 15px;

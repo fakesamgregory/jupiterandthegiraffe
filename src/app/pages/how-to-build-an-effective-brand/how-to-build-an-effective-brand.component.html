@@ -6,21 +6,32 @@
     </div>
 
     <div class="row landing-page__offer">
-      <div class="col-sm-4">
-        <img src="/assets/images/ebookmockup-min.jpg" alt="" class="img-fluid">
+      <div class="col-md-4">
+        <img src="/assets/images/ebookmockup-min.png" alt="" class="img-fluid">
       </div>
-      <section class="col-sm-8">
+      <section class="col-md-8">
         <h1 class="landing-page__title">
           Is The <em>World</em> Ready For Your Tech?
         </h1>
 
         <h2 class="landing-page__subtitle">
-          Reach tonnes of your <em>ideal customers</em> across the world with the right branding using our <em>free eBook</em>.
+          Prepare for <em>more customers</em> than you can handle by building an awesome tech brand using our <em>free eBook</em> "How To Launch An Awesome Tech Brand".
         </h2>
 
         <p>
-          <b>Note:</b> <em>We will never sell, trade, spam or do anything sleazy with your information.</em>
+          Inside, you'll learn how to:
         </p>
+
+        <ul class="landing-page__checklist">
+          <li>Affirm your <strong>credibility</strong> as a business</li>
+          <li>Deliver your message <strong>clearly</strong></li>
+          <li><strong>Engage with your customers</strong> on an emotional level</li>
+          <li>Build <strong>customer loyalty</strong></li>
+          <li>Choose a brand name</li>
+          <li>Design an effective logo</li>
+          <li>How/where to <strong>market yourself</strong></li>
+          <li>How/when to build a sub-brand</li>
+        </ul>
       </section>
     </div>
 
@@ -46,9 +57,13 @@
               [formGroup]="emailSignup"
               (ngSubmit)="sendForm(emailSignup.value)"
             >
-                <h2>Just enter your info below to get your <b>FREE</b> eBook</h2>
+                <h2>Just enter your info below so we can send you your <b>FREE</b> eBook.</h2>
 
-                <div *ngIf="submitted.result === 'error'">
+                <p>
+                  <b>Note:</b> <em>We will never sell, trade, spam or do anything sleazy with your information.</em>
+                </p>
+
+                <div *ngIf="submitted?.result === 'error'">
                   <h2 class="h3 email-popup__header">
                     Woops!
                   </h2>

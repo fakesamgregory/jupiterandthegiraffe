@@ -4,7 +4,7 @@
 .landing-page {
     &__logo {
         font-size: 2em;
-        padding: 80px 0 100px 0;
+        padding: 20px 0 100px 0;
     }
 
     &__title {
@@ -68,6 +68,20 @@
         }
         @include sm {
             float: none;
+        }
+    }
+
+    &__checklist {
+        list-style: none;
+
+        li {
+            &::before {
+                content: "\f00c";
+                margin-left: -2em;
+                padding-right: 1em;
+                font-family: 'FontAwesome';
+                color: green;
+            }
         }
     }
 }

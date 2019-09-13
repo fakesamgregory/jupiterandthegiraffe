@@ -42,7 +42,7 @@
     "core-js": "^2.4.1",
     "cors": "~2.8.4",
     "cp-cli": "^1.1.0",
-    "firebase": "^5.5.4",
+    "firebase": "^5.9.0",
     "grpc": "^1.15.1",
     "jasmine": "^3.2.0",
     "ng-recaptcha": "^4.0.0",
@@ -82,7 +82,6 @@
     "webpack-dev-server": "^3.1.14"
   },
   "resolutions": {
-    "grpc": "^1.11.0",
-    "graceful-fs": "4.2.2"
+    "grpc": "^1.11.0"
   }
 }

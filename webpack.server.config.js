@@ -8,16 +8,6 @@ module.exports = {
     server: './server.ts',
   },
   target: 'node',
-<<<<<<< HEAD
-  resolve: {extensions: ['.ts', '.js']},
-  externals: [/(node_modules|main\..*\.js)/, function(context, request, callback) {
-    // exclude firebase products from being bundled, so they will be loaded using require() at runtime.
-    if(/firebase\/(app|firestore)/.test(request)) {
-      return callback(null, 'commonjs ' + request);
-    }
-    callback();
-  }],
-=======
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
@@ -25,7 +15,6 @@ module.exports = {
     }
   },
   externals: [/(node_modules|main\..*\.js)/,],
->>>>>>> 5e65fa34e04c6d829dfd0fa7d29d0e952929769d
   output: {
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, 'dist'),

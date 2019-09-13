@@ -1,41 +1,52 @@
 <div class="white-bg who">
   <h1 class="sr-only">About Jupiter and the Giraffe</h1>
   <section class="container-fluid">
-    <div class="h2">Who is Jupiter and who is the Giraffe?</div>
+    <div class="h2">Who is Jupiter and Who is the Giraffe?</div>
 
     <div [innerHTML]="content.content.rendered" *ngIf="content"></div>
 
+    <section>
+      <header>
+        <h2>Our Co-Piloted Process</h2>
+      </header>
+
+      <div [innerHTML]="content.acf.value" *ngIf="content"></div>
+
+      <ol *ngIf="content?.acf?.process" class="who__process">
+        <li *ngFor="let step of content.acf.process; let i = index;" class="who__process-step" data-aos="fade-up" [attr.data-aos-delay]="100 * i">
+          <h3>{{step.title}}</h3>
+
+          <div [innerHTML]="step.description"></div>
+        </li>
+      </ol>
+    </section>
+
     <section class="who__images" *ngIf="team">
       <header>
-        <h2>Our fleet</h2>
+        <h2>Our Fleet</h2>
       </header>
 
       <div class="row">
-        <div class="col who__image" itemscope itemtype="http://schema.org/Person" *ngFor="let member of team">
+        <div class="col who__image" itemscope itemtype="http://schema.org/Person" *ngFor="let member of team; let i = index;" data-aos="fade-up" [attr.data-aos-delay]="100 * i">
           <div class="media">
-            <a class="who__link" [routerLink]="['/people/' + member.slug]">
+            <div class="who__link">
               <div class="media-left">
                 <img itemprop="image" class="media-object" [src]="member._embedded['wp:featuredmedia'][0].source_url"
                      [alt]="'Headshot of ' + member.title.rendered"
                      [srcset]="member._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x, ' + member._embedded['wp:featuredmedia'][0].source_url + ' 2x'">
               </div>
               <div class="media-body media-bottom">
-                <h3 class="media-heading" itemprop="name">{{member.title.rendered}}</h3>
-                <span itemprop="jobTitle">{{member.acf.title}}</span> <br>
-                <span itemprop="email">{{member.acf.email}}</span>
+                <h3 class="media-heading who__job-heading" itemprop="name">{{member.title.rendered}}</h3>
+                <span itemprop="jobTitle" class="who__job-title">{{member.acf.title}}</span>
+                <div [innerHTML]="member.excerpt.rendered" class="bio"></div>
+                <div itemprop="email" class="who__email">{{member.acf.email}}</div>
+
+                <a [routerLink]="['/people/' + member.slug]">Read more</a>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section>
-      <header>
-        <h2>Our process</h2>
-      </header>
-
-      <div [innerHTML]="content.acf.value" *ngIf="content"></div>
     </section>
 
     <app-get-in-touch></app-get-in-touch>

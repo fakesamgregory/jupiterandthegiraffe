@@ -1,17 +1,17 @@
 <section class="home">
   <div class="container-fluid">
-    <h1 class="sr-only">Brand Strategy & Design studio for future-tech companies and startups</h1>
+    <h1 class="sr-only">Brand Strategy & Design studio for Future-Tech Companies and Startups</h1>
 
 
     <div class="home__tagline-wrapper">
       <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
         <em class="hidden-md-up home__tagline-border">
-          A brand strategy and design studio that supports technology companies who drive the future of humanity, 
-          helping them grow and stand out in the market.
+          A brand strategy and design studio that believes in the future of humanity. 
+          We help the companies behind the technology reach new users, grow and stand out in the market.
         </em>
         <em appParallax [ratio]=".15" [direction]="'horizontal'" style="display: inline-block;" class="hidden-md home__tagline-border">
-          A brand strategy and design studio that supports technology companies who drive the future of humanity, 
-          helping them grow and stand out in the market.
+          A brand strategy and design studio that believes in the future of humanity. 
+          We help the companies behind the technology reach new users, grow and stand out in the market.
         </em>
       </p>
     </div>
@@ -20,7 +20,7 @@
   <section class="section" *ngIf="this.work" style="background: #93ccf8;">
     <div class="home__work-content container-fluid">
       <header>
-        <h2>Latest work<span class="sr-only"> for tech companies and startups</span></h2>
+        <h2>Latest Missions<span class="sr-only"> for Tech Companies and Startups</span></h2>
       </header>
   
       <div class="row">
@@ -72,7 +72,7 @@
         <h2>
           <div class="sr-only">Branding and Design </div>
           <span style="display: inline-block;">Services</span>
-          <div class="sr-only"> for tech companies and startups</div>
+          <div class="sr-only"> for Tech Companies and Startups</div>
         </h2>
       </header>
 
@@ -84,7 +84,7 @@
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
-        <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="300 * i">
+        <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="100 * i">
           <img
             *ngIf="showMyElement"
             [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
@@ -118,7 +118,7 @@
       <header>
         <h2>
           <div class="sr-only">Remote Brand Strategy and Design Studio - </div>
-          Creativity without borders
+          Creativity Without Borders
         </h2>
       </header>
 
@@ -151,7 +151,7 @@
 
     <section class="section text-center">
       <header>
-        <h2 class="text-center">Ready to launch?</h2>
+        <h2 class="text-center">Ready to Launch?</h2>
       </header>
 
       <p class="home__lead">
@@ -165,8 +165,6 @@
         </a>
       </div>
     </section>
-
   </div>
-
 </section>
 

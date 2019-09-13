@@ -44,6 +44,10 @@
 
   a:not(.btn) {
     color: $color-oldBrick;
+
+    @include hover-focus {
+      text-decoration: underline;
+    }
   }
 
   &--with-image {

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 import 'assets/images/giraffe.png';
 import 'assets/images/giraffe@2x.png';
@@ -10,6 +10,7 @@ import {HighlightedFriendsService} from '../../stores/highlighted-friends.servic
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  @Input() services: Array<any>;
   public showMyElement = false;
   public general = [
     {url: '/work', name: 'Our work', class: 'footer__general-item'},

@@ -20,7 +20,7 @@
             <h1 class="what-we-do__title">What we do</h1>
           </header>
 
-          <div class="what-we-do__text" [innerHTML]="content.content.rendered"></div>
+          <div class="what-we-do__text" *ngIf="content?.content" [innerHTML]="content.content.rendered"></div>
         </section>
 
         <section class="section" *ngFor="let service of services">
@@ -35,7 +35,7 @@
 
           <div class="what-we-do--tagline" [innerHTML]="service.excerpt.rendered" *ngIf="service.excerpt.rendered"></div>
 
-          <p class="what-we-do__prompt" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+          <p class="text-left">
             Learn more about <a [routerLink]="'/service/' + service.slug">{{service.title.rendered}}</a>.
           </p>
         </section>

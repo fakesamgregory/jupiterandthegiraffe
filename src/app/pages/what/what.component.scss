@@ -26,13 +26,6 @@
     text-align: center;
   }
 
-  &__prompt {
-    margin: 0;
-    padding: $space-medium;
-    border-radius: 5px;
-    text-align: left;
-  }
-
   &__text {
     @include md {
       text-align: left;

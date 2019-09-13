@@ -7,6 +7,7 @@ import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
 import {filter} from 'rxjs/operators';
 import {HighlightedFriendsService} from './stores/highlighted-friends.service';
+import {ServicesService} from './stores/services.service';
 import {WordpressService} from './services/wordpress.service';
 import {forkJoin, of} from 'rxjs';
 
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public menuOpen = false;
   public loading = false;
   private scrollInterval: any;
+  public services: Array<any>;
 
   @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
 
@@ -54,6 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
               @Inject(AosToken) aos,
               public friendsStore: HighlightedFriendsService,
+              public serviceStore: ServicesService,
               private wordpress: WordpressService) {
 
     if (isPlatformBrowser(this.platformId)) {
@@ -102,6 +105,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
 
     this.loadFriends();
+    this.loadServices();
   }
 
   private loadFriends(): void {
@@ -120,6 +124,11 @@ export class AppComponent implements OnInit, OnDestroy {
           .subscribe((friends) =>
             friends.forEach(friend => this.friendsStore.addFriend(friend)));
       });
+  }
+
+  private loadServices(): void {
+    this.wordpress.getPostType('services')
+      .subscribe(data => this.serviceStore.services = data);
   }
 
   public toggleMenu(forceState?) {

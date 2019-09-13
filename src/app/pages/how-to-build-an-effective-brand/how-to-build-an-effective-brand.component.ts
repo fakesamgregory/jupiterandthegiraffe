@@ -33,13 +33,14 @@ export class HowToBuildAnEffectiveBrandComponent {
   ) {
     this.setMetaData({
       TITLE: 'Download Our FREE eBook "How To Build An Effective Tech Brand" Now!',
-      DESC: 'We\'re giving you FREE access to our branding book "How To Build An Effective Tech Brand"'
+      DESC: 'We\'re giving you FREE access to our branding book "How To Build An Effective Tech Brand"',
+      SHARE_IMAGE: 'https://jupiterandthegiraffe.com/assets/images/howtolaunch-shareimage.jpg'
     });
     this.createForm();
   }
 
   private setMetaData(content): void {
-    const { TITLE, DESC } = content;
+    const { TITLE, DESC, SHARE_IMAGE} = content;
 
     this.titleService.setTitle(TITLE);
 
@@ -63,6 +64,19 @@ export class HowToBuildAnEffectiveBrandComponent {
       property: 'og:title',
       content: TITLE,
     });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: SHARE_IMAGE
+    });
+    this.meta.updateTag({
+      name: 'twitter:image:alt',
+      content: 'How To Launch An Awesome Tech Brand book cover'
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: SHARE_IMAGE
+    });
+
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',

@@ -8,6 +8,7 @@ module.exports = {
     server: './server.ts',
   },
   target: 'node',
+<<<<<<< HEAD
   resolve: {extensions: ['.ts', '.js']},
   externals: [/(node_modules|main\..*\.js)/, function(context, request, callback) {
     // exclude firebase products from being bundled, so they will be loaded using require() at runtime.
@@ -16,6 +17,15 @@ module.exports = {
     }
     callback();
   }],
+=======
+  resolve: {
+    extensions: ['.ts', '.js'],
+    alias: {
+      ['firebase/app']: path.resolve(__dirname, 'node_modules/firebase/app/dist/index.cjs.js')
+    }
+  },
+  externals: [/(node_modules|main\..*\.js)/,],
+>>>>>>> 5e65fa34e04c6d829dfd0fa7d29d0e952929769d
   output: {
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, 'dist'),

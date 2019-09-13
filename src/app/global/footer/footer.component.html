@@ -4,26 +4,37 @@
         <q>You've made it to the bottom!</q>
         <footer>Jupiter and the Giraffe</footer>
       </blockquote>
-      <section>
-        <header>
-          <h2 class="footer__title heading-3">Brands</h2>
-        </header>
-        <ul class="list-unstyled">
-          <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
-            <li class="footer__list-item">
-              <a [routerLink]="'/case-study/' + brand.slug" class="footer__link">
-                {{brand.title.rendered}}
-              </a>
-            </li>
-          </ng-container>
-        </ul>
-      </section>
-
       <div class="row">
-        <div class="col-md-4">
-          <app-email-popup></app-email-popup>
-        </div>
+        <section class="col-md">
+          <header>
+            <h2 class="footer__title heading-3">Brands</h2>
+          </header>
+          <ul class="list-unstyled">
+            <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
+              <li class="footer__list-item">
+                <a [routerLink]="'/case-study/' + brand.slug" class="footer__link">
+                  {{brand.title.rendered}}<span class="sr-only"> case study</span>
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+        </section>
+        <section class="col-md text-right">
+          <header>
+            <h2 class="footer__title heading-3 text-right">Services</h2>
+          </header>
+          <ul class="list-unstyled">
+            <ng-container *ngFor="let service of services">
+              <li class="footer__list-item">
+                <a [routerLink]="'/service/' + service.slug" class="footer__link">
+                  {{service.title.rendered}}
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+        </section>
       </div>
+     
 
       <p class="footer__number">
         <span class="hidden-sm">+44 20 3290 9902</span>

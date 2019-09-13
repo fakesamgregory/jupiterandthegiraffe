@@ -8,13 +8,16 @@ import {HighlightedFriendsService} from '../../../stores/highlighted-friends.ser
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnDestroy {
-  public quotes = [];
+  public quotes: Array<any>;
   private currentActiveSlide = 1;
   private timeout = null;
   public showMyElement = false;
   @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
 
-  constructor(private wordpress: WordpressService, public highlightedFriendStore: HighlightedFriendsService) {
+  constructor(
+    private wordpress: WordpressService,
+    public highlightedFriendStore: HighlightedFriendsService
+  ) {
     this.wordpress.getPostType('quotes')
       .subscribe((quotes: Array<any>) => {
         this.quotes = quotes;

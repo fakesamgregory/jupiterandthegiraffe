@@ -8,7 +8,12 @@ module.exports = {
     server: './server.ts',
   },
   target: 'node',
-  resolve: {extensions: ['.ts', '.js']},
+  resolve: {
+    extensions: ['.ts', '.js'],
+    alias: {
+      ['firebase/app']: path.resolve(__dirname, 'node_modules/firebase/app/dist/index.cjs.js')
+    }
+  },
   externals: [/(node_modules|main\..*\.js)/,],
   output: {
     libraryTarget: 'commonjs2',

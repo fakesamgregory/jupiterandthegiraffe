@@ -9,7 +9,13 @@ module.exports = {
   },
   target: 'node',
   resolve: {extensions: ['.ts', '.js']},
-  externals: [/(node_modules|main\..*\.js)/,],
+  externals: [/(node_modules|main\..*\.js)/, function(context, request, callback) {
+    // exclude firebase products from being bundled, so they will be loaded using require() at runtime.
+    if(/firebase\/(app|firestore)/.test(request)) {
+      return callback(null, 'commonjs ' + request);
+    }
+    callback();
+  }],
   output: {
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, 'dist'),

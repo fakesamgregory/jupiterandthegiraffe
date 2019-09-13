@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "node local.js",
+    "server": "PORT=8081 node local.js",
     "build:browser:serverless": "ng build --prod --base-href /production/",
     "build:serverless": "npm run build:browser:serverless && npm run build:server:serverless",
     "build:serverless:deploy": "npm run build:serverless && npm run deploy",

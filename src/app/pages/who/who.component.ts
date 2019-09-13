@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class WhoComponent {
   public team: Array<any>;
-  public content: Object;
+  public content: any;
 
   constructor(private meta: Meta,
               private titleService: Title,

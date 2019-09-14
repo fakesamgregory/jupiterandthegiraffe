@@ -31,7 +31,7 @@
   }
 
   &__text {
-    font-family: $title-font;
+    @include title-font();
     font-size: 24px;
     display: inline-block;
     margin-right: 10px;
@@ -134,7 +134,7 @@
   &__menu-mobile {
     @extend .header__menu;
     @include font-size(24);
-    font-family: $title-font;
+    @include title-font();
     z-index: 11;
     margin: 0;
     padding: 80px 0 0 15px;
@@ -209,7 +209,7 @@
 
   &__menu-mobile-item-text {
     font-size: 18px;
-    font-family: $body-font;
+    @include body-font();
     display: block;
     margin-bottom: $space-small;
   }

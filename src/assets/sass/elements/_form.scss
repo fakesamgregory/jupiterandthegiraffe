@@ -7,7 +7,7 @@ form {
     margin: $space-small 0;
     color: $color-white;
     background: $color-oldBrick;
-    font-family: $title-font;
+    @include title-font();
     padding: $space-small;
     border-radius: 5px;
     @include font-size($small-font);

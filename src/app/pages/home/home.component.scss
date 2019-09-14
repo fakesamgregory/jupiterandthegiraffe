@@ -182,7 +182,7 @@
   }
 
   &__work-case-study {
-    font-family: $body-font;
+    @include body-font();
   }
   
   &__work-item {
@@ -203,7 +203,7 @@
       top: 50%;
       width: 100%;
       transform: translateY(-50%);
-      font-family: $title-font;
+      @include title-font();
 
       @include lg {
         opacity: 0;

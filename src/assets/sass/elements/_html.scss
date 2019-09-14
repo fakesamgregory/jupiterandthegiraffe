@@ -1,6 +1,6 @@
 html {
   font-size: 62.5%;
-  font-family: $body-font;
+  @include body-font();
   color: $color-white;
   line-height: $line-height-base;
 }

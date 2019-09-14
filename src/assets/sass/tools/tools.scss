@@ -105,3 +105,13 @@ $positions: top left right bottom;
     @content;
   }
 }
+
+@mixin title-font() {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+@mixin body-font() {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}

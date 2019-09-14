@@ -1,14 +1,10 @@
 {
-  "universal": {
-    "skipInstall": false,
-    "directory": ".",
-    "project": "jupiter-and-the-giraffe"
-  },
   "serverless": {
     "provider": "aws",
+    "project": "jupiter-and-the-giraffe",
     "skipInstall": false,
     "directory": ".",
-    "project": "jupiter-and-the-giraffe",
+    "clientProject": "jupiter-and-the-giraffe",
     "serverless": {
       "aws": {},
       "gcloud": {}

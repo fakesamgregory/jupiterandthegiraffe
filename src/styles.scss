@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+//Bootstrap
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/aos/dist/aos.css";
+// Font awesome
+@import "assets/sass/fontawesome/font-awesome";
+
+@import "assets/sass/settings/settings";
+@import "assets/sass/tools/tools";
+@import "assets/sass/generic/generic";
+@import "assets/sass/elements/elements";
+@import "assets/sass/objects/objects";
+@import "assets/sass/components/components";
+@import "assets/sass/utilities/utilities";
+@import "assets/sass/global";

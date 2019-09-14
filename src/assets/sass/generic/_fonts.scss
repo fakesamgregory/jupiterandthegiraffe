@@ -1,22 +1,22 @@
 @font-face {
   font-family: 'KG-SummerStorm';
-  src: url('../fonts/kgsummerstormrough-webfont.eot');
-  src: url('../fonts/kgsummerstormrough-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/kgsummerstormrough-webfont.woff2') format('woff2'),
-       url('../fonts/kgsummerstormrough-webfont.woff') format('woff'),
-       url('../fonts/kgsummerstormrough-webfont.ttf') format('truetype'),
-       url('../fonts/kgsummerstormrough-webfont.svg#kg_summer_storm_roughregular') format('svg');
+  src: url($fonts-path + 'kgsummerstormrough-webfont.eot');
+  src: url($fonts-path + 'kgsummerstormrough-webfont.eot?#iefix') format('embedded-opentype'),
+       url($fonts-path + 'kgsummerstormrough-webfont.woff2') format('woff2'),
+       url($fonts-path + 'kgsummerstormrough-webfont.woff') format('woff'),
+       url($fonts-path + 'kgsummerstormrough-webfont.ttf') format('truetype'),
+       url($fonts-path + 'kgsummerstormrough-webfont.svg#kg_summer_storm_roughregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?54qe1w');
-  src:  url('../fonts/icomoon.eot?54qe1w#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?54qe1w') format('truetype'),
-        url('../fonts/icomoon.woff?54qe1w') format('woff'),
-        url('../fonts/icomoon.svg?54qe1w#icomoon') format('svg');
+  src:  url($fonts-path + 'icomoon.eot?54qe1w');
+  src:  url($fonts-path + 'icomoon.eot?54qe1w#iefix') format('embedded-opentype'),
+        url($fonts-path + 'icomoon.ttf?54qe1w') format('truetype'),
+        url($fonts-path + 'icomoon.woff?54qe1w') format('woff'),
+        url($fonts-path + 'icomoon.svg?54qe1w#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,12 +24,12 @@
 
 @font-face {
   font-family: 'fontawesome';
-  src:  url('../fonts/fontawesome-webfont.eot');
-  src:  url('../fonts/fontawesome-webfont.eot#iefix') format('embedded-opentype'),
-        url('../fonts/fontawesome-webfont.ttf') format('truetype'),
-        url('../fonts/fontawesome-webfont.woff2') format('woff2'),
-        url('../fonts/fontawesome-webfont.woff') format('woff'),
-        url('../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+  src:  url($fonts-path + 'fontawesome-webfont.eot');
+  src:  url($fonts-path + 'fontawesome-webfont.eot#iefix') format('embedded-opentype'),
+        url($fonts-path + 'fontawesome-webfont.ttf') format('truetype'),
+        url($fonts-path + 'fontawesome-webfont.woff2') format('woff2'),
+        url($fonts-path + 'fontawesome-webfont.woff') format('woff'),
+        url($fonts-path + 'fontawesome-webfont.svg#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
   }
@@ -37,17 +37,17 @@
       
 @font-face {
   font-family: 'open_sanslight';
-  src: url('../fonts/opensans-light-webfont.ttf') format('truetype'),
-        url('../fonts/opensans-light-webfont.woff2') format('woff2'),
-        url('../fonts/opensans-light-webfont.woff') format('woff');
+  src: url($fonts-path + 'opensans-light-webfont.ttf') format('truetype'),
+        url($fonts-path + 'opensans-light-webfont.woff2') format('woff2'),
+        url($fonts-path + 'opensans-light-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'open_sansbold';
-  src: url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
-       url('../fonts/opensans-bold-webfont.woff') format('woff');
+  src: url($fonts-path + 'opensans-bold-webfont.woff2') format('woff2'),
+       url($fonts-path + 'opensans-bold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

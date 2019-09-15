@@ -10,6 +10,12 @@ interface MailchimpResponse {
   msg: string;
 }
 
+interface Post {
+  b_name: string,
+  b_email: string,
+  b_comment: string
+}
+
 @Component({
   selector: 'app-how-to-build-an-effective-brand',
   templateUrl: './how-to-build-an-effective-brand.component.html',
@@ -95,7 +101,7 @@ export class HowToBuildAnEffectiveBrandComponent {
     });
   }
 
-  sendForm(post) {
+  public sendForm(post: Post): void {
     if (!post.b_name && !post.b_email && !post.b_comment) {
       this.sending = true;
 
@@ -108,7 +114,7 @@ export class HowToBuildAnEffectiveBrandComponent {
       });
 
       this.http.jsonp(url, 'c')
-        .subscribe((response: any) => {
+        .subscribe((response: MailchimpResponse) => {
           this.sending = false;
           this.submitted = response;
         });

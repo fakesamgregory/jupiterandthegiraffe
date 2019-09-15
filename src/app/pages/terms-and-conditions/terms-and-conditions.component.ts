@@ -3,6 +3,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
+import { DataObject } from 'src/app/services/wordpress.service';
 
 @Component({
   selector: 'app-terms-and-conditions',
@@ -10,7 +11,7 @@ import {WINDOW} from '@ng-toolkit/universal';
   styleUrls: ['./terms-and-conditions.component.scss']
 })
 export class TermsAndConditionsComponent {
-  public content: any;
+  public content: DataObject;
 
   constructor(private meta: Meta,
               private titleService: Title,

@@ -11,8 +11,8 @@ import {ActivatedRoute} from '@angular/router';
 export class WhatComponent {
   public fixSidebar = false;
   public fixedCSS: object;
-  private scrollInterval;
-  public activeIndex = null;
+  private scrollInterval: number;
+  public activeIndex: number;
   public content: any;
   public services: any;
   @ViewChild('fixedWrap', {static: false}) fixedWrap: ElementRef;

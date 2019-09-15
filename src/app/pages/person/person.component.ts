@@ -3,14 +3,14 @@ import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
+import { DataObject } from 'src/app/services/wordpress.service';
 
 @Component({
   selector: 'app-person',
-  templateUrl: './person.component.html',
-  styleUrls: ['./person.component.scss']
+  templateUrl: './person.component.html'
 })
 export class PersonComponent {
-  public person;
+  public person: DataObject;
 
   constructor(private meta: Meta,
               private titleService: Title,

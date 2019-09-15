@@ -13,7 +13,7 @@ export class HeaderComponent {
 
   constructor() { }
 
-  onClick() {
+  onClick(): void {
     this.toggleMenu.emit(undefined);
   }
 }

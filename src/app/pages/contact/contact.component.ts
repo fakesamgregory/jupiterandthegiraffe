@@ -5,7 +5,13 @@ import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
 
-export interface Item { name: string; email: string; message: string; html: string; date: string;
+export interface Item { 
+  name: string; 
+  email: string; 
+  message: string; 
+  html: string; 
+  date: string;
+  company: string
 }
 
 @Component({
@@ -16,12 +22,12 @@ export interface Item { name: string; email: string; message: string; html: stri
 export class ContactComponent {
   public rForm: FormGroup;
   public post: any;
-  public message = '';
-  public name = '';
-  public company = '';
-  public email = '';
+  public message: string;
+  public name: string;
+  public company: string;
+  public email: string;
   itemRef: AngularFireList<any>;
-  item;
+  item: any;
 
   constructor(private fb: FormBuilder,
               public db: AngularFireDatabase,
@@ -68,7 +74,7 @@ export class ContactComponent {
     }
   }
 
-  createForm() {
+  private createForm(): void {
     this.rForm = this.fb.group({
       name: [null, Validators.required],
       email: [null, Validators.compose([Validators.required, Validators.email])],
@@ -78,7 +84,7 @@ export class ContactComponent {
     });
   }
 
-  sendForm(post) {
+  public sendForm(post: Item): void {
     const company = post.company ? ` from ${post.company}` : '';
 
     this.name = post.name;

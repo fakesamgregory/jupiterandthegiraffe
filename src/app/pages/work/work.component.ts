@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
 import {isPlatformBrowser} from '@angular/common';
+import { DataObject } from 'src/app/services/wordpress.service';
 
 declare global {
   interface Window { hoverEffect: any; }
@@ -14,7 +15,7 @@ declare global {
   styleUrls: ['./work.component.scss']
 })
 export class WorkComponent {
-  public work;
+  public work: DataObject;
   public error;
   public showMyElement = false;
 

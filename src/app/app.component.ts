@@ -1,6 +1,6 @@
 import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
-import {Component, ElementRef, HostListener, Inject, OnDestroy, PLATFORM_ID, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnDestroy, PLATFORM_ID, ViewChild, Optional} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
@@ -30,8 +30,6 @@ export class AppComponent implements OnDestroy {
   private scrollInterval: any;
   public services: Array<any>;
 
-  @ViewChild('footer', {static: false}) footer: ElementRef;
-
   public ngOnDestroy() {
     if (this.scrollInterval) {
       clearTimeout(this.scrollInterval);
@@ -40,7 +38,7 @@ export class AppComponent implements OnDestroy {
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: any,
-              @Inject(WINDOW) private window: Window,
+              @Optional() @Inject(WINDOW) private window: Window,
               private router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
               @Inject(AosToken) aos,
@@ -81,10 +79,6 @@ export class AppComponent implements OnDestroy {
         }
 
         if (isPlatformBrowser(this.platformId)) {
-          this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
-        }
-
-        if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);
         }
 
@@ -110,8 +104,7 @@ export class AppComponent implements OnDestroy {
           });
 
         forkJoin(friendPageContent)
-          .subscribe((friends) =>
-            friends.forEach(friend => this.friendsStore.addFriend(friend)));
+          .subscribe((friends) => this.friendsStore.friends = friends)
       });
   }
 

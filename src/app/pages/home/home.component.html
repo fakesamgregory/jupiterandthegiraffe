@@ -9,7 +9,7 @@
           A brand strategy and design studio that believes in the future of humanity. 
           We help the companies behind the technology reach new users, grow and stand out in the market.
         </em>
-        <em appParallax [ratio]=".15" [direction]="'horizontal'" style="display: inline-block;" class="hidden-md home__tagline-border">
+        <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;" class="hidden-md home__tagline-border">
           A brand strategy and design studio that believes in the future of humanity. 
           We help the companies behind the technology reach new users, grow and stand out in the market.
         </em>
@@ -90,6 +90,7 @@
             [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
             [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
             [alt]="service._embedded['wp:featuredmedia'][0].alt_text"
+            class="img-fluid"
           >
 
           <h3>{{service.title.rendered}}</h3>

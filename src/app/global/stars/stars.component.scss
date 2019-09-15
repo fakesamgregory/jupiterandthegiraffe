@@ -80,7 +80,7 @@ $shooting-time: 10000ms;
   }
 
   &::after {
-    @extend .meteor::before;
+    @extend .meteor, ::before;
     transform: translateX(50%) rotateZ(-45deg);
   }
 }

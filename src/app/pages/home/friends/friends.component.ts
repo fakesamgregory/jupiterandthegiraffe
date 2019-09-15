@@ -9,10 +9,10 @@ import {HighlightedFriendsService} from '../../../stores/highlighted-friends.ser
 })
 export class FriendsComponent implements OnDestroy {
   public quotes: Array<any>;
-  private currentActiveSlide = 1;
+  public currentActiveSlide = 1;
   private timeout = null;
   public showMyElement = false;
-  @ViewChild('slider', {read: ElementRef}) slider: ElementRef;
+  @ViewChild('slider', {static: false}) slider: ElementRef;
 
   constructor(
     private wordpress: WordpressService,

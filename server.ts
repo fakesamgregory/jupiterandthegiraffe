@@ -15,6 +15,12 @@ app.use(cors());
 
 const DIST_FOLDER = join(process.cwd(), 'dist/jupiter-and-the-giraffe');
 
+app.use(express.static(DIST_FOLDER));
+
+app.get('/index.html', (req, res) => {
+    res.redirect(301, '/');
+});
+
 app.get('*.*', express.static(join(DIST_FOLDER), {
     maxAge: '1y'
 }));

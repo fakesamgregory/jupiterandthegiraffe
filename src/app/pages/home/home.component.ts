@@ -1,9 +1,9 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, Optional} from '@angular/core';
 import { isDevMode } from '@angular/core';
 import {WordpressService} from '../../services/wordpress.service';
 import { Meta, Title } from '@angular/platform-browser';
-import { WINDOW } from '@ng-toolkit/universal';
 import { isPlatformBrowser } from '@angular/common';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +11,8 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public error: Object;
-  public work: Object;
+  public error: any;
+  public work: any;
   public developmentMode = isDevMode();
   public showMyElement = false;
   public styles = [
@@ -181,7 +181,7 @@ export class HomeComponent {
     private wordpress: WordpressService,
     private meta: Meta,
     private titleService: Title,
-    @Inject(WINDOW) private window: Window,
+    @Optional() @Inject(WINDOW) private window: Window,
     @Inject(PLATFORM_ID) private platformId: any
   ) {
 

@@ -14,6 +14,8 @@ $shadows-small:  multiple-box-shadow(700);
 $shadows-big:    multiple-box-shadow(100);
 
 .stars {
+  will-change: transform;
+  transition-property: transform;
   width: 1px;
   height: 1px;
   background: transparent;
@@ -55,6 +57,19 @@ $shadows-big:    multiple-box-shadow(100);
 
 $shooting-time: 10000ms;
 
+@mixin meteor {
+  content: '';
+  will-change: transform;
+  position: absolute;
+  top: calc(50% - 1px);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgba(255, 255, 255, 1), rgba(0, 0, 255, 0));
+  transform: translateX(50%) rotateZ(45deg);
+  border-radius: 100%;
+  animation: shining $shooting-time ease-in-out infinite;
+}
+
 .meteor {
   position: absolute;
   left: 25%;
@@ -67,20 +82,11 @@ $shooting-time: 10000ms;
     tail $shooting-time ease-in-out infinite,
     shooting $shooting-time ease-in-out infinite;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: calc(50% - 1px);
-    right: 0;
-    height: 2px;
-    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgba(255, 255, 255, 1), rgba(0, 0, 255, 0));
-    transform: translateX(50%) rotateZ(45deg);
-    border-radius: 100%;
-    animation: shining $shooting-time ease-in-out infinite;
+  &::before, &::after {
+    @include meteor();
   }
 
   &::after {
-    @extend .meteor, ::before;
     transform: translateX(50%) rotateZ(-45deg);
   }
 }

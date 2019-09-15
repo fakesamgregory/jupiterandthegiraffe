@@ -26,6 +26,8 @@
   }
 
   &__tagline-border {
+    will-change: transform;
+
     @include md {
       max-width: 600px;
       border-left: 9px solid $color-malibu;
@@ -226,6 +228,8 @@
       content: '';
       position: absolute;
       background-color: rgba($color-black, .6);
+      transition-property: opacity,transform;
+      will-change: opacity,transform;
       
       @include lg {
         background-color: rgba($color-black, 0);

@@ -15,3 +15,8 @@
 @import "assets/sass/components/components";
 @import "assets/sass/utilities/utilities";
 @import "assets/sass/global";
+
+
+[data-aos] {
+    will-change: transform, opacity;
+}

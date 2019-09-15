@@ -55,6 +55,7 @@ jobs:
       - run:
           name: Add robots TXT file
           command: |
+            touch ~/app/dist/browser/robots.txt
             echo 'User-agent: *' >> ~/app/dist/browser/robots.txt
             echo 'Disallow: /' >> ~/app/dist/browser/robots.txt
 

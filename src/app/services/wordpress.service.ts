@@ -3,10 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface DataObject {
-  title: {rendered: string},
-  acf: {work_type: string, title: string},
-  excerpt: {rendered: string},
-  _embedded: object
+  title: {rendered: string};
+  acf: {work_type: string, title: string};
+  excerpt: {rendered: string};
+  _embedded: object;
 }
 
 @Injectable({

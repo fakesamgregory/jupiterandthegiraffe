@@ -5,13 +5,13 @@ import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
 
-export interface Item { 
-  name: string; 
-  email: string; 
-  message: string; 
-  html: string; 
+export interface Item {
+  name: string;
+  email: string;
+  message: string;
+  html: string;
   date: string;
-  company: string
+  company: string;
 }
 
 @Component({

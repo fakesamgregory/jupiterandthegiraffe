@@ -16,8 +16,8 @@ export class CookieBannerComponent implements OnInit {
     this.hideBanner = hide;
   }
 
-  get hide(): boolean { 
-    return this.hideBanner; 
+  get hide(): boolean {
+    return this.hideBanner;
   }
 
   constructor(

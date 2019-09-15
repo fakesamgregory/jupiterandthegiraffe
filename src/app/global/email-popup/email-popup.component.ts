@@ -8,9 +8,9 @@ interface MailchimpResponse {
 }
 
 interface Post {
-  b_name: string,
-  b_email: string,
-  b_comment: string
+  b_name: string;
+  b_email: string;
+  b_comment: string;
 }
 
 @Component({

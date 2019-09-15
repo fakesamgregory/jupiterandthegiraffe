@@ -98,7 +98,7 @@ jobs:
 
       - run:
           name: Deploy Severless
-          command: npm run build:serverless:deploy
+          command: npm run build:prod:deploy
 
   invalidate_code:
     working_directory: ~/app

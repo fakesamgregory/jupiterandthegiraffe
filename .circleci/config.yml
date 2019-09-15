@@ -55,13 +55,12 @@ jobs:
       - run:
           name: Add robots TXT file
           command: |
-            touch ~/app/dist/browser/robots.txt
-            echo 'User-agent: *' >> ~/app/dist/browser/robots.txt
-            echo 'Disallow: /' >> ~/app/dist/browser/robots.txt
+            echo 'User-agent: *' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
+            echo 'Disallow: /' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
 
       - run:
           name: AWS Sync
-          command: aws --region eu-west-1 s3 sync ./dist/browser s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+          command: aws --region eu-west-1 s3 sync ./dist/jupiter-and-the-giraffe s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
 
   build_deploy_prod:
     <<: *vm_settings
@@ -100,7 +99,7 @@ jobs:
   invalidate_code:
     working_directory: ~/app
     docker:
-      - image: circleci/python:2.7
+      - image: circleci/python:latest
     steps:
       - run:
           name: Install awscli

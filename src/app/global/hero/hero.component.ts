@@ -10,5 +10,5 @@ export class HeroComponent {
   @Input() home = false;
   @Input() funnel = false;
 
-  constructor (public router: Router) { }
+  constructor(public router: Router) { }
 }

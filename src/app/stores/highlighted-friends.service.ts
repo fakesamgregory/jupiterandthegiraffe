@@ -5,8 +5,10 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class HighlightedFriendsService {
+  /* tslint:disable */
   private readonly _friends = new BehaviorSubject<any>([]);
   readonly friends$ = this._friends.asObservable();
+  /* tslint:enable */
 
   get friends(): any {
     return this._friends.getValue();

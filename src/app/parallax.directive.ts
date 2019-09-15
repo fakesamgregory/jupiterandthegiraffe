@@ -7,8 +7,8 @@ import { Input, Directive, ElementRef, PLATFORM_ID, Inject, HostListener, Option
 })
 export class ParallaxDirective {
   // tslint:disable:no-input-rename
-  @Input('ratio') ratio: number= 1;
-  @Input('direction') direction: String = 'vertical';
+  @Input('ratio') ratio = 1;
+  @Input('direction') direction = 'vertical';
   public initialTop = 0;
   private scrollInterval: any;
 

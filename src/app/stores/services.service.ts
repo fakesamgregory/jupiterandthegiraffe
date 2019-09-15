@@ -5,8 +5,10 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class ServicesService {
+  /* tslint:disable */
   private readonly _services = new BehaviorSubject<any>([]);
   readonly services$ = this._services.asObservable();
+  /* tslint:enable */
 
   get services(): any {
     return this._services.getValue();

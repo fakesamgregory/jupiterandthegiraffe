@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {WordpressService} from '../../services/wordpress.service';
-import {Observable, empty, forkJoin} from 'rxjs';
+import {Observable, forkJoin, EMPTY} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
 
 @Injectable({
@@ -13,13 +13,13 @@ export class WhatResolverService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, rstate: RouterStateSnapshot): Observable<any> {
     return forkJoin([
-        this.wordpress.getPostType('services', { slug: route.params['service'] }),
+        this.wordpress.getPostType('services', { slug: route.params.service }),
         this.wordpress.getPageId(373)
       ])
       .pipe(catchError(err => {
         console.log(err);
         this.router.navigate(['/not-found']);
-        return empty();
+        return EMPTY;
       }));
   }
 }

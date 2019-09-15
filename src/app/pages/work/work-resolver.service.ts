@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
-import {empty, Observable} from 'rxjs';
+import {Observable, EMPTY} from 'rxjs';
 import {WordpressService} from '../../services/wordpress.service';
 import {catchError} from 'rxjs/internal/operators';
 
@@ -16,7 +16,7 @@ export class WorkResolverService implements Resolve<any> {
       .pipe(catchError(err => {
         console.log(err);
         this.router.navigate(['/not-found']);
-        return empty();
+        return EMPTY;
       }));
   }
 }

@@ -66,7 +66,7 @@ export class AppComponent implements OnDestroy {
         this.loading = true;
       });
 
-      this.router.events
+    this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.loading = false;
@@ -104,7 +104,7 @@ export class AppComponent implements OnDestroy {
           });
 
         forkJoin(friendPageContent)
-          .subscribe((friends) => this.friendsStore.friends = friends)
+          .subscribe((friends) => this.friendsStore.friends = friends);
       });
   }
 

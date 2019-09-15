@@ -1,4 +1,4 @@
 blockquote q {
-  font-family: $title-font;
+  @include title-font();
   @include font-size(22);
 }

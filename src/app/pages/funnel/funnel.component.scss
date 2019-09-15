@@ -37,7 +37,7 @@
         
         &::before {
             content: counter(steps);
-            font-family: $title-font;
+            @include title-font();
             color: $color-white;
             background-color: $color-malibu;
             padding: $space-medium;

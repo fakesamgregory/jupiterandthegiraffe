@@ -1,6 +1,6 @@
-import {Directive, Input, ElementRef, HostListener, Inject, PLATFORM_ID} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
+import { isPlatformBrowser } from '@angular/common';
+import { Input, Directive, ElementRef, PLATFORM_ID, Inject, HostListener, Optional } from '@angular/core';
 
 @Directive({
   selector: '[appParallax]'
@@ -15,7 +15,7 @@ export class ParallaxDirective {
   constructor(
     private eleRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: any,
-    @Inject(WINDOW) private window: Window,
+    @Optional() @Inject(WINDOW) private window: Window,
   ) {
     if (isPlatformBrowser(this.platformId)) {
       this.initialTop = this.eleRef.nativeElement.getBoundingClientRect().top;
@@ -23,7 +23,7 @@ export class ParallaxDirective {
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)) {
       if (this.direction === 'horizontal') {

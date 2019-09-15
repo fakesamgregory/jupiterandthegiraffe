@@ -1,7 +1,6 @@
 import {isPlatformBrowser, DOCUMENT} from '@angular/common';
-import {environment} from '../environments/environment';
 import {WINDOW} from '@ng-toolkit/universal';
-import {Component, ElementRef, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnDestroy, PLATFORM_ID, ViewChild, Optional} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
@@ -16,7 +15,7 @@ import {forkJoin, of} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnDestroy {
   public showHeader = false;
   public isHome = false;
   public isFunnel = false;
@@ -31,18 +30,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private scrollInterval: any;
   public services: Array<any>;
 
-  @ViewChild('footer', {read: ElementRef}) footer: ElementRef;
-
-  public ngOnInit(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      const bases = this.document.getElementsByTagName('base');
-
-      if (bases.length > 0) {
-        bases[0].setAttribute('href', environment.baseHref);
-      }
-    }
-  }
-
   public ngOnDestroy() {
     if (this.scrollInterval) {
       clearTimeout(this.scrollInterval);
@@ -51,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: any,
-              @Inject(WINDOW) private window: Window,
+              @Optional() @Inject(WINDOW) private window: Window,
               private router: Router,
               private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
               @Inject(AosToken) aos,
@@ -79,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.loading = true;
       });
 
-      this.router.events
+    this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.loading = false;
@@ -89,10 +76,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
         if (event.url === '/') {
           this.hasBeenHome = true;
-        }
-
-        if (isPlatformBrowser(this.platformId)) {
-          this.footerPos = this.footer.nativeElement.children[0].getBoundingClientRect().top;
         }
 
         if (isPlatformBrowser(this.platformId)) {
@@ -121,8 +104,7 @@ export class AppComponent implements OnInit, OnDestroy {
           });
 
         forkJoin(friendPageContent)
-          .subscribe((friends) =>
-            friends.forEach(friend => this.friendsStore.addFriend(friend)));
+          .subscribe((friends) => this.friendsStore.friends = friends);
       });
   }
 

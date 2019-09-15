@@ -9,17 +9,17 @@ import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 })
 export class CookieBannerComponent implements OnInit {
   public showCookie = false;
-  private _hide = false;
+  private hideBanner = false;
 
   @Input()
   set hide(hide: boolean) {
-    this._hide = hide;
+    this.hideBanner = hide;
   }
 
-  get hide(): boolean { return this._hide; }
+  get hide(): boolean { return this.hideBanner; }
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) private platformId: object,
     @Inject(DOCUMENT) private document: any
   ) { }
 
@@ -37,7 +37,7 @@ export class CookieBannerComponent implements OnInit {
   }
 
   setCookie(name, value, days) {
-    const d = new Date;
+    const d = new Date();
     d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
     this.document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;
   }

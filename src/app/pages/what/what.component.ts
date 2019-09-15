@@ -15,8 +15,8 @@ export class WhatComponent {
   public activeIndex = null;
   public content: any;
   public services: any;
-  @ViewChild('fixedWrap') fixedWrap: ElementRef;
-  @ViewChild('scrollSection') scrollSection: ElementRef;
+  @ViewChild('fixedWrap', {static: false}) fixedWrap: ElementRef;
+  @ViewChild('scrollSection', {static: false}) scrollSection: ElementRef;
 
   constructor(
     private meta: Meta,

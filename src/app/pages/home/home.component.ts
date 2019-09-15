@@ -1,9 +1,9 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, Optional} from '@angular/core';
 import { isDevMode } from '@angular/core';
 import {WordpressService} from '../../services/wordpress.service';
 import { Meta, Title } from '@angular/platform-browser';
-import { WINDOW } from '@ng-toolkit/universal';
 import { isPlatformBrowser } from '@angular/common';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-home',
@@ -11,166 +11,166 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public error: Object;
-  public work: Object;
+  public error: any;
+  public work: any;
   public developmentMode = isDevMode();
   public showMyElement = false;
   public styles = [
     {
-      'elementType': 'geometry',
-      'stylers': [
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#f5f5f5'
+          color: '#f5f5f5'
         }
       ]
     },
     {
-      'elementType': 'labels.icon',
-      'stylers': [
+      elementType: 'labels.icon',
+      stylers: [
         {
-          'visibility': 'off'
+          visibility: 'off'
         }
       ]
     },
     {
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#616161'
+          color: '#616161'
         }
       ]
     },
     {
-      'elementType': 'labels.text.stroke',
-      'stylers': [
+      elementType: 'labels.text.stroke',
+      stylers: [
         {
-          'color': '#f5f5f5'
+          color: '#f5f5f5'
         }
       ]
     },
     {
-      'featureType': 'administrative.land_parcel',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'administrative.land_parcel',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#333333'
+          color: '#333333'
         }
       ]
     },
     {
-      'featureType': 'poi',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'poi',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#eeeeee'
+          color: '#eeeeee'
         }
       ]
     },
     {
-      'featureType': 'poi',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'poi',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#333333'
+          color: '#333333'
         }
       ]
     },
     {
-      'featureType': 'poi.park',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'poi.park',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#e5e5e5'
+          color: '#e5e5e5'
         }
       ]
     },
     {
-      'featureType': 'poi.park',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'poi.park',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#333333'
+          color: '#333333'
         }
       ]
     },
     {
-      'featureType': 'road',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'road',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#ffffff'
+          color: '#ffffff'
         }
       ]
     },
     {
-      'featureType': 'road.arterial',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'road.arterial',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#333333'
+          color: '#333333'
         }
       ]
     },
     {
-      'featureType': 'road.highway',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'road.highway',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#dadada'
+          color: '#dadada'
         }
       ]
     },
     {
-      'featureType': 'road.highway',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'road.highway',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#333333'
+          color: '#333333'
         }
       ]
     },
     {
-      'featureType': 'road.local',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'road.local',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#333333'
+          color: '#333333'
         }
       ]
     },
     {
-      'featureType': 'transit.line',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'transit.line',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#e5e5e5'
+          color: '#e5e5e5'
         }
       ]
     },
     {
-      'featureType': 'transit.station',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'transit.station',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#eeeeee'
+          color: '#eeeeee'
         }
       ]
     },
     {
-      'featureType': 'water',
-      'elementType': 'geometry',
-      'stylers': [
+      featureType: 'water',
+      elementType: 'geometry',
+      stylers: [
         {
-          'color': '#c9c9c9'
+          color: '#c9c9c9'
         }
       ]
     },
     {
-      'featureType': 'water',
-      'elementType': 'labels.text.fill',
-      'stylers': [
+      featureType: 'water',
+      elementType: 'labels.text.fill',
+      stylers: [
         {
-          'color': '#9e9e9e'
+          color: '#9e9e9e'
         }
       ]
     }
@@ -181,7 +181,7 @@ export class HomeComponent {
     private wordpress: WordpressService,
     private meta: Meta,
     private titleService: Title,
-    @Inject(WINDOW) private window: Window,
+    @Optional() @Inject(WINDOW) private window: Window,
     @Inject(PLATFORM_ID) private platformId: any
   ) {
 

@@ -26,6 +26,8 @@
   }
 
   &__tagline-border {
+    will-change: transform;
+
     @include md {
       max-width: 600px;
       border-left: 9px solid $color-malibu;
@@ -182,7 +184,7 @@
   }
 
   &__work-case-study {
-    font-family: $body-font;
+    @include body-font();
   }
   
   &__work-item {
@@ -203,7 +205,7 @@
       top: 50%;
       width: 100%;
       transform: translateY(-50%);
-      font-family: $title-font;
+      @include title-font();
 
       @include lg {
         opacity: 0;
@@ -226,6 +228,8 @@
       content: '';
       position: absolute;
       background-color: rgba($color-black, .6);
+      transition-property: opacity,transform;
+      will-change: opacity,transform;
       
       @include lg {
         background-color: rgba($color-black, 0);

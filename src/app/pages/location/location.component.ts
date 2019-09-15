@@ -10,7 +10,7 @@ import {WINDOW} from '@ng-toolkit/universal';
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent implements OnInit {
-  public location: String;
+  public location: string;
   public type: any;
 
   constructor(

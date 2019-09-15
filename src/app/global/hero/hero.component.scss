@@ -69,7 +69,7 @@
   }
 
   &__logo-text {
-    font-family: $title-font;
+    @include title-font();
     color: $color-primary;
     @include font-size(84);
     position: absolute;
@@ -79,7 +79,7 @@
   }
 
   &__text {
-    font-family: $title-font;
+    @include title-font();
     padding: 10px 0;
     @include font-size(14);
 

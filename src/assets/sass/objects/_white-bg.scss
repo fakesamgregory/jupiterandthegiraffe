@@ -30,7 +30,7 @@
   }
 
   .dash {
-    font-family: $title-font;
+    @include title-font();
     margin: 0 20px;
 
     @include md {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {WordpressService} from '../../services/wordpress.service';
-import {Observable, empty} from 'rxjs';
+import {Observable, EMPTY} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class PageResolverService implements Resolve<any> {
       .pipe(catchError(err => {
         console.log(err);
         this.router.navigate(['/not-found']);
-        return empty();
+        return EMPTY;
       }));
   }
 }

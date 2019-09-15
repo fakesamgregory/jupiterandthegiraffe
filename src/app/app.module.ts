@@ -1,12 +1,9 @@
-import {NgtUniversalModule} from '@ng-toolkit/universal';
 import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormatDataService} from './services/format-data.service';
 import {Angulartics2Module} from 'angulartics2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RecaptchaModule} from 'ng-recaptcha';
-import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
+import {RecaptchaModule, RecaptchaFormsModule} from 'ng-recaptcha';
 import {RECAPTCHA_SETTINGS, RecaptchaSettings} from 'ng-recaptcha';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
@@ -25,7 +22,6 @@ import {HeroComponent} from './global/hero/hero.component';
 import {HeaderComponent} from './global/header/header.component';
 import {LogoComponent} from './global/logo/logo.component';
 import {FriendsComponent} from './pages/home/friends/friends.component';
-import {SectionComponent} from './global/section/section.component';
 import {WorkResolverService} from './pages/work/work-resolver.service';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {GetInTouchComponent} from './global/get-in-touch/get-in-touch.component';
@@ -38,16 +34,20 @@ import { DeferLoadDirective } from './defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { ParallaxDirective } from './parallax.directive';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
 
 @NgModule({
   imports: [
+    BrowserModule,
     CommonModule,
-    NgtUniversalModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsApiKey,
     }),
 
     AppRoutingModule,
+    NgtUniversalModule,
 
     HttpClientModule,
     FormsModule,
@@ -71,7 +71,6 @@ import { ParallaxDirective } from './parallax.directive';
     LogoComponent,
     FriendsComponent,
     NotFoundComponent,
-    SectionComponent,
     TermsAndConditionsComponent,
     GetInTouchComponent,
     CookieBannerComponent,
@@ -91,7 +90,8 @@ import { ParallaxDirective } from './parallax.directive';
       provide: RECAPTCHA_SETTINGS,
       useValue: {siteKey: '6LcCT3UUAAAAAMXwUWkwfK5ELzsVOrt63JqAcAM7'} as RecaptchaSettings,
     }
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -7,7 +7,7 @@ import {Angulartics2, Angulartics2Module} from 'angulartics2';
 
 import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { RecaptchaFormsModule } from 'ng-recaptcha';
 import {SocialComponent} from '../../global/social/social.component';
 import {WINDOW} from '@ng-toolkit/universal';
 

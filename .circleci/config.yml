@@ -29,7 +29,6 @@ jobs:
           name: Replace Environment Variables
           command: |
             sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.ts
-            sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.serverless.ts
             sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.prod.ts
 
       - run:
@@ -91,7 +90,6 @@ jobs:
           name: Replace Environment Variables
           command: |
             sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.ts
-            sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.serverless.ts
             sed -i -e s/GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g src/environments/environment.prod.ts
 
       - run:

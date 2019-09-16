@@ -101,8 +101,8 @@ const routes: Routes = [
   { path: 'bali', component: LocationComponent, data: { location: 'Bali' } },
 
   // Not found
-  { path: 'not-found', component: NotFoundComponent },
-  { path: '**', redirectTo: '/not-found' }
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

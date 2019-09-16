@@ -28,6 +28,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/sitemap.xml",
+              "src/robots.txt",
               "src/pages.xml",
               "src/share-image.jpg",
               "src/logo.png"

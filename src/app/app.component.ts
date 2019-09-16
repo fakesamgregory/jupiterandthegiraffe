@@ -18,8 +18,8 @@ import {forkJoin, of} from 'rxjs';
 export class AppComponent implements OnDestroy {
   public showHeader = false;
   public isHome = false;
-  public isFunnel = false;
-  public isLandingPage = false;
+  public isFunnel: boolean;
+  public isLandingPage: boolean;
   public isKeyboardUser = false;
   public hasBeenHome = false;
   public hideCookie = false;
@@ -70,13 +70,9 @@ export class AppComponent implements OnDestroy {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.loading = false;
-        this.isHome = event.url === '/';
-        this.isFunnel = event.url === '/free-strategy';
-        this.isLandingPage = event.url === '/how-to-launch-an-awesome-tech-brand';
-
-        if (event.url === '/') {
-          this.hasBeenHome = true;
-        }
+        this.hasBeenHome = this.isHome = event.url === '/';
+        this.isFunnel = event.urlAfterRedirects.includes('free-strategy');
+        this.isLandingPage = event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand');
 
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);

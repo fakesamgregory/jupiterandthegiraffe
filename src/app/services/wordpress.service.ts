@@ -4,9 +4,25 @@ import { Observable } from 'rxjs';
 
 export interface DataObject {
   title: {rendered: string};
-  acf: {work_type: string, title: string};
+  acf: {
+    work_type: string, 
+    title: string, 
+    value: string, 
+    process: Array<any>,
+    email: string,
+    link: string,
+    crew: Array<any>,
+    thumbnail_image: any,
+    favourite_things: Array<any>,
+    books: Array<any>,
+    services: Array<any>,
+    link_text: string,
+    homepage_image: any,
+    favourite_title: string,
+  };
   excerpt: {rendered: string};
   _embedded: object;
+  content: {rendered: string};
 }
 
 @Injectable({

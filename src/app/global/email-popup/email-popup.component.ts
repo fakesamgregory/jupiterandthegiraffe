@@ -21,7 +21,7 @@ interface Post {
 export class EmailPopupComponent implements OnDestroy {
   @Input() windowClose: object;
   public emailSignup: FormGroup;
-  public submitted: unknown;
+  public submitted: any;
   public sending = false;
   private timeout: any;
   public error: string;

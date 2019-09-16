@@ -97,13 +97,6 @@ jobs:
             sed -i -e s/FIREBASE_API_KEY/$FIREBASE_API_KEY/g src/environments/environment.prod.ts
 
       - run:
-          name: Add robots TXT file
-          command: |
-            echo 'User-agent: *' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
-            echo 'Disallow: ' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
-            echo 'Sitemap: https://jupiterandthegiraffe.com/sitemap.xml' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
-
-      - run:
           name: Deploy Severless
           command: npm run build:prod:deploy
 

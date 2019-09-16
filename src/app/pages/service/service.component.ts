@@ -3,6 +3,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
+import { DataObject } from 'src/app/services/wordpress.service';
 
 @Component({
   selector: 'app-service',
@@ -10,7 +11,7 @@ import {WINDOW} from '@ng-toolkit/universal';
   styleUrls: ['./service.component.scss']
 })
 export class ServiceComponent {
-  public content: any;
+  public content: DataObject;
 
   constructor(
     private meta: Meta,

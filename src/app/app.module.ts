@@ -1,6 +1,5 @@
 import {CommonModule} from '@angular/common';
 import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
-import {FormatDataService} from './services/format-data.service';
 import {Angulartics2Module} from 'angulartics2';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule, RecaptchaFormsModule} from 'ng-recaptcha';
@@ -82,7 +81,6 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     ParallaxDirective,
   ],
   providers: [
-    FormatDataService,
     WorkResolverService,
     WINDOW_PROVIDERS,
     { provide: AosToken, useValue: aos },

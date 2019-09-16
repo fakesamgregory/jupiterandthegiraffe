@@ -16,7 +16,9 @@ export class CookieBannerComponent implements OnInit {
     this.hideBanner = hide;
   }
 
-  get hide(): boolean { return this.hideBanner; }
+  get hide(): boolean {
+    return this.hideBanner;
+  }
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object,
@@ -31,18 +33,18 @@ export class CookieBannerComponent implements OnInit {
     }
   }
 
-  getCookie(name) {
+  public getCookie(name: string): unknown {
     const v = this.document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
     return v ? v[2] : null;
   }
 
-  setCookie(name, value, days) {
+  public setCookie(name: string, value: boolean, days: number): void {
     const d = new Date();
     d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
     this.document.cookie = `${name}=${value};path=/;expires=${d.toUTCString()}`;
   }
 
-  dismiss() {
+  public dismiss(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.setCookie('cookieAcknowledged', true, 365);
       this.showCookie = false;

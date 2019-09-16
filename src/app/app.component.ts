@@ -113,7 +113,7 @@ export class AppComponent implements OnDestroy {
     this.menuOpen = forceState !== undefined ? forceState : !this.menuOpen;
   }
 
-  public scrollTo(data) {
+  public scrollTo(data): void {
     data.event.preventDefault();
 
     const target = data.target;
@@ -132,7 +132,7 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  scrollUp(e) {
+  public scrollUp(e): void {
     e.preventDefault();
     this.window.scrollTo({
       top: 0,

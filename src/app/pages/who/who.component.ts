@@ -3,14 +3,15 @@ import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
 import {ActivatedRoute} from '@angular/router';
+import { DataObject } from 'src/app/services/wordpress.service';
 
 @Component({
   templateUrl: './who.component.html',
   styleUrls: ['./who.component.scss']
 })
 export class WhoComponent {
-  public team: Array<any>;
-  public content: any;
+  public team: Array<DataObject>;
+  public content: DataObject;
 
   constructor(private meta: Meta,
               private titleService: Title,

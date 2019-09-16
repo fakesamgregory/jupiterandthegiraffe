@@ -3,7 +3,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
-import {WordpressService} from '../../services/wordpress.service';
+import {WordpressService, DataObject} from '../../services/wordpress.service';
 
 @Component({
   selector: 'app-case-study',
@@ -11,7 +11,7 @@ import {WordpressService} from '../../services/wordpress.service';
   styleUrls: ['./case-study.component.scss']
 })
 export class CaseStudyComponent implements OnInit {
-  public content;
+  public content: DataObject;
   public previousCaseStudy: any;
   public nextCaseStudy: any;
 

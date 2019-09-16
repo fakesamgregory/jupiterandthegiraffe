@@ -17,7 +17,7 @@ export class FooterComponent {
     {url: '/terms-and-conditions', name: 'Terms and Conditions', class: 'footer__general-item'},
     {url: '/privacy-policy', name: 'Privacy Policy', class: 'footer__general-item'}
   ];
-  public today: number = Date.now();
+  public today = Date.now();
 
   constructor(public highlightedFriendStore: HighlightedFriendsService) { }
 }

@@ -7,6 +7,12 @@ interface MailchimpResponse {
   msg: string;
 }
 
+interface Post {
+  b_name: string;
+  b_email: string;
+  b_comment: string;
+}
+
 @Component({
   selector: 'app-email-popup',
   templateUrl: './email-popup.component.html',
@@ -15,10 +21,10 @@ interface MailchimpResponse {
 export class EmailPopupComponent implements OnDestroy {
   @Input() windowClose: object;
   public emailSignup: FormGroup;
-  public submitted = null;
+  public submitted: unknown;
   public sending = false;
-  private timeout = null;
-  public error = '';
+  private timeout: any;
+  public error: string;
   private emailSignupUrl =
     '//jupiterandthegiraffe.us20.list-manage.com/subscribe/post-json?u=c25f6fc2b7f38aa344e8d5b4a&id=467e3cb96c';
 
@@ -35,7 +41,7 @@ export class EmailPopupComponent implements OnDestroy {
     }
   }
 
-  createForm() {
+  private createForm(): void {
     this.emailSignup = this.fb.group({
       MERGE0: ['', Validators.compose([Validators.required, Validators.email])],
       MERGE1: ['', Validators.compose([Validators.required])],
@@ -45,7 +51,7 @@ export class EmailPopupComponent implements OnDestroy {
     });
   }
 
-  sendForm(post) {
+  public sendForm(post: Post): void {
     if (!post.b_name && !post.b_email && !post.b_comment) {
       this.sending = true;
 

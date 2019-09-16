@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WordpressService } from '../../services/wordpress.service';
 
 @Component({
@@ -6,16 +6,13 @@ import { WordpressService } from '../../services/wordpress.service';
   templateUrl: './funnel.component.html',
   styleUrls: ['./funnel.component.scss']
 })
-export class FunnelComponent implements OnInit {
+export class FunnelComponent {
   public testimonials: any;
 
   constructor(
     private wordpress: WordpressService,
-  ) { }
-
-  ngOnInit() {
+  ) {
     this.wordpress.getPostType('quotes', {per_page: 3})
       .subscribe((quotes: Array<any>) => this.testimonials = quotes);
-  }
-
+   }
 }

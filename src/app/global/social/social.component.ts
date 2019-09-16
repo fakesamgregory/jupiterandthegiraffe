@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./social.component.scss']
 })
 export class SocialComponent {
-
   constructor() { }
 }

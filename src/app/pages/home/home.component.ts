@@ -1,5 +1,4 @@
 import {Component, Inject, PLATFORM_ID, Optional} from '@angular/core';
-import { isDevMode } from '@angular/core';
 import {WordpressService} from '../../services/wordpress.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
@@ -13,7 +12,6 @@ import { WINDOW } from '@ng-toolkit/universal';
 export class HomeComponent {
   public error: any;
   public work: any;
-  public developmentMode = isDevMode();
   public showMyElement = false;
   public styles = [
     {

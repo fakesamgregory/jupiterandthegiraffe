@@ -1,6 +1,6 @@
 import {isPlatformBrowser, DOCUMENT} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
-import {Component, ElementRef, HostListener, Inject, OnDestroy, PLATFORM_ID, ViewChild, Optional} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnDestroy, PLATFORM_ID, ViewChild, Optional, NgZone, OnInit} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 import {AosToken} from './aos';
@@ -15,7 +15,7 @@ import {forkJoin, of} from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   public showHeader = false;
   public isHome = false;
   public isFunnel: boolean;
@@ -29,11 +29,15 @@ export class AppComponent implements OnDestroy {
   public loading = false;
   private scrollInterval: any;
   public services: Array<any>;
+  private eventOptions: boolean|{capture?: boolean, passive?: boolean};
+  private isPassiveSupported = false;
 
   public ngOnDestroy() {
     if (this.scrollInterval) {
       clearTimeout(this.scrollInterval);
     }
+
+    this.window.removeEventListener('scroll', this.scroll, this.eventOptions as any);
   }
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
@@ -44,7 +48,8 @@ export class AppComponent implements OnDestroy {
               @Inject(AosToken) aos,
               public friendsStore: HighlightedFriendsService,
               public serviceStore: ServicesService,
-              private wordpress: WordpressService) {
+              private wordpress: WordpressService,
+              private ngZone: NgZone) {
 
     if (isPlatformBrowser(this.platformId)) {
       aos.init({
@@ -85,6 +90,50 @@ export class AppComponent implements OnDestroy {
 
     this.loadFriends();
     this.loadServices();
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.eventOptions = this.passiveSupported() ? {
+          capture: true,
+          passive: true
+      } : false;
+
+      this.ngZone.runOutsideAngular(() => {
+        this.window.addEventListener('scroll', this.scroll.bind(this), this.eventOptions as any);
+      });
+    }
+  }
+
+  private passiveSupported() {
+    let isPassiveSupported = false;
+    try {
+      const options = {
+        get passive() {
+          isPassiveSupported = true;
+          return true;
+        }
+      };
+
+      this.window.addEventListener('test', null, options);
+      this.window.removeEventListener('test', null);
+    } catch (err) {
+      isPassiveSupported = false;
+    }
+
+    return isPassiveSupported;
+  }
+
+  private scroll(): void {
+    if (Boolean(this.scrollInterval)) {
+      this.window.clearTimeout(this.scrollInterval);
+    }
+
+    this.scrollInterval = this.window.setTimeout(() => {
+      const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
+      this.showHeader = (scrollY > 400);
+      this.hideCookie = (scrollY > this.footerPos);
+    }, 50);
   }
 
   private loadFriends(): void {
@@ -138,22 +187,6 @@ export class AppComponent implements OnDestroy {
       top: 0,
       behavior: 'smooth',
     });
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    if (isPlatformBrowser(this.platformId)) {
-
-      if (Boolean(this.scrollInterval)) {
-        this.window.clearTimeout(this.scrollInterval);
-      }
-
-      this.scrollInterval = this.window.setTimeout(() => {
-        const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
-        this.showHeader = (scrollY > 400);
-        this.hideCookie = (scrollY > this.footerPos);
-      }, 50);
-    }
   }
 
   @HostListener('window:keydown', ['$event'])

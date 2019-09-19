@@ -37,7 +37,7 @@ export class AppComponent implements OnDestroy, OnInit {
       clearTimeout(this.scrollInterval);
     }
 
-    this.window.removeEventListener('scroll', this.scroll, <any>this.eventOptions);
+    this.window.removeEventListener('scroll', this.scroll, this.eventOptions as any);
   }
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
@@ -94,13 +94,13 @@ export class AppComponent implements OnDestroy, OnInit {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-        this.eventOptions = this.passiveSupported() ? {
-            capture: true,
-            passive: true
-        } : false;
+      this.eventOptions = this.passiveSupported() ? {
+          capture: true,
+          passive: true
+      } : false;
 
       this.ngZone.runOutsideAngular(() => {
-        this.window.addEventListener('scroll', this.scroll.bind(this), <any>this.eventOptions);
+        this.window.addEventListener('scroll', this.scroll.bind(this), this.eventOptions as any);
       });
     }
   }
@@ -108,13 +108,13 @@ export class AppComponent implements OnDestroy, OnInit {
   private passiveSupported() {
     let isPassiveSupported = false;
     try {
-      var options = {
+      const options = {
         get passive() {
           isPassiveSupported = true;
           return true;
         }
       };
-    
+
       this.window.addEventListener('test', null, options);
       this.window.removeEventListener('test', null);
     } catch(err) {

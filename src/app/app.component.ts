@@ -117,7 +117,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
       this.window.addEventListener('test', null, options);
       this.window.removeEventListener('test', null);
-    } catch(err) {
+    } catch (err) {
       isPassiveSupported = false;
     }
 

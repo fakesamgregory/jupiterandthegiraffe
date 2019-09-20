@@ -36,6 +36,7 @@ import { ParallaxDirective } from './parallax.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { ClimateStrikeComponent } from './global/climate-strike/climate-strike.component';
 
 @NgModule({
   imports: [
@@ -79,6 +80,7 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     BackButtonComponent,
     ServiceComponent,
     ParallaxDirective,
+    ClimateStrikeComponent,
   ],
   providers: [
     WorkResolverService,

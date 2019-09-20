@@ -1,0 +1,63 @@
+@import '../../../assets/sass/settings/colours';
+
+$color-climate-green: #4ee58b;
+
+.climate-strike {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    color: #000000;
+    z-index: 100;
+    text-align: center;
+    overflow-y: scroll;
+    font-family: "Lucida Console", Monaco, monospace;
+    padding: 50px 0;
+
+    &::after {
+        background: url('http://oooclimatestrike.com/images/texture-min-1.png');
+        opacity: .2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        z-index: -1;
+    }
+    
+
+    h1 {
+        background: $color-climate-green;
+        padding: 20px;
+        margin-top: 10px;
+
+        div {
+            text-transform: uppercase;
+        }
+    }
+    
+    .hashtag {
+        background: #000000;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0 10px;
+    }
+
+    &__logo {
+        width: 150px;
+    }
+
+    a {
+        color: $color-climate-green;
+        text-decoration: underline;
+        padding: 10px 15px;
+        display: inline-block;
+        background: #ffffff;
+        border: 1px solid #000000;
+        margin: 40px 0;
+    }
+}

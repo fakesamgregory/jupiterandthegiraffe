@@ -29,14 +29,15 @@ import {TermsAndConditionsComponent} from './pages/terms-and-conditions/terms-an
 import { CookieBannerComponent } from './global/cookie-banner/cookie-banner.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
-import { DeferLoadDirective } from './defer-load.directive';
+import { DeferLoadDirective } from './directives/defer-load.directive';
 import { BackButtonComponent } from './global/back-button/back-button.component';
 import { ServiceComponent } from './pages/service/service.component';
-import { ParallaxDirective } from './parallax.directive';
+import { ParallaxDirective } from './directives/parallax.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { ClimateStrikeComponent } from './global/climate-strike/climate-strike.component';
+import { VideoLoadDirective } from './directives/video-load.directive';
 
 @NgModule({
   imports: [
@@ -81,6 +82,7 @@ import { ClimateStrikeComponent } from './global/climate-strike/climate-strike.c
     ServiceComponent,
     ParallaxDirective,
     ClimateStrikeComponent,
+    VideoLoadDirective,
   ],
   providers: [
     WorkResolverService,

@@ -17,8 +17,18 @@
     }
   }
 
+  &__video {
+    max-width: 800px; 
+    margin: 0 auto;
+    margin-top: $space-xlrg; 
+
+    @include md {
+      margin-top: 0;
+    }
+  }
+
   &__tagline-wrapper {
-    height: 90vh; 
+    // height: 90vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;

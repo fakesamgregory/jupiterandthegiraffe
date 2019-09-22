@@ -2,6 +2,19 @@
   <div class="container-fluid">
     <h1 class="sr-only">Brand Strategy & Design studio for Future-Tech Companies and Startups</h1>
 
+    <section *ngIf="content?.acf.video_id">
+      <h2 class="sr-only">Who are Jupiter and the Giraffe?</h2>
+      
+      <div appParallax [ratio]=".15" class="home__video">
+        <div 
+          appVideoLoad 
+          class="home__video-container" 
+          [style.background-image]="'url(' + content.acf.video_poster + ')'"
+          [videoId]="content.acf.video_id"
+        >
+        </div>
+      </div>
+    </section>
 
     <div class="home__tagline-wrapper">
       <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
@@ -16,6 +29,7 @@
       </p>
     </div>
   </div>
+
 
   <section class="section" *ngIf="this.work" style="background: #93ccf8;">
     <div class="home__work-content container-fluid">

@@ -1,0 +1,19 @@
+import { Directive, Input, ElementRef, HostListener, Renderer, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appVideoLoad]'
+})
+export class VideoLoadDirective {
+  @Input('videoId') id = '';
+  constructor(
+    private _element: ElementRef,
+    private renderer: Renderer2
+    ) { }
+    
+  @HostListener('click') loadVideo(){
+    this.renderer.addClass(this._element.nativeElement, 'video--playing');
+    this._element.nativeElement.innerHTML = 
+      `<iframe src="https://www.youtube.com/embed/${this.id}?rel=0&showinfo=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+
+  }
+}

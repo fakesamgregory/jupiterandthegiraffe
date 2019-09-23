@@ -14,7 +14,7 @@ import {HeaderComponent} from './global/header/header.component';
 import {LogoComponent} from './global/logo/logo.component';
 import {CookieBannerComponent} from './global/cookie-banner/cookie-banner.component';
 import {EmailPopupComponent} from './global/email-popup/email-popup.component';
-import {ParallaxDirective} from './parallax.directive';
+import {ParallaxDirective} from './directives/parallax.directive';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

@@ -6,10 +6,6 @@
   </div>
   <ul class="header__menu list-unstyled" *ngIf="!funnel">
     <li>
-      <a routerLinkActive="header__active-link" [routerLink]="['/who-we-are']">Our story</a>
-    </li>
-
-    <li>
       <a routerLinkActive="header__active-link" [routerLink]="['/what-we-do']">What can we do?</a>
     </li>
 
@@ -46,10 +42,6 @@
 <ul class="header__menu-mobile" [ngClass]="{'header__menu-mobile--open': menuOpen}" *ngIf="!funnel">
   <li class="header__menu-mobile-item">
     <a routerLinkActive="header__active-link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}">Home</a>
-  </li>
-
-  <li class="header__menu-mobile-item">
-    <a routerLinkActive="header__active-link" [routerLink]="['/who-we-are']">Our story</a>
   </li>
 
   <li class="header__menu-mobile-item">

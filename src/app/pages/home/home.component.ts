@@ -12,6 +12,7 @@ import { WINDOW } from '@ng-toolkit/universal';
 export class HomeComponent {
   public error: any;
   public work: any;
+  public content: any;
   public showMyElement = false;
   public styles = [
     {
@@ -215,6 +216,12 @@ export class HomeComponent {
         content: this.window.location.href,
       });
     }
+
+    this.wordpress.getPageId(293)
+      .subscribe(data => {
+        console.log(data);
+        this.content = data;
+      });
 
     this.wordpress.getPostType('services')
       .subscribe(data => this.services = data);

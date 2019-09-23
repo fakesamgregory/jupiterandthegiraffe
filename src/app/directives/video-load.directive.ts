@@ -4,7 +4,8 @@ import { Directive, Input, ElementRef, HostListener, Renderer, Renderer2 } from 
   selector: '[appVideoLoad]'
 })
 export class VideoLoadDirective {
-  @Input('videoId') id = '';
+  // tslint:disable-next-line:no-input-rename
+  @Input('videoId') vidId = '';
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2
@@ -14,7 +15,7 @@ export class VideoLoadDirective {
     this.renderer.addClass(this.elementRef.nativeElement, 'video--playing');
     this.elementRef.nativeElement.innerHTML =
       `<iframe
-        src="https://www.youtube.com/embed/${this.id}?rel=0&showinfo=0&autoplay=1"
+        src="https://www.youtube.com/embed/${this.vidId}?rel=0&showinfo=0&autoplay=1"
         frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
         ></iframe>`;
 

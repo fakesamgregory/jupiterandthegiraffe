@@ -10,11 +10,11 @@ export class VideoLoadDirective {
     private renderer: Renderer2
     ) { }
 
-  @HostListener('click') loadVideo (){
+  @HostListener('click') loadVideo() {
     this.renderer.addClass(this.elementRef.nativeElement, 'video--playing');
     this.elementRef.nativeElement.innerHTML =
-      `<iframe 
-        src="https://www.youtube.com/embed/${this.id}?rel=0&showinfo=0&autoplay=1" 
+      `<iframe
+        src="https://www.youtube.com/embed/${this.id}?rel=0&showinfo=0&autoplay=1"
         frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
         ></iframe>`;
 

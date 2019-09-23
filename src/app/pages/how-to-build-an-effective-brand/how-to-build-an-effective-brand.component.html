@@ -52,9 +52,7 @@
                     Woops!
                   </h2>
 
-                  <p>
-                    {{submitted.msg}}
-                  </p>
+                  <p [innerHTML]="submitted.msg" class="text-left"></p>
                 </div>
 
                 <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
@@ -122,9 +120,7 @@
               Success!
             </h2>
 
-            <p>
-              {{submitted.msg}}.
-            </p>
+            <p [innerHTML]="submitted.msg" class="text-left"></p>
           </div>
           <ng-template #signup2>
               <form
@@ -143,9 +139,7 @@
                     Woops!
                   </h2>
 
-                  <p>
-                    {{submitted.msg}}
-                  </p>
+                  <p [innerHTML]="submitted.msg" class="text-left"></p>
                 </div>
 
                 <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">

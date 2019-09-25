@@ -185,8 +185,8 @@ export class HomeComponent {
   ) {
 
     const TITLE = 'Branding and Design for Future-Thinking Tech Companies';
-    const DESC = 'Helping future-thinking tech companies grow and stand out in the market because ' +
-      'revolutionary technology needs revolutionary design. Contact us now!';
+    const DESC = 'Branding future-thinking tech companies helping them grow and stand out in the market ' +
+      'because revolutionary technology needs revolutionary design. Contact us now!';
 
     this.titleService.setTitle(TITLE);
 

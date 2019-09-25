@@ -17,16 +17,16 @@
     </section>
 
     <div class="home__tagline-wrapper">
-      <h2 class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
-        <em class="hidden-md-up home__tagline-border">
+      <h2 class="home__tagline" data-aos="fade-in" data-aos-duration="1000" class="hidden-md-up">
+        <em class="home__tagline-border">
           A brand strategy and design studio that believes in the future of humanity. 
-          We help the companies behind the technology reach new users, grow and stand out in the market.
+          We help technology companies behind the tech reach new users, grow and stand out in the market.
         </em>
       </h2>
-      <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
-        <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;" class="hidden-md home__tagline-border">
+      <p class="home__tagline hidden-md" data-aos="fade-in" data-aos-duration="1000">
+        <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;" class="home__tagline-border">
           A brand strategy and design studio that believes in the future of humanity. 
-          We help the companies behind the technology reach new users, grow and stand out in the market.
+          We help technology companies behind the tech reach new users, grow and stand out in the market.
         </em>
       </p>
     </div>
@@ -94,9 +94,9 @@
 
       <p class="home__lead">
         We take your big idea, refine it through business strategy and 
-        execute it through bold design. We then build it into an unforgettable experience
+        execute it through precise branding and bold design. We then build it into an unforgettable experience
         helping you <strong>tell your story</strong> effectively to the world and 
-        enter your business into its new phase of growth.
+        enter your tech company into its new phase of growth.
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
@@ -156,7 +156,7 @@
 
   <div class="container-fluid text-center">
     <div class="padding-top--lg padding-bottom--lg">
-      <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+      <a [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
         <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
       </a>
     </div>
@@ -181,4 +181,3 @@
     </section>
   </div>
 </section>
-

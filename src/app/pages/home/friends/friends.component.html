@@ -1,5 +1,5 @@
 <section class="section section--break friends text-center">
-  <div class="container-fluid" (appDeferLoad)="showMyElement=true">
+  <div class="container-fluid">
     <header>
       <h2 class="text-center">Clients</h2>
     </header>
@@ -22,7 +22,7 @@
           [title]="'View ' + friend.title.rendered + ' case study'"
         >
           <img
-            *ngIf="showMyElement && friend.acf.logo"
+            *ngIf="friend.acf.logo"
             class="img-fluid friends__image"
             [src]="friend.acf.logo.sizes.medium"
             srcset="{{friend.acf.logo.sizes.medium}} 1x, {{friend.acf.logo.sizes.large}} 2x"
@@ -36,7 +36,7 @@
           [attr.data-aos-delay]="100 * i"
         >
           <img
-            *ngIf="showMyElement && friend.filename"
+            *ngIf="friend.filename"
             class="img-fluid friends__image"
             [src]="friend.sizes.medium"
             srcset="{{friend.sizes.medium}} 1x, {{friend.sizes.fullsize}} 2x"

@@ -34,156 +34,159 @@
     </div>
   </div>
 
-
-  <section class="section" *ngIf="this.work" style="background: #93ccf8;" (appDeferLoad)="showMyElement=true">
-    <div class="home__work-content container-fluid">
-      <header>
-        <h2>Latest Missions<span class="sr-only"> for Tech Companies and Startups</span></h2>
-      </header>
-  
-      <div class="row">
-        <div class="col-md-8">
-          <a 
-              class="home__work-item"
-              [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
-              [routerLink]="'/case-study/' + this.work[0].slug"
-              *ngIf="showMyElement"
-            >
-              <span class="text">
-                <span class="home__work-case-study">View<span class="sr-only"> {{this.work[0].title.rendered}}</span> case study</span>
-              </span>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <a
-              class="home__work-item"
-              [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-              [routerLink]="'/case-study/' + this.work[1].slug"
-              *ngIf="showMyElement"
+  <div (appDeferLoad)="showMyElement=true">
+    <section class="section" *ngIf="this.work" style="background: #93ccf8;">
+      <div class="home__work-content container-fluid">
+        <header>
+          <h2>Latest Missions<span class="sr-only"> for Tech Companies and Startups</span></h2>
+        </header>
+    
+        <div class="row">
+          <div class="col-md-8">
+            <a 
+                class="home__work-item"
+                [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
+                [routerLink]="'/case-study/' + this.work[0].slug"
+                *ngIf="showMyElement"
               >
-              <span class="text">
-                <span class="home__work-case-study">View<span class="sr-only"> {{this.work[1].title.rendered}}</span> case study</span>
-              </span>
-            </a>
-            <a
-              class="home__work-item"
-              [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-              [routerLink]="'/case-study/' + this.work[2].slug"
-              *ngIf="showMyElement"
-            >
-          <span class="text">
-            <span class="home__work-case-study">View<span class="sr-only"> {{this.work[2].title.rendered}}</span> case study</span>
-          </span>
-        </a>
+                <span class="text">
+                  <span class="home__work-case-study">View<span class="sr-only"> {{this.work[0].title.rendered}}</span> case study</span>
+                </span>
+              </a>
+            </div>
+            <div class="col-md-4">
+              <a
+                class="home__work-item"
+                [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+                [routerLink]="'/case-study/' + this.work[1].slug"
+                *ngIf="showMyElement"
+                >
+                <span class="text">
+                  <span class="home__work-case-study">View<span class="sr-only"> {{this.work[1].title.rendered}}</span> case study</span>
+                </span>
+              </a>
+              <a
+                class="home__work-item"
+                [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+                [routerLink]="'/case-study/' + this.work[2].slug"
+                *ngIf="showMyElement"
+              >
+            <span class="text">
+              <span class="home__work-case-study">View<span class="sr-only"> {{this.work[2].title.rendered}}</span> case study</span>
+            </span>
+          </a>
+          </div>
+        </div>
+    
+        <div class="text-center padding-top--lg padding-bottom--lg">
+          <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline">
+            <i aria-hidden="true">👍</i>
+            View the rest of our portfolio
+          </a>
         </div>
       </div>
+    </section>
   
-      <div class="text-center padding-top--lg padding-bottom--lg">
-        <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline">
-          <i aria-hidden="true">👍</i>
-          View the rest of our portfolio
+    <div class="container-fluid">
+      <section class="section home__services">
+        <header>
+          <h2>
+            <div class="sr-only">Branding and Design </div>
+            <span style="display: inline-block;">Services</span>
+            <div class="sr-only"> for Tech Companies and Startups</div>
+          </h2>
+        </header>
+  
+        <p class="home__lead">
+          We take your big idea, refine it through business strategy and 
+          execute it through precise branding and bold design. We then build it into an unforgettable experience
+          helping you <strong>tell your story</strong> effectively to the world and 
+          enter your tech company into its new phase of growth.
+        </p>
+  
+        <div class="row">
+          <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="100 * i">
+            <img
+              *ngIf="showMyElement"
+              [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
+              [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
+              [alt]="service._embedded['wp:featuredmedia'][0].alt_text"
+              class="img-fluid"
+            >
+  
+            <h3>{{service.title.rendered}}</h3>
+  
+            <div [innerHTML]="service.excerpt.rendered"></div>
+  
+            <div class="hidden-md-up">
+              <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark ">Learn more about {{service.title.rendered}}</a>
+            </div>
+          </section>
+        </div>
+        <div class="row hidden-md">
+          <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
+              <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more <span class="sr-only">about {{service.title.rendered}}</span></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<div (appDeferLoad)="showMyElement=true">
+  <app-friends-component *ngIf="showMyElement"></app-friends-component>
+
+  <section class="home">
+    <div class="container-fluid">
+      <section>
+        <header>
+          <h2>
+            <div class="sr-only">Remote Brand Strategy and Design Studio - </div>
+            Creativity Without Borders
+          </h2>
+        </header>
+
+        <p class="home__lead">
+          We believe in the remote working revolution, travelling the world bringing the cream of the crop talent that is bespoke to your needs.
+        </p>
+      </section>
+    </div>
+    <div *ngIf="showMyElement">
+      <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
+                [streetViewControl]="false" [styles]="styles">
+        <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
+        <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
+        <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
+        <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
+        <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
+      </agm-map>
+    </div>
+
+    <div class="container-fluid text-center">
+      <div class="padding-top--lg padding-bottom--lg">
+        <a [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+          <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
         </a>
       </div>
+
+      <div class="section"></div>
+
+      <section class="section text-center">
+        <header>
+          <h2 class="text-center">Ready to Launch?</h2>
+        </header>
+
+        <p class="home__lead">
+          Enough talking, let's get right to it.
+        </p>
+
+        <div>
+          <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--black">
+            <span aria-hidden="true" class="vertical-align">🚀 </span>
+            Let's go!
+          </a>
+        </div>
+      </section>
     </div>
   </section>
-
-  <div class="container-fluid">
-    <section class="section home__services">
-      <header>
-        <h2>
-          <div class="sr-only">Branding and Design </div>
-          <span style="display: inline-block;">Services</span>
-          <div class="sr-only"> for Tech Companies and Startups</div>
-        </h2>
-      </header>
-
-      <p class="home__lead">
-        We take your big idea, refine it through business strategy and 
-        execute it through precise branding and bold design. We then build it into an unforgettable experience
-        helping you <strong>tell your story</strong> effectively to the world and 
-        enter your tech company into its new phase of growth.
-      </p>
-
-      <div class="row" (appDeferLoad)="showMyElement=true">
-        <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="100 * i">
-          <img
-            *ngIf="showMyElement"
-            [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
-            [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
-            [alt]="service._embedded['wp:featuredmedia'][0].alt_text"
-            class="img-fluid"
-          >
-
-          <h3>{{service.title.rendered}}</h3>
-
-          <div [innerHTML]="service.excerpt.rendered"></div>
-
-          <div class="hidden-md-up">
-            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark ">Learn more about {{service.title.rendered}}</a>
-          </div>
-        </section>
-      </div>
-      <div class="row hidden-md">
-        <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
-            <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more <span class="sr-only">about {{service.title.rendered}}</span></a>
-        </div>
-      </div>
-    </section>
-  </div>
-</section>
-
-<app-friends-component></app-friends-component>
-
-<section class="home" (appDeferLoad)="showMyElement=true">
-  <div class="container-fluid">
-    <section>
-      <header>
-        <h2>
-          <div class="sr-only">Remote Brand Strategy and Design Studio - </div>
-          Creativity Without Borders
-        </h2>
-      </header>
-
-      <p class="home__lead">
-        We believe in the remote working revolution, travelling the world bringing the cream of the crop talent that is bespoke to your needs.
-      </p>
-    </section>
-  </div>
-  <div *ngIf="showMyElement">
-    <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
-              [streetViewControl]="false" [styles]="styles">
-      <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
-      <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
-      <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
-      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
-      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
-    </agm-map>
-  </div>
-
-  <div class="container-fluid text-center">
-    <div class="padding-top--lg padding-bottom--lg">
-      <a [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
-        <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
-      </a>
-    </div>
-
-    <div class="section"></div>
-
-    <section class="section text-center">
-      <header>
-        <h2 class="text-center">Ready to Launch?</h2>
-      </header>
-
-      <p class="home__lead">
-        Enough talking, let's get right to it.
-      </p>
-
-      <div>
-        <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--black">
-          <span aria-hidden="true" class="vertical-align">🚀 </span>
-          Let's go!
-        </a>
-      </div>
-    </section>
-  </div>
-</section>
+</div>

@@ -17,21 +17,25 @@
     </section>
 
     <div class="home__tagline-wrapper">
-      <p class="home__tagline" data-aos="fade-in" data-aos-duration="1000">
-        <em class="hidden-md-up home__tagline-border">
-          A brand strategy and design studio that believes in the future of humanity. 
-          We help the companies behind the technology reach new users, grow and stand out in the market.
-        </em>
-        <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;" class="hidden-md home__tagline-border">
-          A brand strategy and design studio that believes in the future of humanity. 
-          We help the companies behind the technology reach new users, grow and stand out in the market.
-        </em>
-      </p>
+      <div data-aos="fade-in" data-aos-duration="1000" >
+        <h2 class="home__tagline" class="hidden-md-up">
+          <em class="home__tagline-border">
+            A brand strategy and design studio that believes in the future of humanity. 
+            We help technology companies behind the tech reach new users, grow and stand out in the market.
+          </em>
+        </h2>
+        <p class="home__tagline hidden-md">
+          <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;" class="home__tagline-border">
+            A brand strategy and design studio that believes in the future of humanity. 
+            We help technology companies behind the tech reach new users, grow and stand out in the market.
+          </em>
+        </p>
+      </div>
     </div>
   </div>
 
 
-  <section class="section" *ngIf="this.work" style="background: #93ccf8;">
+  <section class="section" *ngIf="this.work" style="background: #93ccf8;" (appDeferLoad)="showMyElement=true">
     <div class="home__work-content container-fluid">
       <header>
         <h2>Latest Missions<span class="sr-only"> for Tech Companies and Startups</span></h2>
@@ -43,27 +47,30 @@
               class="home__work-item"
               [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
               [routerLink]="'/case-study/' + this.work[0].slug"
+              *ngIf="showMyElement"
             >
-            <span class="text">
+              <span class="text">
                 <span class="home__work-case-study">View<span class="sr-only"> {{this.work[0].title.rendered}}</span> case study</span>
-            </span>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            [routerLink]="'/case-study/' + this.work[1].slug"
-          >
-            <span class="text">
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a
+              class="home__work-item"
+              [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+              [routerLink]="'/case-study/' + this.work[1].slug"
+              *ngIf="showMyElement"
+              >
+              <span class="text">
                 <span class="home__work-case-study">View<span class="sr-only"> {{this.work[1].title.rendered}}</span> case study</span>
-            </span>
-          </a>
-          <a
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            [routerLink]="'/case-study/' + this.work[2].slug"
-          >
+              </span>
+            </a>
+            <a
+              class="home__work-item"
+              [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+              [routerLink]="'/case-study/' + this.work[2].slug"
+              *ngIf="showMyElement"
+            >
           <span class="text">
             <span class="home__work-case-study">View<span class="sr-only"> {{this.work[2].title.rendered}}</span> case study</span>
           </span>
@@ -92,9 +99,9 @@
 
       <p class="home__lead">
         We take your big idea, refine it through business strategy and 
-        execute it through bold design. We then build it into an unforgettable experience
+        execute it through precise branding and bold design. We then build it into an unforgettable experience
         helping you <strong>tell your story</strong> effectively to the world and 
-        enter your business into its new phase of growth.
+        enter your tech company into its new phase of growth.
       </p>
 
       <div class="row" (appDeferLoad)="showMyElement=true">
@@ -127,7 +134,7 @@
 
 <app-friends-component></app-friends-component>
 
-<section class="home">
+<section class="home" (appDeferLoad)="showMyElement=true">
   <div class="container-fluid">
     <section>
       <header>
@@ -142,19 +149,20 @@
       </p>
     </section>
   </div>
-
-  <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
-            [streetViewControl]="false" [styles]="styles">
-    <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
-    <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
-    <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
-    <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
-    <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
-  </agm-map>
+  <div *ngIf="showMyElement">
+    <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
+              [streetViewControl]="false" [styles]="styles">
+      <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
+      <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
+      <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
+      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
+      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
+    </agm-map>
+  </div>
 
   <div class="container-fluid text-center">
     <div class="padding-top--lg padding-bottom--lg">
-      <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+      <a [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
         <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
       </a>
     </div>
@@ -179,4 +187,3 @@
     </section>
   </div>
 </section>
-

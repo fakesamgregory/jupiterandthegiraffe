@@ -35,7 +35,7 @@
   </div>
 
 
-  <section class="section" *ngIf="this.work" style="background: #93ccf8;">
+  <section class="section" *ngIf="this.work" style="background: #93ccf8;" (appDeferLoad)="showMyElement=true">
     <div class="home__work-content container-fluid">
       <header>
         <h2>Latest Missions<span class="sr-only"> for Tech Companies and Startups</span></h2>
@@ -47,27 +47,30 @@
               class="home__work-item"
               [ngStyle]="{'background-image': 'url(' + this.work[0].acf.homepage_image.sizes.medium_large + ')'}"
               [routerLink]="'/case-study/' + this.work[0].slug"
+              *ngIf="showMyElement"
             >
-            <span class="text">
+              <span class="text">
                 <span class="home__work-case-study">View<span class="sr-only"> {{this.work[0].title.rendered}}</span> case study</span>
-            </span>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            [routerLink]="'/case-study/' + this.work[1].slug"
-          >
-            <span class="text">
+              </span>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a
+              class="home__work-item"
+              [ngStyle]="{'background-image': 'url(' + this.work[1]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+              [routerLink]="'/case-study/' + this.work[1].slug"
+              *ngIf="showMyElement"
+              >
+              <span class="text">
                 <span class="home__work-case-study">View<span class="sr-only"> {{this.work[1].title.rendered}}</span> case study</span>
-            </span>
-          </a>
-          <a
-            class="home__work-item"
-            [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
-            [routerLink]="'/case-study/' + this.work[2].slug"
-          >
+              </span>
+            </a>
+            <a
+              class="home__work-item"
+              [ngStyle]="{'background-image': 'url(' + this.work[2]._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ')'}"
+              [routerLink]="'/case-study/' + this.work[2].slug"
+              *ngIf="showMyElement"
+            >
           <span class="text">
             <span class="home__work-case-study">View<span class="sr-only"> {{this.work[2].title.rendered}}</span> case study</span>
           </span>
@@ -131,7 +134,7 @@
 
 <app-friends-component></app-friends-component>
 
-<section class="home">
+<section class="home" (appDeferLoad)="showMyElement=true">
   <div class="container-fluid">
     <section>
       <header>
@@ -146,15 +149,16 @@
       </p>
     </section>
   </div>
-
-  <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
-            [streetViewControl]="false" [styles]="styles">
-    <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
-    <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
-    <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
-    <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
-    <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
-  </agm-map>
+  <div *ngIf="showMyElement">
+    <agm-map [zoom]="2" [latitude]="0" [longitude]="115.1385" [mapDraggable]="true" [scrollwheel]="false" [zoomControl]="false"
+              [streetViewControl]="false" [styles]="styles">
+      <agm-marker [latitude]="-8.6478" [longitude]="115.1385" aria-label="Bali"></agm-marker>
+      <agm-marker [latitude]="3.1390" [longitude]="101.6869" [opacity]=".7" aria-label="Kuala Lumpur"></agm-marker>
+      <agm-marker [latitude]="-37.8136" [longitude]="144.9631" [opacity]=".7" aria-label="Melbourne"></agm-marker>
+      <agm-marker [latitude]="-33.8688197" [longitude]="151.2092955" [opacity]=".7" aria-label="Sydney"></agm-marker>
+      <agm-marker [latitude]="51.5074" [longitude]="0.1278" [opacity]=".7" aria-label="London"></agm-marker>
+    </agm-map>
+  </div>
 
   <div class="container-fluid text-center">
     <div class="padding-top--lg padding-bottom--lg">

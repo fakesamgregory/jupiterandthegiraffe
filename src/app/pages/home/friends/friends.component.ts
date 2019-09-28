@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, ViewChild, OnInit} from '@angular/core';
 import {WordpressService} from '../../../services/wordpress.service';
 import {HighlightedFriendsService} from '../../../stores/highlighted-friends.service';
 
@@ -7,7 +7,7 @@ import {HighlightedFriendsService} from '../../../stores/highlighted-friends.ser
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnDestroy {
+export class FriendsComponent implements OnDestroy, OnInit {
   public quotes: Array<any>;
   public currentActiveSlide = 1;
   private timeout = null;
@@ -18,6 +18,9 @@ export class FriendsComponent implements OnDestroy {
     private wordpress: WordpressService,
     public highlightedFriendStore: HighlightedFriendsService
   ) {
+  }
+
+  ngOnInit() {
     this.wordpress.getPostType('quotes')
       .subscribe((quotes: Array<any>) => {
         this.quotes = quotes;

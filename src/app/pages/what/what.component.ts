@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './what.component.html',
   styleUrls: ['./what.component.scss']
 })
-export class WhatComponent {
+export class WhatComponent implements OnInit {
   public fixSidebar = false;
   public fixedCSS: object;
   private scrollInterval: number;
@@ -24,7 +24,9 @@ export class WhatComponent {
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
-    private actr: ActivatedRoute) {
+    private actr: ActivatedRoute) { }
+
+  ngOnInit() {
     this.actr.data
       .subscribe(res => {
         this.content = res.data[1];

@@ -56,7 +56,8 @@
   }
 
   &__logo {
-    font-family: 'KG-SummerStorm';
+    font-family: 'KG-SummerStorm', Arial, sans-serif;
+    text-transform: uppercase;
 
     a {
       @include hover-focus {

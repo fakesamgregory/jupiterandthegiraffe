@@ -1,4 +1,4 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {WINDOW} from '@ng-toolkit/universal';
@@ -14,7 +14,7 @@ declare global {
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss']
 })
-export class WorkComponent {
+export class WorkComponent implements OnInit {
   public work: DataObject;
   public error;
   public showMyElement = false;
@@ -26,8 +26,10 @@ export class WorkComponent {
     private router: Router,
     @Inject(PLATFORM_ID) private platformId,
     @Inject(WINDOW) private window: Window
-    ) {
-    this.actr.data
+    ) { }
+
+    ngOnInit() {
+      this.actr.data
       .subscribe(res => {
         this.work = res.work;
 
@@ -82,10 +84,10 @@ export class WorkComponent {
         }
       });
 
-    if (isPlatformBrowser(this.platformId)) {
-      this.window.hoverEffect = this.window.hoverEffect || {};
+      if (isPlatformBrowser(this.platformId)) {
+        this.window.hoverEffect = this.window.hoverEffect || {};
+      }
     }
-  }
 
   public load(e) {
     if (isPlatformBrowser(this.platformId)) {

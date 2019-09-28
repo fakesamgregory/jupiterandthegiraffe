@@ -1,4 +1,4 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
@@ -10,7 +10,7 @@ import { DataObject } from 'src/app/services/wordpress.service';
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.scss']
 })
-export class ServiceComponent {
+export class ServiceComponent implements OnInit {
   public content: DataObject;
 
   constructor(
@@ -19,7 +19,9 @@ export class ServiceComponent {
     private actr: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId,
     @Inject(WINDOW) private window: Window,
-    private router: Router) {
+    private router: Router) { }
+
+  ngOnInit() {
     this.actr.data
       .subscribe(res => {
         if (!res.data[0]) {

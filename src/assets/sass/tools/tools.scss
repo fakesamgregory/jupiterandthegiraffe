@@ -107,11 +107,18 @@ $positions: top left right bottom;
 }
 
 @mixin title-font() {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
+  text-transform: uppercase;
+  font-style: italic;
 }
 
 @mixin body-font() {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
+}
+
+@mixin body-bold-font() {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
 }

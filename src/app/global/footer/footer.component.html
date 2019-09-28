@@ -1,6 +1,6 @@
 <footer class="footer" ngClass="{'footer--hide': hide}" (appDeferLoad)="showMyElement=true">
     <div class="container-fluid">
-      <blockquote class="text-center">
+      <blockquote class="text-center" aria-hidden="true">
         <q>You've made it to the bottom!</q>
         <footer>Jupiter and the Giraffe</footer>
       </blockquote>
@@ -100,7 +100,7 @@
           </ul>
         </div>
         <div class="col-md-4 footer__menu">
-          <div class="pull-right">
+          <div class="pull-right" aria-hidden="true">
             © {{ today | date:'yyyy' }} Jupiter and the Giraffe Ltd.
           </div>
         </div>

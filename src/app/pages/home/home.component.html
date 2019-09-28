@@ -21,13 +21,13 @@
         <h2 class="home__tagline" class="hidden-md-up">
           <em class="home__tagline-border">
             A brand strategy and design studio that believes in the future of humanity. 
-            We help technology companies behind the tech reach new users, grow and stand out in the market.
+            We help technology companies behind the tech reach new users, scale and stand out in the market.
           </em>
         </h2>
         <p class="home__tagline hidden-md">
           <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;" class="home__tagline-border">
             A brand strategy and design studio that believes in the future of humanity. 
-            We help technology companies behind the tech reach new users, grow and stand out in the market.
+            We help technology companies behind the tech reach new users, scale and stand out in the market.
           </em>
         </p>
       </div>
@@ -38,7 +38,7 @@
     <section class="section" *ngIf="this.work" style="background: #93ccf8;">
       <div class="home__work-content container-fluid">
         <header>
-          <h2>Latest Missions<span class="sr-only"> for Tech Companies and Startups</span></h2>
+          <h2>Latest Applications<span class="sr-only"> for Tech Companies and Startups</span></h2>
         </header>
     
         <div class="row">
@@ -80,7 +80,6 @@
     
         <div class="text-center padding-top--lg padding-bottom--lg">
           <a href="" [routerLink]="['/work']" class="btn btn--lg btn--outline">
-            <i aria-hidden="true">👍</i>
             View the rest of our portfolio
           </a>
         </div>
@@ -98,36 +97,46 @@
         </header>
   
         <p class="home__lead">
-          We take your big idea, refine it through business strategy and 
-          execute it through precise branding and bold design. We then build it into an unforgettable experience
-          helping you <strong>tell your story</strong> effectively to the world and 
-          enter your tech company into its new phase of growth.
+          Jupiter and the Giraffe is <em>the</em>&nbsp;<strong>brand strategy</strong> and <strong>digital design studio</strong> for <strong>technology companies</strong>.
+          We're extremely passionate about building brands who's tech will empower the lives of many and drive towards a better future.
+          Our data-driven and creative insight combined with beautiful design means your brand is deployed with clarity and depth.
         </p>
-  
-        <div class="row">
-          <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="100 * i">
-            <img
-              *ngIf="showMyElement"
-              [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
-              [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
-              [alt]="service._embedded['wp:featuredmedia'][0].alt_text"
-              class="img-fluid"
-            >
-  
-            <h3>{{service.title.rendered}}</h3>
-  
-            <div [innerHTML]="service.excerpt.rendered"></div>
-  
-            <div class="hidden-md-up">
-              <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark ">Learn more about {{service.title.rendered}}</a>
+        
+        <div class="home__services">
+          <div class="row">
+            <section *ngFor="let service of services; let i = index;" class="col-md-4 margin-bottom--lg text-left" data-aos="fade-up" [attr.data-aos-delay]="100 * i">              <img
+                *ngIf="showMyElement"
+                [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
+                [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
+                [alt]="service._embedded['wp:featuredmedia'][0].alt_text"
+                class="img-fluid"
+              >
+    
+              <h3 class="home__service-title">{{service.title.rendered}}</h3>
+              
+              <div class="home__service-text">
+                <div [innerHTML]="service.excerpt.rendered"></div>
+      
+                <div class="hidden-md-up">
+                  <a [routerLink]="'/service/' + service.slug">Learn more about {{service.title.rendered}}</a>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="row hidden-md">
+            <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
+              <div class="home__service-learn">
+                <a [routerLink]="'/service/' + service.slug">Learn more <span class="sr-only">about {{service.title.rendered}}</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
             </div>
-          </section>
-        </div>
-        <div class="row hidden-md">
-          <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
-              <a [routerLink]="'/service/' + service.slug" class="btn btn--lg btn--outline btn--dark">Learn more <span class="sr-only">about {{service.title.rendered}}</span></a>
           </div>
         </div>
+
+        <div class="text-center padding-top--lg padding-bottom--lg">
+            <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
+              What can we do?
+            </a>
+          </div>
       </section>
     </div>
   </div>
@@ -140,14 +149,12 @@
     <div class="container-fluid">
       <section>
         <header>
-          <h2>
-            <div class="sr-only">Remote Brand Strategy and Design Studio - </div>
-            Creativity Without Borders
-          </h2>
+          <h2><div class="sr-only">Remote Brand Strategy and Design Studio - </div>
+            Creativity Without Borders</h2>
         </header>
 
         <p class="home__lead">
-          We believe in the remote working revolution, travelling the world bringing the cream of the crop talent that is bespoke to your needs.
+          We believe in the remote working revolution. Our vast world-wide network means we can bring you cream of the crop talent that is bespoke to your needs.
         </p>
       </section>
     </div>
@@ -165,7 +172,7 @@
     <div class="container-fluid text-center">
       <div class="padding-top--lg padding-bottom--lg">
         <a [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--dark">
-          <span aria-hidden="true" class="vertical-align">✉️ </span>Work with us
+          Work with us
         </a>
       </div>
 
@@ -176,7 +183,7 @@
           <h2 class="text-center">Ready to Launch?</h2>
         </header>
 
-        <p class="home__lead">
+        <p>
           Enough talking, let's get right to it.
         </p>
 

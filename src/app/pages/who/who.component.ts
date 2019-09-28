@@ -1,4 +1,4 @@
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
@@ -9,7 +9,7 @@ import { DataObject } from 'src/app/services/wordpress.service';
   templateUrl: './who.component.html',
   styleUrls: ['./who.component.scss']
 })
-export class WhoComponent {
+export class WhoComponent implements OnInit {
   public team: Array<DataObject>;
   public content: DataObject;
 
@@ -17,7 +17,9 @@ export class WhoComponent {
               private titleService: Title,
               @Inject(PLATFORM_ID) private platformId,
               @Inject(WINDOW) private window: Window,
-              private actr: ActivatedRoute) {
+              private actr: ActivatedRoute) { }
+
+  ngOnInit() {
     this.actr.data
       .subscribe(res => {
         this.team = res.data[0];

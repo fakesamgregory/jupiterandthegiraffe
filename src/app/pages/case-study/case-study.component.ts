@@ -30,60 +30,60 @@ export class CaseStudyComponent implements OnInit {
     if (!this.content) {
       this.router.navigate(['/not-found']);
     } else {
-    const TITLE = `${this.content.title.rendered} | ${this.content.acf.work_type} | Juptiter and the Giraffe`;
-    const DESC = this.content.excerpt.rendered.replace(/<[^>]*>/g, '');
+      const TITLE = `${this.content.title.rendered} | ${this.content.acf.work_type} | Juptiter and the Giraffe`;
+      const DESC = this.content.excerpt.rendered.replace(/<[^>]*>/g, '');
 
-    this.titleService.setTitle(TITLE);
+      this.titleService.setTitle(TITLE);
 
-    this.meta.updateTag({
-      property: 'og:image',
-      content: this.content._embedded['wp:featuredmedia'][0].source_url,
-    });
-    this.meta.updateTag({
-      name: 'twitter:image',
-      content: this.content._embedded['wp:featuredmedia'][0].source_url,
-    });
-    this.meta.updateTag({
-      name: 'twitter:image:alt',
-      content: this.content._embedded['wp:featuredmedia'][0].alt || '',
-    });
-
-    this.meta.updateTag({
-      property: 'og:description',
-      content: DESC
-    });
-    this.meta.updateTag({
-      name: 'description',
-      content: DESC,
-    });
-    this.meta.updateTag({
-      name: 'twitter:title',
-      content: TITLE
-    });
-    this.meta.updateTag({
-      name: 'twitter:description',
-      content: DESC
-    });
-    this.meta.updateTag({
-      property: 'og:title',
-      content: TITLE
-    });
-
-    if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
-        property: 'og:url',
-        content: this.window.location.href,
+        property: 'og:image',
+        content: this.content._embedded['wp:featuredmedia'][0].source_url,
       });
-    }
+      this.meta.updateTag({
+        name: 'twitter:image',
+        content: this.content._embedded['wp:featuredmedia'][0].source_url,
+      });
+      this.meta.updateTag({
+        name: 'twitter:image:alt',
+        content: this.content._embedded['wp:featuredmedia'][0].alt || '',
+      });
 
-    this.wordpress.getPostType('friends')
-      .subscribe(data => {
-        data.forEach((caseStudy: any, index: number) => {
-          if (this.content.title.rendered === caseStudy.title.rendered) {
-            this.nextCaseStudy = data[index + 1];
-          }
-        });
+      this.meta.updateTag({
+        property: 'og:description',
+        content: DESC
       });
+      this.meta.updateTag({
+        name: 'description',
+        content: DESC,
+      });
+      this.meta.updateTag({
+        name: 'twitter:title',
+        content: TITLE
+      });
+      this.meta.updateTag({
+        name: 'twitter:description',
+        content: DESC
+      });
+      this.meta.updateTag({
+        property: 'og:title',
+        content: TITLE
+      });
+
+      if (isPlatformBrowser(this.platformId)) {
+        this.meta.updateTag({
+          property: 'og:url',
+          content: this.window.location.href,
+        });
+      }
+
+      this.wordpress.getPostType('friends')
+        .subscribe(data => {
+          data.forEach((caseStudy: any, index: number) => {
+            if (this.content.title.rendered === caseStudy.title.rendered) {
+              this.nextCaseStudy = data[index + 1];
+            }
+          });
+        });
     }
   }
 }

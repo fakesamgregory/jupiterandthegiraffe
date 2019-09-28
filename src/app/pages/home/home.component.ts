@@ -1,4 +1,4 @@
-import {Component, Inject, PLATFORM_ID, Optional} from '@angular/core';
+import {Component, Inject, PLATFORM_ID, Optional, OnInit} from '@angular/core';
 import {WordpressService} from '../../services/wordpress.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
@@ -9,7 +9,7 @@ import { WINDOW } from '@ng-toolkit/universal';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   public error: any;
   public work: any;
   public content: any;
@@ -182,11 +182,12 @@ export class HomeComponent {
     private titleService: Title,
     @Optional() @Inject(WINDOW) private window: Window,
     @Inject(PLATFORM_ID) private platformId: any
-  ) {
+  ) { }
 
+  ngOnInit() {
     const TITLE = 'Branding and Design for Future-Thinking Tech Companies';
-    const DESC = 'Branding future-thinking tech companies helping them grow and stand out in the market ' +
-      'because revolutionary technology needs revolutionary design. Contact us now!';
+    const DESC = 'Branding future-thinking tech companies helping them scale and stand out in the market. ' +
+      '\'Cause revolutionary technology needs revolutionary design. Contact us now!';
 
     this.titleService.setTitle(TITLE);
 
@@ -218,10 +219,7 @@ export class HomeComponent {
     }
 
     this.wordpress.getPageId(293)
-      .subscribe(data => {
-        console.log(data);
-        this.content = data;
-      });
+      .subscribe(data => this.content = data);
 
     this.wordpress.getPostType('services')
       .subscribe(data => this.services = data);

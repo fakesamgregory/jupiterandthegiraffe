@@ -173,6 +173,7 @@
     @include md {
       @include font-size($font-lead-desk);
       margin-bottom: 50px;
+      padding: 0 100px 0 20px;
     }
   }
   
@@ -324,6 +325,40 @@
   &__tagline-break {
     @include sm {
       display: block;
+    }
+  }
+
+  &__service-title {
+    background: $color-malibu;
+    padding: $space-medium;
+    margin: 0;
+  }
+
+  &__service-text, &__service-learn {
+    padding: $space-large $space-large 0;
+  }
+
+  &__service-learn {
+    padding-top: 0;
+
+    .fa {
+      padding-left: 5px;
+      vertical-align: middle;
+      transition: transform .3s ease;
+    }
+
+    @include hover-focus {
+      .fa {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &__services {
+    a {
+      @include hover-focus {
+        text-decoration: underline;
+      }
     }
   }
 }

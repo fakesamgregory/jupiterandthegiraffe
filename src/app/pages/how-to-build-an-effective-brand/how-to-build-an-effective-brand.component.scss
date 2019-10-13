@@ -48,8 +48,11 @@
         }
     }
 
-    &__ecover {
-        max-width: 400px;
+    &__ebook-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     &__video-wrapper {

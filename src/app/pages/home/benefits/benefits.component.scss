@@ -1,0 +1,31 @@
+@import "../../../../assets/sass/settings/settings";
+@import "../../../../assets/sass/tools/tools";
+
+.benefits {
+  &__heading {
+    margin: $space-large 0;
+    @include font-size(22);
+  }
+
+  &__description {
+    @include md {
+      display: none;
+    }
+  }
+
+  &__benefit {
+    margin-bottom: $space-xlrg;
+
+    @include md {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    @include md {
+      display: flex;
+    }
+  }
+}

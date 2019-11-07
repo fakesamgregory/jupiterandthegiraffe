@@ -1,0 +1,21 @@
+<section class="case-study" [ngClass]="{'case-study--flipped': flip}" data-aos="fade-up" data-aos-duration="1000">
+  <div appParallax [preventMobile]="true" [ratio]=".02" class="case-study__image-desk">
+    <img src="/assets/images/homepage/{{data.slug}}.png" alt="" class="img-fluid case-study__image">
+  </div>
+
+  <div class="case-study__info-wrap">
+    <div class="case-study__info">
+      <h3 *ngIf="data.title" class="case-study__title">{{data.title.rendered}}</h3>
+
+      <p class="h2" *ngIf="data.acf?.project_tagline">{{data.acf.project_tagline}}</p>
+
+      <div *ngIf="data.excerpt" [innerHTML]="data.excerpt.rendered"></div>
+
+      <p *ngIf="data.acf?.work_type"><strong>{{data.acf.work_type}}</strong></p>
+
+      <a [routerLink]="'/case-study/' + data.slug" class="case-study__link">
+        View<span class="sr-only"> {{data.title.rendered}}</span> case study <i aria-hidden="true" class="fa fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>

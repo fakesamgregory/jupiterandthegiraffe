@@ -2,8 +2,8 @@
   margin-top: 50px;
   margin-bottom: 50px;
   @include md {
-    margin-top: 90px;
-    margin-bottom: 90px;
+    margin-top: 150px;
+    margin-bottom: 150px;
   }
 
   &--break {
@@ -11,10 +11,12 @@
     margin-bottom: 0 !important;
     box-shadow: inset 0px 0px 11px 0px rgba(0,0,0,0.75);
 
-    padding-top: 20px;
+    padding-top: 50px;
     padding-bottom: 50px;
+
     @include md {
-      padding-bottom: 90px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   }
 }

@@ -1,7 +1,7 @@
-<div [ngClass]="{'keyboard-user': isKeyboardUser}" [attr.aria-busy]="loading">
-  <app-header-component 
-    [show]="showHeader" 
-    (toggleMenu)="toggleMenu()" 
+<div [ngClass]="{'keyboard-user': isKeyboardUser}" [attr.aria-busy]="loading" style="overflow: hidden;">
+  <app-header-component
+    [show]="showHeader"
+    (toggleMenu)="toggleMenu()"
     [menuOpen]="menuOpen"
     [funnel]="isFunnel"
     *ngIf="!isLandingPage"

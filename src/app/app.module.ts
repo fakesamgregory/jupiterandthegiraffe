@@ -6,7 +6,6 @@ import {RecaptchaModule, RecaptchaFormsModule} from 'ng-recaptcha';
 import {RECAPTCHA_SETTINGS, RecaptchaSettings} from 'ng-recaptcha';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
-import { AgmCoreModule } from '@agm/core';
 
 import { AosToken, aos } from './aos';
 import {environment} from '../environments/environment';
@@ -21,6 +20,12 @@ import {HeroComponent} from './global/hero/hero.component';
 import {HeaderComponent} from './global/header/header.component';
 import {LogoComponent} from './global/logo/logo.component';
 import {FriendsComponent} from './pages/home/friends/friends.component';
+import { CaseStudiesComponent } from './pages/home/case-studies/case-studies.component';
+import { CaseStudyComponent } from './pages/home/case-study/case-study.component';
+import { ServicesComponent } from './pages/home/services/services.component';
+import { BenefitsComponent } from './pages/home/benefits/benefits.component';
+import { QuotesComponent } from './pages/home/quotes/quotes.component';
+import { WeAreComponent } from './pages/home/we-are/we-are.component';
 import {WorkResolverService} from './pages/work/work-resolver.service';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {GetInTouchComponent} from './global/get-in-touch/get-in-touch.component';
@@ -43,9 +48,6 @@ import { VideoLoadDirective } from './directives/video-load.directive';
   imports: [
     BrowserModule,
     CommonModule,
-    AgmCoreModule.forRoot({
-      apiKey: environment.googleMapsApiKey,
-    }),
 
     AppRoutingModule,
     NgtUniversalModule,
@@ -83,6 +85,12 @@ import { VideoLoadDirective } from './directives/video-load.directive';
     ParallaxDirective,
     ClimateStrikeComponent,
     VideoLoadDirective,
+    CaseStudiesComponent,
+    CaseStudyComponent,
+    ServicesComponent,
+    BenefitsComponent,
+    QuotesComponent,
+    WeAreComponent,
   ],
   providers: [
     WorkResolverService,

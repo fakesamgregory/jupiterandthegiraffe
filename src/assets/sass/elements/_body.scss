@@ -11,8 +11,4 @@ body {
     width: 100%;
     z-index: -10;
   }
-
-  @include md {
-    @include font-size($base-font-desk);
-  }
 }

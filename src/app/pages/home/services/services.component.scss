@@ -1,0 +1,42 @@
+@import "../../../../assets/sass/settings/settings";
+@import "../../../../assets/sass/tools/tools";
+
+.services {
+  a:not(.btn) {
+    color: $color-black;
+  }
+
+  &__service-title {
+    background: $color-malibu;
+    padding: $space-medium;
+    margin: 0;
+  }
+
+  &__service-learn, &__service-text {
+    padding: $space-large $space-medium;
+  }
+
+  &__service-learn {
+    padding-top: 0;
+
+    .fa {
+      padding-left: 5px;
+      vertical-align: middle;
+      transition: transform .3s ease;
+    }
+
+    @include hover-focus {
+      .fa {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  &__services {
+    a {
+      @include hover-focus {
+        text-decoration: underline;
+      }
+    }
+  }
+}

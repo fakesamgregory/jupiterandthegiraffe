@@ -1,0 +1,15 @@
+<div class="section quotes">
+  <div #slider aria-live="polite" data-aos="fade-in">
+    <div class="quotes__slide" #slide *ngFor="let quote of quotes; let i = index" [ngClass]="{'quotes__slide--visible': (i + 1) === currentActiveSlide}">
+      <img *ngIf="quote._embedded; else default;" [src]="quote._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url" [alt]="quote.title.rendered" class="quotes__quote-image">
+      <ng-template #default>
+        <img src="/assets/images/astro.svg" [alt]="quote.title.rendered" class="quotes__quote-image">
+      </ng-template>
+
+      <blockquote>
+        <div [innerHTML]="quote.content.rendered"></div>
+        <footer [innerHTML]="quote.title.rendered"></footer>
+      </blockquote>
+    </div>
+  </div>
+</div>

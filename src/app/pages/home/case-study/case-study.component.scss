@@ -1,0 +1,95 @@
+@import "../../../../assets/sass/settings/settings";
+@import "../../../../assets/sass/tools/tools";
+
+.case-study {
+  &__title {
+    @include font-size(22);
+    margin-bottom: $space-large;
+  }
+
+  &__info {
+    margin: 60px 15px;
+  }
+
+
+  @include md {
+    padding: 200px 0;
+    display: flex;
+    align-items: center;
+
+    &__info {
+      border-left: 6px solid $color-malibu;
+      padding-left: 20px;
+      margin: 0 40px;
+    }
+
+    &--flipped {
+      flex-direction: row-reverse;
+      .case-study__image {
+
+        @include md {
+          right: auto;
+          left: -20%;
+        }
+
+        @include lg {
+          left: -10%;
+        }
+
+        @include xlg {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &__image {
+    @include md {
+      width: 1000px;
+      max-width: 1000px;
+      position: absolute;
+      right: -20%;
+      transform: translateY(-50%);
+    }
+
+    @include lg {
+      right: -10%;
+    }
+
+    @include xlg {
+      right: 0;
+    }
+  }
+
+  &__image-desk {
+    @include md {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+  }
+
+  &__info-wrap {
+    @include md {
+      z-index: 1;
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+  }
+
+  &__link {
+    color: $color-malibu;
+    display: inline-block;
+    margin: $space-large 0;
+
+    i {
+      margin-left: 5px;
+      transition: transform .3s ease;
+    }
+
+    @include hover-focus() {
+      i {
+        transform: translateX(5px);
+      }
+    }
+  }
+}

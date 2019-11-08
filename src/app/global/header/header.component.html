@@ -10,27 +10,23 @@
     </li>
 
     <li>
-        <a routerLinkActive="header__active-link" [routerLink]="['/work']">Portfolio</a>
-      </li>
-
-    <li>
       <a routerLinkActive="header__active-link" [routerLink]="['/contact']">Contact</a>
     </li>
 
     <li>
       <a href="https://blog.jupiterandthegiraffe.com">Blog</a>
     </li>
-    
+
     <li>
       <a [routerLink]="['/how-to-launch-an-awesome-tech-brand']">FREE eBook</a>
     </li>
   </ul>
 </header>
 
-<button 
-  type="button" 
-  class="header__menu-button" 
-  [ngClass]="{'header__menu-button--open': menuOpen}" 
+<button
+  type="button"
+  class="header__menu-button"
+  [ngClass]="{'header__menu-button--open': menuOpen}"
   (click)="onClick()"
   *ngIf="!funnel"
 >
@@ -49,21 +45,17 @@
   </li>
 
   <li class="header__menu-mobile-item">
-    <a routerLinkActive="header__active-link" [routerLink]="['/work']">Portfolio</a>
-  </li>
-
-  <li class="header__menu-mobile-item">
     <a routerLinkActive="header__active-link" [routerLink]="['/contact']">Contact</a>
   </li>
 
   <li class="header__menu-mobile-item">
     <a href="https://blog.jupiterandthegiraffe.com">Blog</a>
   </li>
-  
+
   <li class="header__menu-mobile-item">
     <a [routerLink]="['/how-to-launch-an-awesome-tech-brand']">FREE eBook</a>
   </li>
-  
+
   <li class="header__menu-mobile-item header__menu-mobile-item--number">
     <span class="header__menu-mobile-item-text">Book a consultation:</span>
     <a href="tel:442032909902">+44 20 3290 9902</a>

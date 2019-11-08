@@ -4,10 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { WhoComponent } from './pages/who/who.component';
 import { WhatComponent } from './pages/what/what.component';
-import { WorkComponent } from './pages/work/work.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { WorkResolverService } from './pages/work/work-resolver.service';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { LocationComponent } from './pages/location/location.component';
@@ -32,13 +30,11 @@ const routes: Routes = [
   { path: 'what-we-do', component: WhatComponent, resolve: { data: WhatResolverService}  },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent, resolve: { data: PageResolverService } },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  { path: 'work', component: WorkComponent, resolve: { work: WorkResolverService } },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
   { path: 'free-strategy', component: FunnelComponent },
   { path: 'how-to-launch-an-awesome-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
 
   // Case studies
-  { path: 'case-study', redirectTo: 'work' },
   {
     path: 'case-study/:work',
     component: CaseStudyComponent,
@@ -50,6 +46,7 @@ const routes: Routes = [
   { path: 'north-star-law', redirectTo: 'case-study/north-star-law'},
   { path: 'boombocs', redirectTo: 'case-study/boombocs'},
   { path: 'epoch-brand-website', redirectTo: 'case-study/epoch-brand-website'},
+  { path: 'case-study', redirectTo: '/' },
 
   // Services
   { path: 'service', redirectTo: 'what-we-do' },
@@ -60,38 +57,38 @@ const routes: Routes = [
   },
 
   {
-    path: 'service/brand-strategy',
+    path: 'service/design',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } },
-      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'strategy' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } },
+      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'design' } }
     ]
   },
 
   {
-    path: 'service/brand-identity',
+    path: 'service/development',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'identity' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'identity' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'identity' } },
-      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'identity' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'development' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'development' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'development' } },
+      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'development' } }
     ]
   },
 
   {
-    path: 'service/brand-experience',
+    path: 'service/and-beyond',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'experience' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'experience' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'experience' } },
-      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'experience' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'many more' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'many more' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'many more' } },
+      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'many more' } }
     ]
   },
 
-  { path: 'brand-strategy', redirectTo: 'service/brand-strategy' },
-  { path: 'brand-identity', redirectTo: 'service/brand-identity' },
-  { path: 'brand-experience', redirectTo: 'service/brand-experience' },
+  { path: 'design', redirectTo: 'service/design' },
+  { path: 'development', redirectTo: 'service/development' },
+  { path: 'and-beyond', redirectTo: 'service/and-beyond' },
   { path: 'contact-us', redirectTo: 'contact' },
 
   // Locations
@@ -115,7 +112,6 @@ export const routableComponents = [
   HomeComponent,
   WhoComponent,
   WhatComponent,
-  WorkComponent,
   ContactComponent,
   NotFoundComponent,
   CaseStudyComponent,

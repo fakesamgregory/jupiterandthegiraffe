@@ -26,7 +26,6 @@ import { ServicesComponent } from './pages/home/services/services.component';
 import { BenefitsComponent } from './pages/home/benefits/benefits.component';
 import { QuotesComponent } from './pages/home/quotes/quotes.component';
 import { WeAreComponent } from './pages/home/we-are/we-are.component';
-import {WorkResolverService} from './pages/work/work-resolver.service';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {GetInTouchComponent} from './global/get-in-touch/get-in-touch.component';
 import {TermsAndConditionsComponent} from './pages/terms-and-conditions/terms-and-conditions.component';
@@ -93,7 +92,6 @@ import { VideoLoadDirective } from './directives/video-load.directive';
     WeAreComponent,
   ],
   providers: [
-    WorkResolverService,
     WINDOW_PROVIDERS,
     { provide: AosToken, useValue: aos },
     {

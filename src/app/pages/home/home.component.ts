@@ -193,15 +193,17 @@ export class HomeComponent implements OnInit {
       },
       {
         title: 'We\'re With You Every Step Of The Way',
-        description: ' Once we launch your SaaS app we don\'t just leave you in the lurch. With monthly maintainance and user data research reports, we\'ll keep your app running smooth.',
+        description: 'Once we launch your SaaS app we don\'t just leave you in the lurch. ' +
+          'With monthly maintainance and user data research reports, we\'ll keep your app running smooth.',
         img: '/assets/images/moon.svg'
       },
       {
         title: 'Save Money. Save Time',
-        description: 'Have confidence that because we have strategy and longevity in mind we make decisions to the best of our ability early on so your SaaS app can scale beyond MVP.',
+        description: 'Have confidence that because we have strategy and longevity in mind we make decisions ' +
+          'to the best of our ability early on so your SaaS app can scale beyond MVP.',
         img: '/assets/images/solar-system.svg'
       },
-    ]
+    ];
   }
 
   ngOnInit() {
@@ -247,6 +249,6 @@ export class HomeComponent implements OnInit {
       .subscribe(data => this.work = data);
 
     this.wordpress.getPostType('quotes')
-      .subscribe(data => this.quotes = data)
+      .subscribe(data => this.quotes = data);
   }
 }

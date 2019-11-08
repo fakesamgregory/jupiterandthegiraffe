@@ -6,14 +6,15 @@
     color: $color-black;
   }
 
-  &__service-title {
-    background: $color-malibu;
-    padding: $space-medium;
-    margin: 0;
+  &__heading {
+    margin: $space-large 0;
+    @include font-size(22);
   }
 
-  &__service-learn, &__service-text {
-    padding: $space-large $space-medium;
+  &__image {
+    max-width: 150px;
+    margin: 0 auto;
+    display: block;
   }
 
   &__service-learn {

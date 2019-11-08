@@ -1,0 +1,23 @@
+@import "../../../../assets/sass/settings/settings";
+@import "../../../../assets/sass/tools/tools";
+
+.case-studies {
+  &__work-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .btn {
+      @include hover-focus {
+        background-color: $color-white;
+        color: $color-black;
+      }
+    }
+
+    h2 {
+      @include md {
+        margin-bottom: 50px;
+        padding-bottom: 0;
+      }
+    }
+  }
+}

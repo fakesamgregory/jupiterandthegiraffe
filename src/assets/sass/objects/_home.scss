@@ -1,7 +1,6 @@
 .home {
-    &__blog {
-        .more-link {
-            color: $color-black;
-          }
-    }
+  &__cta {
+    text-align: center;
+    margin-top: 60px;
+  }
 }

@@ -5,8 +5,6 @@ import {FriendsComponent} from './friends/friends.component';
 import {DotsComponent} from '../../global/dots/dots.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
-import {AgmCoreModule} from '@agm/core';
-import {WINDOW} from '@ng-toolkit/universal';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -15,7 +13,7 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent, FriendsComponent, DotsComponent ],
-      imports: [RouterTestingModule, HttpClientModule, AgmCoreModule.forRoot({})],
+      imports: [RouterTestingModule, HttpClientModule,
     })
       .compileComponents();
   }));

@@ -1,0 +1,30 @@
+<div class="section">
+  <h2 class="text-center">Why Us?</h2>
+  <div class="row">
+    <div class="col-md benefits__benefit" *ngFor="let benefit of benefits; let i = index" data-aos="fade-up" data-aos-duration="1000" [attr.data-aos-delay]="i * 100">
+      <div class="text-center">
+        <img [src]="benefit.img" alt="" style="max-width: 150px">
+      </div>
+
+      <div class="benefits__heading h3" aria-hidden="">{{benefit.title}}</div>
+
+      <p class="benefits__description">{{benefit.description}}</p>
+    </div>
+  </div>
+
+  <div class="row benefits__content">
+    <section class="col-md" *ngFor="let benefit of benefits; let i = index" data-aos="fade-up" data-aos-duration="1000" [attr.data-aos-delay]="i * 100">
+      <h3 class="sr-only">{{benefit.title}}</h3>
+
+      <p>
+        {{benefit.description}}
+      </p>
+    </section>
+  </div>
+
+  <div class="home__cta" data-aos="fade-in">
+    <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--black">
+      Let's build your legacy
+    </a>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<section class="section services">
+  <header>
+    <h2 class="text-center">We Do</h2>
+  </header>
+
+  <div class="services__services">
+    <div class="row">
+      <section
+        *ngFor="let service of services; let i = index;"
+        class="col-md-4 margin-bottom--lg text-left"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="100 * i"
+      >
+        <img
+          [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
+          [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
+          [alt]="service._embedded['wp:featuredmedia'][0].alt_text" class="services__image"
+          style="max-width: 150px;"
+        >
+
+        <h3 class="services__heading">{{service.title.rendered}}</h3>
+
+        <div class="services__service-text">
+          <div [innerHTML]="service.excerpt.rendered"></div>
+
+          <span class="hidden-md-up">
+            <a [routerLink]="'/service/' + service.slug">Learn more about {{service.title.rendered}}</a>
+          </span>
+        </div>
+      </section>
+    </div>
+    <div class="row hidden-md">
+      <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
+        <span class="services__service-learn">
+          <a [routerLink]="'/service/' + service.slug">Learn more <span class="sr-only">about
+              {{service.title.rendered}}</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="home__cta" data-aos="fade-in">
+    <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--black">
+      What can we do?
+    </a>
+  </div>
+</section>

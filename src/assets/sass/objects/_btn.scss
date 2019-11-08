@@ -1,5 +1,10 @@
 @import "../tools/tools";
 
+.home .btn, .hero .btn {
+  padding: $space-large;
+  font-weight: 700;
+}
+
 .btn {
   @extend button;
   line-height: 1.2;
@@ -7,16 +12,16 @@
   padding: $space-medium;
   appearance: none;
   text-decoration: none !important;
-  
+
   @include md {
     width: auto;
   }
-  
+
   &--outline {
     background-color: transparent;
     border: 1px solid;
   }
-  
+
   &--primary-outline {
     @extend .btn--outline;
     backdrop-filter: blur(3px);
@@ -87,7 +92,7 @@
       outline: none;
 
     }
-    
+
     &::after {
       display: none !important;
     }

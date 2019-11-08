@@ -99,6 +99,12 @@ $positions: top left right bottom;
   }
 }
 
+@mixin xlg() {
+  @media screen and (min-width: 1920px) {
+    @content;
+  }
+}
+
 @mixin hover-focus() {
   &:hover,
   &:focus {

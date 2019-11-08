@@ -175,6 +175,8 @@ export class HomeComponent implements OnInit {
     }
   ];
   public services: any;
+  public benefits: Array<any>;
+  public quotes: Array<any>;
 
   constructor(
     private wordpress: WordpressService,
@@ -182,12 +184,31 @@ export class HomeComponent implements OnInit {
     private titleService: Title,
     @Optional() @Inject(WINDOW) private window: Window,
     @Inject(PLATFORM_ID) private platformId: any
-  ) { }
+  ) {
+    this.benefits = [
+      {
+        title: 'Lead With Strategy',
+        description: 'You need a partner who understandings your SaaS product and builds with business goals in mind.',
+        img: '/assets/images/earth.svg'
+      },
+      {
+        title: 'We\'re With You Every Step Of The Way',
+        description: 'Once we launch your SaaS app we don\'t just leave you in the lurch. ' +
+          'With monthly maintainance and user data research reports, we\'ll keep your app running smooth.',
+        img: '/assets/images/moon.svg'
+      },
+      {
+        title: 'Save Money. Save Time',
+        description: 'Have confidence that because we have strategy and longevity in mind we make decisions ' +
+          'to the best of our ability early on so your SaaS app can scale beyond MVP.',
+        img: '/assets/images/solar-system.svg'
+      },
+    ];
+  }
 
   ngOnInit() {
-    const TITLE = 'Branding and Design for Future-Thinking Tech Companies';
-    const DESC = 'Branding future-thinking tech companies helping them scale and stand out in the market. ' +
-      '\'Cause revolutionary technology needs revolutionary design. Contact us now!';
+    const TITLE = 'Design and Build SaaS Products for Future-Thinking Tech';
+    const DESC = 'Design and Development powerhouse for SaaS products and web apps for tech that changes the world.';
 
     this.titleService.setTitle(TITLE);
 
@@ -226,5 +247,8 @@ export class HomeComponent implements OnInit {
 
     this.wordpress.getPostType('friends')
       .subscribe(data => this.work = data);
+
+    this.wordpress.getPostType('quotes')
+      .subscribe(data => this.quotes = data);
   }
 }

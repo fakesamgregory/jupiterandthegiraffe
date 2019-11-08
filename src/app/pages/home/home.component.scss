@@ -18,9 +18,9 @@
   }
 
   &__video {
-    max-width: 800px; 
+    max-width: 800px;
     margin: 0 auto;
-    margin-top: $space-xlrg; 
+    margin-top: $space-xlrg;
 
     @include md {
       margin-top: 0;
@@ -28,7 +28,7 @@
   }
 
   &__tagline-wrapper {
-    // height: 90vh; 
+    // height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,11 +46,11 @@
   }
 
   &__tagline {
-    @include font-size(24);
+    @include font-size(18);
     margin: $space-large 0;
 
     @include md {
-      @include font-size($heading-2);
+      @include font-size(28);
       margin: $space-xlrg 0;
     }
   }
@@ -134,24 +134,6 @@
     }
   }
 
-  &__work-content {
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    .btn {
-      @include hover-focus {
-        background-color: $color-white;
-        color: $color-black;
-      }
-    }
-
-    h2 {
-      @include md {
-        margin-bottom: 50px; 
-        padding-bottom: 0;
-      }
-    }
-  }
 
   &__blog {
     margin-top: $space-large;
@@ -165,27 +147,27 @@
     }
   }
 
-  
+
   &__lead {
     @include font-size($font-lead);
     margin-bottom: $space-large;
-    
+
     @include md {
       @include font-size($font-lead-desk);
       margin-bottom: 50px;
       padding: 0 100px 0 20px;
     }
   }
-  
+
   &__work {
     padding: 20px 0;
     color: $color-black;
     position: relative;
-    
+
     h2 {
       border-bottom-color: $color-white;
     }
-    
+
   }
 
   &__work-extra-info {
@@ -197,168 +179,128 @@
   &__work-case-study {
     @include body-font();
   }
-  
-  &__work-item {
-    background-size: cover;
-    position: relative;
-    display: block;
-    background-position: center;
-    color: $color-white;
-    margin-bottom: 20px;
-    background-color: rgba($color-black, .1);
 
-    @include  lg {
-      margin-bottom: 0;
-    }
+  // &__work-item {
+  //   background-size: cover;
+  //   position: relative;
+  //   display: block;
+  //   background-position: center;
+  //   color: $color-white;
+  //   margin-bottom: 20px;
+  //   background-color: rgba($color-black, .1);
 
-    .text {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      transform: translateY(-50%);
-      @include title-font();
+  //   @include  lg {
+  //     margin-bottom: 0;
+  //   }
 
-      @include lg {
-        opacity: 0;
-        transform: translateY(-30%);
-        transition: transform .2s ease, opacity .2s ease;
-      }
-    }
-    
-    span {
-      display: block;
-      text-align: center;
-      padding: 0 30px;
+  //   .text {
+  //     position: absolute;
+  //     top: 50%;
+  //     width: 100%;
+  //     transform: translateY(-50%);
+  //     @include title-font();
 
-      + span {
-        margin-top: 20px;
-      }
-    }
-    
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: rgba($color-black, .6);
-      transition-property: opacity,transform;
-      will-change: opacity,transform;
-      
-      @include lg {
-        background-color: rgba($color-black, 0);
-      }
+  //     @include lg {
+  //       opacity: 0;
+  //       transform: translateY(-30%);
+  //       transition: transform .2s ease, opacity .2s ease;
+  //     }
+  //   }
 
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      transition: background-color .3s ease;
-    }
-    
-    @include hover-focus {
-      .text {
-        transform: translateY(-50%);
-        opacity: 1;
-      }
+  //   span {
+  //     display: block;
+  //     text-align: center;
+  //     padding: 0 30px;
 
-      &::before {
-        background-color: rgba($color-black, .6);
-      }
+  //     + span {
+  //       margin-top: 20px;
+  //     }
+  //   }
 
-      .home__work-case-study {
-        text-decoration: underline;
-      }
-    }
+  //   &::before {
+  //     content: '';
+  //     position: absolute;
+  //     background-color: rgba($color-black, .6);
+  //     transition-property: opacity,transform;
+  //     will-change: opacity,transform;
 
-    &:active {
-      &::before {
-        background-color: rgba($color-white, .6);
-        color: $color-black;
-      }
-    }
+  //     @include lg {
+  //       background-color: rgba($color-black, 0);
+  //     }
 
-    &::after {
-      content: '';
-      display: block;
-      padding-bottom: 56.25%; 
-    }
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     z-index: 0;
+  //     transition: background-color .3s ease;
+  //   }
 
-    + .home__work-item {
-      margin-top: 18px;
-    }
-  }
+  //   @include hover-focus {
+  //     .text {
+  //       transform: translateY(-50%);
+  //       opacity: 1;
+  //     }
+
+  //     &::before {
+  //       background-color: rgba($color-black, .6);
+  //     }
+
+  //     .home__work-case-study {
+  //       text-decoration: underline;
+  //     }
+  //   }
+
+  //   &:active {
+  //     &::before {
+  //       background-color: rgba($color-white, .6);
+  //       color: $color-black;
+  //     }
+  //   }
+
+  //   &::after {
+  //     content: '';
+  //     display: block;
+  //     padding-bottom: 56.25%;
+  //   }
+
+  //   + .home__work-item {
+  //     margin-top: 18px;
+  //   }
+  // }
 
   &__work-image {
     position: relative;
   }
 
-  &__work-caption {
-    &--light {
-      color: $color-white;
-    }
-  }
+  // &__work-caption {
+  //   &--light {
+  //     color: $color-white;
+  //   }
+  // }
 
-  &__work-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat; 
-    justify-content: center;
-  }
+  // &__work-link {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //   justify-content: center;
+  // }
 
   &__blog {
     a {
       color: $color-black;
-    
+
       &:after {
         display: none !important;
       }
     }
   }
 
-  &__services {
-    a {
-      color: $color-black;
-    }
-  }
-
   &__tagline-break {
     @include sm {
       display: block;
-    }
-  }
-
-  &__service-title {
-    background: $color-malibu;
-    padding: $space-medium;
-    margin: 0;
-  }
-
-  &__service-text, &__service-learn {
-    padding: $space-large $space-large 0;
-  }
-
-  &__service-learn {
-    padding-top: 0;
-
-    .fa {
-      padding-left: 5px;
-      vertical-align: middle;
-      transition: transform .3s ease;
-    }
-
-    @include hover-focus {
-      .fa {
-        transform: translateX(5px);
-      }
-    }
-  }
-
-  &__services {
-    a {
-      @include hover-focus {
-        text-decoration: underline;
-      }
     }
   }
 }

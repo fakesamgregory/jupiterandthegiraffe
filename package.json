@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host local.jupiterandthegiraffe --disable-host-check=true",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -31,6 +31,7 @@
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/platform-server": "^8.2.6",
     "@angular/router": "~8.2.5",
+    "@grpc/grpc-js": "^0.6.10",
     "@ng-toolkit/serverless": "^7.1.2",
     "@ng-toolkit/universal": "^1.1.21",
     "@nguniversal/module-map-ngfactory-loader": "^8.1.1",

@@ -1,18 +1,11 @@
-<section class="section section--break friends text-center">
+<section class="section--break friends text-center">
   <div class="container-fluid">
     <header>
-      <h2 class="text-center">Clients</h2>
+      <h2 class="sr-only">Clients</h2>
     </header>
 
-    <div #slider class="slider" aria-live="polite" *ngIf="quotes">
-      <blockquote class="slide" #slide *ngFor="let quote of quotes; let i = index" [ngClass]="{'slide--visible': (i + 1) === currentActiveSlide}">
-        <div [innerHTML]="quote.content.rendered"></div>
-        <footer [innerHTML]="quote.title.rendered"></footer>
-      </blockquote>
-    </div>
-
     <ul class="row list-unstyled friends__list">
-      <li class="col-sm-4 col-4 friends__list-item" *ngFor="let friend of highlightedFriendStore.friends$ | async; let i = index;">
+      <li class="col-6 col-md-3 friends__list-item" *ngFor="let friend of highlightedFriendStore.friends$ | async; let i = index;">
         <a
           [routerLink]="'/case-study/' + friend.slug"
           class="friends__link"
@@ -46,11 +39,5 @@
         </ng-template>
       </li>
     </ul>
-
-    <div class="text-center">
-      <a [routerLink]="['/work']" class="btn btn--lg btn--outline btn--light">
-        See the work
-      </a>
-    </div>
   </div>
 </section>

@@ -3,6 +3,7 @@ h2,
 h3,
 h4 {
   @include title-font();
+  line-height: 1;
 }
 
 h1 {
@@ -15,11 +16,10 @@ h1 {
 
 h2 {
   @include font-size($heading-2-mobile);
-  margin-bottom: $space-medium;
+  margin-bottom: $space-large;
   padding-bottom: $space-medium;
-  line-height: 1.5;
   text-align: center;
-  
+
   @include md {
     text-align: left;
     @include font-size($heading-2);

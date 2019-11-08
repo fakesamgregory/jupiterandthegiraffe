@@ -29,7 +29,7 @@ describe('HomeComponent', () => {
         GetInTouchComponent,
         QuotesComponent,
       ],
-      imports: [RouterTestingModule, HttpClientModule,
+      imports: [RouterTestingModule, HttpClientModule]
     })
       .compileComponents();
   }));

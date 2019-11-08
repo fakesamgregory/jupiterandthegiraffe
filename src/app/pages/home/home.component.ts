@@ -243,7 +243,9 @@ export class HomeComponent implements OnInit {
       .subscribe(data => this.content = data);
 
     this.wordpress.getPostType('services')
-      .subscribe(data => this.services = data);
+      .subscribe(data => {
+        this.services = data
+      });
 
     this.wordpress.getPostType('friends')
       .subscribe(data => this.work = data);

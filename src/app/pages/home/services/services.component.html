@@ -12,8 +12,8 @@
         [attr.data-aos-delay]="100 * i"
       >
         <img
-          [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url"
-          [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url + ' 1x'"
+          [src]="service._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url"
+          [srcset]="service._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + ' 2x, ' + service._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url + ' 1x'"
           [alt]="service._embedded['wp:featuredmedia'][0].alt_text" class="services__image"
           style="max-width: 150px;"
         >

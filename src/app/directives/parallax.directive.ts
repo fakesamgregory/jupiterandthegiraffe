@@ -7,11 +7,10 @@ import { Input, Directive, ElementRef, PLATFORM_ID, Inject, HostListener, Option
 })
 export class ParallaxDirective implements OnInit {
   // tslint:disable:no-input-rename
-  @Input('ratio') ratio = 1;
+  @Input('ratio') parallaxRatio = 1;
   @Input('direction') direction = 'vertical';
   @Input('preventMobile') preventMobile = false;
   public initialTop = 0;
-  private scrollInterval: any;
   private isMobile: boolean;
 
   constructor(
@@ -41,10 +40,9 @@ export class ParallaxDirective implements OnInit {
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)  && !(this.preventMobile && this.isMobile)) {
       if (this.direction === 'horizontal') {
-        this.eleRef.nativeElement.style.transform = `translateX(${this.window.scrollY * this.ratio}px)`;
+        this.eleRef.nativeElement.style.transform = `translateX(${this.window.scrollY * this.parallaxRatio}px)`;
       } else {
-        const offset = this.eleRef.nativeElement.scrollHeight / 2;
-        this.eleRef.nativeElement.style.transform = `translateY(${(50 - (this.window.scrollY * this.ratio))}px)`;
+        this.eleRef.nativeElement.style.transform = `translateY(${50 + (this.window.scrollY * this.parallaxRatio)}px)`;
       }
     }
   }

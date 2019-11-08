@@ -244,6 +244,7 @@ export class HomeComponent implements OnInit {
 
     this.wordpress.getPostType('services')
       .subscribe(data => {
+        console.log(data[2])
         this.services = data;
       });
 

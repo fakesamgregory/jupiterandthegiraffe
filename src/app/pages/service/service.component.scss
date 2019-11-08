@@ -2,13 +2,25 @@
 @import "../../../assets/sass/tools/tools";
 
 .service {
-    &__offering-heading {
-        @include font-size($base-font);
-        margin: 0;
-        padding: 0;
+  &__offering-heading {
+    @include font-size($base-font);
+    margin: 0;
+    padding: 0;
 
-        @include md {
-            @include font-size($base-font-desk);
-        }
+    @include md {
+      @include font-size($base-font-desk);
     }
+  }
+
+  &__content {
+    margin-bottom: $space-xlrg;
+  }
+
+  &__list {
+    margin-bottom: $space-xlrg;
+  }
+
+  &__list-item {
+    margin-bottom: $space-large;
+  }
 }

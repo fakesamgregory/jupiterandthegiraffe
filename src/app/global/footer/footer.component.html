@@ -12,8 +12,10 @@
           <ul class="list-unstyled">
             <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
               <li class="footer__list-item">
-                <a [routerLink]="'/case-study/' + brand.slug" class="footer__link">
-                  {{brand.title.rendered}}<span class="sr-only"> case study</span>
+                <a
+                  [routerLink]="'/case-study/' + brand.slug" class="footer__link"
+                  [innerHTML]="brand.title.rendered + '<span class=\'sr-only\'> case study</span>'"
+                >
                 </a>
               </li>
             </ng-container>
@@ -26,9 +28,7 @@
           <ul class="list-unstyled">
             <ng-container *ngFor="let service of services">
               <li class="footer__list-item">
-                <a [routerLink]="'/service/' + service.slug" class="footer__link">
-                  {{service.title.rendered}}
-                </a>
+                <a [routerLink]="'/service/' + service.slug" class="footer__link" [innerHTML]="service.title.rendered"></a>
               </li>
             </ng-container>
           </ul>

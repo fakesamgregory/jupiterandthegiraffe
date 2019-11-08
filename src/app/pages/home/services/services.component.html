@@ -18,7 +18,7 @@
           style="max-width: 150px;"
         >
 
-        <h3 class="services__heading">{{service.title.rendered}}</h3>
+        <h3 class="services__heading" [innerHTML]="service.title.rendered"></h3>
 
         <div class="services__service-text">
           <div [innerHTML]="service.excerpt.rendered"></div>
@@ -32,8 +32,7 @@
     <div class="row hidden-md">
       <div *ngFor="let service of services" class="col-md-4 margin-bottom--lg text-left">
         <span class="services__service-learn">
-          <a [routerLink]="'/service/' + service.slug">Learn more <span class="sr-only">about
-              {{service.title.rendered}}</span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+          <a [routerLink]="'/service/' + service.slug">Learn more<span class="sr-only" [innerHTML]="' about' + service.title.rendered + ' service'"></span> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </span>
       </div>
     </div>

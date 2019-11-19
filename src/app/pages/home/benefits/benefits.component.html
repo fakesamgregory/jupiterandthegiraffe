@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md benefits__benefit" *ngFor="let benefit of benefits; let i = index" data-aos="fade-up" data-aos-duration="1000" [attr.data-aos-delay]="i * 100">
       <div class="text-center">
-        <img [src]="benefit.image.url" alt="" style="max-width: 150px">
+        <img [src]="benefit.image.url" [alt]="benefit.image.alt" style="max-width: 150px">
       </div>
 
       <div class="benefits__heading h3" aria-hidden="">{{benefit.title}}</div>

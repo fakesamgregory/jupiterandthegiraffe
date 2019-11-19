@@ -2,7 +2,7 @@
   <div appParallax [preventMobile]="true" [ratio]="-.05" class="case-study__image-desk">
       <img
         [src]="data.acf.homepage_image.sizes.medium"
-        alt=""
+        [alt]="data.acf.homepage_image.alt"
         class="img-fluid case-study__image"
         [srcset]="data.acf.homepage_image.sizes.medium + ' 1x, ' + data.acf.homepage_image.sizes.large + ' 2x'"
       >

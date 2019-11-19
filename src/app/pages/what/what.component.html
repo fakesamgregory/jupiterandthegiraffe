@@ -9,8 +9,8 @@
             (click)="goToSection($event, i + 1)"
             class="h2 what-we-do__fixed-title"
             [ngClass]="{'what-we-do__fixed-title--active': activeIndex === i + 1}"
+            [innerHTML]="service.title.rendered"
           >
-            {{service.title.rendered}}
           </a>
         </div>
       </div>
@@ -26,8 +26,8 @@
         <section class="section" *ngFor="let service of services">
           <header>
             <h2 id="{{service.slug}}">
-              {{service.title.rendered}}
-              <div class="sr-only"> for tech startups</div>
+              <span [innerHTML]="service.title.rendered"></span>
+              <div class=sr-only> for tech startups</div>
             </h2>
           </header>
 
@@ -36,7 +36,7 @@
           <div class="what-we-do--tagline" [innerHTML]="service.excerpt.rendered" *ngIf="service.excerpt.rendered"></div>
 
           <p class="text-left">
-            Learn more about <a [routerLink]="'/service/' + service.slug">{{service.title.rendered}}</a>.
+            Learn more about <a [routerLink]="'/service/' + service.slug" [innerHTML]="service.title.rendered"></a>.
           </p>
         </section>
       </div>

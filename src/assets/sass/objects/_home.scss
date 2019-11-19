@@ -1,6 +1,10 @@
 .home {
   &__cta {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 30px;
+
+    @include sm {
+      margin-top: 60px;
+    }
   }
 }

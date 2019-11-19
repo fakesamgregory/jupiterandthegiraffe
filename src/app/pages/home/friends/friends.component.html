@@ -5,7 +5,7 @@
     </header>
 
     <ul class="row list-unstyled friends__list">
-      <li class="col-6 col-md-3 friends__list-item" *ngFor="let friend of highlightedFriendStore.friends$ | async; let i = index;">
+      <li class="col col-md-3 friends__list-item" *ngFor="let friend of highlightedFriendStore.friends$ | async; let i = index;">
         <a
           [routerLink]="'/case-study/' + friend.slug"
           class="friends__link"

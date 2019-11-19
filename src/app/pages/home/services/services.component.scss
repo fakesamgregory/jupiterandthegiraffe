@@ -35,9 +35,23 @@
 
   &__services {
     a {
+      text-decoration: underline;
       @include hover-focus {
-        text-decoration: underline;
+        text-decoration: none;
       }
+    }
+  }
+
+  &__service {
+    margin-top: 50px;
+    text-align: left;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include sm {
+      margin-top: 0;
     }
   }
 }

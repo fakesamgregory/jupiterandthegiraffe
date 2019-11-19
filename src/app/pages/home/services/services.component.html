@@ -7,7 +7,7 @@
     <div class="row">
       <section
         *ngFor="let service of services; let i = index;"
-        class="col-md-4 margin-bottom--lg text-left"
+        class="col-md-4 services__service"
         data-aos="fade-up"
         [attr.data-aos-delay]="100 * i"
       >
@@ -24,7 +24,7 @@
           <div [innerHTML]="service.excerpt.rendered"></div>
 
           <span class="hidden-md-up">
-            <a [routerLink]="'/service/' + service.slug">Learn more about {{service.title.rendered}}</a>
+            <a [routerLink]="'/service/' + service.slug">Learn more about <span [innerHTML]="service.title.rendered"></span></a>
           </span>
         </div>
       </section>

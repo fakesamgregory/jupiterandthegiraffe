@@ -1,5 +1,4 @@
 <div class="section" *ngIf="show">
   <h2 class="sr-only">Case Studies</h2>
-  <app-case-study-component *ngFor="let work of data; index as i" [data]="work" [flip]="i % 2">
-  </app-case-study-component>
+  <app-case-study-component *ngFor="let work of data; index as i" [data]="work" [flip]="i % 2"></app-case-study-component>
 </div>

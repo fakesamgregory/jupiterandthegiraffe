@@ -5,7 +5,7 @@
     </header>
 
     <ul class="row list-unstyled friends__list">
-      <li class="col col-md-3 friends__list-item" *ngFor="let friend of highlightedFriendStore.friends$ | async; let i = index;">
+      <li class="col friends__list-item" *ngFor="let friend of highlightedFriendStore.friends$ | async; let i = index;">
         <a
           [routerLink]="'/case-study/' + friend.slug"
           class="friends__link"
@@ -19,7 +19,7 @@
             class="img-fluid friends__image"
             [src]="friend.acf.logo.sizes.medium"
             srcset="{{friend.acf.logo.sizes.medium}} 1x, {{friend.acf.logo.sizes.large}} 2x"
-            alt=""
+            [alt]="friend.acf.logo.alt"
           >
         </a>
         <ng-template #noLink>

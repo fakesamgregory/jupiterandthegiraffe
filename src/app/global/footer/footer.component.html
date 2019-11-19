@@ -11,7 +11,7 @@
           </header>
           <ul class="list-unstyled">
             <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
-              <li class="footer__list-item">
+              <li class="footer__list-item" *ngIf="brand.slug">
                 <a
                   [routerLink]="'/case-study/' + brand.slug" class="footer__link"
                   [innerHTML]="brand.title.rendered + '<span class=\'sr-only\'> case study</span>'"

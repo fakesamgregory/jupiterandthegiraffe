@@ -92,4 +92,13 @@
       }
     }
   }
+
+  &__tagline {
+    @include title-font();
+
+    @include md {
+      line-height: 1;
+      @include font-size($heading-2);
+    }
+  }
 }

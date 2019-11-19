@@ -1,10 +1,10 @@
 <section class="case-study" [ngClass]="{'case-study--flipped': flip}" data-aos="fade-up" data-aos-duration="1000">
   <div appParallax [preventMobile]="true" [ratio]="-.05" class="case-study__image-desk">
       <img
-        [src]="data.acf.homepage_image.sizes.large"
+        [src]="data.acf.homepage_image.sizes.medium"
         alt=""
         class="img-fluid case-study__image"
-        [srcset]="data.acf.homepage_image.sizes.large + ' 1x, ' + data.acf.homepage_image.full + ' 2x'"
+        [srcset]="data.acf.homepage_image.sizes.medium + ' 1x, ' + data.acf.homepage_image.sizes.large + ' 2x'"
       >
   </div>
 
@@ -12,7 +12,7 @@
     <div class="case-study__info">
       <h3 *ngIf="data.title" class="case-study__title">{{data.title.rendered}}</h3>
 
-      <p class="h2" *ngIf="data.acf?.project_tagline">{{data.acf.project_tagline}}</p>
+      <p class="case-study__tagline" *ngIf="data.acf?.project_tagline">{{data.acf.project_tagline}}</p>
 
       <div *ngIf="data.excerpt" [innerHTML]="data.excerpt.rendered"></div>
 

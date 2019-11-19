@@ -48,6 +48,7 @@
   &__tagline {
     @include font-size(18);
     margin: $space-large 0;
+    line-height: 1.2;
 
     @include md {
       @include font-size(28);

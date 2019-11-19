@@ -2,5 +2,31 @@
 @import "../../../../assets/sass/tools/tools";
 
 .we-are {
+  &__img {
+    display: none;
 
+    @include sm {
+      display: block;
+    }
+
+    &--small {
+      @include sm {
+        display: block;
+      }
+    }
+  }
+
+  &__thinkers {
+    @include sm {
+      display: none;
+    }
+
+    &--large {
+      display: none;
+
+      @include sm {
+        display: block;
+      }
+    }
+  }
 }

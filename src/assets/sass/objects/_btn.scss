@@ -1,10 +1,5 @@
 @import "../tools/tools";
 
-.home .btn, .hero .btn {
-  padding: $space-large;
-  font-weight: 700;
-}
-
 .btn {
   @extend button;
   line-height: 1.2;

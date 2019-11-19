@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-we-are-component',
@@ -6,5 +6,6 @@ import {Component} from '@angular/core';
   styleUrls: ['./we-are.component.scss']
 })
 export class WeAreComponent {
+  @Input() cta: string;
   constructor() { }
 }

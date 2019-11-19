@@ -21,13 +21,12 @@
       <h3 class="text-center margin-top--lg padding-top--lg margin-bottom--lg padding-bottom--lg we-are__thinkers--large">All Thinkers</h3>
 
       <p style="max-width: 800px; margin: 0 auto;">
-        We're not just kick-ass developers and designers. Creative strategy lies at the heart of everything we do so you can be confident
-        your product utilises our years of experience building web apps and our understanding of business strategy.
+        <ng-content></ng-content>
       </p>
 
       <div class="home__cta">
         <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--black">
-          Let's create something awesome
+          {{cta}}
         </a>
       </div>
     </div>

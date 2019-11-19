@@ -1,21 +1,15 @@
-<section class="home">
+<section class="home" *ngIf="content">
   <div class="container-fluid">
     <h1 class="sr-only">Design &amp; development powerhouse for SaaS products and websites</h1>
 
     <div class="home__tagline-wrapper">
       <div data-aos="fade-in" data-aos-duration="1000">
         <h2 class="hidden-md-up home__tagline">
-          <em class="home__tagline-border">
-            We bring together strategy, design and development from ideation to launch of brilliant SaaS products that
-            change the world.
-          </em>
+          <em class="home__tagline-border" [innerHTML]="content.content.rendered"></em>
         </h2>
         <p class="home__tagline hidden-md">
           <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;"
-            class="home__tagline-border">
-            We bring together strategy, design and development from ideation to launch of brilliant SaaS products that
-            change the world.
-          </em>
+          class="home__tagline-border" [innerHTML]="content.content.rendered"></em>
         </p>
       </div>
     </div>
@@ -25,7 +19,10 @@
     <app-case-studies-component *ngIf="work" [show]="true" [data]="[work[0], work[1], work[2]]"></app-case-studies-component>
 
     <div class="container-fluid">
-      <app-we-are-component></app-we-are-component>
+      <app-we-are-component *ngIf="content?.acf.we_are" [cta]="content.acf.we_are_cta">
+        {{content.acf.we_are}}
+      </app-we-are-component>
+
       <app-services-component [services]="services"></app-services-component>
     </div>
 
@@ -33,7 +30,11 @@
 
     <div class="container-fluid">
       <app-quotes-component *ngIf="quotes" [quotes]="quotes"></app-quotes-component>
-      <app-benefits-component *ngIf="benefits" [benefits]="benefits"></app-benefits-component>
+
+      <app-benefits-component *ngIf="content?.acf.benefits" [benefits]="content.acf.benefits">
+        {{content.acf.benefit_cta}}
+      </app-benefits-component>
+
       <section *ngIf="content?.acf.video_id" class="section">
         <h2 class="sr-only">Who is Jupiter and the Giraffe?</h2>
 

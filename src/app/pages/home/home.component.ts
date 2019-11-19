@@ -184,27 +184,7 @@ export class HomeComponent implements OnInit {
     private titleService: Title,
     @Optional() @Inject(WINDOW) private window: Window,
     @Inject(PLATFORM_ID) private platformId: any
-  ) {
-    this.benefits = [
-      {
-        title: 'Lead With Strategy',
-        description: 'You need a partner who understandings your SaaS product and builds with business goals in mind.',
-        img: '/assets/images/earth.svg'
-      },
-      {
-        title: 'We\'re With You Every Step Of The Way',
-        description: 'Once we launch your SaaS app we don\'t just leave you in the lurch. ' +
-          'With monthly maintainance and user data research reports, we\'ll keep your app running smooth.',
-        img: '/assets/images/moon.svg'
-      },
-      {
-        title: 'Save Money. Save Time',
-        description: 'Have confidence that because we have strategy and longevity in mind we make decisions ' +
-          'to the best of our ability early on so your SaaS app can scale beyond MVP.',
-        img: '/assets/images/solar-system.svg'
-      },
-    ];
-  }
+  ) { }
 
   ngOnInit() {
     const TITLE = 'Design and Build SaaS Products for Future-Thinking Tech';

@@ -10,7 +10,7 @@ import { WordpressService } from 'src/app/services/wordpress.service';
 export class HeroComponent implements OnInit {
   @Input() home = false;
   @Input() funnel = false;
-  public content = '';
+  public content: any;
 
   constructor(public router: Router, private wordpress: WordpressService) { }
 

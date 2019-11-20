@@ -2,7 +2,7 @@ import {Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild, OnI
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
-import {ActivatedRoute} from '@angular/router';
+import { ServicesService } from 'src/app/stores/services.service';
 
 @Component({
   templateUrl: './what.component.html',
@@ -24,47 +24,41 @@ export class WhatComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: any,
     @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
-    private actr: ActivatedRoute) { }
+    public serivcesService: ServicesService) { }
 
   ngOnInit() {
-    this.actr.data
-      .subscribe(res => {
-        this.content = res.data[1];
-        this.services = res.data[0];
+    const TITLE = 'Brand Strategy, Brand Identity, Brand Experience | Jupiter and the Giraffe';
+    const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience. ' +
+          'From Strategy, to brand, to design to experience.';
 
-        const TITLE = 'Brand Strategy, Brand Identity, Brand Experience | Jupiter and the Giraffe';
-        const DESC = '3 services to rule them all. Brand Strategy, Brand Identity and Brand Experience. ' +
-              'From Strategy, to brand, to design to experience.';
+    this.titleService.setTitle( TITLE );
 
-        this.titleService.setTitle( TITLE );
-
-        this.meta.updateTag({
-          name: 'description',
-          content: DESC
-        });
-        this.meta.updateTag({
-          property: 'og:description',
-          content: DESC,
-        });
-        this.meta.updateTag({
-          name: 'twitter:title',
-          content: TITLE
-        });
-        this.meta.updateTag({
-          name: 'twitter:description',
-          content: DESC
-        });
-        this.meta.updateTag({
-          property: 'og:title',
-          content: TITLE
-        });
-        if (isPlatformBrowser(this.platformId)) {
-          this.meta.updateTag({
-            property: 'og:url',
-            content: this.window.location.href,
-          });
-        }
+    this.meta.updateTag({
+      name: 'description',
+      content: DESC
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: DESC,
+    });
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: TITLE
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content: DESC
+    });
+    this.meta.updateTag({
+      property: 'og:title',
+      content: TITLE
+    });
+    if (isPlatformBrowser(this.platformId)) {
+      this.meta.updateTag({
+        property: 'og:url',
+        content: this.window.location.href,
       });
+    }
   }
 
   @HostListener('window:scroll', [])

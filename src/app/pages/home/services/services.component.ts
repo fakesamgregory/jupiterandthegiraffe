@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { ServicesService } from 'src/app/stores/services.service';
 
 @Component({
   selector: 'app-services-component',
@@ -7,6 +8,7 @@ import {Component, Input} from '@angular/core';
 })
 export class ServicesComponent {
   @Input() services: Array<any>;
+  @Input() nested = false;
 
   constructor() {}
 }

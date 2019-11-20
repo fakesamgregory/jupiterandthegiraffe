@@ -1,4 +1,4 @@
-<section class="section services">
+<section class="section services" [ngClass]="{'services--nested': nested}">
   <header>
     <h2 class="text-center">We Do</h2>
   </header>
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div class="home__cta" data-aos="fade-in">
+  <div class="home__cta" data-aos="fade-in" *ngIf="!nested">
     <a href="" [routerLink]="['/what-we-do']" class="btn btn--lg btn--outline btn--black">
       What can we do?
     </a>

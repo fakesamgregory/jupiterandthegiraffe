@@ -23,6 +23,12 @@
       </div>
     </div>
 
+    <app-services-component
+      *ngIf="serviceService.services"
+      [services]="serviceService.services"
+      [nested]="true"
+    ></app-services-component>
+
     <app-get-in-touch></app-get-in-touch>
 
   </section>

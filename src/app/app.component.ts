@@ -9,6 +9,8 @@ import {HighlightedFriendsService} from './stores/highlighted-friends.service';
 import {ServicesService} from './stores/services.service';
 import {WordpressService} from './services/wordpress.service';
 import {forkJoin, of} from 'rxjs';
+import { HomepageService } from './stores/homepage-store.service';
+import { CaseStudiesService } from './stores/case-studies-store.service';
 
 @Component({
   selector: 'app-root',
@@ -48,6 +50,8 @@ export class AppComponent implements OnDestroy, OnInit {
               @Inject(AosToken) aos,
               public friendsStore: HighlightedFriendsService,
               public serviceStore: ServicesService,
+              public homepageStore: HomepageService,
+              public caseStudiesStore: CaseStudiesService,
               private wordpress: WordpressService,
               private ngZone: NgZone) {
 
@@ -90,6 +94,8 @@ export class AppComponent implements OnDestroy, OnInit {
 
     this.loadFriends();
     this.loadServices();
+    this.loadHome();
+    this.loadWork();
   }
 
   ngOnInit() {
@@ -156,6 +162,18 @@ export class AppComponent implements OnDestroy, OnInit {
   private loadServices(): void {
     this.wordpress.getPostType('services')
       .subscribe(data => this.serviceStore.services = data);
+  }
+
+  private loadHome(): void {
+    this.wordpress.getPageId(293)
+      .subscribe(data => {
+        this.homepageStore.homepage = data
+      });
+  }
+
+  private loadWork(): void {
+    this.wordpress.getPostType('friends')
+      .subscribe(data => this.caseStudiesStore.caseStudies = data);
   }
 
   public toggleMenu(forceState?) {

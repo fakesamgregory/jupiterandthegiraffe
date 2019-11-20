@@ -6,6 +6,10 @@
     color: $color-black;
   }
 
+  &--nested {
+    margin-top: $space-large;
+  }
+
   &__heading {
     margin: $space-large 0;
     @include font-size(22);

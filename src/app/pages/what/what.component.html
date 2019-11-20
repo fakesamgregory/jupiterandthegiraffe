@@ -1,11 +1,11 @@
-<div class="what-we-do white-bg text-center">
+<div class="what-we-do white-bg text-center" *ngIf="serivcesService.services">
   <div class="container-fluid">
     <div class="row">
       <div class="col-4 what-we-do__fixed-titles-wrap">
         <div class="what-we-do__fixed-titles what-we-do__first-section" #fixedWrap [ngClass]="{'what-we-do__fixed-titles--no-title': !activeIndex}">
           <a
             href="#"
-            *ngFor="let service of services; let i = index"
+            *ngFor="let service of serivcesService.services; let i = index"
             (click)="goToSection($event, i + 1)"
             class="h2 what-we-do__fixed-title"
             [ngClass]="{'what-we-do__fixed-title--active': activeIndex === i + 1}"
@@ -23,7 +23,7 @@
           <div class="what-we-do__text" *ngIf="content?.content" [innerHTML]="content.content.rendered"></div>
         </section>
 
-        <section class="section" *ngFor="let service of services">
+        <section class="section" *ngFor="let service of serivcesService.services">
           <header>
             <h2 id="{{service.slug}}">
               <span [innerHTML]="service.title.rendered"></span>

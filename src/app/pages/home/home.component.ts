@@ -3,6 +3,9 @@ import {WordpressService} from '../../services/wordpress.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { WINDOW } from '@ng-toolkit/universal';
+import { HomepageService } from 'src/app/stores/homepage-store.service';
+import { ServicesService } from 'src/app/stores/services.service';
+import { CaseStudiesService } from 'src/app/stores/case-studies-store.service';
 
 @Component({
   selector: 'app-home',
@@ -183,7 +186,10 @@ export class HomeComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     @Optional() @Inject(WINDOW) private window: Window,
-    @Inject(PLATFORM_ID) private platformId: any
+    @Inject(PLATFORM_ID) private platformId: any,
+    public homepageService: HomepageService,
+    public servicesService: ServicesService,
+    public caseStudiesService: CaseStudiesService,
   ) { }
 
   ngOnInit() {
@@ -218,17 +224,6 @@ export class HomeComponent implements OnInit {
         content: this.window.location.href,
       });
     }
-
-    this.wordpress.getPageId(293)
-      .subscribe(data => this.content = data);
-
-    this.wordpress.getPostType('services')
-      .subscribe(data => {
-        this.services = data;
-      });
-
-    this.wordpress.getPostType('friends')
-      .subscribe(data => this.work = data);
 
     this.wordpress.getPostType('quotes')
       .subscribe(data => this.quotes = data);

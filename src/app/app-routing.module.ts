@@ -19,15 +19,13 @@ import {ServiceComponent} from './pages/service/service.component';
 import { FunnelComponent } from './pages/funnel/funnel.component';
 import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
 import { WhoResolverService } from './pages/who/who-resolver.service';
-import { WhatResolverService } from './pages/what/what-resolver.service';
-
 
 const routes: Routes = [
   // Top level pages
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'who-we-are', component: WhoComponent,  resolve: { data: WhoResolverService} },
-  { path: 'what-we-do', component: WhatComponent, resolve: { data: WhatResolverService}  },
+  { path: 'what-we-do', component: WhatComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent, resolve: { data: PageResolverService } },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },

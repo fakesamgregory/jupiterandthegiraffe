@@ -1,29 +1,39 @@
-<section class="home" *ngIf="content">
+<section class="home" *ngIf="homepageService.homepage?.acf">
   <div class="container-fluid">
     <h1 class="sr-only">Design &amp; development powerhouse for SaaS products and websites</h1>
 
     <div class="home__tagline-wrapper">
       <div data-aos="fade-in" data-aos-duration="1000">
         <h2 class="hidden-md-up home__tagline">
-          <em class="home__tagline-border" [innerHTML]="content.acf.what_we_do"></em>
+          <em class="home__tagline-border" [innerHTML]="homepageService.homepage.acf.what_we_do"></em>
         </h2>
         <p class="home__tagline hidden-md">
-          <em appParallax [ratio]=".15" direction="horizontal" style="display: inline-block;"
-          class="home__tagline-border" [innerHTML]="content.acf.what_we_do"></em>
+          <em
+            appParallax
+            [ratio]=".15"
+            direction="horizontal"
+            style="display: inline-block;"
+            class="home__tagline-border"
+            [innerHTML]="homepageService.homepage.acf.what_we_do"
+          ></em>
         </p>
       </div>
     </div>
   </div>
 
-  <div>
-    <app-case-studies-component *ngIf="work" [show]="true" [data]="[work[0], work[1], work[2]]"></app-case-studies-component>
 
     <div class="container-fluid">
-      <app-we-are-component *ngIf="content?.acf.we_are" [cta]="content.acf.we_are_cta">
-        {{content.acf.we_are}}
+      <app-case-studies-component
+        *ngIf="caseStudiesService.caseStudies.length"
+        [show]="true"
+        [data]="[caseStudiesService.caseStudies[0], caseStudiesService.caseStudies[1], caseStudiesService.caseStudies[2]]"
+      ></app-case-studies-component>
+
+      <app-we-are-component [cta]="homepageService.homepage.acf.we_are_cta">
+        {{homepageService.homepage.acf.we_are}}
       </app-we-are-component>
 
-      <app-services-component [services]="services"></app-services-component>
+      <app-services-component *ngIf="servicesService.services" [services]="servicesService.services"></app-services-component>
     </div>
 
     <app-friends-component></app-friends-component>
@@ -31,23 +41,22 @@
     <div class="container-fluid">
       <app-quotes-component *ngIf="quotes" [quotes]="quotes"></app-quotes-component>
 
-      <app-benefits-component *ngIf="content?.acf.benefits" [benefits]="content.acf.benefits">
-        {{content.acf.benefit_cta}}
+      <app-benefits-component [benefits]="homepageService.homepage.acf.benefits">
+        {{homepageService.homepage.acf.benefit_cta}}
       </app-benefits-component>
 
-      <section *ngIf="content?.acf.video_id" class="section">
+      <section class="section">
         <h2 class="sr-only">Who is Jupiter and the Giraffe?</h2>
 
         <div class="home__video">
           <div
             appVideoLoad class="home__video-container"
-            [style.background-image]="'url(' + content.acf.video_poster + ')'"
-            [videoId]="content.acf.video_id"
+            [style.background-image]="'url(' + homepageService.homepage.acf.video_poster + ')'"
+            [videoId]="homepageService.homepage.acf.video_id"
           >
           </div>
         </div>
       </section>
       <app-get-in-touch></app-get-in-touch>
     </div>
-  </div>
 </section>

@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {WINDOW} from '@ng-toolkit/universal';
 import { DataObject } from 'src/app/services/wordpress.service';
+import { ServicesService } from 'src/app/stores/services.service';
 
 @Component({
   selector: 'app-service',
@@ -19,6 +20,7 @@ export class ServiceComponent implements OnInit {
     private actr: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId,
     @Inject(WINDOW) private window: Window,
+    private serviceService: ServicesService,
     private router: Router) { }
 
   ngOnInit() {

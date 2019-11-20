@@ -20,7 +20,7 @@ export class ServiceComponent implements OnInit {
     private actr: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId,
     @Inject(WINDOW) private window: Window,
-    private serviceService: ServicesService,
+    public serviceService: ServicesService,
     private router: Router) { }
 
   ngOnInit() {

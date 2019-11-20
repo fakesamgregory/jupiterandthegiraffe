@@ -166,9 +166,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
   private loadHome(): void {
     this.wordpress.getPageId(293)
-      .subscribe(data => {
-        this.homepageStore.homepage = data
-      });
+      .subscribe(data => this.homepageStore.homepage = data);
   }
 
   private loadWork(): void {

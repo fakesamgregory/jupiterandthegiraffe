@@ -26,7 +26,7 @@
       </div>
   </div>
 
-  <div data-aos="fade-in" data-aos-delay="200" data-aos-duration="3000" *ngIf="home && content">
+  <div data-aos="fade-in" data-aos-delay="200" data-aos-duration="3000" *ngIf="home && content?.acf">
     <div class="h1" [innerHTML]="content.title.rendered"></div>
 
     <p class="hero__tagline" [innerHTML]="content.acf.strapline"></p>

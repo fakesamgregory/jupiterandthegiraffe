@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { WordpressService } from 'src/app/services/wordpress.service';
+import { HomepageService } from 'src/app/stores/homepage-store.service';
 
 @Component({
   selector: 'app-hero-component',
@@ -12,10 +12,10 @@ export class HeroComponent implements OnInit {
   @Input() funnel = false;
   public content: any;
 
-  constructor(public router: Router, private wordpress: WordpressService) { }
+  constructor(public router: Router, public homepageService: HomepageService) {  }
 
   ngOnInit() {
-    this.wordpress.getPageId(293)
-      .subscribe(data => this.content = data);
+    this.homepageService.homepage$
+      .subscribe((data) => this.content = data);
   }
 }

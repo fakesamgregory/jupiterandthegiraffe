@@ -17,6 +17,7 @@ import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.s
 import {ServiceResolverComponent} from './pages/service/service-resolver.service';
 import {ServiceComponent} from './pages/service/service.component';
 import { FunnelComponent } from './pages/funnel/funnel.component';
+import { MVPPackageComponent } from './pages/mvp-package/mvp-package.component';
 import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
 import { WhoResolverService } from './pages/who/who-resolver.service';
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
   { path: 'free-strategy', component: FunnelComponent },
   { path: 'how-to-launch-an-awesome-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
+  { path: 'mvp-package', component: MVPPackageComponent },
 
   // Case studies
   {
@@ -120,5 +122,6 @@ export const routableComponents = [
   WhatComponent,
   ServiceComponent,
   FunnelComponent,
-  HowToBuildAnEffectiveBrandComponent
+  HowToBuildAnEffectiveBrandComponent,
+  MVPPackageComponent,
 ];

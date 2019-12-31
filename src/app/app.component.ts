@@ -81,7 +81,9 @@ export class AppComponent implements OnDestroy, OnInit {
         this.loading = false;
         this.hasBeenHome = this.isHome = event.url === '/';
         this.isFunnel = event.urlAfterRedirects.includes('free-strategy');
-        this.isLandingPage = event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand');
+        this.isLandingPage =
+          event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand') ||
+          event.urlAfterRedirects.includes('mvp-package');
 
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);

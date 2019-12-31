@@ -29,7 +29,6 @@ import { WeAreComponent } from './pages/home/we-are/we-are.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {GetInTouchComponent} from './global/get-in-touch/get-in-touch.component';
 import {TermsAndConditionsComponent} from './pages/terms-and-conditions/terms-and-conditions.component';
-
 import { CookieBannerComponent } from './global/cookie-banner/cookie-banner.component';
 import { SocialComponent } from './global/social/social.component';
 import { EmailPopupComponent } from './global/email-popup/email-popup.component';
@@ -41,6 +40,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { ClimateStrikeComponent } from './global/climate-strike/climate-strike.component';
+import { PricingComponent } from './pages/home/pricing/pricing.component';
 import { VideoLoadDirective } from './directives/video-load.directive';
 
 @NgModule({
@@ -90,6 +90,7 @@ import { VideoLoadDirective } from './directives/video-load.directive';
     BenefitsComponent,
     QuotesComponent,
     WeAreComponent,
+    PricingComponent,
   ],
   providers: [
     WINDOW_PROVIDERS,

@@ -44,16 +44,12 @@
   }
 
   &__image {
-    @include md {
+    @include lg {
       width: 1000px;
       max-width: 1000px;
-      position: absolute;
-      right: -20%;
+      position: relative;
       transform: translateY(-50%);
-    }
-
-    @include lg {
-      right: -10%;
+      left: -60%;
     }
 
     @include xlg {

@@ -39,7 +39,7 @@ export class MVPPackageComponent {
     this.setMetaData({
       TITLE: 'SaaS MVP Package | Jupiter and the Giraffe',
       DESC: 'Reach MVP sooner and kick-start your SaaS product and start getting customers.',
-      SHARE_IMAGE: '/assets/images/mvp-package.png',
+      SHARE_IMAGE: 'https://jupiterandthegiraffe.com/assets/images/mvp-package.png',
       SHARE_IMAGE_ALT: ''
     });
 

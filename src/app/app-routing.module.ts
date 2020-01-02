@@ -61,8 +61,7 @@ const routes: Routes = [
     children: [
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } },
-      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'design' } }
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } }
     ]
   },
 
@@ -71,24 +70,22 @@ const routes: Routes = [
     children: [
       { path: 'london', component: LocationComponent, data: { location: 'London', type: 'development' } },
       { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'development' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'development' } },
-      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'development' } }
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'development' } }
     ]
   },
 
   {
-    path: 'service/and-beyond',
+    path: 'service/strategy',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'many more' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'many more' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'many more' } },
-      { path: 'bali', component: LocationComponent, data: { location: 'Bali', type: 'many more' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
+      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
+      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } }
     ]
   },
 
   { path: 'design', redirectTo: 'service/design' },
   { path: 'development', redirectTo: 'service/development' },
-  { path: 'and-beyond', redirectTo: 'service/and-beyond' },
+  { path: 'strategy', redirectTo: 'service/strategy' },
   { path: 'contact-us', redirectTo: 'contact' },
 
   // Locations

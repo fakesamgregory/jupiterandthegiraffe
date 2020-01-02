@@ -25,7 +25,7 @@
     <div [innerHTML]="content.content.rendered" class="case-study__main-text"></div>
 
     <div class="case-study__nav">
-      <a [routerLink]="['/work']" style="margin-right: auto">Back to Projects</a>
+      <a [routerLink]="['/']" style="margin-right: auto">Back Home</a>
       <a [href]="'/case-study/' + nextCaseStudy.slug" *ngIf="nextCaseStudy" style="margin-left: auto">Next Project</a>
     </div>
 

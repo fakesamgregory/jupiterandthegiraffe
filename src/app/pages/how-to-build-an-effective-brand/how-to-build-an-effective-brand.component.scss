@@ -2,128 +2,133 @@
 @import "../../../assets/sass/tools/tools";
 
 .landing-page {
-    &__logo {
-        font-size: 2em;
-        padding: 20px 0;
+  &__logo {
+    font-size: 2em;
+    padding: 20px 0;
+  }
+
+  &__title {
+    font-size: 2em;
+
+    &::after {
+      content: '';
+      width: 80px;
+      height: 10px;
+      background: $color-malibu;
+      display: block;
+      margin-top: $space-large;
+      margin: 0 auto;
+    }
+  }
+
+  &__title,
+  &__subtitle {
+    em {
+      text-decoration: underline;
+      text-transform: uppercase;
+      font-style: inherit;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__form {
+    background: $color-malibu;
+
+    @include sm {
+      padding: $space-large;
     }
 
-    &__title {
-        font-size: 2em;
+    h2 {
+      margin: 0;
+    }
+  }
 
-        &::after {
-            content: '';
-            width: 80px;
-            height: 10px;
-            background: $color-malibu;
-            display: block;
-            margin-top: $space-large;
-            margin: 0 auto;
-        }
+  &__ebook-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+
+    iframe,
+    object,
+    embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__offer {
+    margin-top: $space-xlrg;
+    margin-bottom: $space-xlrg;
+
+    &--video {
+      align-items: center;
+    }
+  }
+
+  &__form-elements--large {
+    @include sm {
+      display: flex;
+      align-items: center;
     }
 
-    &__title, &__subtitle {
-        em {
-            text-decoration: underline;
-            text-transform: uppercase;
-            font-style: inherit;
-        }
-    }
-
-    &__subtitle {
-        font-size: 1.5em;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    &__form {
-        background: $color-malibu;
-
-        @include sm {
-            padding: $space-small $space-large;
-        }
-
-        h2 {
-            margin: 0;
-        }
-    }
-
-    &__ebook-wrap {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%;
-        padding-top: 30px;
-        height: 0;
-        overflow: hidden;
-
-        iframe, object, embed {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    &__offer {
-        margin-top: $space-xlrg;
-        margin-bottom: $space-xlrg;
-
-        &--video {
-            align-items: center;
-        }
-    }
-
-    &__form-elements--large {
-        @include sm {
-            display: flex;
-            align-items: center;
-        }
-
-        input {
-            @include sm {
-                margin-bottom: 0;
-                margin-right: $space-large;
-            }
-        }
-
-        button {
-            margin-top: 0;
-        }
-    }
-    
     input {
-        margin-bottom: $space-large;
-        margin-top: 0;
-
-        height: 50px;
+      @include sm {
+        margin-bottom: 0;
+        margin-right: $space-large;
+      }
     }
+
     button {
-        @include sm-down {
-            margin-top: 0;
-        }
-        @include sm {
-            float: none;
-        }
+      margin-top: 0;
+    }
+  }
+
+  input {
+    margin-bottom: $space-large;
+    margin-top: 0;
+
+    height: 50px;
+  }
+
+  button {
+    @include sm-down {
+      margin-top: 0;
     }
 
-    &__checklist {
-        list-style: none;
-
-        li {
-            &::before {
-                content: "\f00c";
-                margin-left: -2em;
-                padding-right: 1em;
-                font-family: 'FontAwesome';
-                color: green;
-            }
-        }
+    @include sm {
+      float: none;
     }
+  }
+
+  &__checklist {
+    list-style: none;
+
+    li {
+      &::before {
+        content: "\f00c";
+        margin-left: -2em;
+        padding-right: 1em;
+        font-family: 'FontAwesome';
+        color: green;
+      }
+    }
+  }
 }

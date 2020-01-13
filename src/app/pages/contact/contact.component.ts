@@ -39,7 +39,7 @@ export class ContactComponent {
     this.itemRef = db.list('messages');
     this.item = this.itemRef.valueChanges();
 
-    const TITLE = 'Contact Us | Jobs or Projects | Brand Strategy, Brand Identity, Brand Experience';
+    const TITLE = 'Contact Us | Jobs or Projects | App Strategy, App Design, App Development';
     const DESC = 'Good to see you. We were just talking about you! Drop us a line and let us know why you\'re here. ' +
       'If you know someone that needs our help, put their contact details in the message and you may be rewarded with ' +
       '10% of the final invoice ';

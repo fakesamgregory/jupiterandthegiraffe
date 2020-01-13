@@ -11,7 +11,7 @@
         <div *ngIf="!name; else forminfo">
           <p>
             We were just talking about you! Drop us a line and let us know why you're here or <strong>book a consultation</strong>.
-          </p>          
+          </p>
 
           <form [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
             <label>

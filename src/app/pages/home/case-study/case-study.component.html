@@ -1,10 +1,10 @@
 <section class="case-study" [ngClass]="{'case-study--flipped': flip}" data-aos="fade-up" data-aos-duration="1000">
-  <div appParallax [preventMobile]="true" [ratio]="-.05" class="case-study__image-desk">
+  <div class="case-study__image-desk">
       <img
-        [src]="data.acf.homepage_image.sizes.medium"
+        [src]="data.acf.homepage_image.sizes.large"
         [alt]="data.acf.homepage_image.alt"
         class="img-fluid case-study__image"
-        [srcset]="data.acf.homepage_image.sizes.medium + ' 1x, ' + data.acf.homepage_image.sizes.large + ' 2x'"
+        appParallax [preventMobile]="true" [ratio]="-.05"
       >
   </div>
 

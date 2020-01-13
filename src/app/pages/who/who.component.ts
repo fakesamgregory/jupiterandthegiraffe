@@ -25,8 +25,9 @@ export class WhoComponent implements OnInit {
         this.team = res.data[0];
         this.content = res.data[1];
 
-        const TITLE = 'About Us | We are a Brand Strategy and Design Studio';
-        const DESC = 'We\'re a branding studio specialising in helping tech startups who want to drive the future of humanity.';
+        const TITLE = 'About Us | SaaS Product Design and Development Studio';
+        const DESC = 'We\'re a web studio specialising in helping tech startups who want to ' +
+          'drive the future of humanity build SaaS products of the future.';
 
         this.titleService.setTitle( TITLE );
 

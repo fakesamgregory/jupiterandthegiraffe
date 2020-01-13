@@ -1,0 +1,134 @@
+<div class="white-bg mvp-package">
+  <div class="container-fluid text-center">
+    <div class="mvp-package__logo">
+      <app-logo [showSlogan]="true"></app-logo>
+    </div>
+
+    <h1 class="mvp-package__title">
+      SaaS MVP Package
+    </h1>
+
+    <p class="mvp-package__subtitle">
+      <strong>
+        Reach minimum viable product (MVP) sooner and start getting customers!
+      </strong>
+    </p>
+
+    <form class="mvp-package__email" [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
+      <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
+        <label for="b_name">Name: </label>
+        <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+
+        <label for="b_email">Email: </label>
+        <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
+
+        <label for="b_comment">Comment: </label>
+        <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+      </div>
+
+      <label for="email" class="sr-only">Email</label>
+      <input type="email" id="email" formControlName="email" required placeholder="Email" [readOnly]="sent" class="mvp-package__input">
+      <button type="submit" class="btn mvp-package__email-submit btn--white" [disabled]="!rForm.valid || sent">Get Started</button>
+    </form>
+
+    <p *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-error message">
+      How can we reach you? Give us an email address
+    </p>
+
+    <p *ngIf="sent" class="message">
+      Thanks for contacting us! We've sent you a confirmation email to {{email}}.
+    </p>
+
+    <img src="/assets/images/mvp-mockup.png" alt="">
+
+
+    <div class="row text-left">
+      <div class="col-md-4">
+        <div class="mvp-package__benefit">
+          <i class="mvp-package__icon fas fa-drafting-compass"></i>
+
+          <h2>Landing Page Design in Webflow</h2>
+
+          <p>
+            Webflow is the hottest thing on the web right now. it enables content editing via its in-built CMS and
+            an amazingly interactive and customisable website, turbo-charging your SaaS product.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mvp-package__benefit">
+          <i class="mvp-package__icon fas fa-tachometer-alt"></i>
+
+          <h2>User Dashboard</h2>
+
+          <p>
+            Give your users control of their SaaS subscriptions with their very own user management portal.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mvp-package__benefit">
+          <i class="mvp-package__icon fas fa-calendar-alt"></i>
+
+          <h2>Free & Paid Subscritions</h2>
+
+          <p>
+            Free and paid tiers of your service, entirely managed through Stripe. Start earning money right from MVP.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mvp-package__benefit">
+          <i class="mvp-package__icon fas fa-chess-rook"></i>
+
+          <h2>Remote App Strategy</h2>
+
+          <p>
+            Our groundbreaking discovery workshop ran entirely remote! We consult and build your SaaS product with you using our years of experience.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mvp-package__benefit">
+          <i class="mvp-package__icon fas fa-chart-bar"></i>
+
+          <h2>Analytics</h2>
+
+          <p>
+            Understand your users and how they behave using analytics. You can then update and adjust your services accordingly.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mvp-package__benefit">
+          <i class="mvp-package__icon fas fa-globe-africa"></i>
+
+          <h2>Domain & Hosting Setup</h2>
+
+          <p>
+            Take the hassle out of getting your SaaS product online with our own hosting and domain setup with SSL certificates.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <form class="mvp-package__email" [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
+      <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
+        <label for="b_name">Name: </label>
+        <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+
+        <label for="b_email">Email: </label>
+        <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
+
+        <label for="b_comment">Comment: </label>
+        <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+      </div>
+
+      <label for="email" class="sr-only">Email</label>
+      <input type="email" id="email" formControlName="email" required placeholder="Email" [readOnly]="sent" class="mvp-package__input">
+      <button type="submit" class="btn mvp-package__email-submit btn--white" [disabled]="!rForm.valid || sent">Get Started</button>
+    </form>
+
+    <app-quotes-component *ngIf="quotes" [quotes]="quotes"></app-quotes-component>
+  </div>
+</div>

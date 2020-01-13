@@ -11,7 +11,7 @@
 
   &__button {
     @include md {
-      width: 200px;
+      min-width: 200px;
     }
   }
 

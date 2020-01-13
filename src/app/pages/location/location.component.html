@@ -5,71 +5,58 @@
     <h1>Jupiter and the Giraffe<span *ngIf="type"> {{type}} Agency</span> {{location}}</h1>
 
     <p>
-      We bring all our services to {{location}}, be it <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> Brand Identity</a> or
-      <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> Brand Experience</a>.
-      As always we will start with a <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> Brand Strategy</a> workshop
-      and build out your needs and solutions to your problems. 
+      We bring all our services to {{location}}, be it <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> App Development</a> or
+      <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> App Design</a>.
+      As always we will start with a <a href="https://jupiterandthegiraffe.com" class="link-plain"><span class="sr-only">{{location}}</span> App Strategy</a> workshop
+      and build out your needs and solutions to your problems.
     </p>
 
     <section *ngIf="type === 'strategy' || !type">
-      <h2>Brand Strategy</h2>
+      <h2>App Strategy</h2>
 
       <p>
-        This stage in the project gives us the opportunity to delve deeper into your pain points to better understand
-        your problems and the goals your business has. We encourage you to dig deep and think about your audience and build user profiles,
-        think about your company and where you want to position it and seek your competitors to get the upper hand. 
-        This helps us build a picture of your organisation and allows us to build a brand that align to these goals. 
-      </p>
-      
-      <p>
-        Having your business goals as a pillar enable us to be the most creative brand strategy agency and deliver you something
-        that is both unique and functional.
+        We can’t stress the importance of having a strategy in place before lifting a finger.
+        Knowing where we are going is the first step to achieving our goals.
+        We have our own co-piloted strategy process in the form of a workshop where we can get under the hood and into the engine of your business.
+        We take a look at your users, your brand and your goals which aim to challenge and question your assumptions and give you a clear,
+        prioritised path to follow.
       </p>
 
       <p>
-        Learn more about <a [routerLink]="['/service/brand-strategy']">Strategy</a>
+        Learn more about <a [routerLink]="['/service/strategy']">strategy</a>
       </p>
 
     </section>
 
-    <section *ngIf="type === 'identity' || !type">
-      <h2>Brand Identity</h2>
+    <section *ngIf="type === 'design' || !type">
+      <h2>App Design</h2>
 
       <p>
-        A brand isn't something you can see or touch, it's something you feel. What words encapsulate what your users feel when
-        they interact with your business? This is something a brand will do and we strive to get them there. Through
-        <a [routerLink]="['/service/brand-identity/tone-of-voice']" class="link-plain">tone of voice</a>,
-        <a [routerLink]="['/service/brand-identity/brand-messaging']" class="link-plain">brand messaging</a>,
-        <a [routerLink]="['/service/brand-identity/photography']" class="link-plain">photography</a>,
-        <a [routerLink]="['/service/brand-identity/typography']" class="link-plain">typography</a> and
-        <a [routerLink]="['/service/brand-experience']" class="link-plain">creative design</a>. This all comes together to reflects your brand.      
-      </p>
-      
-      <p>
-        This service also aims to design you an an engaging identity. The design of your logo should also be an extension of your brand and the values it holds. 
-        Your brands logo should immediately encapsulate the right audience and connect with the right customer.
+        Creativity and innovation are at the heart of what we do.
+        Building something that is both functional and looks great means your SaaS web app will be a pleasure to use and your customers will come back for more.
       </p>
 
       <p>
-        Brand Identity brings visual aspects to these 'feelings' giving you a styleguide.
-      </p>
-
-      <p>
-        Learn more about <a [routerLink]="['/service/brand-identity']">Branding</a>
+        Learn more about <a [routerLink]="['/service/design']">design</a>
       </p>
 
     </section>
 
-    <section *ngIf="type === 'experience' || !type">
-      <h2>Brand Experience</h2>
+    <section *ngIf="type === 'development' || !type">
+      <h2>Development</h2>
 
       <p>
-        The best design has the best story. We craft this through your brand and unleash it by providing an experience
-        that can take many forms.
+        We were born from years building SaaS products, web apps and websites and landing pages. We live and breathe tech.
       </p>
 
       <p>
-        Learn more about our <a [routerLink]="['/service/brand-experience']">Brand Experience</a>.
+        Offering professional full stack of services from DevOps, CI Pipelines,
+        architecture and deployments to backend API development and strong front-end code using the latest technology.
+        All built from scratch and specific to your needs.
+      </p>
+
+      <p>
+        Learn more about our <a [routerLink]="['/service/development']">development services</a>.
       </p>
 
     </section>
@@ -83,9 +70,9 @@
       </p>
 
       <ul class="list-plain">
-        <li><a href="https://jupiterandthegiraffe.com">Brand Strategy<span class="sr-only"> agency</span> {{location}}</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Brand Identity<span class="sr-only"> agency</span> {{location}}</a></li>
-        <li><a href="https://jupiterandthegiraffe.com">Brand Experience<span class="sr-only"> agency</span> {{location}}</a></li>
+        <li><a href="https://jupiterandthegiraffe.com">App Strategy<span class="sr-only"> agency</span> {{location}}</a></li>
+        <li><a href="https://jupiterandthegiraffe.com">App Design<span class="sr-only"> agency</span> {{location}}</a></li>
+        <li><a href="https://jupiterandthegiraffe.com">App Development<span class="sr-only"> agency</span> {{location}}</a></li>
       </ul>
     </section>
 

@@ -33,6 +33,12 @@
     &--large {
       @include font-size(68);
     }
+
+    &--small {
+      @include md {
+        line-height: 2;
+      }
+    }
   }
 
   &__card-header {

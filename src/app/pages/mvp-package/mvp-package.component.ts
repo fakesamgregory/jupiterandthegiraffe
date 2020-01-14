@@ -2,6 +2,7 @@ import { Component, PLATFORM_ID, Inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { WINDOW } from '@ng-toolkit/universal';
 import { isPlatformBrowser } from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {WordpressService} from '../../services/wordpress.service';
@@ -26,6 +27,7 @@ export class MVPPackageComponent {
   item: any;
   public sent = false;
   public quotes: any;
+  public content: any;
 
   constructor(
     private meta: Meta,
@@ -35,13 +37,20 @@ export class MVPPackageComponent {
     private fb: FormBuilder,
     public db: AngularFireDatabase,
     private wordpress: WordpressService,
+    private actr: ActivatedRoute,
   ) {
-    this.setMetaData({
-      TITLE: 'SaaS MVP Package | Jupiter and the Giraffe',
-      DESC: 'Reach MVP sooner and kick-start your SaaS product and start getting customers.',
-      SHARE_IMAGE: 'https://jupiterandthegiraffe.com/assets/images/mvp-package.png',
-      SHARE_IMAGE_ALT: ''
-    });
+
+    this.actr.data
+      .subscribe(res => {
+        this.content = res.data;
+
+        this.setMetaData({
+          TITLE: `${this.content.title.rendered} | Jupiter and the Giraffe`,
+          DESC: 'Reach MVP sooner and kick-start your SaaS product and start getting customers.',
+          SHARE_IMAGE: 'https://jupiterandthegiraffe.com/assets/images/mvp-package.png',
+          SHARE_IMAGE_ALT: ''
+        });
+      });
 
     this.itemRef = db.list('mvp');
     this.item = this.itemRef.valueChanges();

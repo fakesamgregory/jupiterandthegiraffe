@@ -5,12 +5,12 @@
     </div>
 
     <h1 class="mvp-package__title">
-      SaaS MVP Package
+      {{content.title.rendered}}
     </h1>
 
-    <p class="mvp-package__subtitle">
+    <p class="mvp-package__subtitle" *ngIf="content.acf.tagline">
       <strong>
-        Reach minimum viable product (MVP) sooner and start getting customers!
+        {{ content.acf.tagline }}
       </strong>
     </p>
 
@@ -39,75 +39,18 @@
       Thanks for contacting us! We've sent you a confirmation email to {{email}}.
     </p>
 
-    <img src="/assets/images/mvp-mockup.png" alt="">
+    <img [src]="content._embedded['wp:featuredmedia'][0].source_url" alt="">
 
+    <div class="mvp-package__content" [innerHTML]="content.content.rendered"></div>
 
     <div class="row text-left">
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let feature of content.acf.features">
         <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas fa-drafting-compass"></i>
+          <i class="mvp-package__icon fas {{feature.icon}}"></i>
 
-          <h2>Landing Page Design in Webflow</h2>
+          <h2>{{feature.title}}</h2>
 
-          <p>
-            Webflow is the hottest thing on the web right now. it enables content editing via its in-built CMS and
-            an amazingly interactive and customisable website, turbo-charging your SaaS product.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas fa-tachometer-alt"></i>
-
-          <h2>User Dashboard</h2>
-
-          <p>
-            Give your users control of their SaaS subscriptions with their very own user management portal.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas fa-calendar-alt"></i>
-
-          <h2>Free & Paid Subscritions</h2>
-
-          <p>
-            Free and paid tiers of your service, entirely managed through Stripe. Start earning money right from MVP.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas fa-chess-rook"></i>
-
-          <h2>Remote App Strategy</h2>
-
-          <p>
-            Our groundbreaking discovery workshop ran entirely remote! We consult and build your SaaS product with you using our years of experience.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas fa-chart-bar"></i>
-
-          <h2>Analytics</h2>
-
-          <p>
-            Understand your users and how they behave using analytics. You can then update and adjust your services accordingly.
-          </p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas fa-globe-africa"></i>
-
-          <h2>Domain & Hosting Setup</h2>
-
-          <p>
-            Take the hassle out of getting your SaaS product online with our own hosting and domain setup with SSL certificates.
-          </p>
+          <div [innerHTML]="feature.text"></div>
         </div>
       </div>
     </div>

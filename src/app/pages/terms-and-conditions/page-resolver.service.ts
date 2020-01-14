@@ -13,7 +13,7 @@ export class PageResolverService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, rstate: RouterStateSnapshot): Observable<any> {
     return this.wordress
-      .getPageId(144)
+      .getPageId(route.data.pageId)
       .pipe(catchError(err => {
         console.log(err);
         this.router.navigate(['/not-found']);

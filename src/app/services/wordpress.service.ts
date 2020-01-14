@@ -20,12 +20,12 @@ export class WordpressService {
 
   public getPageId(id: number): Observable<any> {
     return this.http
-      .get(`${this.url}/pages/${id}`);
+      .get(`${this.url}/pages/${id}?_embed`);
   }
 
   public getPostId(id: number): Observable<any> {
     return this.http
-      .get(`${this.url}/posts/${id}`);
+      .get(`${this.url}/posts/${id}?_embed`);
   }
 
   public getPostType(type: string, options?: object): Observable<any> {

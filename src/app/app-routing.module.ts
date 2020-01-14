@@ -27,12 +27,22 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'who-we-are', component: WhoComponent,  resolve: { data: WhoResolverService} },
   { path: 'what-we-do', component: WhatComponent },
-  { path: 'terms-and-conditions', component: TermsAndConditionsComponent, resolve: { data: PageResolverService } },
+  {
+    path: 'terms-and-conditions',
+    component: TermsAndConditionsComponent,
+    resolve: { data: PageResolverService },
+    data: { pageId: 144 }
+  },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'people/:name', component: PersonComponent, resolve: { person: AppResolverService } },
   { path: 'free-strategy', component: FunnelComponent },
   { path: 'how-to-launch-an-awesome-tech-brand', component: HowToBuildAnEffectiveBrandComponent },
-  { path: 'mvp-package', component: MVPPackageComponent },
+  {
+    path: 'mvp-package',
+    component: MVPPackageComponent,
+    resolve: { data: PageResolverService },
+    data: { pageId: 953 }
+  },
 
   // Case studies
   {

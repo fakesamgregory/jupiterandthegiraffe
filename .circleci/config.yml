@@ -157,6 +157,12 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: List
+          command: |
+            ls -al
+            ls -al ./node_modules/.bin
+
+      - run:
           name: Deploy Firebase
           command: ~/app/node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
 

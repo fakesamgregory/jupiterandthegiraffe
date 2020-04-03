@@ -90,9 +90,8 @@ exports.sendContactMessage = functions.database
     }
 
     const mailToUs = mailTransport.sendMail({
-      from: 'Jupiter and the Giraffe <salam@jupiterandthegiraffe.com>',
-      to: ['samuel@jupiterandthegiraffe.com'],
-      replyTo: val.email,
+      from: val.email,
+      to: 'hello@jupiterandthegiraffe.com',
       subject: `${val.name} contacted Jupiter and the Giraffe`,
       html: val.html,
       text: val.message
@@ -108,7 +107,7 @@ exports.sendContactMessage = functions.database
       '<p>The Giraffe</p>';
 
     const mailToThem = mailTransport.sendMail({
-      from: 'Jupiter and the Giraffe <noreply@jupiterandthegiraffe.com>',
+      from: 'Jupiter and the Giraffe <hello@jupiterandthegiraffe.com>',
       to: val.email,
       subject: "🚀 Thanks for contacting Jupiter and the Giraffe, you're awesome!",
       html,

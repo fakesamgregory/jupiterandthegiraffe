@@ -28,9 +28,8 @@ const packageReq = (snapshot, context, package) => {
     '<p>You can contact them back on ' + val.email + '</p>';
 
   const mailToUs = mailTransport.sendMail({
-    from: 'Jupiter and the Giraffe <salam@jupiterandthegiraffe.com>',
-    to: ['samuel@jupiterandthegiraffe.com'],
-    replyTo: val.email,
+    from: val.email,
+    to: 'package@jupiterandthegiraffe.com',
     subject: `${val.email} contacted Jupiter and the Giraffe`,
     html: ourEmail,
     text: ourEmail.replace(/<\/p>/g, ' ').replace(/<p>/g, '')

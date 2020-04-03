@@ -136,46 +136,24 @@ jobs:
 
       - run: npm run lint
 
-      test:
-        <<: *vm_settings
-        steps:
-          - checkout
+  deploy_firebase:
+    <<: *vm_settings
+    steps:
+      - checkout
 
-          - restore_cache:
-              keys:
-                - v2-dependencies-{{ checksum "package.json" }}
-                # fallback to using the latest cache if no exact match is found
-                - v2-dependencies-
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v2-dependencies-
 
-          - run:
-              name: Install dependencies
-              command: npm install
+      - run:
+          name: Install dependencies
+          command: npm install
 
-          - save_cache:
-              paths:
-                - node_modules
-              key: v2-dependencies-{{ checksum "package.json" }}
-
-          - run: npm run lint
-
-      deploy_firebase:
-        <<: *vm_settings
-        steps:
-          - checkout
-
-          - restore_cache:
-              keys:
-                - v2-dependencies-{{ checksum "package.json" }}
-                # fallback to using the latest cache if no exact match is found
-                - v2-dependencies-
-
-          - run:
-              name: Install dependencies
-              command: npm install
-
-          - run:
-              name: 'Deploy Firebase'
-              command: firebase deploy --token "$FIREBASE_TOKEN"
+      - run:
+          name: 'Deploy Firebase'
+          command: firebase deploy --token "$FIREBASE_TOKEN"
 
 workflows:
   version: 2

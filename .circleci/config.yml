@@ -151,6 +151,11 @@ jobs:
           name: Install dependencies
           command: npm install
 
+      - save_cache:
+        paths:
+          - node_modules
+        key: v2-dependencies-{{ checksum "package.json" }}
+
       - run:
           name: 'Deploy Firebase'
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"

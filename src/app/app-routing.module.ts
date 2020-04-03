@@ -20,7 +20,6 @@ import { FunnelComponent } from './pages/funnel/funnel.component';
 import { MVPPackageComponent } from './pages/mvp-package/mvp-package.component';
 import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
 import { WhoResolverService } from './pages/who/who-resolver.service';
-import { WebsitePackageComponent } from './pages/website-package/website-package.component';
 
 const routes: Routes = [
   // Top level pages
@@ -138,5 +137,4 @@ export const routableComponents = [
   FunnelComponent,
   HowToBuildAnEffectiveBrandComponent,
   MVPPackageComponent,
-  WebsitePackageComponent,
 ];

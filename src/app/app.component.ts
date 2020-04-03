@@ -83,7 +83,8 @@ export class AppComponent implements OnDestroy, OnInit {
         this.isFunnel = event.urlAfterRedirects.includes('free-strategy');
         this.isLandingPage =
           event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand') ||
-          event.urlAfterRedirects.includes('mvp-package');
+          event.urlAfterRedirects.includes('mvp-package') ||
+          event.urlAfterRedirects.includes('website-package');
 
         if (isPlatformBrowser(this.platformId)) {
           this.window.scrollTo(0, 0);

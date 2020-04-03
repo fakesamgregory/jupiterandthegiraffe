@@ -3,7 +3,8 @@
 
 .pricing {
   &__card {
-    margin: 0 $space-large;
+    position: relative;
+    margin: 0 $space-small;
     border: 1px solid $color-black;
     position: relative;
     background-color: #fff;
@@ -39,6 +40,11 @@
         line-height: 2;
       }
     }
+
+    &--strike {
+      text-decoration: line-through;
+      margin-bottom: 0;
+    }
   }
 
   &__card-header {
@@ -54,7 +60,6 @@
     padding: 0 $space-large $space-large;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
   }
 
@@ -66,10 +71,6 @@
     > * {
       margin-bottom: 20px;
 
-      &:first-child {
-        margin-bottom: 60px;
-      }
-
       @include md {
         margin-bottom: 0 !important;
       }
@@ -78,7 +79,28 @@
 
   &__checklist {
     padding-left: 0;
-    margin-bottom: $space-large * 2;
+    margin-bottom: auto;
     list-style: none;
+  }
+
+  &__footer {
+    margin-top: $space-large;
+  }
+
+  &__star {
+    position: absolute;
+    top: -50px;
+    right: -40px;
+    max-width: 100%;
+    width: 100px;
+    height: auto;
+    z-index: 1;
+    transform: rotate(10deg);
+  }
+
+  &__card-discount {
+    color: $color-oldBrick;
+    margin-bottom: $space-large;
+    @include font-size($heading-2);
   }
 }

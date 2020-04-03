@@ -43,6 +43,12 @@ const routes: Routes = [
     resolve: { data: PageResolverService },
     data: { pageId: 953 }
   },
+  {
+    path: 'website-package',
+    component: MVPPackageComponent,
+    resolve: { data: PageResolverService },
+    data: { pageId: 985 }
+  },
 
   // Case studies
   {

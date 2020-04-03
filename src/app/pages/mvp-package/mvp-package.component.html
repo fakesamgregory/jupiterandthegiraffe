@@ -8,6 +8,10 @@
       {{content.title.rendered}}
     </h1>
 
+    <p *ngIf="content.acf.price" [ngClass]="{'mvp-package__price--discount': content.acf.discount}" class="mvp-package__price">
+      <span class="mvp-package__full-price">{{ content.acf.price }}</span> <span *ngIf="content.acf.discount" class="mvp-package__discount">{{ content.acf.discount }}</span>
+    </p>
+
     <p class="mvp-package__subtitle" *ngIf="content.acf.tagline">
       <strong>
         {{ content.acf.tagline }}

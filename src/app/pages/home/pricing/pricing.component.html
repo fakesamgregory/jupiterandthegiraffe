@@ -2,7 +2,38 @@
   <h2 class="text-center" data-aos="fade-in">Pricing Packages</h2>
 
   <div class="row pricing__prices">
-    <div class="col-md-6">
+    <div class="col-md">
+      <section class="pricing__card text-center">
+        <header class="pricing__card-header">
+          <h3 class="pricing__card-title">SaaS Website Package</h3>
+        </header>
+
+        <div class="pricing__card-body">
+
+          <h4 class="pricing__card-price pricing__card-price--large pricing__card-price--strike">£1,000</h4>
+          <strong class="pricing__card-discount">£800</strong>
+
+          <strong>
+            Need a website that converts?
+          </strong>
+
+          <ul class="pricing__checklist">
+            <li>Homepage design in Webflow<sup>*</sup></li>
+            <li>Analytics/Heatmapping</li>
+            <li>Domain and hosting setup<sup>*</sup></li>
+            <li>Expert sales copy that converts</li>
+            <li>CMS</li>
+          </ul>
+
+          <div class="pricing__footer">
+            <a [routerLink]="['/website-package']" class="btn btn--lg btn--outline btn--dark">Learn more</a>
+          </div>
+
+          <img src="/assets/images/star-20.png" alt="" class="pricing__star">
+        </div>
+      </section>
+    </div>
+    <div class="col-md">
       <section class="pricing__card pricing__card--feature text-center">
         <header class="pricing__card-header">
           <h3 class="pricing__card-title">SaaS MVP Package</h3>
@@ -10,33 +41,33 @@
 
         <div class="pricing__card-body">
 
-          <h4 class="pricing__card-price pricing__card-price--large">£6k</h4>
+          <h4 class="pricing__card-price pricing__card-price--large pricing__card-price--strike">£6,000</h4>
+          <strong class="pricing__card-discount">£3,800</strong>
 
-          <p class="pricing__card-sticker">
-            <strong>Introductory offer</strong>
-          </p>
-
-          <p>
+          <strong>
             Got an app idea?
-          </p>
+          </strong>
 
           <ul class="pricing__checklist">
-            <li>Landing page design in Webflow<sup>*</sup></li>
+            <li>Homepage design in Webflow<sup>*</sup></li>
+            <li>Remote App Strategy</li>
+            <li>Analytics/Heatmapping</li>
+            <li>Domain and hosting setup<sup>*</sup></li>
+            <li>Expert sales copy that converts</li>
             <li>User dashboard</li>
             <li>Free/Paid Stripe subscriptions enabled</li>
-            <li>Remote App Strategy</li>
-            <li>Analytics</li>
-            <li>Domain and hosting setup<sup>*</sup></li>
             <li>3 Months consulting and bug support<sup>**</sup></li>
           </ul>
 
-          <div>
+          <div class="pricing__footer">
             <a [routerLink]="['/mvp-package']" class="btn btn--lg btn--black">Learn more</a>
           </div>
+
+          <img src="/assets/images/star.png" alt="" class="pricing__star">
         </div>
       </section>
     </div>
-    <div class="col-md-6">
+    <div class="col-md">
       <section class="pricing__card text-center">
         <header class="pricing__card-header">
           <h3 class="pricing__card-title">SaaS Premium Package</h3>
@@ -46,13 +77,9 @@
 
           <h4 class="pricing__card-price pricing__card-price--small">Contact us</h4>
 
-          <p class="pricing__card-sticker">
-            <strong>Bespoke experience</strong>
-          </p>
-
-          <p>
+          <strong>
             Build your ambitions and take on the world.
-          </p>
+          </strong>
 
           <ul class="pricing__checklist">
             <li>Bespoke website + landing page UX/design/development</li>
@@ -65,7 +92,7 @@
             <li>3 Months consulting and bug support<sup>**</sup></li>
           </ul>
 
-          <div>
+          <div class="pricing__footer">
             <a [routerLink]="['/contact']" class="btn btn--lg btn--outline btn--dark">Contact us</a>
           </div>
         </div>

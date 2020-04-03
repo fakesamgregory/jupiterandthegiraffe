@@ -238,6 +238,7 @@ workflows:
       - invalidate_code:
           requires:
             - build_deploy_prod
+            - deploy_firebase
           filters:
             tags:
               only: /[0-9]+(\.[0-9]+)*/

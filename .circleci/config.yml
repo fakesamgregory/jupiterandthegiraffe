@@ -1,7 +1,7 @@
 vm_settings: &vm_settings
   working_directory: ~/app
   docker:
-    - image: circleci/node:10.9.0-browsers
+    - image: circleci/node:10.12.0
 
 version: 2
 jobs:
@@ -132,12 +132,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/app
-
-      - run:
-          name: List
-          command: |
-            ls -al
-            ls -al ./node_modules/.bin
 
       - run:
           name: Deploy Firebase

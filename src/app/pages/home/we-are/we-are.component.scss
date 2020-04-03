@@ -16,6 +16,10 @@
     }
   }
 
+  &__title {
+    margin: 50px 0;
+  }
+
   &__thinkers {
     @include sm {
       display: none;

@@ -20,6 +20,7 @@ import { FunnelComponent } from './pages/funnel/funnel.component';
 import { MVPPackageComponent } from './pages/mvp-package/mvp-package.component';
 import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
 import { WhoResolverService } from './pages/who/who-resolver.service';
+import { WebsitePackageComponent } from './pages/website-package/website-package.component';
 
 const routes: Routes = [
   // Top level pages
@@ -42,6 +43,12 @@ const routes: Routes = [
     component: MVPPackageComponent,
     resolve: { data: PageResolverService },
     data: { pageId: 953 }
+  },
+  {
+    path: 'website-package',
+    component: MVPPackageComponent,
+    resolve: { data: PageResolverService },
+    data: { pageId: 985 }
   },
 
   // Case studies
@@ -131,4 +138,5 @@ export const routableComponents = [
   FunnelComponent,
   HowToBuildAnEffectiveBrandComponent,
   MVPPackageComponent,
+  WebsitePackageComponent,
 ];

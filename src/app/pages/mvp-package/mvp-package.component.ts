@@ -1,4 +1,4 @@
-import { Component, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, PLATFORM_ID, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { WINDOW } from '@ng-toolkit/universal';
 import { isPlatformBrowser } from '@angular/common';
@@ -19,7 +19,7 @@ export interface Item {
   templateUrl: './mvp-package.component.html',
   styleUrls: ['./mvp-package.component.scss']
 })
-export class MVPPackageComponent {
+export class MVPPackageComponent implements OnInit {
   public rForm: FormGroup;
   public post: any;
   public email: string;
@@ -51,8 +51,10 @@ export class MVPPackageComponent {
           SHARE_IMAGE_ALT: ''
         });
       });
+  }
 
-    this.itemRef = db.list('mvp');
+  ngOnInit() {
+    this.itemRef = this.db.list(this.window.location.pathname.substr(1));
     this.item = this.itemRef.valueChanges();
     this.createForm();
   }

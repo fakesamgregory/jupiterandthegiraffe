@@ -44,6 +44,7 @@
     "cors": "~2.8.4",
     "cp-cli": "^1.1.0",
     "firebase": "^5.9.0",
+    "firebase-tools": "^8.0.1",
     "ng-recaptcha": "^5.0.0",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",

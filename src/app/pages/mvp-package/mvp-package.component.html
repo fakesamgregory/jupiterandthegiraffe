@@ -1,81 +1,126 @@
-<div class="white-bg mvp-package">
-  <div class="container-fluid text-center">
+<div class="mvp-package__hero">
+  <div class="container-fluid">
     <div class="mvp-package__logo">
       <app-logo [showSlogan]="true"></app-logo>
     </div>
 
-    <h1 class="mvp-package__title">
-      {{content.title.rendered}}
-    </h1>
+    <div class="row" style="align-items: center;">
+      <div class="col-md">
+        <h1 class="mvp-package__title">
+          {{content.title.rendered}}
+        </h1>
 
-    <p *ngIf="content.acf.price" [ngClass]="{'mvp-package__price--discount': content.acf.discount}" class="mvp-package__price">
-      <span class="mvp-package__full-price">{{ content.acf.price }}</span> <span *ngIf="content.acf.discount" class="mvp-package__discount">{{ content.acf.discount }}</span>
-    </p>
+        <p class="mvp-package__subtitle" *ngIf="content.acf.tagline">
+          {{ content.acf.tagline }}
+        </p>
 
-    <p class="mvp-package__subtitle" *ngIf="content.acf.tagline">
-      <strong>
-        {{ content.acf.tagline }}
-      </strong>
-    </p>
+        <form class="mvp-package__email" [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
+          <div class="mvp-package__form-content">
+            <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
+              <label for="b_name">Name: </label>
+              <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
 
-    <form class="mvp-package__email" [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
-      <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
-        <label for="b_name">Name: </label>
-        <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+              <label for="b_email">Email: </label>
+              <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
 
-        <label for="b_email">Email: </label>
-        <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
+              <label for="b_comment">Comment: </label>
+              <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+            </div>
 
-        <label for="b_comment">Comment: </label>
-        <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" id="email" formControlName="email" required placeholder="Email" [readOnly]="sent" class="mvp-package__input">
+            <button type="submit" class="btn mvp-package__email-submit btn--white" [disabled]="!rForm.valid || sent">Get Started</button>
+          </div>
+
+          <div>
+            <p *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-error message">
+              How can we reach you? Give us an email address
+            </p>
+
+            <p *ngIf="sent" class="message">
+              Thanks for contacting us! We've sent you a confirmation email to {{email}}.
+            </p>
+          </div>
+        </form>
       </div>
+      <div class="col-md">
+        <img [src]="content._embedded['wp:featuredmedia'][0].source_url" alt="">
 
-      <label for="email" class="sr-only">Email</label>
-      <input type="email" id="email" formControlName="email" required placeholder="Email" [readOnly]="sent" class="mvp-package__input">
-      <button type="submit" class="btn mvp-package__email-submit btn--white" [disabled]="!rForm.valid || sent">Get Started</button>
-    </form>
+        <img [src]="content.acf.discount_image.url" alt="" class="mvp-package__star" *ngIf="content.acf.discount_image">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="white-bg mvp-package">
+  <div class="container-fluid text-center">
+    <div class="mvp-package__content" [innerHTML]="content.content.rendered" *ngIf="content.content.rendered"></div>
 
-    <p *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-error message">
-      How can we reach you? Give us an email address
-    </p>
+    <div *ngIf="content.acf.features">
+      <h2>What's in the Package?</h2>
 
-    <p *ngIf="sent" class="message">
-      Thanks for contacting us! We've sent you a confirmation email to {{email}}.
-    </p>
+      <div class="row text-left">
+        <div class="col-md-4" *ngFor="let feature of content.acf.features">
+          <div class="mvp-package__benefit">
+            <i class="mvp-package__icon fas {{feature.icon}}"></i>
 
-    <img [src]="content._embedded['wp:featuredmedia'][0].source_url" alt="">
+            <h2>{{feature.title}}</h2>
 
-    <div class="mvp-package__content" [innerHTML]="content.content.rendered"></div>
-
-    <div class="row text-left">
-      <div class="col-md-4" *ngFor="let feature of content.acf.features">
-        <div class="mvp-package__benefit">
-          <i class="mvp-package__icon fas {{feature.icon}}"></i>
-
-          <h2>{{feature.title}}</h2>
-
-          <div [innerHTML]="feature.text"></div>
+            <div [innerHTML]="feature.text"></div>
+          </div>
         </div>
       </div>
     </div>
 
+    <app-quotes-component *ngIf="quotes" [quotes]="quotes"></app-quotes-component>
+
+    <div *ngIf="content.acf.faqs">
+      <h2>FAQs</h2>
+
+      <ul class="mvp-package__faqs">
+        <li *ngFor="let question of content.acf.faqs" class="mvp-package__faq-item">
+          <details>
+            <summary class="mvp-package__faqs-summary">{{ question.question }}</summary>
+            <div [innerHTML]="question.answer" class="mvp-package__faq-answer"></div>
+          </details>
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="text-center">
+      Get started now for only
+      <span *ngIf="content.acf.price" [ngClass]="{'mvp-package__price--discount': content.acf.discount}" class="mvp-package__price">
+        <span class="mvp-package__full-price">{{ content.acf.price }}</span> <span *ngIf="content.acf.discount" class="mvp-package__discount">{{ content.acf.discount }}</span>
+      </span>
+    </h2>
+
     <form class="mvp-package__email" [formGroup]="rForm" (ngSubmit)="sendForm(rForm.value)" novalidate>
-      <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
-        <label for="b_name">Name: </label>
-        <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+      <div class="mvp-package__form-content">
+        <div class="field-shift sr-only" aria-label="Please leave the following three fields empty">
+          <label for="b_name">Name: </label>
+          <input type="text" formControlName="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
 
-        <label for="b_email">Email: </label>
-        <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
+          <label for="b_email">Email: </label>
+          <input type="email" formControlName="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
 
-        <label for="b_comment">Comment: </label>
-        <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+          <label for="b_comment">Comment: </label>
+          <textarea formControlName="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+        </div>
+
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" id="email" formControlName="email" required placeholder="Email" [readOnly]="sent" class="mvp-package__input">
+        <button type="submit" class="btn mvp-package__email-submit btn--white" [disabled]="!rForm.valid || sent">Get Started</button>
       </div>
 
-      <label for="email" class="sr-only">Email</label>
-      <input type="email" id="email" formControlName="email" required placeholder="Email" [readOnly]="sent" class="mvp-package__input">
-      <button type="submit" class="btn mvp-package__email-submit btn--white" [disabled]="!rForm.valid || sent">Get Started</button>
+      <div>
+        <p *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" class="form-error message">
+          How can we reach you? Give us an email address
+        </p>
+
+        <p *ngIf="sent" class="message">
+          Thanks for contacting us! We've sent you a confirmation email to {{email}}.
+        </p>
+      </div>
     </form>
 
-    <app-quotes-component *ngIf="quotes" [quotes]="quotes"></app-quotes-component>
   </div>
 </div>

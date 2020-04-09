@@ -193,8 +193,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const TITLE = 'Design and Build SaaS Products for Future-Thinking Tech';
-    const DESC = 'Design and Development powerhouse for SaaS products and web apps for tech that changes the world.';
+    const TITLE = 'Web Apps & SaaS Products - Design, Develop, Launch';
+    const DESC = 'We help you design and build your next product innovation. Over 10 years ' +
+      'building web apps with business strategy in mind.';
 
     this.titleService.setTitle(TITLE);
 

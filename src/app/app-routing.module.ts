@@ -60,7 +60,6 @@ const routes: Routes = [
   },
   { path: 'veratrak', redirectTo: 'case-study/veratrak'},
   { path: 'north-star-law', redirectTo: 'case-study/north-star-law'},
-  { path: 'boombocs', redirectTo: 'case-study/boombocs'},
   { path: 'epoch-brand-website', redirectTo: 'case-study/epoch-brand-website'},
   { path: 'case-study', redirectTo: '/' },
 
@@ -73,42 +72,33 @@ const routes: Routes = [
   },
 
   {
-    path: 'service/design',
+    path: 'service/web-app-design',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'design' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'design' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'design' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'web app design' } },
     ]
   },
 
   {
-    path: 'service/development',
+    path: 'service/web-app-development',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'development' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'development' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'development' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'web app development' } },
     ]
   },
 
   {
-    path: 'service/strategy',
+    path: 'service/web-app-strategy',
     children: [
-      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'strategy' } },
-      { path: 'sydney', component: LocationComponent, data: { location: 'Sydney', type: 'strategy' } },
-      { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff', type: 'strategy' } }
+      { path: 'london', component: LocationComponent, data: { location: 'London', type: 'web app strategy' } },
     ]
   },
 
-  { path: 'design', redirectTo: 'service/design' },
-  { path: 'development', redirectTo: 'service/development' },
-  { path: 'strategy', redirectTo: 'service/strategy' },
+  { path: 'design', redirectTo: 'service/web-app-design' },
+  { path: 'development', redirectTo: 'service/web-app-development' },
+  { path: 'strategy', redirectTo: 'service/web-app-strategy' },
   { path: 'contact-us', redirectTo: 'contact' },
 
   // Locations
   { path: 'london', component: LocationComponent, data: { location: 'London' } },
-  { path: 'sydney', component: LocationComponent, data: { location: 'Sydney' } },
-  { path: 'cardiff', component: LocationComponent, data: { location: 'Cardiff' } },
-  { path: 'bali', component: LocationComponent, data: { location: 'Bali' } },
 
   // Not found
   { path: '404', component: NotFoundComponent },

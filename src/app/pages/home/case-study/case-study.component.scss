@@ -87,6 +87,10 @@
         transform: translateX(5px);
       }
     }
+    
+    &::after {
+      display: none;
+    }
   }
 
   &__tagline {

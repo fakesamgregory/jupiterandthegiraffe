@@ -18,7 +18,7 @@
 
       <p *ngIf="data.acf?.work_type"><strong>{{data.acf.work_type}}</strong></p>
 
-      <a *ngIf="data.acf.external_link as link else internalLink;" [href]="link" class="case-study__link">
+      <a *ngIf="data.acf.external_link as link else internalLink;" [href]="link" class="case-study__link" target="_blank" rel="noopener">
         View<span class="sr-only"> {{data.title.rendered}}</span> case study <i aria-hidden="true" class="fa fa-arrow-right"></i>
       </a>
       <ng-template #internalLink>

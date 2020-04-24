@@ -58,8 +58,10 @@ jobs:
           name: Add robots TXT file
           command: |
             rm ~/app/dist/jupiter-and-the-giraffe/robots.txt
-            echo 'User-agent: *' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
-            echo 'Disallow: /' >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
+            cat <<EOT >> ~/app/dist/jupiter-and-the-giraffe/robots.txt
+            User-agent: *
+            Disallow: /
+            EOT
 
       - run:
           name: AWS Sync

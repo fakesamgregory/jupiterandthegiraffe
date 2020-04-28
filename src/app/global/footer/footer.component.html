@@ -10,8 +10,8 @@
             <h2 class="footer__title heading-3">Brands</h2>
           </header>
           <ul class="list-unstyled">
-            <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async">
-              <li class="footer__list-item" *ngIf="brand.slug">
+            <ng-container *ngFor="let brand of highlightedFriendStore.friends$ | async; index as i;">
+              <li class="footer__list-item" *ngIf="brand.slug && i < 3">
                 <a
                   [routerLink]="'/case-study/' + brand.slug" class="footer__link"
                   [innerHTML]="brand.title.rendered + '<span class=\'sr-only\'> case study</span>'"

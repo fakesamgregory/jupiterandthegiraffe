@@ -158,7 +158,7 @@ export class AppComponent implements OnDestroy, OnInit {
           });
 
         forkJoin(friendPageContent)
-          .subscribe((friends) => this.friendsStore.friends = [friends[0], friends[1], friends[2]]);
+          .subscribe((friends) => this.friendsStore.friends = friends);
       });
   }
 

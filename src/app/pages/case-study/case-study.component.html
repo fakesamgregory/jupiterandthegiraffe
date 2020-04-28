@@ -6,10 +6,16 @@
   <div class="container-fluid">
     <div class="row case-study__main-info">
       <div class="col-sm-6 case-study__info">
-        <p [innerHTML]="content.excerpt.rendered">
+        <p *ngIf="content.acf.brief" [innerHTML]="content.acf.brief">
         <hr>
         <p *ngIf="content.acf.work_type"><strong>Services:</strong> {{content.acf.work_type}}</p>
         <p *ngIf="content.acf.link"><strong>Link: </strong> <a [href]="content.acf.link">{{content.acf.link_text}}</a></p>
+        <div *ngIf="content.acf.other_links">
+          <p><strong>Other Links: </strong></p>
+          <ul style="margin-top: 0;">
+            <li *ngFor="let link of content.acf.other_links"><a [href]="link.link">{{link.text}}</a></li>
+          </ul>
+        </div>
       </div>
       <div class="col-sm-4 offset-md-2">
         <ul *ngIf="content.acf.crew" class="case-study__crew-list">

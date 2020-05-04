@@ -105,6 +105,8 @@ jobs:
   test:
     <<: *vm_settings
     steps:
+      - run: cat ~/.aws/credentials && cat ~/.aws/config
+
       - checkout
 
       - restore_cache:

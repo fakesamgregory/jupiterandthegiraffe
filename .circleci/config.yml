@@ -105,7 +105,7 @@ jobs:
   test:
     <<: *vm_settings
     steps:
-      - run: ls -al ~/
+      - run: ls -al ~/app
       - run: cat ~/.aws/config
 
       - checkout

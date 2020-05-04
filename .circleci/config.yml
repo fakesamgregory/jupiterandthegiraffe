@@ -105,7 +105,7 @@ jobs:
   test:
     <<: *vm_settings
     steps:
-      - run: cat ~/.aws/credentials && cat ~/.aws/config
+      - run: cat ~/.aws/config
 
       - checkout
 

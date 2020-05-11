@@ -10,6 +10,13 @@
     </li>
 
     <li>
+      <a href="#pricing" data-position="#pricing" (click)="scroll($event)" *ngIf="home; else elseBlock">Pricing</a>
+      <ng-template #elseBlock>
+        <a [routerLink]="['/']" fragment="pricing">Pricing</a>
+      </ng-template>
+    </li>
+
+    <li>
       <a routerLinkActive="header__active-link" [routerLink]="['/contact']">Contact</a>
     </li>
 

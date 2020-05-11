@@ -4,6 +4,8 @@
     (toggleMenu)="toggleMenu()"
     [menuOpen]="menuOpen"
     [funnel]="isFunnel"
+    [home]="isHome"
+    (scrollTo)="scrollTo($event)"
     *ngIf="!isLandingPage"
   >
   </app-header-component>
@@ -24,11 +26,6 @@
   <main>
     <router-outlet></router-outlet>
   </main>
-
-  <a (click)="scrollUp($event)" class="scroll-up" [ngClass]="{'scroll-up--active': showHeader}">
-    <i aria-hidden="true" class="fab fa-arrow-up"></i>
-    <span class="sr-only">Scroll to top</span>
-  </a>
 
   <app-footer-component #footer [services]="serviceStore.services$ | async"></app-footer-component>
 

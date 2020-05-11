@@ -79,7 +79,7 @@ export class AppComponent implements OnDestroy, OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.loading = false;
-        this.hasBeenHome = this.isHome = event.url === '/';
+        this.hasBeenHome = this.isHome = /\/(#.+)?$/.test(event.url);
         this.isFunnel = event.urlAfterRedirects.includes('free-strategy');
         this.isLandingPage =
           event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand') ||
@@ -94,6 +94,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
         this.toggleMenu.call(this, false);
       });
+
 
     this.loadFriends();
     this.loadServices();
@@ -181,10 +182,10 @@ export class AppComponent implements OnDestroy, OnInit {
     this.menuOpen = forceState !== undefined ? forceState : !this.menuOpen;
   }
 
-  public scrollTo(data): void {
-    data.event.preventDefault();
+  public scrollTo(event): void {
+    event.preventDefault();
 
-    const target = data.target;
+    const target = event.target;
     let top = Number(target.dataset.position);
 
     if (!top) {

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { WhoComponent } from './pages/who/who.component';
@@ -20,6 +20,11 @@ import { FunnelComponent } from './pages/funnel/funnel.component';
 import { MVPPackageComponent } from './pages/mvp-package/mvp-package.component';
 import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
 import { WhoResolverService } from './pages/who/who-resolver.service';
+
+const routerOptions: ExtraOptions = {
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled',
+};
 
 const routes: Routes = [
   // Top level pages
@@ -106,7 +111,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, routerOptions)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

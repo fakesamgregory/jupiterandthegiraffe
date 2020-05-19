@@ -47,3 +47,5 @@ functions/package-lock.json
 *.log
 
 /functions/node_modules/
+
+.serverless

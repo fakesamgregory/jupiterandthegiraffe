@@ -1,11 +1,14 @@
 <section class="case-study" [ngClass]="{'case-study--flipped': flip}" data-aos="fade-up" data-aos-duration="1000">
   <div class="case-study__image-desk">
+    <picture>
+      <source [srcset]="data.acf.homepage_image.sizes.large" [type]="data.acf.homepage_image.mime_type" class="img-fluid case-study__image">
       <img
         [src]="data.acf.homepage_image.sizes.large"
         [alt]="data.acf.homepage_image.alt"
         class="img-fluid case-study__image"
         appParallax [preventMobile]="true" [ratio]="-.05"
       >
+    </picture>
   </div>
 
   <div class="case-study__info-wrap">

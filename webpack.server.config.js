@@ -9,13 +9,15 @@ module.exports = {
     server: './server.ts',
   },
   target: 'node',
-  resolve: { 
+  resolve: {
     extensions: ['.ts', '.js'],
     alias: {
       ['firebase/app']: path.resolve(__dirname, 'node_modules/firebase/app/dist/index.cjs.js')
     }
   },
-  externals: [/(node_modules|main\..*\.js)/,],
+  externals: {
+    './dist/server/main': './server/main'
+  },
   output: {
     libraryTarget: 'commonjs2',
       path: path.join(__dirname, 'dist/'),

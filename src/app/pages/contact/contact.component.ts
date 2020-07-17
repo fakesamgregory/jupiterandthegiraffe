@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
   public email: string;
   public recaptchaReactive: string;
   itemRef: AngularFireList<any>;
-  items: Observable<any[]>;
+  item: Observable<any[]>;
 
   constructor(private fb: FormBuilder,
               public db: AngularFireDatabase,
@@ -75,7 +75,7 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemRef = db.list('messages');
+    this.itemRef = this.db.list('messages');
     this.item = this.itemRef.valueChanges();
     this.createForm();
   }

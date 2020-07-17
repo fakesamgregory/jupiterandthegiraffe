@@ -1,4 +1,5 @@
 import {Component, Inject, isDevMode, PLATFORM_ID} from '@angular/core';
+import {OnInit} from '@angular/common';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import {Meta, Title} from '@angular/platform-browser';
@@ -21,7 +22,7 @@ export interface Item {
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   public rForm: FormGroup;
   public post: any;
   public message: string;
@@ -38,14 +39,6 @@ export class ContactComponent {
               private titleService: Title,
               private winRef: WindowRef,
               @Inject(PLATFORM_ID) private platformId: any) {
-    this.createForm();
-    this.itemRef = db.list('messages');
-    this.items = this.itemRef.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
-
     const TITLE = 'Contact Us | Jobs or Projects | App Strategy, App Design, App Development';
     const DESC = 'Good to see you. We were just talking about you! Drop us a line and let us know why you\'re here. ' +
       'If you know someone that needs our help, put their contact details in the message and you may be rewarded with ' +
@@ -79,6 +72,12 @@ export class ContactComponent {
         content: this.winRef.nativeWindow.location.href,
       });
     }
+  }
+
+  ngOnInit() {
+    this.itemRef = db.list('messages');
+    this.item = this.itemRef.valueChanges();
+    this.createForm();
   }
 
   private createForm(): void {

@@ -86,7 +86,7 @@ export class ContactComponent implements OnInit {
       email: [null, Validators.compose([Validators.required, Validators.email])],
       message: [null, Validators.compose([Validators.required, Validators.minLength(15)])],
       validate: '',
-      // recaptchaReactive: [null, Validators.required],
+      recaptchaReactive: [null, Validators.required],
     });
   }
 

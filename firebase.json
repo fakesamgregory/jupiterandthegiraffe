@@ -1,19 +1,5 @@
 {
-  "hosting": [
-    {
-      "target": "jupiter-and-the-giraffe",
-      "public": "dist/jupiter-and-the-giraffe/browser",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    }
-  ]
+  "database": {
+    "rules": "database.rules.json"
+  }
 }

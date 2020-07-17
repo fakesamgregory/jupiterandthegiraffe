@@ -15,7 +15,7 @@ describe('PrivacyPolicyComponent', () => {
       declarations: [ PrivacyPolicyComponent, GetInTouchComponent, SocialComponent ],
       imports: [ RouterTestingModule ],
       providers: [
-        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+        {provide: WindowRef, useValue: { location: { href: 'this/url'}}},
       ]
     })
     .compileComponents();

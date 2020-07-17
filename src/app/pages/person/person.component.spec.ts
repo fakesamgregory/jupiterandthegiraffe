@@ -18,7 +18,7 @@ describe('PersonComponent', () => {
       declarations: [ PersonComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterTestingModule],
       providers: [
-        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+        {provide: WindowRef, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             person: [{

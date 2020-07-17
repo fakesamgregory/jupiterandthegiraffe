@@ -19,7 +19,7 @@ describe('CaseStudyComponent', () => {
       declarations: [ CaseStudyComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [
-        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+        {provide: WindowRef, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             work: [{

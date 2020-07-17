@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,17 @@ export class WordpressService {
 
   constructor(private http: HttpClient) { }
 
-  public getPageId(id: number) {
+  public getPageId(id: number): Observable<any> {
     return this.http
-      .get(`${this.url}/pages/${id}`);
+      .get(`${this.url}/pages/${id}?_embed`);
   }
 
-  public getPostId(id: number) {
+  public getPostId(id: number): Observable<any> {
     return this.http
-      .get(`${this.url}/posts/${id}`);
+      .get(`${this.url}/posts/${id}?_embed`);
   }
 
-  public getPostType(type: string, options?: object) {
+  public getPostType(type: string, options?: object): Observable<any> {
     let query = options ? '&' : '';
     if (options) {
       Object.keys(options).forEach(item => {
@@ -32,12 +33,12 @@ export class WordpressService {
       .get<any[]>(`${this.url}/${type}?_embed${query.slice(0, -1)}`);
   }
 
-  public getPostTypeById(type: string, id: number) {
+  public getPostTypeById(type: string, id: number): Observable<any> {
     return this.http
       .get(`${this.url}/${type}/${id}?_embed`);
   }
 
-  public getPosts(options?: object) {
+  public getPosts(options?: object): Observable<any> {
     let query = options ? '&' : '';
     if (options) {
       Object.keys(options).forEach(item => {

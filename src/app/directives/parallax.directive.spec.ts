@@ -17,7 +17,7 @@ describe('ParallaxDirective', () => {
     TestBed.configureTestingModule({
       declarations: [TestParallaxDirectiveComponent, ParallaxDirective],
       providers: [
-        {provide: WINDOW},
+        {provide: WindowRef},
       ]
     });
     fixture = TestBed.createComponent(TestParallaxDirectiveComponent);

@@ -19,7 +19,7 @@ describe('WhatComponent', () => {
       declarations: [ WhatComponent, DotsComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterModule, RouterTestingModule],
       providers: [
-        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+        {provide: WindowRef, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             data: [

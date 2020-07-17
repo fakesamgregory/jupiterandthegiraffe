@@ -12,7 +12,7 @@ describe('StarsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ StarsComponent, ParallaxDirective ],
       providers: [
-        {provide: WINDOW},
+        {provide: WindowRef},
       ]
     })
     .compileComponents();

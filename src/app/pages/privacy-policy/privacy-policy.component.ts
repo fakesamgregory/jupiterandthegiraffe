@@ -1,7 +1,7 @@
 import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -12,7 +12,7 @@ export class PrivacyPolicyComponent {
   constructor(private meta: Meta,
               private titleService: Title,
               @Inject(PLATFORM_ID) private platformId: any,
-              @Inject(WINDOW) private window: Window) {
+              private winRef: WindowRef) {
     const TITLE = 'Privacy Policy | Jupiter and the Giraffe';
     const DESC =
       'We only collect information about you if we have a reason to do so–for example, to provide our Services, ' +
@@ -43,7 +43,7 @@ export class PrivacyPolicyComponent {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.window.location.href,
+        content: this.winRef.nativeWindow.location.href,
       });
     }
   }

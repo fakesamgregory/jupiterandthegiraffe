@@ -2,9 +2,8 @@ import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
-import { DataObject } from 'src/app/services/wordpress.service';
 import { ServicesService } from 'src/app/stores/services.service';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   selector: 'app-service',
@@ -12,14 +11,14 @@ import { ServicesService } from 'src/app/stores/services.service';
   styleUrls: ['./service.component.scss']
 })
 export class ServiceComponent implements OnInit {
-  public content: DataObject;
+  public content: any;
 
   constructor(
     private meta: Meta,
     private titleService: Title,
     private actr: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId,
-    @Inject(WINDOW) private window: Window,
+    private winRef: WindowRef,
     public serviceService: ServicesService,
     private router: Router) { }
 
@@ -72,7 +71,7 @@ export class ServiceComponent implements OnInit {
           if (isPlatformBrowser(this.platformId)) {
             this.meta.updateTag({
               property: 'og:url',
-              content: this.window.location.href,
+              content: this.winRef.nativeWindow.location.href,
             });
           }
         }

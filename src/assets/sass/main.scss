@@ -1,14 +1,15 @@
 //Bootstrap
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
-@import "../../../node_modules/bootstrap/scss/mixins/grid-framework";
-@import "../../../node_modules/bootstrap/scss/mixins/grid";
-@import "../../../node_modules/bootstrap/scss/grid";
-@import "../../../node_modules/bootstrap/scss/images";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid-framework";
+@import "~bootstrap/scss/mixins/grid";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/images";
 
 // AOS
-@import "../../../node_modules/aos/dist/aos.css";
+@import "~aos/dist/aos.css";
 
 // Font awesome
 @import "settings/settings";

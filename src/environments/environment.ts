@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: 'jupiterandthegiraffe-1662d.appspot.com',
     messagingSenderId: '434681418965'
   },
-  googleMapsApiKey: 'GOOGLE_MAPS_API_KEY'
+  googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
+  baseHref: '/'
 };
 
 /*

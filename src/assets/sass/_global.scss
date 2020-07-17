@@ -7,3 +7,11 @@
   color: $color-white;
   background: $color-oldBrick;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+[data-aos] {
+  will-change: transform, opacity;
+}

@@ -1,23 +1,24 @@
-import {isPlatformBrowser, DOCUMENT} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
-import {Component, ElementRef, HostListener, Inject, OnDestroy, PLATFORM_ID, ViewChild, Optional, NgZone, OnInit} from '@angular/core';
-import {Router, NavigationStart, NavigationEnd} from '@angular/router';
+import { environment } from '../environments/environment';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild, Optional, NgZone } from '@angular/core';
 import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
-import {AosToken} from './aos';
+import {Router, NavigationStart, NavigationEnd} from '@angular/router';
 import {filter} from 'rxjs/operators';
-import {HighlightedFriendsService} from './stores/highlighted-friends.service';
-import {ServicesService} from './stores/services.service';
-import {WordpressService} from './services/wordpress.service';
 import {forkJoin, of} from 'rxjs';
-import { HomepageService } from './stores/homepage-store.service';
+import {AosToken} from './aos';
+import { WordpressService } from './services/wordpress.service';
+import { HighlightedFriendsService } from './stores/highlighted-friends.service';
+import { ServicesService } from './stores/services.service';
 import { CaseStudiesService } from './stores/case-studies-store.service';
+import { HomepageService } from './stores/homepage-store.service';
+import { WindowRef } from './services/window.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy, OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   public showHeader = false;
   public isHome = false;
   public isFunnel: boolean;
@@ -39,67 +40,66 @@ export class AppComponent implements OnDestroy, OnInit {
       clearTimeout(this.scrollInterval);
     }
 
-    this.window.removeEventListener('scroll', this.scroll, this.eventOptions as any);
+    this.winRef.nativeWindow.removeEventListener('scroll', this.scroll, this.eventOptions as any);
   }
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any,
-              @Inject(DOCUMENT) private document: any,
-              @Optional() @Inject(WINDOW) private window: Window,
-              private router: Router,
-              private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
-              @Inject(AosToken) aos,
-              public friendsStore: HighlightedFriendsService,
-              public serviceStore: ServicesService,
-              public homepageStore: HomepageService,
-              public caseStudiesStore: CaseStudiesService,
-              private wordpress: WordpressService,
-              private ngZone: NgZone) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+    @Inject(DOCUMENT) private document: any,
+    @Inject(AosToken) aos,
+    private winRef: WindowRef,
+    private angulartics2GoogleTagManager: Angulartics2GoogleTagManager,
+    private router: Router,
+    private wordpress: WordpressService,
+    public friendsStore: HighlightedFriendsService,
+    public serviceStore: ServicesService,
+    public homepageStore: HomepageService,
+    public caseStudiesStore: CaseStudiesService,
+    private ngZone: NgZone) {
+      if (isPlatformBrowser(this.platformId)) {
+        aos.init({
+          duration: 800,
+          once: true
+        });
 
-    if (isPlatformBrowser(this.platformId)) {
-      aos.init({
-        duration: 800,
-        once: true
-      });
+        const link = this.document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        this.document.head.appendChild(link);
+        link.setAttribute('href', this.document.URL.replace('/production', ''));
+      }
 
-      const link = this.document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      this.document.head.appendChild(link);
-      link.setAttribute('href', this.document.URL.replace('/production', ''));
-    }
+      this.angulartics2GoogleTagManager.startTracking();
 
-    this.angulartics2GoogleTagManager.startTracking();
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationStart))
+        .subscribe((event: NavigationStart) => {
+          this.loading = true;
+        });
 
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationStart))
-      .subscribe((event: NavigationStart) => {
-        this.loading = true;
-      });
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          this.loading = false;
+          this.hasBeenHome = this.isHome = /\/(#.+)?$/.test(event.url);
+          this.isFunnel = event.urlAfterRedirects.includes('free-strategy');
+          this.isLandingPage =
+            event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand') ||
+            event.urlAfterRedirects.includes('mvp-package') ||
+            event.urlAfterRedirects.includes('website-package');
 
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.loading = false;
-        this.hasBeenHome = this.isHome = /\/(#.+)?$/.test(event.url);
-        this.isFunnel = event.urlAfterRedirects.includes('free-strategy');
-        this.isLandingPage =
-          event.urlAfterRedirects.includes('how-to-launch-an-awesome-tech-brand') ||
-          event.urlAfterRedirects.includes('mvp-package') ||
-          event.urlAfterRedirects.includes('website-package');
+          if (isPlatformBrowser(this.platformId)) {
+            this.winRef.nativeWindow.scrollTo(0, 0);
+          }
 
-        if (isPlatformBrowser(this.platformId)) {
-          this.window.scrollTo(0, 0);
-        }
+          this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
 
-        this.isCaseStudy = event.urlAfterRedirects.includes('case-study');
+          this.toggleMenu.call(this, false);
+        });
 
-        this.toggleMenu.call(this, false);
-      });
-
-
-    this.loadFriends();
-    this.loadServices();
-    this.loadHome();
-    this.loadWork();
+      this.loadFriends();
+      this.loadServices();
+      this.loadHome();
+      this.loadWork();
   }
 
   ngOnInit() {
@@ -110,40 +110,33 @@ export class AppComponent implements OnDestroy, OnInit {
       } : false;
 
       this.ngZone.runOutsideAngular(() => {
-        this.window.addEventListener('scroll', this.scroll.bind(this), this.eventOptions as any);
+        this.winRef.nativeWindow.addEventListener('scroll', this.scroll.bind(this), this.eventOptions as any);
       });
     }
-  }
 
-  private passiveSupported() {
-    let isPassiveSupported = false;
-    try {
-      const options = {
-        get passive() {
-          isPassiveSupported = true;
-          return true;
-        }
-      };
+    if (!isPlatformBrowser(this.platformId)) {
+      const bases = this.document.getElementsByTagName('base');
 
-      this.window.addEventListener('test', null, options);
-      this.window.removeEventListener('test', null);
-    } catch (err) {
-      isPassiveSupported = false;
+      if (bases.length > 0) {
+          bases[0].setAttribute('href', environment.baseHref);
+      }
     }
-
-    return isPassiveSupported;
   }
 
   private scroll(): void {
     if (Boolean(this.scrollInterval)) {
-      this.window.clearTimeout(this.scrollInterval);
+      this.winRef.nativeWindow.clearTimeout(this.scrollInterval);
     }
 
-    this.scrollInterval = this.window.setTimeout(() => {
-      const scrollY = this.window.pageYOffset || this.document.documentElement.scrollTop;
+    this.scrollInterval = this.winRef.nativeWindow.setTimeout(() => {
+      const scrollY = this.winRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop;
       this.showHeader = (scrollY > 400);
       this.hideCookie = (scrollY > this.footerPos);
     }, 50);
+  }
+
+  public toggleMenu(forceState?) {
+    this.menuOpen = forceState !== undefined ? forceState : !this.menuOpen;
   }
 
   private loadFriends(): void {
@@ -159,7 +152,8 @@ export class AppComponent implements OnDestroy, OnInit {
           });
 
         forkJoin(friendPageContent)
-          .subscribe((friends) => this.friendsStore.friends = friends);
+          .subscribe((friends) =>
+            friends.forEach(friend => this.friendsStore.addFriend(friend)));
       });
   }
 
@@ -178,8 +172,23 @@ export class AppComponent implements OnDestroy, OnInit {
       .subscribe(data => this.caseStudiesStore.caseStudies = data);
   }
 
-  public toggleMenu(forceState?) {
-    this.menuOpen = forceState !== undefined ? forceState : !this.menuOpen;
+  private passiveSupported() {
+    let isPassiveSupported = false;
+    try {
+      const options = {
+        get passive() {
+          isPassiveSupported = true;
+          return true;
+        }
+      };
+
+      this.winRef.nativeWindow.addEventListener('test', null, options);
+      this.winRef.nativeWindow.removeEventListener('test', null);
+    } catch (err) {
+      isPassiveSupported = false;
+    }
+
+    return isPassiveSupported;
   }
 
   public scrollTo(event): void {
@@ -195,18 +204,25 @@ export class AppComponent implements OnDestroy, OnInit {
       top = rect.top + scrollTop;
     }
 
-    this.window.scrollTo({
+    this.winRef.nativeWindow.scrollTo({
       top,
       behavior: 'smooth',
     });
   }
 
-  public scrollUp(e): void {
-    e.preventDefault();
-    this.window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (Boolean(this.scrollInterval)) {
+        this.winRef.nativeWindow.clearTimeout(this.scrollInterval);
+      }
+
+      this.scrollInterval = this.winRef.nativeWindow.setTimeout(() => {
+        const scrollY = this.winRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop;
+        this.showHeader = (scrollY > 400);
+        this.hideCookie = (scrollY > this.footerPos);
+      }, 50);
+    }
   }
 
   @HostListener('window:keydown', ['$event'])

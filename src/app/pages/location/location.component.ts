@@ -2,7 +2,7 @@ import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   selector: 'app-location',
@@ -17,7 +17,7 @@ export class LocationComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId,
-    @Inject(WINDOW) private window: Window,
+    private winRef: WindowRef,
   ) { }
 
   ngOnInit() {
@@ -54,7 +54,7 @@ export class LocationComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.window.location.href,
+        content: this.winRef.nativeWindow.location.href,
       });
     }
   }

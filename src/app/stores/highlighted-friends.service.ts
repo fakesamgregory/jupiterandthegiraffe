@@ -21,7 +21,7 @@ export class HighlightedFriendsService {
   addFriend(friend: any) {
     this.friends = [
       ...this.friends,
-      ...friend
+      friend
     ];
   }
 }

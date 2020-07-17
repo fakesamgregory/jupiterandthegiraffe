@@ -1,57 +1,74 @@
-import {CommonModule} from '@angular/common';
-import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import {Angulartics2Module} from 'angulartics2';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RecaptchaModule, RecaptchaFormsModule} from 'ng-recaptcha';
-import {RECAPTCHA_SETTINGS, RecaptchaSettings} from 'ng-recaptcha';
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {RECAPTCHA_SETTINGS, RecaptchaSettings, RecaptchaFormsModule, RecaptchaModule} from 'ng-recaptcha';
 
 import { AosToken, aos } from './aos';
-import {environment} from '../environments/environment';
-import { WINDOW_PROVIDERS } from './services/window.service';
+import { WindowRef } from './services/window.service';
 
-import {AppComponent} from './app.component';
-import {AppRoutingModule, routableComponents} from './app-routing.module';
-import {DotsComponent} from './global/dots/dots.component';
-import {StarsComponent} from './global/stars/stars.component';
-import {FooterComponent} from './global/footer/footer.component';
-import {HeroComponent} from './global/hero/hero.component';
-import {HeaderComponent} from './global/header/header.component';
-import {LogoComponent} from './global/logo/logo.component';
-import {FriendsComponent} from './pages/home/friends/friends.component';
-import { CaseStudiesComponent } from './pages/home/case-studies/case-studies.component';
-import { CaseStudyComponent } from './pages/home/case-study/case-study.component';
-import { ServicesComponent } from './pages/home/services/services.component';
-import { BenefitsComponent } from './pages/home/benefits/benefits.component';
-import { QuotesComponent } from './pages/home/quotes/quotes.component';
-import { WeAreComponent } from './pages/home/we-are/we-are.component';
-import {NotFoundComponent} from './pages/not-found/not-found.component';
-import {GetInTouchComponent} from './global/get-in-touch/get-in-touch.component';
-import {TermsAndConditionsComponent} from './pages/terms-and-conditions/terms-and-conditions.component';
+import { AppRoutingModule, routableComponents } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './global/header/header.component';
+import { StarsComponent } from './global/stars/stars.component';
+import { HeroComponent } from './global/hero/hero.component';
+import { LogoComponent } from './global/logo/logo.component';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { DotsComponent } from './global/dots/dots.component';
 import { CookieBannerComponent } from './global/cookie-banner/cookie-banner.component';
-import { SocialComponent } from './global/social/social.component';
-import { EmailPopupComponent } from './global/email-popup/email-popup.component';
-import { DeferLoadDirective } from './directives/defer-load.directive';
-import { BackButtonComponent } from './global/back-button/back-button.component';
-import { ServiceComponent } from './pages/service/service.component';
-import { ParallaxDirective } from './directives/parallax.directive';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgtUniversalModule } from '@ng-toolkit/universal';
-import { ClimateStrikeComponent } from './global/climate-strike/climate-strike.component';
+import { FooterComponent } from './global/footer/footer.component';
+import { CaseStudiesComponent } from './pages/home/case-studies/case-studies.component';
+import { WeAreComponent } from './pages/home/we-are/we-are.component';
 import { PricingComponent } from './pages/home/pricing/pricing.component';
+import { ServicesComponent } from './pages/home/services/services.component';
+import { FriendsComponent } from './pages/home/friends/friends.component';
+import { QuotesComponent } from './pages/home/quotes/quotes.component';
+import { BenefitsComponent } from './pages/home/benefits/benefits.component';
+import { GetInTouchComponent } from './global/get-in-touch/get-in-touch.component';
+import { CaseStudyComponent } from './pages/home/case-study/case-study.component';
 import { VideoLoadDirective } from './directives/video-load.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { BackButtonComponent } from './global/back-button/back-button.component';
+import { SocialComponent } from './global/social/social.component';
+import { CommonModule } from '@angular/common';
+import { ServiceComponent } from './pages/service/service.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { ParallaxDirective } from './directives/parallax.directive';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    routableComponents,
+
+    HeaderComponent,
+    StarsComponent,
+    HeroComponent,
+    LogoComponent,
+    DotsComponent,
+    CookieBannerComponent,
+    FooterComponent,
+    CaseStudiesComponent,
+    CaseStudyComponent,
+    WeAreComponent,
+    PricingComponent,
+    ServicesComponent,
+    FriendsComponent,
+    QuotesComponent,
+    BenefitsComponent,
+    GetInTouchComponent,
+    BackButtonComponent,
+    SocialComponent,
+
+    ParallaxDirective,
+    VideoLoadDirective,
+  ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CommonModule,
 
     AppRoutingModule,
-    NgtUniversalModule,
-
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
 
@@ -60,40 +77,11 @@ import { VideoLoadDirective } from './directives/video-load.directive';
     RecaptchaFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    HttpClientModule,
     HttpClientJsonpModule,
   ],
-  declarations: [
-    AppComponent,
-    routableComponents,
-    DotsComponent,
-    StarsComponent,
-    FooterComponent,
-    HeroComponent,
-    HeaderComponent,
-    LogoComponent,
-    FriendsComponent,
-    NotFoundComponent,
-    TermsAndConditionsComponent,
-    GetInTouchComponent,
-    CookieBannerComponent,
-    SocialComponent,
-    EmailPopupComponent,
-    DeferLoadDirective,
-    BackButtonComponent,
-    ServiceComponent,
-    ParallaxDirective,
-    ClimateStrikeComponent,
-    VideoLoadDirective,
-    CaseStudiesComponent,
-    CaseStudyComponent,
-    ServicesComponent,
-    BenefitsComponent,
-    QuotesComponent,
-    WeAreComponent,
-    PricingComponent,
-  ],
   providers: [
-    WINDOW_PROVIDERS,
+    WindowRef,
     { provide: AosToken, useValue: aos },
     {
       provide: RECAPTCHA_SETTINGS,
@@ -102,5 +90,4 @@ import { VideoLoadDirective } from './directives/video-load.directive';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

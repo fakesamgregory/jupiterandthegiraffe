@@ -2,8 +2,8 @@ import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
-import {WordpressService, DataObject} from '../../services/wordpress.service';
+import { WindowRef } from 'src/app/services/window.service';
+import {WordpressService} from '../../services/wordpress.service';
 
 @Component({
   selector: 'app-case-study',
@@ -11,7 +11,7 @@ import {WordpressService, DataObject} from '../../services/wordpress.service';
   styleUrls: ['./case-study.component.scss']
 })
 export class CaseStudyComponent implements OnInit {
-  public content: DataObject;
+  public content: any ;
   public previousCaseStudy: any;
   public nextCaseStudy: any;
 
@@ -20,7 +20,7 @@ export class CaseStudyComponent implements OnInit {
               private actr: ActivatedRoute,
               private router: Router,
               @Inject(PLATFORM_ID) private platformId,
-              @Inject(WINDOW) private window: Window,
+              private winRef: WindowRef,
               private wordpress: WordpressService) { }
 
   ngOnInit() {
@@ -72,7 +72,7 @@ export class CaseStudyComponent implements OnInit {
       if (isPlatformBrowser(this.platformId)) {
         this.meta.updateTag({
           property: 'og:url',
-          content: this.window.location.href,
+          content: this.winRef.nativeWindow.location.href,
         });
       }
 

@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaFormsModule } from 'ng-recaptcha';
 import {SocialComponent} from '../../global/social/social.component';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 const mockAngulartics2 = {
   eventTrack: {
@@ -34,7 +34,7 @@ describe('ContactComponent', () => {
       ],
       declarations: [ ContactComponent, SocialComponent ],
       providers: [
-        {provide: WINDOW, useValue: { ...WINDOW, ...{location: { href: 'this/url'}}}},
+        {provide: WindowRef, useValue: { ...WINDOW, ...{location: { href: 'this/url'}}}},
         { provide: Angulartics2, useValue: mockAngulartics2 },
       ]
     })

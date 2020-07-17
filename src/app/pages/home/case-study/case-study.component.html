@@ -6,16 +6,16 @@
         [src]="data.acf.homepage_image.sizes.large"
         [alt]="data.acf.homepage_image.alt"
         class="img-fluid case-study__image"
-        appParallax [preventMobile]="true" [ratio]="-.05"
+        appParallax [parallaxRatio]="-.05"
       >
     </picture>
   </div>
 
   <div class="case-study__info-wrap">
     <div class="case-study__info">
-      <h3 *ngIf="data.title" class="case-study__title">{{data.title.rendered}}</h3>
+      <p *ngIf="data.title" class="case-study__title">{{data.title.rendered}}</p>
 
-      <p class="case-study__tagline" *ngIf="data.acf?.project_tagline">{{data.acf.project_tagline}}</p>
+      <h2 class="case-study__tagline" *ngIf="data.acf?.project_tagline">{{data.acf.project_tagline}}</h2>
 
       <div *ngIf="data.excerpt" [innerHTML]="data.excerpt.rendered"></div>
 

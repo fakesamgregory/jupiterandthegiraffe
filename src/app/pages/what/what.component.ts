@@ -1,8 +1,8 @@
 import {Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
 import { ServicesService } from 'src/app/stores/services.service';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   templateUrl: './what.component.html',
@@ -22,8 +22,8 @@ export class WhatComponent implements OnInit {
     private meta: Meta,
     private titleService: Title,
     @Inject(PLATFORM_ID) private platformId: any,
-    @Inject(WINDOW) private window: Window,
     @Inject(DOCUMENT) private document: Document,
+    private winRef: WindowRef,
     public serivcesService: ServicesService) { }
 
   ngOnInit() {
@@ -56,7 +56,7 @@ export class WhatComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.window.location.href,
+        content: this.winRef.nativeWindow.location.href,
       });
     }
   }
@@ -66,12 +66,12 @@ export class WhatComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
 
       if (Boolean(this.scrollInterval)) {
-        this.window.clearTimeout(this.scrollInterval);
+        this.winRef.nativeWindow.clearTimeout(this.scrollInterval);
       }
 
-      this.scrollInterval = this.window.setTimeout(() => {
+      this.scrollInterval = this.winRef.nativeWindow.setTimeout(() => {
         [].forEach.call(this.scrollSection.nativeElement.children, (section, index: number) => {
-          const isThisSection = section.getBoundingClientRect().top <= (this.window.innerHeight / 2);
+          const isThisSection = section.getBoundingClientRect().top <= (this.winRef.nativeWindow.innerHeight / 2);
 
           if (isThisSection) {
             this.activeIndex = index;
@@ -83,8 +83,8 @@ export class WhatComponent implements OnInit {
 
   public goToSection(event, index: number): void {
     event.preventDefault();
-    const offset = this.window.pageYOffset || this.document.documentElement.scrollTop;
-    this.window.scrollTo({
+    const offset = this.winRef.nativeWindow.pageYOffset || this.document.documentElement.scrollTop;
+    this.winRef.nativeWindow.scrollTo({
       top: (this.scrollSection.nativeElement.children[index].getBoundingClientRect().top + offset) - 100,
       behavior: 'smooth'
     });

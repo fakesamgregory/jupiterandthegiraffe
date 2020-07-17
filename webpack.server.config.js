@@ -9,18 +9,13 @@ module.exports = {
     server: './server.ts',
   },
   target: 'node',
-  resolve: {
-    extensions: ['.ts', '.js'],
-    alias: {
-      ['firebase/app']: path.resolve(__dirname, 'node_modules/firebase/app/dist/index.cjs.js')
-    }
-  },
-  externals: {
-    './dist/server/main': './server/main'
-  },
+  resolve: { extensions: ['.ts', '.js'] },
+  externals: [/(node_modules|main\..*\.js)/,],
   output: {
+    // This line is needed to ensure proper module exports on our serverless deployment.
     libraryTarget: 'commonjs2',
-      path: path.join(__dirname, 'dist/'),
+    // Puts the output at the root of the dist folder
+    path: path.join(__dirname, 'dist/jupiter-and-the-giraffe/'),
     filename: '[name].js'
   },
   module: {

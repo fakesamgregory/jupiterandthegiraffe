@@ -1,7 +1,5 @@
-<section class="section services" [ngClass]="{'services--nested': nested}">
-  <header>
-    <h2 class="text-center">We Do</h2>
-  </header>
+<div class="section services" [ngClass]="{'services--nested': nested}">
+  <p class="text-center h2">We Do</p>
 
   <div class="services__services">
     <div class="row">
@@ -18,7 +16,7 @@
           style="max-width: 150px;"
         >
 
-        <h3 class="services__heading" [innerHTML]="service.title.rendered"></h3>
+        <h2 class="services__heading" [innerHTML]="service.title.rendered"></h2>
 
         <div class="services__service-text">
           <div [innerHTML]="service.excerpt.rendered"></div>
@@ -43,4 +41,4 @@
       What can we do?
     </a>
   </div>
-</section>
+</div>

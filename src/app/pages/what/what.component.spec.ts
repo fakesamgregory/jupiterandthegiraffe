@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 import {of} from 'rxjs';
 
 import { WhatComponent } from './what.component';
@@ -19,7 +19,7 @@ describe('WhatComponent', () => {
       declarations: [ WhatComponent, DotsComponent, GetInTouchComponent, SocialComponent, BackButtonComponent ],
       imports: [RouterModule, RouterTestingModule],
       providers: [
-        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+        {provide: WindowRef, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             data: [

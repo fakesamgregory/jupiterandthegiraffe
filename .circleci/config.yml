@@ -1,7 +1,7 @@
 vm_settings: &vm_settings
   working_directory: ~/app
   docker:
-    - image: circleci/node:10.12.0
+    - image: circleci/node:12.0.0
 
 version: 2
 jobs:
@@ -12,9 +12,9 @@ jobs:
 
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v2-dependencies-
+            - v1-dependencies-
 
       - run:
           name: Install dependencies
@@ -23,7 +23,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
           name: Replace Environment Variables
@@ -65,7 +65,7 @@ jobs:
 
       - run:
           name: AWS Sync
-          command: aws --region eu-west-1 s3 sync ./dist/jupiter-and-the-giraffe s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
+          command: aws --region eu-west-1 s3 sync ./dist/jupiter-and-the-giraffe/browser s3://dev.jupiterandthegiraffe.com/ --acl public-read --exact-timestamps --delete || return 1
 
   build_deploy_prod:
     <<: *vm_settings
@@ -109,9 +109,9 @@ jobs:
 
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v2-dependencies-
+            - v1-dependencies-
 
       - run:
           name: Install dependencies
@@ -120,7 +120,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: npm run lint
 

@@ -2,14 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface DataObject {
-  title: any;
-  acf: any;
-  excerpt: any;
-  _embedded: any;
-  content: any;
-}
-
 @Injectable({
   providedIn: 'root'
 })

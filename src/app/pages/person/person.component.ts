@@ -2,22 +2,21 @@ import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
-import { DataObject } from 'src/app/services/wordpress.service';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html'
 })
 export class PersonComponent {
-  public person: DataObject;
+  public person: any;
 
   constructor(private meta: Meta,
               private titleService: Title,
               private actr: ActivatedRoute,
               private router: Router,
               @Inject(PLATFORM_ID) private platformId,
-              @Inject(WINDOW) private window: Window) {
+              private winRef: WindowRef) {
     this.actr.data
       .subscribe(res => {
         this.person = res.person[0];
@@ -66,7 +65,7 @@ export class PersonComponent {
           if (isPlatformBrowser(this.platformId)) {
             this.meta.updateTag({
               property: 'og:url',
-              content: this.window.location.href,
+              content: this.winRef.nativeWindow.location.href,
             });
           }
       }

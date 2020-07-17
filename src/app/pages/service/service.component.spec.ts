@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 import { ServiceComponent } from './service.component';
 import {BackButtonComponent} from '../../global/back-button/back-button.component';
@@ -18,7 +18,7 @@ describe('ServiceComponent', () => {
       declarations: [ ServiceComponent, BackButtonComponent, GetInTouchComponent, SocialComponent ],
       imports: [RouterTestingModule],
       providers: [
-        {provide: WINDOW, useValue: { location: { href: 'this/url'}}},
+        {provide: WindowRef, useValue: { location: { href: 'this/url'}}},
         { provide: ActivatedRoute, useValue: {
           data: of({
             data: [{

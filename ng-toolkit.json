@@ -4,6 +4,8 @@
     "project": "jupiter-and-the-giraffe",
     "skipInstall": false,
     "directory": ".",
+    "lambdaTS": false,
+    "offline": false,
     "clientProject": "jupiter-and-the-giraffe",
     "serverless": {
       "aws": {},

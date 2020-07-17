@@ -1,7 +1,7 @@
 import {Component, PLATFORM_ID} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { ParallaxDirective } from './parallax.directive';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   template: `<div appParallax [ratio]='.02'></div>`
@@ -17,7 +17,7 @@ describe('ParallaxDirective', () => {
     TestBed.configureTestingModule({
       declarations: [TestParallaxDirectiveComponent, ParallaxDirective],
       providers: [
-        {provide: WINDOW},
+        {provide: WindowRef},
       ]
     });
     fixture = TestBed.createComponent(TestParallaxDirectiveComponent);

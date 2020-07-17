@@ -1,22 +1,21 @@
 import {Component, Inject, PLATFORM_ID, OnInit} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
 import {ActivatedRoute} from '@angular/router';
-import { DataObject } from 'src/app/services/wordpress.service';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   templateUrl: './who.component.html',
   styleUrls: ['./who.component.scss']
 })
 export class WhoComponent implements OnInit {
-  public team: Array<DataObject>;
-  public content: DataObject;
+  public team: [];
+  public content: any;
 
   constructor(private meta: Meta,
               private titleService: Title,
               @Inject(PLATFORM_ID) private platformId,
-              @Inject(WINDOW) private window: Window,
+              private winRef: WindowRef,
               private actr: ActivatedRoute) { }
 
   ngOnInit() {
@@ -54,7 +53,7 @@ export class WhoComponent implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
           this.meta.updateTag({
             property: 'og:url',
-            content: this.window.location.href,
+            content: this.winRef.nativeWindow.location.href,
           });
         }
     });

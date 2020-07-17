@@ -1,9 +1,11 @@
 import {Component, Inject, isDevMode, PLATFORM_ID} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import {Meta, Title} from '@angular/platform-browser';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Item {
   name: string;
@@ -26,18 +28,23 @@ export class ContactComponent {
   public name: string;
   public company: string;
   public email: string;
+  public recaptchaReactive: string;
   itemRef: AngularFireList<any>;
-  item: any;
+  items: Observable<any[]>;
 
   constructor(private fb: FormBuilder,
               public db: AngularFireDatabase,
               private meta: Meta,
               private titleService: Title,
-              @Inject(WINDOW) private window: Window,
+              private winRef: WindowRef,
               @Inject(PLATFORM_ID) private platformId: any) {
     this.createForm();
     this.itemRef = db.list('messages');
-    this.item = this.itemRef.valueChanges();
+    this.items = this.itemRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
 
     const TITLE = 'Contact Us | Jobs or Projects | App Strategy, App Design, App Development';
     const DESC = 'Good to see you. We were just talking about you! Drop us a line and let us know why you\'re here. ' +
@@ -69,7 +76,7 @@ export class ContactComponent {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.window.location.href,
+        content: this.winRef.nativeWindow.location.href,
       });
     }
   }
@@ -80,7 +87,7 @@ export class ContactComponent {
       email: [null, Validators.compose([Validators.required, Validators.email])],
       message: [null, Validators.compose([Validators.required, Validators.minLength(15)])],
       validate: '',
-      recaptchaReactive: [null, Validators.required],
+      // recaptchaReactive: [null, Validators.required],
     });
   }
 
@@ -91,21 +98,21 @@ export class ContactComponent {
     this.email = post.email;
     this.message = post.message;
 
-    this.item = {
-      name: this.name,
-      email: this.email,
-      message: this.message,
-      html: '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + this.name + company + '.</p>' +
-      '<p>They said... </br></br>"' + this.message + '".</p>' +
-      '<p>You can contact them back on ' + this.email + '</p>',
-      date: Date(),
-    };
-
     if (!isDevMode()) {
-      this.itemRef.push(this.item);
+      this.itemRef.push({
+        name: this.name,
+        email: this.email,
+        message: this.message,
+        html: '<p>You were contacted from Jupiter and the Giraffe\'s website by ' + this.name + company + '.</p>' +
+        '<p>They said... </br></br>"' + this.message + '".</p>' +
+        '<p>You can contact them back on ' + this.email + '</p>',
+        date: Date(),
+      })
+      .then(data => console.log(data))
+      .catch(data => console.log(data));
 
       if (isPlatformBrowser(this.platformId)) {
-        this.window.scrollTo({
+        this.winRef.nativeWindow.scrollTo({
           top: 0,
           behavior: 'smooth'
         });

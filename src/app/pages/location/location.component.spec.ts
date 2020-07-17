@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 import { LocationComponent } from './location.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';

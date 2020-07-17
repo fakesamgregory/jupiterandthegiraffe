@@ -1,4 +1,4 @@
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 import { isPlatformBrowser } from '@angular/common';
 import { Input, Directive, ElementRef, PLATFORM_ID, Inject, HostListener, Optional, OnInit } from '@angular/core';
 
@@ -7,8 +7,8 @@ import { Input, Directive, ElementRef, PLATFORM_ID, Inject, HostListener, Option
 })
 export class ParallaxDirective implements OnInit {
   // tslint:disable:no-input-rename
-  @Input('ratio') parallaxRatio = 1;
-  @Input('direction') direction = 'vertical';
+  @Input('parallaxRatio') ratio: number;
+  @Input('parallaxDirection') direction: string;
   @Input('preventMobile') preventMobile = false;
   public initialTop = 0;
   private isMobile: boolean;
@@ -16,8 +16,9 @@ export class ParallaxDirective implements OnInit {
   constructor(
     private eleRef: ElementRef,
     @Inject(PLATFORM_ID) private platformId: any,
-    @Optional() @Inject(WINDOW) private window: Window,
+    @Optional() private winRef: WindowRef,
   ) {
+    this.ratio = this.ratio || 1;
   }
 
   ngOnInit() {
@@ -40,9 +41,9 @@ export class ParallaxDirective implements OnInit {
   onWindowScroll() {
     if (isPlatformBrowser(this.platformId)  && !(this.preventMobile && this.isMobile)) {
       if (this.direction === 'horizontal') {
-        this.eleRef.nativeElement.style.transform = `translateX(${this.window.scrollY * this.parallaxRatio}px)`;
+        this.eleRef.nativeElement.style.transform = `translateX(${this.winRef.nativeWindow.scrollY * this.ratio}px)`;
       } else {
-        this.eleRef.nativeElement.style.transform = `translateY(${50 + (this.window.scrollY * this.parallaxRatio)}px)`;
+        this.eleRef.nativeElement.style.transform = `translateY(${50 + (this.winRef.nativeWindow.scrollY * this.ratio)}px)`;
       }
     }
   }

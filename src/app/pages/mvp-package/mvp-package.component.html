@@ -44,7 +44,7 @@
         </form>
       </div>
       <div class="col-md">
-        <img [src]="content._embedded['wp:featuredmedia'][0].source_url" alt="">
+        <img *ngIf="content._embedded" [src]="content._embedded['wp:featuredmedia'][0].source_url" alt="">
 
         <img [src]="content.acf.discount_image.url" alt="" class="mvp-package__star" *ngIf="content.acf.discount_image">
       </div>

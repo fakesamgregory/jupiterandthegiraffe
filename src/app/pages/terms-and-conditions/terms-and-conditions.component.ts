@@ -2,8 +2,7 @@ import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
-import {WINDOW} from '@ng-toolkit/universal';
-import { DataObject } from 'src/app/services/wordpress.service';
+import { WindowRef } from 'src/app/services/window.service';
 
 @Component({
   selector: 'app-terms-and-conditions',
@@ -11,13 +10,13 @@ import { DataObject } from 'src/app/services/wordpress.service';
   styleUrls: ['./terms-and-conditions.component.scss']
 })
 export class TermsAndConditionsComponent {
-  public content: DataObject;
+  public content: any;
 
   constructor(private meta: Meta,
               private titleService: Title,
               private actr: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId,
-              @Inject(WINDOW) private window: Window) {
+              private winRef: WindowRef) {
     this.actr.data
       .subscribe(res => {
         this.content = res.data;
@@ -50,7 +49,7 @@ export class TermsAndConditionsComponent {
         if (isPlatformBrowser(this.platformId)) {
           this.meta.updateTag({
             property: 'og:url',
-            content: this.window.location.href,
+            content: this.winRef.nativeWindow.location.href,
           });
         }
       });

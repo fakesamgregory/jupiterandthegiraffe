@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 import {of} from 'rxjs';
 
 import { WhatComponent } from './what.component';

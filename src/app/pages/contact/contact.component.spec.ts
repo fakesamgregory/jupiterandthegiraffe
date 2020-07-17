@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaFormsModule } from 'ng-recaptcha';
 import {SocialComponent} from '../../global/social/social.component';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 const mockAngulartics2 = {
   eventTrack: {

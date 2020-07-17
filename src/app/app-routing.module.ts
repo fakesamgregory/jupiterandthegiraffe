@@ -1,33 +1,29 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ExtraOptions } from '@angular/router';
-
+import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { WhoComponent } from './pages/who/who.component';
 import { WhatComponent } from './pages/what/what.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
-import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CaseStudyComponent } from './pages/case-study/case-study.component';
 import { LocationComponent } from './pages/location/location.component';
-import {AppResolverService} from './pages/person/app-resolver.service';
-import {PersonComponent} from './pages/person/person.component';
-import {PageResolverService} from './pages/terms-and-conditions/page-resolver.service';
-import {CaseStudyComponent} from './pages/case-study/case-study.component';
-import {CaseStudyResolverService} from './pages/case-study/case-study-resolver.service';
-import {ServiceResolverComponent} from './pages/service/service-resolver.service';
-import {ServiceComponent} from './pages/service/service.component';
+import { PersonComponent } from './pages/person/person.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { ServicesComponent } from './pages/home/services/services.component';
 import { FunnelComponent } from './pages/funnel/funnel.component';
-import { MVPPackageComponent } from './pages/mvp-package/mvp-package.component';
 import { HowToBuildAnEffectiveBrandComponent } from './pages/how-to-build-an-effective-brand/how-to-build-an-effective-brand.component';
-import { WhoResolverService } from './pages/who/who-resolver.service';
+import { MVPPackageComponent } from './pages/mvp-package/mvp-package.component';
 
-const routerOptions: ExtraOptions = {
-  scrollPositionRestoration: 'enabled',
-  anchorScrolling: 'enabled',
-};
+import { WhoResolverService } from './pages/who/who-resolver.service';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
+import { PageResolverService } from './pages/terms-and-conditions/page-resolver.service';
+import { ServiceComponent } from './pages/service/service.component';
+import { ServiceResolverComponent } from './pages/service/service-resolver.service';
+import { CaseStudyResolverService } from './pages/case-study/case-study-resolver.service';
+import { AppResolverService } from './pages/person/app-resolver.service';
+import { ServicesService } from './stores/services.service';
 
 const routes: Routes = [
-  // Top level pages
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'who-we-are', component: WhoComponent,  resolve: { data: WhoResolverService} },
@@ -35,7 +31,7 @@ const routes: Routes = [
   {
     path: 'terms-and-conditions',
     component: TermsAndConditionsComponent,
-    resolve: { data: PageResolverService },
+    resolve: { data: PageResolverService},
     data: { pageId: 144 }
   },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
@@ -111,9 +107,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, routerOptions)
-  ],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
@@ -121,8 +117,6 @@ export class AppRoutingModule { }
 export const routableComponents = [
   HomeComponent,
   WhoComponent,
-  WhatComponent,
-  ContactComponent,
   NotFoundComponent,
   CaseStudyComponent,
   LocationComponent,
@@ -130,8 +124,10 @@ export const routableComponents = [
   PrivacyPolicyComponent,
   ContactComponent,
   WhatComponent,
-  ServiceComponent,
+  ServicesComponent,
   FunnelComponent,
   HowToBuildAnEffectiveBrandComponent,
   MVPPackageComponent,
+  TermsAndConditionsComponent,
+  ServiceComponent
 ];

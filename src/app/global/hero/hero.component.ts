@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HomepageService } from 'src/app/stores/homepage-store.service';
+import {HomepageService} from '../../stores/homepage-store.service';
 
 @Component({
   selector: 'app-hero-component',

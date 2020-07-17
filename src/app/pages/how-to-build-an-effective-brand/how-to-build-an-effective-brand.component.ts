@@ -1,6 +1,6 @@
 import { Component, PLATFORM_ID, Inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { WINDOW } from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 import { isPlatformBrowser } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -32,7 +32,7 @@ export class HowToBuildAnEffectiveBrandComponent {
   constructor(
     private meta: Meta,
     private titleService: Title,
-    @Inject(WINDOW) private window: Window,
+    private winRef: WindowRef,
     @Inject(PLATFORM_ID) private platformId: any,
     private fb: FormBuilder,
     private http: HttpClient,
@@ -86,7 +86,7 @@ export class HowToBuildAnEffectiveBrandComponent {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.window.location.href,
+        content: this.winRef.nativeWindow.location.href,
       });
     }
   }

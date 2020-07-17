@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StarsComponent } from './stars.component';
 import {ParallaxDirective} from '../../directives/parallax.directive';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 describe('StarsComponent', () => {
   let component: StarsComponent;

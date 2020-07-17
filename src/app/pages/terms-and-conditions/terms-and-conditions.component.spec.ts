@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 import { TermsAndConditionsComponent } from './terms-and-conditions.component';
 

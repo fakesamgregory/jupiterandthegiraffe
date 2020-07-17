@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef, HostListener, Renderer, Renderer2 } from '@angular/core';
+import { Directive, Input, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appVideoLoad]'

@@ -17,24 +17,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jupiter-and-the-giraffe",
-            "deleteOutputPath": true,
+            "outputPath": "dist/jupiter-and-the-giraffe/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/sitemap.xml",
-              "src/robots.txt",
-              "src/pages.xml",
-              "src/share-image.jpg",
-              "src/logo.png"
+              "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/sass/main.scss"
             ],
             "scripts": []
           },
@@ -51,7 +45,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -64,7 +57,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "16kb"
                 }
               ]
             }
@@ -128,8 +121,68 @@
               "devServerTarget": "jupiter-and-the-giraffe:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/jupiter-and-the-giraffe/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            },
+            "serverless": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.serverless.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "jupiter-and-the-giraffe:build",
+            "serverTarget": "jupiter-and-the-giraffe:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jupiter-and-the-giraffe:build:production",
+              "serverTarget": "jupiter-and-the-giraffe:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "jupiter-and-the-giraffe:build:production",
+            "serverTarget": "jupiter-and-the-giraffe:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "jupiter-and-the-giraffe"
 }

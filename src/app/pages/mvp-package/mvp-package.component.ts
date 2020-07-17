@@ -1,10 +1,10 @@
 import { Component, PLATFORM_ID, Inject, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { WINDOW } from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 import { isPlatformBrowser } from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {WordpressService} from '../../services/wordpress.service';
 
 export interface Item {
@@ -32,7 +32,7 @@ export class MVPPackageComponent implements OnInit {
   constructor(
     private meta: Meta,
     private titleService: Title,
-    @Inject(WINDOW) private window: Window,
+    private winRef: WindowRef,
     @Inject(PLATFORM_ID) private platformId: any,
     private fb: FormBuilder,
     public db: AngularFireDatabase,
@@ -54,7 +54,7 @@ export class MVPPackageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemRef = this.db.list(this.window.location.pathname.substr(1));
+    this.itemRef = this.db.list(this.winRef.nativeWindow.location.pathname.substr(1));
     this.item = this.itemRef.valueChanges();
     this.createForm();
   }
@@ -100,7 +100,7 @@ export class MVPPackageComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.window.location.href,
+        content: this.winRef.nativeWindow.location.href,
       });
     }
 
@@ -131,7 +131,7 @@ export class MVPPackageComponent implements OnInit {
       this.email = post.email;
 
       if (isPlatformBrowser(this.platformId)) {
-        this.window.scrollTo({
+        this.winRef.nativeWindow.scrollTo({
           top: 0,
           behavior: 'smooth'
         });

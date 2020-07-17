@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute, Router} from '@angular/router';
 import {of} from 'rxjs';
-import {WINDOW} from '@ng-toolkit/universal';
+import { WindowRef } from 'src/app/services/window.service';
 
 import { PersonComponent } from './person.component';
 import {GetInTouchComponent} from '../../global/get-in-touch/get-in-touch.component';

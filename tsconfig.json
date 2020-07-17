@@ -12,7 +12,7 @@
     "importHelpers": true,
     "target": "es2015",
     "lib": [
-      "es2018",
+      "es2017",
       "dom"
     ],
     "esModuleInterop": true,

@@ -11,3 +11,7 @@
 * {
   box-sizing: border-box;
 }
+
+[data-aos] {
+  will-change: transform, opacity;
+}

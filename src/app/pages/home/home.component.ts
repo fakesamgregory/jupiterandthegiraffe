@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.meta.updateTag({
         property: 'og:url',
-        content: this.winRef.nativeWindow.nativeWindow.location.href || '',
+        content: this.winRef.nativeWindow.location.href,
       });
     }
 

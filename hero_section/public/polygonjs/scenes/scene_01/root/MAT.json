@@ -1,0 +1,12 @@
+{
+	"type": "materialsNetwork",
+	"nodes": {
+		"meshBasic_DEBUG": {
+			"type": "meshBasic",
+			"params": {
+				"useMap": 1,
+				"map": "../../COP/image_01"
+			}
+		}
+	}
+}

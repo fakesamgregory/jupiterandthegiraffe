@@ -1,0 +1,25 @@
+{
+	"type": "perspectiveCamera",
+	"nodes": {},
+	"params": {
+		"t": [
+			-0.0010338442247618332,
+			0.41990934085752757,
+			1.1723976871678286
+		],
+		"r": [
+			-14.467063624534747,
+			0.7693522184900854,
+			0.19848948292719618
+		],
+		"controls": "./events1/cameraOrbitControls1",
+		"near": 0.05,
+		"far": 200,
+		"fovAdjustMode": 1,
+		"setRenderer": 1,
+		"renderer": "renderersNetwork1/WebGLRenderer1"
+	},
+	"flags": {
+		"display": true
+	}
+}

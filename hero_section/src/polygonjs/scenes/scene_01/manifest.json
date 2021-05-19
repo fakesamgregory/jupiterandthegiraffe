@@ -1,0 +1,17 @@
+{
+	"properties": "1621373893199",
+	"root": "1621418505452",
+	"nodes": {
+		"geo1": "1621345424547",
+		"geo1/particlesSystemGpu1": "1621374044295",
+		"perspectiveCamera1": "1621291651667",
+		"perspectiveCamera1/events1": "1621291651667",
+		"perspectiveCamera1/renderersNetwork1": "1621286833538",
+		"COP": "1621286851805",
+		"MAT": "1621418505452",
+		"MAT/meshBasicBuilder1": "1621418505452",
+		"MAT/points_particles": "1621292261815",
+		"EVENTS": "1621374044295",
+		"ANIM": "1621291153323"
+	}
+}

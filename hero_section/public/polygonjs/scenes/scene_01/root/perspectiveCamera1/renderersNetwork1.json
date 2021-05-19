@@ -1,0 +1,14 @@
+{
+	"type": "renderersNetwork",
+	"nodes": {
+		"WebGLRenderer1": {
+			"type": "WebGLRenderer",
+			"params": {
+				"outputEncoding": 3000
+			}
+		}
+	},
+	"selection": [
+		"WebGLRenderer1"
+	]
+}

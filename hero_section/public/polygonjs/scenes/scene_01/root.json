@@ -1,0 +1,40 @@
+{
+	"type": "obj",
+	"nodes": {
+		"hemisphereLight1": {
+			"type": "hemisphereLight",
+			"flags": {
+				"display": true
+			}
+		},
+		"spotLight1": {
+			"type": "spotLight",
+			"params": {
+				"t": [
+					2,
+					2,
+					0
+				]
+			},
+			"flags": {
+				"display": true
+			}
+		},
+		"orthographicCamera1": {
+			"type": "orthographicCamera",
+			"params": {
+				"t": [
+					0,
+					0,
+					10
+				],
+				"expectedAspectRatio": 1,
+				"setRenderer": 1,
+				"renderer": "../perspectiveCamera1/renderersNetwork1/WebGLRenderer1"
+			},
+			"flags": {
+				"display": true
+			}
+		}
+	}
+}

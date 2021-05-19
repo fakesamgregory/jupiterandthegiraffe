@@ -1,0 +1,23 @@
+{
+	"type": "copNetwork",
+	"nodes": {
+		"image_01": {
+			"type": "image",
+			"params": {
+				"url": "/tex/jupiter-shadow.jpeg?t=`js('Date.now()')`",
+				"tencoding": 1,
+				"tflipY": 1,
+				"flipY": 1
+			}
+		},
+		"image_02": {
+			"type": "image",
+			"params": {
+				"url": "/tex/nasa-Q1p7bh3SHj8-unsplash.jpg?t=`js('Date.now()')`",
+				"tencoding": 1,
+				"tflipY": 1,
+				"flipY": 1
+			}
+		}
+	}
+}

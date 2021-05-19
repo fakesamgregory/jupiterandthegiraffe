@@ -1,0 +1,82 @@
+{
+	"type": "eventsNetwork",
+	"nodes": {
+		"raycast1": {
+			"type": "raycast",
+			"params": {
+				"mouse": [
+					0.1667595790207752,
+					0.5259812686382309
+				],
+				"intersectWith": 1,
+				"planeDirection": [
+					0,
+					0,
+					1
+				],
+				"position": [
+					0.20164548501770294,
+					0.26299063431911546,
+					0
+				],
+				"tvelocity": 1,
+				"velocity": [
+					0.26196640340946303,
+					4.584412059665515,
+					0
+				]
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "sequence1",
+					"output": "out1"
+				},
+				{
+					"index": 1,
+					"node": "sequence1",
+					"output": "out0"
+				}
+			]
+		},
+		"pointer1": {
+			"type": "pointer",
+			"params": {
+				"pointerdown": 0,
+				"pointermove": 1,
+				"pointerup": 1
+			}
+		},
+		"sequence1": {
+			"type": "sequence",
+			"params": {
+				"outputsCount": 2
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "pointer1",
+					"output": "pointermove"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "trigger",
+						"type": "base"
+					}
+				],
+				"out": [
+					{
+						"name": "out0",
+						"type": "base"
+					},
+					{
+						"name": "out1",
+						"type": "base"
+					}
+				]
+			}
+		}
+	}
+}

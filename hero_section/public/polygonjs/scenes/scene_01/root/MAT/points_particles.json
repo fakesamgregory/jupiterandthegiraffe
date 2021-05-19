@@ -1,0 +1,270 @@
+{
+	"type": "pointsBuilder",
+	"nodes": {
+		"output1": {
+			"type": "output",
+			"inputs": [
+				null,
+				null,
+				null,
+				null,
+				null,
+				{
+					"index": 5,
+					"node": "constant_point_size",
+					"output": "val"
+				}
+			]
+		},
+		"globals1": {
+			"type": "globals"
+		},
+		"constant_point_size": {
+			"type": "constant",
+			"params": {
+				"float": 4
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/MAT/points_particles-main",
+			"type": "ShaderMaterial",
+			"name": "/MAT/points_particles",
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"glslVersion": null,
+			"uniforms": {
+				"diffuse": {
+					"type": "c",
+					"value": 15658734
+				},
+				"opacity": {
+					"value": 1
+				},
+				"size": {
+					"value": 1
+				},
+				"scale": {
+					"value": 1
+				},
+				"map": {
+					"value": null
+				},
+				"alphaMap": {
+					"value": null
+				},
+				"uvTransform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"fogDensity": {
+					"value": 0.00025
+				},
+				"fogNear": {
+					"value": 1
+				},
+				"fogFar": {
+					"value": 2000
+				},
+				"fogColor": {
+					"type": "c",
+					"value": 16777215
+				}
+			},
+			"defines": {
+				"USE_SIZEATTENUATION": 1
+			},
+			"vertexShader": "\nuniform float size;\nuniform float scale;\n\n#include <common>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <color_vertex>\n\n\n\n\t// /MAT/points_particles/constant_point_size\n\tfloat v_POLY_constant_point_size_val = 4.0;\n\t\n\t// /MAT/points_particles/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\tgl_PointSize = v_POLY_constant_point_size_val * size * 10.0;\n\n\n\n// removed:\n//\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <project_vertex>\n\n// removed:\n//\tgl_PointSize = size;\n\n\t#ifdef USE_SIZEATTENUATION\n\n\t\tbool isPerspective = isPerspectiveMatrix( projectionMatrix );\n\n\t\tif ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );\n\n\t#endif\n\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\t#include <worldpos_vertex>\n\t#include <fog_vertex>\n\n}\n",
+			"fragmentShader": "\nuniform vec3 diffuse;\nuniform float opacity;\n\n#include <common>\n#include <color_pars_fragment>\n#include <map_particle_pars_fragment>\n#include <fog_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec3 outgoingLight = vec3( 0.0 );\n\tvec4 diffuseColor = vec4( diffuse, opacity );\n\n\t#include <logdepthbuf_fragment>\n\t#include <map_particle_fragment>\n\t#include <color_fragment>\n\t#include <alphatest_fragment>\n\n\toutgoingLight = diffuseColor.rgb;\n\n\tgl_FragColor = vec4( outgoingLight, diffuseColor.a );\n\n\t#include <tonemapping_fragment>\n\t#include <encodings_fragment>\n\t#include <fog_fragment>\n\t#include <premultiplied_alpha_fragment>\n\n}\n",
+			"shadowSide": null,
+			"lights": false
+		},
+		"uniforms_time_dependent": false,
+		"uniforms_resolution_dependent": false,
+		"param_uniform_pairs": [],
+		"customMaterials": {
+			"customDistanceMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/MAT/points_particles-customDistanceMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDistanceMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 15658734
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"referencePosition": {
+						"type": "v3",
+						"value": [
+							0,
+							0,
+							0
+						]
+					},
+					"nearDistance": {
+						"value": 1
+					},
+					"farDistance": {
+						"value": 1000
+					},
+					"size": {
+						"value": 1
+					},
+					"scale": {
+						"value": 1
+					}
+				},
+				"defines": {
+					"USE_SIZEATTENUATION": 1,
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "uniform float size;\nuniform float scale;\n#define DISTANCE\nvarying vec3 vWorldPosition;\n#include <common>\n#include <clipping_planes_pars_vertex>\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /MAT/points_particles/constant_point_size\n\tfloat v_POLY_constant_point_size_val = 4.0;\n\t\n\t// /MAT/points_particles/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\tgl_PointSize = v_POLY_constant_point_size_val * size * 10.0;\n\n\n\n\n\n\t#include <project_vertex>\n\t#include <worldpos_vertex>\n\t#include <clipping_planes_vertex>\n\n\t#ifdef USE_SIZEATTENUATION\n\t\tbool isPerspective = ( projectionMatrix[ 2 ][ 3 ] == - 1.0 );\n\t\tif ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );\n\t#endif\n\tvWorldPosition = worldPosition.xyz;\n}\n\n// #define DISTANCE\n// varying vec3 vWorldPosition;\n// #include <common>\n// #include <uv_pars_vertex>\n// #include <displacementmap_pars_vertex>\n// #include <morphtarget_pars_vertex>\n// #include <skinning_pars_vertex>\n// #include <clipping_planes_pars_vertex>\n// void main() {\n// \t#include <uv_vertex>\n// \t#include <skinbase_vertex>\n// \t#ifdef USE_DISPLACEMENTMAP\n// removed:\n//// \t\t#include <beginnormal_vertex>\n// \t\t#include <morphnormal_vertex>\n// \t\t#include <skinnormal_vertex>\n// \t#endif\n// removed:\n//// \t#include <begin_vertex>\n// \t#include <morphtarget_vertex>\n// \t#include <skinning_vertex>\n// \t#include <displacementmap_vertex>\n// \t#include <project_vertex>\n// \t#include <worldpos_vertex>\n// \t#include <clipping_planes_vertex>\n// \tvWorldPosition = worldPosition.xyz;\n// }\n\n\n",
+				"fragmentShader": "\n#define DISTANCE\n\nuniform vec3 referencePosition;\nuniform float nearDistance;\nuniform float farDistance;\nvarying vec3 vWorldPosition;\n\n#include <common>\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvoid main () {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\tfloat dist = length( vWorldPosition - referencePosition );\n\tdist = ( dist - nearDistance ) / ( farDistance - nearDistance );\n\tdist = saturate( dist ); // clamp to [ 0, 1 ]\n\n\tgl_FragColor = packDepthToRGBA( dist );\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthDOFMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/MAT/points_particles-customDepthDOFMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthDOFMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"size": {
+						"value": 1
+					},
+					"scale": {
+						"value": 1
+					},
+					"mNear": {
+						"value": 0
+					},
+					"mFar": {
+						"value": 10
+					}
+				},
+				"defines": {
+					"USE_SIZEATTENUATION": 1
+				},
+				"vertexShader": "uniform float size;\nuniform float scale;\n#include <common>\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /MAT/points_particles/constant_point_size\n\tfloat v_POLY_constant_point_size_val = 4.0;\n\t\n\t// /MAT/points_particles/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\tgl_PointSize = v_POLY_constant_point_size_val * size * 10.0;\n\n\n\n\n\n\t#include <project_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n\t#ifdef USE_SIZEATTENUATION\n\t\tbool isPerspective = ( projectionMatrix[ 2 ][ 3 ] == - 1.0 );\n\t\tif ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );\n\t#endif\n\n}\n\n",
+				"fragmentShader": "uniform float mNear;\nuniform float mFar;\n\nvarying float vViewZDepth;\n\nvoid main() {\n\n\tfloat color = 1.0 - smoothstep( mNear, mFar, vViewZDepth );\n\tgl_FragColor = vec4( vec3( color ), 1.0 );\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			}
+		}
+	}
+}

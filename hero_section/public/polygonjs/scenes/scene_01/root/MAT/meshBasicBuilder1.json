@@ -1,0 +1,2934 @@
+{
+	"type": "meshBasicBuilder",
+	"nodes": {
+		"globals1": {
+			"type": "globals"
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "instanceTransform1",
+					"output": "position"
+				},
+				{
+					"index": 1,
+					"node": "instanceTransform1",
+					"output": "normal"
+				},
+				{
+					"index": 2,
+					"node": "mix1",
+					"output": "mix"
+				}
+			]
+		},
+		"instanceTransform1": {
+			"type": "instanceTransform",
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"node": "mix2",
+					"output": "mix"
+				},
+				null,
+				{
+					"index": 4,
+					"node": "vec2ToVec3_2",
+					"output": "vec3"
+				}
+			]
+		},
+		"attribute1": {
+			"type": "attribute",
+			"params": {
+				"name": "instanceUv",
+				"type": 1
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"postAdd": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "uv"
+				},
+				null,
+				null,
+				{
+					"index": 3,
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec2"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec2"
+					},
+					{
+						"name": "mult",
+						"type": "vec2"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec2"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"texture1": {
+			"type": "texture",
+			"params": {
+				"paramName": "textureMap01"
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd11",
+					"output": "val"
+				}
+			]
+		},
+		"vec4ToVec3_1": {
+			"type": "vec4ToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "texture1",
+					"output": "rgba"
+				}
+			]
+		},
+		"texture2": {
+			"type": "texture",
+			"params": {
+				"paramName": "textureMap02"
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd11",
+					"output": "val"
+				}
+			]
+		},
+		"mix1": {
+			"type": "mix",
+			"params": {
+				"value0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"value1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"blend": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec4ToVec3_1",
+					"output": "vec3"
+				},
+				{
+					"index": 1,
+					"node": "vec4ToVec3_2",
+					"output": "vec3"
+				},
+				{
+					"index": 2,
+					"node": "param_textureMix",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "vec3"
+					},
+					{
+						"name": "value1",
+						"type": "vec3"
+					},
+					{
+						"name": "blend",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "mix",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"vec4ToVec3_2": {
+			"type": "vec4ToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "texture2",
+					"output": "rgba"
+				}
+			]
+		},
+		"param_textureMix": {
+			"type": "param",
+			"params": {
+				"name": "textureMix"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"param_InstancedUvMult": {
+			"type": "param",
+			"params": {
+				"name": "InstancedUvMult",
+				"type": 3
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"attribute2": {
+			"type": "attribute",
+			"params": {
+				"name": "instancePosition",
+				"type": 2
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"normalize1": {
+			"type": "normalize",
+			"params": {
+				"in": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd7",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "normalized",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"mix2": {
+			"type": "mix",
+			"params": {
+				"value0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"value1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"blend": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 1
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd12",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "attribute2",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"node": "easing1",
+					"output": "out"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "vec3"
+					},
+					{
+						"name": "value1",
+						"type": "vec3"
+					},
+					{
+						"name": "blend",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "mix",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"attribute3": {
+			"type": "attribute",
+			"params": {
+				"name": "id"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"round1": {
+			"type": "round",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec2_1": {
+			"type": "floatToVec2",
+			"params": {
+				"y": 0.27
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "round1",
+					"output": "val"
+				}
+			]
+		},
+		"random1": {
+			"type": "random",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "floatToVec2_1",
+					"output": "vec2"
+				}
+			]
+		},
+		"attribute4": {
+			"type": "attribute",
+			"params": {
+				"name": "idn"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd2": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					},
+					"raw_input": -0.8
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 1.4
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "time"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd3": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 0.86
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute4",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"add1": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"add2": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"add3": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 4,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd3",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "multAdd2",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"node": "mult3",
+					"output": "product"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "float"
+					},
+					{
+						"name": "add1",
+						"type": "float"
+					},
+					{
+						"name": "add2",
+						"type": "float"
+					},
+					{
+						"name": "add3",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"clamp1": {
+			"type": "clamp",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"min": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"max": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "add1",
+					"output": "sum"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "min",
+						"type": "float"
+					},
+					{
+						"name": "max",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd4": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 0.23
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "random1",
+					"output": "rand"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"easing1": {
+			"type": "easing",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "clamp1",
+					"output": "val"
+				}
+			]
+		},
+		"multAdd5": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						4.8,
+						1,
+						2.8
+					]
+				},
+				"postAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "vec3"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"round2": {
+			"type": "round",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec2_2": {
+			"type": "floatToVec2",
+			"params": {
+				"y": 0.37
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "round2",
+					"output": "val"
+				}
+			]
+		},
+		"random2": {
+			"type": "random",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "floatToVec2_2",
+					"output": "vec2"
+				}
+			]
+		},
+		"multAdd6": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "random2",
+					"output": "rand"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "fitFrom01_1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "fitFrom01_1",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"node": "fitFrom01_1",
+					"output": "val"
+				}
+			]
+		},
+		"multAdd7": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"postAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute2",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "multAdd8",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "vec3"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"fitFrom01_1": {
+			"type": "fitFrom01",
+			"params": {
+				"val": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"destMin": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					},
+					"raw_input": -1
+				},
+				"destMax": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 0.24
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd6",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "val",
+						"type": "float"
+					},
+					{
+						"name": "destMin",
+						"type": "float"
+					},
+					{
+						"name": "destMax",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd8": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						1,
+						0.19999999999999996,
+						0
+					]
+				},
+				"postAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "floatToVec3_1",
+					"output": "vec3"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "vec3"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"multAdd10": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"postAdd": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "uv"
+				},
+				null,
+				{
+					"index": 2,
+					"node": "divide1",
+					"output": "divide"
+				},
+				{
+					"index": 3,
+					"node": "attribute1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec2"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec2"
+					},
+					{
+						"name": "mult",
+						"type": "vec2"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec2"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"vec2ToFloat1": {
+			"type": "vec2ToFloat",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "uv"
+				}
+			]
+		},
+		"floatToVec2_3": {
+			"type": "floatToVec2",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "complement2",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "vec2ToFloat1",
+					"output": "x"
+				}
+			]
+		},
+		"complement2": {
+			"type": "complement",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec2ToFloat1",
+					"output": "y"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"constant_SIZE_MULT": {
+			"type": "constant",
+			"params": {
+				"type": 3,
+				"vec2": [
+					0.9,
+					0.8
+				]
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"vec2ToVec3_2": {
+			"type": "vec2ToVec3",
+			"params": {
+				"z": 1
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "constant_SIZE_MULT",
+					"output": "val"
+				}
+			]
+		},
+		"mult2": {
+			"type": "mult",
+			"params": {
+				"mult0": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult1": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult2": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "constant_SIZE_MULT",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "param_InstancedUvMult",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "mult0",
+						"type": "vec2"
+					},
+					{
+						"name": "mult1",
+						"type": "vec2"
+					},
+					{
+						"name": "mult2",
+						"type": "vec2"
+					}
+				],
+				"out": [
+					{
+						"name": "product",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"param1": {
+			"type": "param",
+			"params": {
+				"name": "planeSize",
+				"type": 3
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"noise1": {
+			"type": "noise",
+			"params": {
+				"outputType": 1,
+				"octaves": 4,
+				"amp": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 1.9
+				},
+				"position": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"freq": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						3,
+						3,
+						3
+					]
+				},
+				"offset": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 4,
+			"inputs": [
+				null,
+				{
+					"index": 1,
+					"node": "attribute2",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "amp",
+						"type": "float"
+					},
+					{
+						"name": "position",
+						"type": "vec3"
+					},
+					{
+						"name": "freq",
+						"type": "vec3"
+					},
+					{
+						"name": "offset",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "noise",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"mult3": {
+			"type": "mult",
+			"params": {
+				"mult0": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult2": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "noise1",
+					"output": "noise"
+				},
+				{
+					"index": 1,
+					"node": "multAdd4",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "mult0",
+						"type": "float"
+					},
+					{
+						"name": "mult1",
+						"type": "float"
+					},
+					{
+						"name": "mult2",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "product",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd12": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "vector3",
+					"default_value": [
+						1,
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						1.6,
+						1.6,
+						1.6
+					]
+				},
+				"postAdd": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "normalize1",
+					"output": "normalized"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec3"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec3"
+					},
+					{
+						"name": "mult",
+						"type": "vec3"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec3"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"param_imageRatio": {
+			"type": "param",
+			"params": {
+				"name": "imageRatio"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"vec2ToFloat2": {
+			"type": "vec2ToFloat",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "param1",
+					"output": "val"
+				}
+			]
+		},
+		"floatToVec2_4": {
+			"type": "floatToVec2",
+			"params": {
+				"x": 1,
+				"y": 1
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "divide2",
+					"output": "divide"
+				}
+			]
+		},
+		"divide2": {
+			"type": "divide",
+			"params": {
+				"div0": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				},
+				"div1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				},
+				"div2": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec2ToFloat2",
+					"output": "x"
+				},
+				{
+					"index": 1,
+					"node": "param_imageRatio",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "div0",
+						"type": "float"
+					},
+					{
+						"name": "div1",
+						"type": "float"
+					},
+					{
+						"name": "div2",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "divide",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec2_5": {
+			"type": "floatToVec2",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd14",
+					"output": "val"
+				}
+			]
+		},
+		"multAdd14": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": 0.5
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "param_imageRatio",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"type": 3,
+				"vec2": [
+					1,
+					1
+				]
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"param2": {
+			"type": "param",
+			"params": {
+				"name": "smallPlaneSize",
+				"type": 3
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"divide1": {
+			"type": "divide",
+			"params": {
+				"div0": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"div1": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"div2": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "param2",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "param1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "div0",
+						"type": "vec2"
+					},
+					{
+						"name": "div1",
+						"type": "vec2"
+					},
+					{
+						"name": "div2",
+						"type": "vec2"
+					}
+				],
+				"out": [
+					{
+						"name": "divide",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"multAdd11": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					}
+				},
+				"preAdd": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						-0.5,
+						-0.5
+					]
+				},
+				"mult": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						1,
+						0.9
+					]
+				},
+				"postAdd": {
+					"type": "vector2",
+					"default_value": [
+						0,
+						0
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						0.5,
+						0.5
+					]
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "multAdd10",
+					"output": "val"
+				},
+				null,
+				{
+					"index": 2,
+					"node": "param3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "vec2"
+					},
+					{
+						"name": "preAdd",
+						"type": "vec2"
+					},
+					{
+						"name": "mult",
+						"type": "vec2"
+					},
+					{
+						"name": "postAdd",
+						"type": "vec2"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"param3": {
+			"type": "param",
+			"params": {
+				"name": "uvStretch",
+				"type": 3
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec2"
+					}
+				]
+			}
+		},
+		"attribute5": {
+			"type": "attribute",
+			"params": {
+				"name": "active"
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"floatToVec3_2": {
+			"type": "floatToVec3",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute5",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "complement1",
+					"output": "val"
+				}
+			]
+		},
+		"complement1": {
+			"type": "complement",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "attribute5",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"textureMap01": {
+			"type": "operator_path",
+			"default_value": "/COP/imageUv",
+			"options": {
+				"nodeSelection": {
+					"context": "cop"
+				},
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": "../../COP/image_01"
+		},
+		"textureMap02": {
+			"type": "operator_path",
+			"default_value": "/COP/imageUv",
+			"options": {
+				"nodeSelection": {
+					"context": "cop"
+				},
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": "../../COP/image_02"
+		},
+		"textureMix": {
+			"type": "float",
+			"default_value": 0,
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			}
+		},
+		"InstancedUvMult": {
+			"type": "vector2",
+			"default_value": [
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": [
+				"ch(\"../../geo1/plane1/sizex\")/ch(\"../../geo1/plane1/segmentsx\")",
+				"ch(\"../../geo1/plane1/sizey\")/ch(\"../../geo1/plane1/segmentsy\")"
+			]
+		},
+		"planeSize": {
+			"type": "vector2",
+			"default_value": [
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": [
+				"ch(\"../../geo1/plane1/sizex\")",
+				"ch(\"../../geo1/plane1/sizey\")"
+			]
+		},
+		"imageRatio": {
+			"type": "float",
+			"default_value": 0,
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": "copRes('/COP/image_01','x') / copRes('/COP/image_01','y')"
+		},
+		"smallPlaneSize": {
+			"type": "vector2",
+			"default_value": [
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": [
+				"ch(\"../../geo1/plane2/sizex\")",
+				"ch(\"../../geo1/plane2/sizey\")"
+			]
+		},
+		"uvStretch": {
+			"type": "vector2",
+			"default_value": [
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false
+			},
+			"raw_input": [
+				"ch(\"../../geo1/CONTROL/uvMultx\")",
+				"ch(\"../../geo1/CONTROL/uvMulty\")"
+			]
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/MAT/meshBasicBuilder1-main",
+			"type": "ShaderMaterial",
+			"name": "/MAT/meshBasicBuilder1",
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680,
+			"glslVersion": null,
+			"uniforms": {
+				"diffuse": {
+					"type": "c",
+					"value": 15658734
+				},
+				"opacity": {
+					"value": 1
+				},
+				"map": {
+					"value": null
+				},
+				"uvTransform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"uv2Transform": {
+					"type": "m3",
+					"value": [
+						1,
+						0,
+						0,
+						0,
+						1,
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"alphaMap": {
+					"value": null
+				},
+				"specularMap": {
+					"value": null
+				},
+				"envMap": {
+					"value": null
+				},
+				"flipEnvMap": {
+					"value": -1
+				},
+				"reflectivity": {
+					"value": 1
+				},
+				"refractionRatio": {
+					"value": 0.98
+				},
+				"maxMipLevel": {
+					"value": 0
+				},
+				"aoMap": {
+					"value": null
+				},
+				"aoMapIntensity": {
+					"value": 1
+				},
+				"lightMap": {
+					"value": null
+				},
+				"lightMapIntensity": {
+					"value": 1
+				},
+				"fogDensity": {
+					"value": 0.00025
+				},
+				"fogNear": {
+					"value": 1
+				},
+				"fogFar": {
+					"value": 2000
+				},
+				"fogColor": {
+					"type": "c",
+					"value": 16777215
+				},
+				"v_POLY_texture1_textureMap01": {
+					"value": null
+				},
+				"v_POLY_texture2_textureMap02": {
+					"value": null
+				},
+				"v_POLY_param_textureMix_val": {
+					"value": 0
+				},
+				"v_POLY_param_InstancedUvMult_val": {
+					"type": "v2",
+					"value": [
+						0.033838557594291545,
+						0.01694915254237288
+					]
+				},
+				"v_POLY_param1_val": {
+					"type": "v2",
+					"value": [
+						2.0303134556574927,
+						1
+					]
+				},
+				"v_POLY_param_imageRatio_val": {
+					"value": 0.9932104752667313
+				},
+				"v_POLY_param2_val": {
+					"type": "v2",
+					"value": [
+						0.033838557594291545,
+						0.01694915254237288
+					]
+				},
+				"v_POLY_param3_val": {
+					"type": "v2",
+					"value": [
+						1,
+						0.4891907072275655
+					]
+				},
+				"time": {
+					"value": 88.11776999999711
+				},
+				"texture_instancePosition_SEPARATOR_active": {
+					"value": null
+				}
+			},
+			"vertexShader": "\n#include <common>\n\n\n\n// /MAT/meshBasicBuilder1/noise1\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 4; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /MAT/meshBasicBuilder1/fitFrom01_1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /MAT/meshBasicBuilder1/easing1\n\nfloat sineInOut(float t) {\n  return -0.5 * (cos(PI * t) - 1.0);\n}\n\n\n\n// /MAT/meshBasicBuilder1/instanceTransform1\n\n\n// https://github.com/mattatz/ShibuyaCrowd/blob/master/source/shaders/common/quaternion.glsl\nvec4 quatMult(vec4 q1, vec4 q2)\n{\n\treturn vec4(\n\tq1.w * q2.x + q1.x * q2.w + q1.z * q2.y - q1.y * q2.z,\n\tq1.w * q2.y + q1.y * q2.w + q1.x * q2.z - q1.z * q2.x,\n\tq1.w * q2.z + q1.z * q2.w + q1.y * q2.x - q1.x * q2.y,\n\tq1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z\n\t);\n}\n// http://glmatrix.net/docs/quat.js.html#line97\n//   let ax = a[0], ay = a[1], az = a[2], aw = a[3];\n\n//   let bx = b[0], by = b[1], bz = b[2], bw = b[3];\n\n//   out[0] = ax * bw + aw * bx + ay * bz - az * by;\n\n//   out[1] = ay * bw + aw * by + az * bx - ax * bz;\n\n//   out[2] = az * bw + aw * bz + ax * by - ay * bx;\n\n//   out[3] = aw * bw - ax * bx - ay * by - az * bz;\n\n//   return out\n\n\n\n// http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/\nmat4 rotationMatrix(vec3 axis, float angle)\n{\n\taxis = normalize(axis);\n\tfloat s = sin(angle);\n\tfloat c = cos(angle);\n\tfloat oc = 1.0 - c;\n\n \treturn mat4(oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s,  0.0, oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\n// https://www.geeks3d.com/20141201/how-to-rotate-a-vertex-by-a-quaternion-in-glsl/\nvec4 quatFromAxisAngle(vec3 axis, float angle)\n{\n\tvec4 qr;\n\tfloat half_angle = (angle * 0.5); // * 3.14159 / 180.0;\n\tfloat sin_half_angle = sin(half_angle);\n\tqr.x = axis.x * sin_half_angle;\n\tqr.y = axis.y * sin_half_angle;\n\tqr.z = axis.z * sin_half_angle;\n\tqr.w = cos(half_angle);\n\treturn qr;\n}\nvec3 rotateWithAxisAngle(vec3 position, vec3 axis, float angle)\n{\n\tvec4 q = quatFromAxisAngle(axis, angle);\n\tvec3 v = position.xyz;\n\treturn v + 2.0 * cross(q.xyz, cross(q.xyz, v) + q.w * v);\n}\n// vec3 applyQuaternionToVector( vec4 q, vec3 v ){\n// \treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n// }\nvec3 rotateWithQuat( vec3 v, vec4 q )\n{\n\t// vec4 qv = multQuat( quat, vec4(vec, 0.0) );\n\t// return multQuat( qv, vec4(-quat.x, -quat.y, -quat.z, quat.w) ).xyz;\n\treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n}\n// https://github.com/glslify/glsl-look-at/blob/gh-pages/index.glsl\n// mat3 rotation_matrix(vec3 origin, vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target - origin);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n// mat3 rotation_matrix(vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n\nfloat vectorAngle(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 c1 = cross(start, dest);\n\t// We use the dot product of the cross with the Y axis.\n\t// This is a little arbitrary, but can still give a good sense of direction\n\tvec3 y_axis = vec3(0.0, 1.0, 0.0);\n\tfloat d1 = dot(c1, y_axis);\n\tfloat angle = acos(cosTheta) * sign(d1);\n\treturn angle;\n}\n\n// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/#i-need-an-equivalent-of-glulookat-how-do-i-orient-an-object-towards-a-point-\nvec4 vectorAlign(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 axis;\n\n\t// if (cosTheta < -1 + 0.001f){\n\t// \t// special case when vectors in opposite directions:\n\t// \t// there is no \"ideal\" rotation axis\n\t// \t// So guess one; any will do as long as it's perpendicular to start\n\t// \taxis = cross(vec3(0.0f, 0.0f, 1.0f), start);\n\t// \tif (length2(axis) < 0.01 ) // bad luck, they were parallel, try again!\n\t// \t\taxis = cross(vec3(1.0f, 0.0f, 0.0f), start);\n\n\t// \taxis = normalize(axis);\n\t// \treturn gtx::quaternion::angleAxis(glm::radians(180.0f), axis);\n\t// }\n\tif(cosTheta > (1.0 - 0.0001) || cosTheta < (-1.0 + 0.0001) ){\n\t\taxis = normalize(cross(start, vec3(0.0, 1.0, 0.0)));\n\t\tif (length(axis) < 0.001 ){ // bad luck, they were parallel, try again!\n\t\t\taxis = normalize(cross(start, vec3(1.0, 0.0, 0.0)));\n\t\t}\n\t} else {\n\t\taxis = normalize(cross(start, dest));\n\t}\n\n\tfloat angle = acos(cosTheta);\n\n\treturn quatFromAxisAngle(axis, angle);\n}\nvec4 vectorAlignWithUp(vec3 start, vec3 dest, vec3 up){\n\tvec4 rot1 = vectorAlign(start, dest);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\t// vec3 right = normalize(cross(dest, up));\n\t// up = normalize(cross(right, dest));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(vec3(0.0, 1.0, 0.0), rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(up, newUp);\n\n\t// return rot1;\n\treturn rot2;\n\t// return multQuat(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n// https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToAngle/index.htm\nfloat quatToAngle(vec4 q){\n\treturn 2.0 * acos(q.w);\n}\nvec3 quatToAxis(vec4 q){\n\treturn vec3(\n\t\tq.x / sqrt(1.0-q.w*q.w),\n\t\tq.y / sqrt(1.0-q.w*q.w),\n\t\tq.z / sqrt(1.0-q.w*q.w)\n\t);\n}\n\nvec4 align(vec3 dir, vec3 up){\n\tvec3 start_dir = vec3(0.0, 0.0, 1.0);\n\tvec3 start_up = vec3(0.0, 1.0, 0.0);\n\tvec4 rot1 = vectorAlign(start_dir, dir);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\tvec3 right = normalize(cross(dir, up));\n\tif(length(right)<0.001){\n\t\tright = vec3(1.0, 0.0, 0.0);\n\t}\n\tup = normalize(cross(right, dir));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(start_up, rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(normalize(newUp), up);\n\n\t// return rot1;\n\treturn quatMult(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n\n\n\n\n\n\n// /MAT/meshBasicBuilder1/attribute2\nuniform sampler2D texture_instancePosition_SEPARATOR_active;\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n// /MAT/meshBasicBuilder1/attribute2\nattribute vec2 particles_sim_uv_attrib;\n\n// /MAT/meshBasicBuilder1/attribute3\nattribute float id;\n\n// /MAT/meshBasicBuilder1/attribute4\nattribute float idn;\n\n// /MAT/meshBasicBuilder1/attribute1\nattribute vec2 instanceUv;\n\n// /MAT/meshBasicBuilder1/instanceTransform1\nattribute vec4 instanceOrientation;\n\n\n\n\n#include <uv_pars_vertex>\n#include <uv2_pars_vertex>\n#include <envmap_pars_vertex>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <uv_vertex>\n\t#include <uv2_vertex>\n\t#include <color_vertex>\n\n\n\n\t// /MAT/meshBasicBuilder1/attribute2\n\tparticles_sim_uv_varying = particles_sim_uv_attrib;\n\tvec3 v_POLY_attribute2_val = texture2D( texture_instancePosition_SEPARATOR_active, particles_sim_uv_varying ).xyz;\n\t\n\t// /MAT/meshBasicBuilder1/attribute3\n\tfloat v_POLY_attribute3_val = id;\n\t\n\t// /MAT/meshBasicBuilder1/attribute4\n\tfloat v_POLY_attribute4_val = idn;\n\t\n\t// /MAT/meshBasicBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/constant_SIZE_MULT\n\tvec2 v_POLY_constant_SIZE_MULT_val = vec2(0.9, 0.8);\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvarying_v_POLY_attribute1_val = vec2(instanceUv);\n\t\n\t// /MAT/meshBasicBuilder1/noise1\n\tfloat v_POLY_noise1_noise = 1.9*fbm_snoise_noise1((v_POLY_attribute2_val*vec3(3.0, 3.0, 3.0))+vec3(0.0, 0.0, 0.0));\n\t\n\t// /MAT/meshBasicBuilder1/round2\n\tfloat v_POLY_round2_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd3\n\tfloat v_POLY_multAdd3_val = (0.86*(v_POLY_attribute4_val + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd2\n\tfloat v_POLY_multAdd2_val = (1.4*(v_POLY_globals1_time + -0.8)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/vec2ToVec3_2\n\tvec3 v_POLY_vec2ToVec3_2_vec3 = vec3(v_POLY_constant_SIZE_MULT_val.xy, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_2\n\tvec2 v_POLY_floatToVec2_2_vec2 = vec2(v_POLY_round2_val, 0.37);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_1\n\tvec2 v_POLY_floatToVec2_1_vec2 = vec2(v_POLY_round1_val, 0.27);\n\t\n\t// /MAT/meshBasicBuilder1/random2\n\tfloat v_POLY_random2_rand = rand(v_POLY_floatToVec2_2_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/random1\n\tfloat v_POLY_random1_rand = rand(v_POLY_floatToVec2_1_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd6\n\tfloat v_POLY_multAdd6_val = (1.0*(v_POLY_random2_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd4\n\tfloat v_POLY_multAdd4_val = (0.23*(v_POLY_random1_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_noise1_noise * v_POLY_multAdd4_val * 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/fitFrom01_1\n\tfloat v_POLY_fitFrom01_1_val = fitFrom01(v_POLY_multAdd6_val, -1.0, 0.24);\n\t\n\t// /MAT/meshBasicBuilder1/add1\n\tfloat v_POLY_add1_sum = (v_POLY_multAdd3_val + v_POLY_multAdd2_val + v_POLY_mult3_product + 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val);\n\t\n\t// /MAT/meshBasicBuilder1/clamp1\n\tfloat v_POLY_clamp1_val = clamp(v_POLY_add1_sum, 0.0, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd8\n\tvec3 v_POLY_multAdd8_val = (vec3(1.0, 0.19999999999999996, 0.0)*(v_POLY_floatToVec3_1_vec3 + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd7\n\tvec3 v_POLY_multAdd7_val = (vec3(1.0, 1.0, 1.0)*(v_POLY_attribute2_val + v_POLY_multAdd8_val)) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/easing1\n\tfloat v_POLY_easing1_out = sineInOut(v_POLY_clamp1_val);\n\t\n\t// /MAT/meshBasicBuilder1/normalize1\n\tvec3 v_POLY_normalize1_normalized = normalize(v_POLY_multAdd7_val);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd12\n\tvec3 v_POLY_multAdd12_val = (vec3(1.6, 1.6, 1.6)*(v_POLY_normalize1_normalized + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/mix2\n\tvec3 v_POLY_mix2_mix = mix(v_POLY_multAdd12_val, v_POLY_attribute2_val, v_POLY_easing1_out);\n\t\n\t// /MAT/meshBasicBuilder1/instanceTransform1\n\tvec3 v_POLY_instanceTransform1_position = vec3(position);\n\tv_POLY_instanceTransform1_position *= v_POLY_vec2ToVec3_2_vec3;\n\tv_POLY_instanceTransform1_position = rotateWithQuat( v_POLY_instanceTransform1_position, instanceOrientation );\n\tv_POLY_instanceTransform1_position += v_POLY_mix2_mix;\n\tvec3 v_POLY_instanceTransform1_normal = vec3(normal);\n\tv_POLY_instanceTransform1_normal = rotateWithQuat( v_POLY_instanceTransform1_normal, instanceOrientation );\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tvec3 transformed = v_POLY_instanceTransform1_position;\n\tvec3 objectNormal = v_POLY_instanceTransform1_normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_ENVMAP\n\n// removed:\n//\t#include <beginnormal_vertex>\n\t#include <morphnormal_vertex>\n\t#include <skinnormal_vertex>\n\t#include <defaultnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\n\t#include <worldpos_vertex>\n\t#include <clipping_planes_vertex>\n\t#include <envmap_vertex>\n\t#include <fog_vertex>\n\n}\n",
+			"fragmentShader": "\nuniform vec3 diffuse;\nuniform float opacity;\n\n#ifndef FLAT_SHADED\n\n\tvarying vec3 vNormal;\n\n#endif\n\n#include <common>\n\n\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/param2\nuniform vec2 v_POLY_param2_val;\n\n// /MAT/meshBasicBuilder1/param1\nuniform vec2 v_POLY_param1_val;\n\n// /MAT/meshBasicBuilder1/param3\nuniform vec2 v_POLY_param3_val;\n\n// /MAT/meshBasicBuilder1/param_textureMix\nuniform float v_POLY_param_textureMix_val;\n\n// /MAT/meshBasicBuilder1/texture1\nuniform sampler2D v_POLY_texture1_textureMap01;\n\n// /MAT/meshBasicBuilder1/texture2\nuniform sampler2D v_POLY_texture2_textureMap02;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n\n\n\n#include <dithering_pars_fragment>\n#include <color_pars_fragment>\n#include <uv_pars_fragment>\n#include <uv2_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <aomap_pars_fragment>\n#include <lightmap_pars_fragment>\n#include <envmap_common_pars_fragment>\n#include <envmap_pars_fragment>\n#include <cube_uv_reflection_fragment>\n#include <fog_pars_fragment>\n#include <specularmap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( diffuse, opacity );\n\n\n\n\t// /MAT/meshBasicBuilder1/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvec2 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /MAT/meshBasicBuilder1/divide1\n\tvec2 v_POLY_divide1_divide = (v_POLY_param2_val / v_POLY_param1_val / vec2(1.0, 1.0));\n\t\n\t// /MAT/meshBasicBuilder1/multAdd10\n\tvec2 v_POLY_multAdd10_val = (v_POLY_divide1_divide*(v_POLY_globals1_uv + vec2(0.0, 0.0))) + v_POLY_attribute1_val;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd11\n\tvec2 v_POLY_multAdd11_val = (v_POLY_param3_val*(v_POLY_multAdd10_val + vec2(-0.5, -0.5))) + vec2(0.5, 0.5);\n\t\n\t// /MAT/meshBasicBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_textureMap01, v_POLY_multAdd11_val);\n\t\n\t// /MAT/meshBasicBuilder1/texture2\n\tvec4 v_POLY_texture2_rgba = texture2D(v_POLY_texture2_textureMap02, v_POLY_multAdd11_val);\n\t\n\t// /MAT/meshBasicBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /MAT/meshBasicBuilder1/vec4ToVec3_2\n\tvec3 v_POLY_vec4ToVec3_2_vec3 = v_POLY_texture2_rgba.xyz;\n\t\n\t// /MAT/meshBasicBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_vec4ToVec3_1_vec3, v_POLY_vec4ToVec3_2_vec3, v_POLY_param_textureMix_val);\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\n\n\n\n\t#include <logdepthbuf_fragment>\n\t#include <map_fragment>\n\t#include <color_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\t#include <specularmap_fragment>\n\n\tReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );\n\n\t// accumulation (baked indirect lighting only)\n\t#ifdef USE_LIGHTMAP\n\t\n\t\tvec4 lightMapTexel= texture2D( lightMap, vUv2 );\n\t\treflectedLight.indirectDiffuse += lightMapTexelToLinear( lightMapTexel ).rgb * lightMapIntensity;\n\n\t#else\n\n\t\treflectedLight.indirectDiffuse += vec3( 1.0 );\n\n\t#endif\n\n\t// modulation\n\t#include <aomap_fragment>\n\n\treflectedLight.indirectDiffuse *= diffuseColor.rgb;\n\n\tvec3 outgoingLight = reflectedLight.indirectDiffuse;\n\n\t#include <envmap_fragment>\n\n\tgl_FragColor = vec4( outgoingLight, diffuseColor.a );\n\n\t#include <tonemapping_fragment>\n\t#include <encodings_fragment>\n\t#include <fog_fragment>\n\t#include <premultiplied_alpha_fragment>\n\t#include <dithering_fragment>\n\n}\n",
+			"shadowSide": null,
+			"lights": false
+		},
+		"uniforms_time_dependent": true,
+		"uniforms_resolution_dependent": false,
+		"param_uniform_pairs": [
+			[
+				"textureMap01",
+				"v_POLY_texture1_textureMap01"
+			],
+			[
+				"textureMap02",
+				"v_POLY_texture2_textureMap02"
+			],
+			[
+				"textureMix",
+				"v_POLY_param_textureMix_val"
+			],
+			[
+				"InstancedUvMult",
+				"v_POLY_param_InstancedUvMult_val"
+			],
+			[
+				"planeSize",
+				"v_POLY_param1_val"
+			],
+			[
+				"imageRatio",
+				"v_POLY_param_imageRatio_val"
+			],
+			[
+				"smallPlaneSize",
+				"v_POLY_param2_val"
+			],
+			[
+				"uvStretch",
+				"v_POLY_param3_val"
+			]
+		],
+		"customMaterials": {
+			"customDistanceMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/MAT/meshBasicBuilder1-customDistanceMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDistanceMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 15658734
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"referencePosition": {
+						"type": "v3",
+						"value": [
+							0,
+							0,
+							0
+						]
+					},
+					"nearDistance": {
+						"value": 1
+					},
+					"farDistance": {
+						"value": 1000
+					},
+					"v_POLY_texture1_textureMap01": {
+						"value": null
+					},
+					"v_POLY_texture2_textureMap02": {
+						"value": null
+					},
+					"v_POLY_param_textureMix_val": {
+						"value": 0
+					},
+					"v_POLY_param_InstancedUvMult_val": {
+						"type": "v2",
+						"value": [
+							0.033838557594291545,
+							0.01694915254237288
+						]
+					},
+					"v_POLY_param1_val": {
+						"type": "v2",
+						"value": [
+							2.0303134556574927,
+							1
+						]
+					},
+					"v_POLY_param_imageRatio_val": {
+						"value": 0.9932104752667313
+					},
+					"v_POLY_param2_val": {
+						"type": "v2",
+						"value": [
+							0.033838557594291545,
+							0.01694915254237288
+						]
+					},
+					"v_POLY_param3_val": {
+						"type": "v2",
+						"value": [
+							1,
+							0.4891907072275655
+						]
+					},
+					"time": {
+						"value": 88.11776999999711
+					},
+					"texture_instancePosition_SEPARATOR_active": {
+						"value": null
+					}
+				},
+				"defines": {
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "\n#define DISTANCE\n\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /MAT/meshBasicBuilder1/noise1\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 4; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /MAT/meshBasicBuilder1/fitFrom01_1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /MAT/meshBasicBuilder1/easing1\n\nfloat sineInOut(float t) {\n  return -0.5 * (cos(PI * t) - 1.0);\n}\n\n\n\n// /MAT/meshBasicBuilder1/instanceTransform1\n\n\n// https://github.com/mattatz/ShibuyaCrowd/blob/master/source/shaders/common/quaternion.glsl\nvec4 quatMult(vec4 q1, vec4 q2)\n{\n\treturn vec4(\n\tq1.w * q2.x + q1.x * q2.w + q1.z * q2.y - q1.y * q2.z,\n\tq1.w * q2.y + q1.y * q2.w + q1.x * q2.z - q1.z * q2.x,\n\tq1.w * q2.z + q1.z * q2.w + q1.y * q2.x - q1.x * q2.y,\n\tq1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z\n\t);\n}\n// http://glmatrix.net/docs/quat.js.html#line97\n//   let ax = a[0], ay = a[1], az = a[2], aw = a[3];\n\n//   let bx = b[0], by = b[1], bz = b[2], bw = b[3];\n\n//   out[0] = ax * bw + aw * bx + ay * bz - az * by;\n\n//   out[1] = ay * bw + aw * by + az * bx - ax * bz;\n\n//   out[2] = az * bw + aw * bz + ax * by - ay * bx;\n\n//   out[3] = aw * bw - ax * bx - ay * by - az * bz;\n\n//   return out\n\n\n\n// http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/\nmat4 rotationMatrix(vec3 axis, float angle)\n{\n\taxis = normalize(axis);\n\tfloat s = sin(angle);\n\tfloat c = cos(angle);\n\tfloat oc = 1.0 - c;\n\n \treturn mat4(oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s,  0.0, oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\n// https://www.geeks3d.com/20141201/how-to-rotate-a-vertex-by-a-quaternion-in-glsl/\nvec4 quatFromAxisAngle(vec3 axis, float angle)\n{\n\tvec4 qr;\n\tfloat half_angle = (angle * 0.5); // * 3.14159 / 180.0;\n\tfloat sin_half_angle = sin(half_angle);\n\tqr.x = axis.x * sin_half_angle;\n\tqr.y = axis.y * sin_half_angle;\n\tqr.z = axis.z * sin_half_angle;\n\tqr.w = cos(half_angle);\n\treturn qr;\n}\nvec3 rotateWithAxisAngle(vec3 position, vec3 axis, float angle)\n{\n\tvec4 q = quatFromAxisAngle(axis, angle);\n\tvec3 v = position.xyz;\n\treturn v + 2.0 * cross(q.xyz, cross(q.xyz, v) + q.w * v);\n}\n// vec3 applyQuaternionToVector( vec4 q, vec3 v ){\n// \treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n// }\nvec3 rotateWithQuat( vec3 v, vec4 q )\n{\n\t// vec4 qv = multQuat( quat, vec4(vec, 0.0) );\n\t// return multQuat( qv, vec4(-quat.x, -quat.y, -quat.z, quat.w) ).xyz;\n\treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n}\n// https://github.com/glslify/glsl-look-at/blob/gh-pages/index.glsl\n// mat3 rotation_matrix(vec3 origin, vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target - origin);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n// mat3 rotation_matrix(vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n\nfloat vectorAngle(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 c1 = cross(start, dest);\n\t// We use the dot product of the cross with the Y axis.\n\t// This is a little arbitrary, but can still give a good sense of direction\n\tvec3 y_axis = vec3(0.0, 1.0, 0.0);\n\tfloat d1 = dot(c1, y_axis);\n\tfloat angle = acos(cosTheta) * sign(d1);\n\treturn angle;\n}\n\n// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/#i-need-an-equivalent-of-glulookat-how-do-i-orient-an-object-towards-a-point-\nvec4 vectorAlign(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 axis;\n\n\t// if (cosTheta < -1 + 0.001f){\n\t// \t// special case when vectors in opposite directions:\n\t// \t// there is no \"ideal\" rotation axis\n\t// \t// So guess one; any will do as long as it's perpendicular to start\n\t// \taxis = cross(vec3(0.0f, 0.0f, 1.0f), start);\n\t// \tif (length2(axis) < 0.01 ) // bad luck, they were parallel, try again!\n\t// \t\taxis = cross(vec3(1.0f, 0.0f, 0.0f), start);\n\n\t// \taxis = normalize(axis);\n\t// \treturn gtx::quaternion::angleAxis(glm::radians(180.0f), axis);\n\t// }\n\tif(cosTheta > (1.0 - 0.0001) || cosTheta < (-1.0 + 0.0001) ){\n\t\taxis = normalize(cross(start, vec3(0.0, 1.0, 0.0)));\n\t\tif (length(axis) < 0.001 ){ // bad luck, they were parallel, try again!\n\t\t\taxis = normalize(cross(start, vec3(1.0, 0.0, 0.0)));\n\t\t}\n\t} else {\n\t\taxis = normalize(cross(start, dest));\n\t}\n\n\tfloat angle = acos(cosTheta);\n\n\treturn quatFromAxisAngle(axis, angle);\n}\nvec4 vectorAlignWithUp(vec3 start, vec3 dest, vec3 up){\n\tvec4 rot1 = vectorAlign(start, dest);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\t// vec3 right = normalize(cross(dest, up));\n\t// up = normalize(cross(right, dest));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(vec3(0.0, 1.0, 0.0), rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(up, newUp);\n\n\t// return rot1;\n\treturn rot2;\n\t// return multQuat(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n// https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToAngle/index.htm\nfloat quatToAngle(vec4 q){\n\treturn 2.0 * acos(q.w);\n}\nvec3 quatToAxis(vec4 q){\n\treturn vec3(\n\t\tq.x / sqrt(1.0-q.w*q.w),\n\t\tq.y / sqrt(1.0-q.w*q.w),\n\t\tq.z / sqrt(1.0-q.w*q.w)\n\t);\n}\n\nvec4 align(vec3 dir, vec3 up){\n\tvec3 start_dir = vec3(0.0, 0.0, 1.0);\n\tvec3 start_up = vec3(0.0, 1.0, 0.0);\n\tvec4 rot1 = vectorAlign(start_dir, dir);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\tvec3 right = normalize(cross(dir, up));\n\tif(length(right)<0.001){\n\t\tright = vec3(1.0, 0.0, 0.0);\n\t}\n\tup = normalize(cross(right, dir));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(start_up, rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(normalize(newUp), up);\n\n\t// return rot1;\n\treturn quatMult(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n\n\n\n\n\n\n// /MAT/meshBasicBuilder1/attribute2\nuniform sampler2D texture_instancePosition_SEPARATOR_active;\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n// /MAT/meshBasicBuilder1/attribute2\nattribute vec2 particles_sim_uv_attrib;\n\n// /MAT/meshBasicBuilder1/attribute3\nattribute float id;\n\n// /MAT/meshBasicBuilder1/attribute4\nattribute float idn;\n\n// /MAT/meshBasicBuilder1/attribute1\nattribute vec2 instanceUv;\n\n// /MAT/meshBasicBuilder1/instanceTransform1\nattribute vec4 instanceOrientation;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\nvoid main() {\n\n\t#include <uv_vertex>\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_DISPLACEMENTMAP\n\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /MAT/meshBasicBuilder1/attribute2\n\tparticles_sim_uv_varying = particles_sim_uv_attrib;\n\tvec3 v_POLY_attribute2_val = texture2D( texture_instancePosition_SEPARATOR_active, particles_sim_uv_varying ).xyz;\n\t\n\t// /MAT/meshBasicBuilder1/attribute3\n\tfloat v_POLY_attribute3_val = id;\n\t\n\t// /MAT/meshBasicBuilder1/attribute4\n\tfloat v_POLY_attribute4_val = idn;\n\t\n\t// /MAT/meshBasicBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/constant_SIZE_MULT\n\tvec2 v_POLY_constant_SIZE_MULT_val = vec2(0.9, 0.8);\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvarying_v_POLY_attribute1_val = vec2(instanceUv);\n\t\n\t// /MAT/meshBasicBuilder1/noise1\n\tfloat v_POLY_noise1_noise = 1.9*fbm_snoise_noise1((v_POLY_attribute2_val*vec3(3.0, 3.0, 3.0))+vec3(0.0, 0.0, 0.0));\n\t\n\t// /MAT/meshBasicBuilder1/round2\n\tfloat v_POLY_round2_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd3\n\tfloat v_POLY_multAdd3_val = (0.86*(v_POLY_attribute4_val + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd2\n\tfloat v_POLY_multAdd2_val = (1.4*(v_POLY_globals1_time + -0.8)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/vec2ToVec3_2\n\tvec3 v_POLY_vec2ToVec3_2_vec3 = vec3(v_POLY_constant_SIZE_MULT_val.xy, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_2\n\tvec2 v_POLY_floatToVec2_2_vec2 = vec2(v_POLY_round2_val, 0.37);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_1\n\tvec2 v_POLY_floatToVec2_1_vec2 = vec2(v_POLY_round1_val, 0.27);\n\t\n\t// /MAT/meshBasicBuilder1/random2\n\tfloat v_POLY_random2_rand = rand(v_POLY_floatToVec2_2_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/random1\n\tfloat v_POLY_random1_rand = rand(v_POLY_floatToVec2_1_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd6\n\tfloat v_POLY_multAdd6_val = (1.0*(v_POLY_random2_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd4\n\tfloat v_POLY_multAdd4_val = (0.23*(v_POLY_random1_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_noise1_noise * v_POLY_multAdd4_val * 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/fitFrom01_1\n\tfloat v_POLY_fitFrom01_1_val = fitFrom01(v_POLY_multAdd6_val, -1.0, 0.24);\n\t\n\t// /MAT/meshBasicBuilder1/add1\n\tfloat v_POLY_add1_sum = (v_POLY_multAdd3_val + v_POLY_multAdd2_val + v_POLY_mult3_product + 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val);\n\t\n\t// /MAT/meshBasicBuilder1/clamp1\n\tfloat v_POLY_clamp1_val = clamp(v_POLY_add1_sum, 0.0, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd8\n\tvec3 v_POLY_multAdd8_val = (vec3(1.0, 0.19999999999999996, 0.0)*(v_POLY_floatToVec3_1_vec3 + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd7\n\tvec3 v_POLY_multAdd7_val = (vec3(1.0, 1.0, 1.0)*(v_POLY_attribute2_val + v_POLY_multAdd8_val)) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/easing1\n\tfloat v_POLY_easing1_out = sineInOut(v_POLY_clamp1_val);\n\t\n\t// /MAT/meshBasicBuilder1/normalize1\n\tvec3 v_POLY_normalize1_normalized = normalize(v_POLY_multAdd7_val);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd12\n\tvec3 v_POLY_multAdd12_val = (vec3(1.6, 1.6, 1.6)*(v_POLY_normalize1_normalized + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/mix2\n\tvec3 v_POLY_mix2_mix = mix(v_POLY_multAdd12_val, v_POLY_attribute2_val, v_POLY_easing1_out);\n\t\n\t// /MAT/meshBasicBuilder1/instanceTransform1\n\tvec3 v_POLY_instanceTransform1_position = vec3(position);\n\tv_POLY_instanceTransform1_position *= v_POLY_vec2ToVec3_2_vec3;\n\tv_POLY_instanceTransform1_position = rotateWithQuat( v_POLY_instanceTransform1_position, instanceOrientation );\n\tv_POLY_instanceTransform1_position += v_POLY_mix2_mix;\n\tvec3 v_POLY_instanceTransform1_normal = vec3(normal);\n\tv_POLY_instanceTransform1_normal = rotateWithQuat( v_POLY_instanceTransform1_normal, instanceOrientation );\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tvec3 transformed = v_POLY_instanceTransform1_position;\n\tvec3 objectNormal = v_POLY_instanceTransform1_normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <worldpos_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvWorldPosition = worldPosition.xyz;\n\n}\n",
+				"fragmentShader": "\n#define DISTANCE\n\nuniform vec3 referencePosition;\nuniform float nearDistance;\nuniform float farDistance;\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/param2\nuniform vec2 v_POLY_param2_val;\n\n// /MAT/meshBasicBuilder1/param1\nuniform vec2 v_POLY_param1_val;\n\n// /MAT/meshBasicBuilder1/param3\nuniform vec2 v_POLY_param3_val;\n\n// /MAT/meshBasicBuilder1/param_textureMix\nuniform float v_POLY_param_textureMix_val;\n\n// /MAT/meshBasicBuilder1/texture1\nuniform sampler2D v_POLY_texture1_textureMap01;\n\n// /MAT/meshBasicBuilder1/texture2\nuniform sampler2D v_POLY_texture2_textureMap02;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvoid main () {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\n\n\t// /MAT/meshBasicBuilder1/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvec2 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /MAT/meshBasicBuilder1/divide1\n\tvec2 v_POLY_divide1_divide = (v_POLY_param2_val / v_POLY_param1_val / vec2(1.0, 1.0));\n\t\n\t// /MAT/meshBasicBuilder1/multAdd10\n\tvec2 v_POLY_multAdd10_val = (v_POLY_divide1_divide*(v_POLY_globals1_uv + vec2(0.0, 0.0))) + v_POLY_attribute1_val;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd11\n\tvec2 v_POLY_multAdd11_val = (v_POLY_param3_val*(v_POLY_multAdd10_val + vec2(-0.5, -0.5))) + vec2(0.5, 0.5);\n\t\n\t// /MAT/meshBasicBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_textureMap01, v_POLY_multAdd11_val);\n\t\n\t// /MAT/meshBasicBuilder1/texture2\n\tvec4 v_POLY_texture2_rgba = texture2D(v_POLY_texture2_textureMap02, v_POLY_multAdd11_val);\n\t\n\t// /MAT/meshBasicBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /MAT/meshBasicBuilder1/vec4ToVec3_2\n\tvec3 v_POLY_vec4ToVec3_2_vec3 = v_POLY_texture2_rgba.xyz;\n\t\n\t// /MAT/meshBasicBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_vec4ToVec3_1_vec3, v_POLY_vec4ToVec3_2_vec3, v_POLY_param_textureMix_val);\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\n\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\tfloat dist = length( vWorldPosition - referencePosition );\n\tdist = ( dist - nearDistance ) / ( farDistance - nearDistance );\n\tdist = saturate( dist ); // clamp to [ 0, 1 ]\n\n\tgl_FragColor = packDepthToRGBA( dist );\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/MAT/meshBasicBuilder1-customDepthMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthMaterial",
+				"side": 1,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"diffuse": {
+						"type": "c",
+						"value": 15658734
+					},
+					"opacity": {
+						"value": 1
+					},
+					"map": {
+						"value": null
+					},
+					"uvTransform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"uv2Transform": {
+						"type": "m3",
+						"value": [
+							1,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							1
+						]
+					},
+					"alphaMap": {
+						"value": null
+					},
+					"displacementMap": {
+						"value": null
+					},
+					"displacementScale": {
+						"value": 1
+					},
+					"displacementBias": {
+						"value": 0
+					},
+					"v_POLY_texture1_textureMap01": {
+						"value": null
+					},
+					"v_POLY_texture2_textureMap02": {
+						"value": null
+					},
+					"v_POLY_param_textureMix_val": {
+						"value": 0
+					},
+					"v_POLY_param_InstancedUvMult_val": {
+						"type": "v2",
+						"value": [
+							0.033838557594291545,
+							0.01694915254237288
+						]
+					},
+					"v_POLY_param1_val": {
+						"type": "v2",
+						"value": [
+							2.0303134556574927,
+							1
+						]
+					},
+					"v_POLY_param_imageRatio_val": {
+						"value": 0.9932104752667313
+					},
+					"v_POLY_param2_val": {
+						"type": "v2",
+						"value": [
+							0.033838557594291545,
+							0.01694915254237288
+						]
+					},
+					"v_POLY_param3_val": {
+						"type": "v2",
+						"value": [
+							1,
+							0.4891907072275655
+						]
+					},
+					"time": {
+						"value": 88.11776999999711
+					},
+					"texture_instancePosition_SEPARATOR_active": {
+						"value": null
+					}
+				},
+				"defines": {
+					"DEPTH_PACKING": 3201
+				},
+				"vertexShader": "\n#include <common>\n\n\n\n// /MAT/meshBasicBuilder1/noise1\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 4; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /MAT/meshBasicBuilder1/fitFrom01_1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /MAT/meshBasicBuilder1/easing1\n\nfloat sineInOut(float t) {\n  return -0.5 * (cos(PI * t) - 1.0);\n}\n\n\n\n// /MAT/meshBasicBuilder1/instanceTransform1\n\n\n// https://github.com/mattatz/ShibuyaCrowd/blob/master/source/shaders/common/quaternion.glsl\nvec4 quatMult(vec4 q1, vec4 q2)\n{\n\treturn vec4(\n\tq1.w * q2.x + q1.x * q2.w + q1.z * q2.y - q1.y * q2.z,\n\tq1.w * q2.y + q1.y * q2.w + q1.x * q2.z - q1.z * q2.x,\n\tq1.w * q2.z + q1.z * q2.w + q1.y * q2.x - q1.x * q2.y,\n\tq1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z\n\t);\n}\n// http://glmatrix.net/docs/quat.js.html#line97\n//   let ax = a[0], ay = a[1], az = a[2], aw = a[3];\n\n//   let bx = b[0], by = b[1], bz = b[2], bw = b[3];\n\n//   out[0] = ax * bw + aw * bx + ay * bz - az * by;\n\n//   out[1] = ay * bw + aw * by + az * bx - ax * bz;\n\n//   out[2] = az * bw + aw * bz + ax * by - ay * bx;\n\n//   out[3] = aw * bw - ax * bx - ay * by - az * bz;\n\n//   return out\n\n\n\n// http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/\nmat4 rotationMatrix(vec3 axis, float angle)\n{\n\taxis = normalize(axis);\n\tfloat s = sin(angle);\n\tfloat c = cos(angle);\n\tfloat oc = 1.0 - c;\n\n \treturn mat4(oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s,  0.0, oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\n// https://www.geeks3d.com/20141201/how-to-rotate-a-vertex-by-a-quaternion-in-glsl/\nvec4 quatFromAxisAngle(vec3 axis, float angle)\n{\n\tvec4 qr;\n\tfloat half_angle = (angle * 0.5); // * 3.14159 / 180.0;\n\tfloat sin_half_angle = sin(half_angle);\n\tqr.x = axis.x * sin_half_angle;\n\tqr.y = axis.y * sin_half_angle;\n\tqr.z = axis.z * sin_half_angle;\n\tqr.w = cos(half_angle);\n\treturn qr;\n}\nvec3 rotateWithAxisAngle(vec3 position, vec3 axis, float angle)\n{\n\tvec4 q = quatFromAxisAngle(axis, angle);\n\tvec3 v = position.xyz;\n\treturn v + 2.0 * cross(q.xyz, cross(q.xyz, v) + q.w * v);\n}\n// vec3 applyQuaternionToVector( vec4 q, vec3 v ){\n// \treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n// }\nvec3 rotateWithQuat( vec3 v, vec4 q )\n{\n\t// vec4 qv = multQuat( quat, vec4(vec, 0.0) );\n\t// return multQuat( qv, vec4(-quat.x, -quat.y, -quat.z, quat.w) ).xyz;\n\treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n}\n// https://github.com/glslify/glsl-look-at/blob/gh-pages/index.glsl\n// mat3 rotation_matrix(vec3 origin, vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target - origin);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n// mat3 rotation_matrix(vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n\nfloat vectorAngle(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 c1 = cross(start, dest);\n\t// We use the dot product of the cross with the Y axis.\n\t// This is a little arbitrary, but can still give a good sense of direction\n\tvec3 y_axis = vec3(0.0, 1.0, 0.0);\n\tfloat d1 = dot(c1, y_axis);\n\tfloat angle = acos(cosTheta) * sign(d1);\n\treturn angle;\n}\n\n// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/#i-need-an-equivalent-of-glulookat-how-do-i-orient-an-object-towards-a-point-\nvec4 vectorAlign(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 axis;\n\n\t// if (cosTheta < -1 + 0.001f){\n\t// \t// special case when vectors in opposite directions:\n\t// \t// there is no \"ideal\" rotation axis\n\t// \t// So guess one; any will do as long as it's perpendicular to start\n\t// \taxis = cross(vec3(0.0f, 0.0f, 1.0f), start);\n\t// \tif (length2(axis) < 0.01 ) // bad luck, they were parallel, try again!\n\t// \t\taxis = cross(vec3(1.0f, 0.0f, 0.0f), start);\n\n\t// \taxis = normalize(axis);\n\t// \treturn gtx::quaternion::angleAxis(glm::radians(180.0f), axis);\n\t// }\n\tif(cosTheta > (1.0 - 0.0001) || cosTheta < (-1.0 + 0.0001) ){\n\t\taxis = normalize(cross(start, vec3(0.0, 1.0, 0.0)));\n\t\tif (length(axis) < 0.001 ){ // bad luck, they were parallel, try again!\n\t\t\taxis = normalize(cross(start, vec3(1.0, 0.0, 0.0)));\n\t\t}\n\t} else {\n\t\taxis = normalize(cross(start, dest));\n\t}\n\n\tfloat angle = acos(cosTheta);\n\n\treturn quatFromAxisAngle(axis, angle);\n}\nvec4 vectorAlignWithUp(vec3 start, vec3 dest, vec3 up){\n\tvec4 rot1 = vectorAlign(start, dest);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\t// vec3 right = normalize(cross(dest, up));\n\t// up = normalize(cross(right, dest));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(vec3(0.0, 1.0, 0.0), rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(up, newUp);\n\n\t// return rot1;\n\treturn rot2;\n\t// return multQuat(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n// https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToAngle/index.htm\nfloat quatToAngle(vec4 q){\n\treturn 2.0 * acos(q.w);\n}\nvec3 quatToAxis(vec4 q){\n\treturn vec3(\n\t\tq.x / sqrt(1.0-q.w*q.w),\n\t\tq.y / sqrt(1.0-q.w*q.w),\n\t\tq.z / sqrt(1.0-q.w*q.w)\n\t);\n}\n\nvec4 align(vec3 dir, vec3 up){\n\tvec3 start_dir = vec3(0.0, 0.0, 1.0);\n\tvec3 start_up = vec3(0.0, 1.0, 0.0);\n\tvec4 rot1 = vectorAlign(start_dir, dir);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\tvec3 right = normalize(cross(dir, up));\n\tif(length(right)<0.001){\n\t\tright = vec3(1.0, 0.0, 0.0);\n\t}\n\tup = normalize(cross(right, dir));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(start_up, rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(normalize(newUp), up);\n\n\t// return rot1;\n\treturn quatMult(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n\n\n\n\n\n\n// /MAT/meshBasicBuilder1/attribute2\nuniform sampler2D texture_instancePosition_SEPARATOR_active;\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n// /MAT/meshBasicBuilder1/attribute2\nattribute vec2 particles_sim_uv_attrib;\n\n// /MAT/meshBasicBuilder1/attribute3\nattribute float id;\n\n// /MAT/meshBasicBuilder1/attribute4\nattribute float idn;\n\n// /MAT/meshBasicBuilder1/attribute1\nattribute vec2 instanceUv;\n\n// /MAT/meshBasicBuilder1/instanceTransform1\nattribute vec4 instanceOrientation;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\n\n// This is used for computing an equivalent of gl_FragCoord.z that is as high precision as possible.\n// Some platforms compute gl_FragCoord at a lower precision which makes the manually computed value better for\n// depth-based postprocessing effects. Reproduced on iPad with A10 processor / iPadOS 13.3.1.\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <uv_vertex>\n\n\t#include <skinbase_vertex>\n\n\t#ifdef USE_DISPLACEMENTMAP\n\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\n\t#endif\n\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /MAT/meshBasicBuilder1/attribute2\n\tparticles_sim_uv_varying = particles_sim_uv_attrib;\n\tvec3 v_POLY_attribute2_val = texture2D( texture_instancePosition_SEPARATOR_active, particles_sim_uv_varying ).xyz;\n\t\n\t// /MAT/meshBasicBuilder1/attribute3\n\tfloat v_POLY_attribute3_val = id;\n\t\n\t// /MAT/meshBasicBuilder1/attribute4\n\tfloat v_POLY_attribute4_val = idn;\n\t\n\t// /MAT/meshBasicBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/constant_SIZE_MULT\n\tvec2 v_POLY_constant_SIZE_MULT_val = vec2(0.9, 0.8);\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvarying_v_POLY_attribute1_val = vec2(instanceUv);\n\t\n\t// /MAT/meshBasicBuilder1/noise1\n\tfloat v_POLY_noise1_noise = 1.9*fbm_snoise_noise1((v_POLY_attribute2_val*vec3(3.0, 3.0, 3.0))+vec3(0.0, 0.0, 0.0));\n\t\n\t// /MAT/meshBasicBuilder1/round2\n\tfloat v_POLY_round2_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd3\n\tfloat v_POLY_multAdd3_val = (0.86*(v_POLY_attribute4_val + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd2\n\tfloat v_POLY_multAdd2_val = (1.4*(v_POLY_globals1_time + -0.8)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/vec2ToVec3_2\n\tvec3 v_POLY_vec2ToVec3_2_vec3 = vec3(v_POLY_constant_SIZE_MULT_val.xy, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_2\n\tvec2 v_POLY_floatToVec2_2_vec2 = vec2(v_POLY_round2_val, 0.37);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_1\n\tvec2 v_POLY_floatToVec2_1_vec2 = vec2(v_POLY_round1_val, 0.27);\n\t\n\t// /MAT/meshBasicBuilder1/random2\n\tfloat v_POLY_random2_rand = rand(v_POLY_floatToVec2_2_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/random1\n\tfloat v_POLY_random1_rand = rand(v_POLY_floatToVec2_1_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd6\n\tfloat v_POLY_multAdd6_val = (1.0*(v_POLY_random2_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd4\n\tfloat v_POLY_multAdd4_val = (0.23*(v_POLY_random1_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_noise1_noise * v_POLY_multAdd4_val * 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/fitFrom01_1\n\tfloat v_POLY_fitFrom01_1_val = fitFrom01(v_POLY_multAdd6_val, -1.0, 0.24);\n\t\n\t// /MAT/meshBasicBuilder1/add1\n\tfloat v_POLY_add1_sum = (v_POLY_multAdd3_val + v_POLY_multAdd2_val + v_POLY_mult3_product + 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val);\n\t\n\t// /MAT/meshBasicBuilder1/clamp1\n\tfloat v_POLY_clamp1_val = clamp(v_POLY_add1_sum, 0.0, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd8\n\tvec3 v_POLY_multAdd8_val = (vec3(1.0, 0.19999999999999996, 0.0)*(v_POLY_floatToVec3_1_vec3 + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd7\n\tvec3 v_POLY_multAdd7_val = (vec3(1.0, 1.0, 1.0)*(v_POLY_attribute2_val + v_POLY_multAdd8_val)) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/easing1\n\tfloat v_POLY_easing1_out = sineInOut(v_POLY_clamp1_val);\n\t\n\t// /MAT/meshBasicBuilder1/normalize1\n\tvec3 v_POLY_normalize1_normalized = normalize(v_POLY_multAdd7_val);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd12\n\tvec3 v_POLY_multAdd12_val = (vec3(1.6, 1.6, 1.6)*(v_POLY_normalize1_normalized + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/mix2\n\tvec3 v_POLY_mix2_mix = mix(v_POLY_multAdd12_val, v_POLY_attribute2_val, v_POLY_easing1_out);\n\t\n\t// /MAT/meshBasicBuilder1/instanceTransform1\n\tvec3 v_POLY_instanceTransform1_position = vec3(position);\n\tv_POLY_instanceTransform1_position *= v_POLY_vec2ToVec3_2_vec3;\n\tv_POLY_instanceTransform1_position = rotateWithQuat( v_POLY_instanceTransform1_position, instanceOrientation );\n\tv_POLY_instanceTransform1_position += v_POLY_mix2_mix;\n\tvec3 v_POLY_instanceTransform1_normal = vec3(normal);\n\tv_POLY_instanceTransform1_normal = rotateWithQuat( v_POLY_instanceTransform1_normal, instanceOrientation );\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tvec3 transformed = v_POLY_instanceTransform1_position;\n\tvec3 objectNormal = v_POLY_instanceTransform1_normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\n\tvHighPrecisionZW = gl_Position.zw;\n\n}\n",
+				"fragmentShader": "\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n\n\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/param2\nuniform vec2 v_POLY_param2_val;\n\n// /MAT/meshBasicBuilder1/param1\nuniform vec2 v_POLY_param1_val;\n\n// /MAT/meshBasicBuilder1/param3\nuniform vec2 v_POLY_param3_val;\n\n// /MAT/meshBasicBuilder1/param_textureMix\nuniform float v_POLY_param_textureMix_val;\n\n// /MAT/meshBasicBuilder1/texture1\nuniform sampler2D v_POLY_texture1_textureMap01;\n\n// /MAT/meshBasicBuilder1/texture2\nuniform sampler2D v_POLY_texture2_textureMap02;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\n\n\t// /MAT/meshBasicBuilder1/globals1\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvec2 v_POLY_attribute1_val = varying_v_POLY_attribute1_val;\n\t\n\t// /MAT/meshBasicBuilder1/divide1\n\tvec2 v_POLY_divide1_divide = (v_POLY_param2_val / v_POLY_param1_val / vec2(1.0, 1.0));\n\t\n\t// /MAT/meshBasicBuilder1/multAdd10\n\tvec2 v_POLY_multAdd10_val = (v_POLY_divide1_divide*(v_POLY_globals1_uv + vec2(0.0, 0.0))) + v_POLY_attribute1_val;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd11\n\tvec2 v_POLY_multAdd11_val = (v_POLY_param3_val*(v_POLY_multAdd10_val + vec2(-0.5, -0.5))) + vec2(0.5, 0.5);\n\t\n\t// /MAT/meshBasicBuilder1/texture1\n\tvec4 v_POLY_texture1_rgba = texture2D(v_POLY_texture1_textureMap01, v_POLY_multAdd11_val);\n\t\n\t// /MAT/meshBasicBuilder1/texture2\n\tvec4 v_POLY_texture2_rgba = texture2D(v_POLY_texture2_textureMap02, v_POLY_multAdd11_val);\n\t\n\t// /MAT/meshBasicBuilder1/vec4ToVec3_1\n\tvec3 v_POLY_vec4ToVec3_1_vec3 = v_POLY_texture1_rgba.xyz;\n\t\n\t// /MAT/meshBasicBuilder1/vec4ToVec3_2\n\tvec3 v_POLY_vec4ToVec3_2_vec3 = v_POLY_texture2_rgba.xyz;\n\t\n\t// /MAT/meshBasicBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_vec4ToVec3_1_vec3, v_POLY_vec4ToVec3_2_vec3, v_POLY_param_textureMix_val);\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\n\n\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			},
+			"customDepthDOFMaterial": {
+				"metadata": {
+					"version": 4.5,
+					"type": "Material",
+					"generator": "Material.toJSON"
+				},
+				"uuid": "/MAT/meshBasicBuilder1-customDepthDOFMaterial",
+				"type": "ShaderMaterial",
+				"name": "customDepthDOFMaterial",
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"colorWrite": true,
+				"stencilWrite": false,
+				"stencilWriteMask": 255,
+				"stencilFunc": 519,
+				"stencilRef": 0,
+				"stencilFuncMask": 255,
+				"stencilFail": 7680,
+				"stencilZFail": 7680,
+				"stencilZPass": 7680,
+				"glslVersion": null,
+				"uniforms": {
+					"mNear": {
+						"value": 0
+					},
+					"mFar": {
+						"value": 10
+					},
+					"v_POLY_texture1_textureMap01": {
+						"value": null
+					},
+					"v_POLY_texture2_textureMap02": {
+						"value": null
+					},
+					"v_POLY_param_textureMix_val": {
+						"value": 0
+					},
+					"v_POLY_param_InstancedUvMult_val": {
+						"type": "v2",
+						"value": [
+							0.033838557594291545,
+							0.01694915254237288
+						]
+					},
+					"v_POLY_param1_val": {
+						"type": "v2",
+						"value": [
+							2.0303134556574927,
+							1
+						]
+					},
+					"v_POLY_param_imageRatio_val": {
+						"value": 0.9932104752667313
+					},
+					"v_POLY_param2_val": {
+						"type": "v2",
+						"value": [
+							0.033838557594291545,
+							0.01694915254237288
+						]
+					},
+					"v_POLY_param3_val": {
+						"type": "v2",
+						"value": [
+							1,
+							0.4891907072275655
+						]
+					},
+					"time": {
+						"value": 88.11776999999711
+					},
+					"texture_instancePosition_SEPARATOR_active": {
+						"value": null
+					}
+				},
+				"vertexShader": "#include <common>\n\nvarying float vViewZDepth;\n\n// INSERT DEFINES\n\n\n\n// /MAT/meshBasicBuilder1/noise1\n// Modulo 289 without a division (only multiplications)\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n// Modulo 7 without a division\nvec3 mod7(vec3 x) {\n  return x - floor(x * (1.0 / 7.0)) * 7.0;\n}\n\n// Permutation polynomial: (34x^2 + x) mod 289\nfloat permute(float x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\nvec3 permute(vec3 x) {\n  return mod289((34.0 * x + 1.0) * x);\n}\nvec4 permute(vec4 x) {\n     return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat taylorInvSqrt(float r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\nvec4 taylorInvSqrt(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec2 fade(vec2 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec3 fade(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\nvec4 fade(vec4 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex \n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : stegu\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//               https://github.com/stegu/webgl-noise\n// \n\n\n\nfloat snoise(vec3 v)\n  { \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289(i); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\n\nfloat fbm_snoise_noise1 (in vec3 st) {\n\tfloat value = 0.0;\n\tfloat amplitude = 1.0;\n\tfor (int i = 0; i < 4; i++) {\n\t\tvalue += amplitude * snoise(st);\n\t\tst *= 2.0;\n\t\tamplitude *= 0.5;\n\t}\n\treturn value;\n}\n\n\n// /MAT/meshBasicBuilder1/fitFrom01_1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /MAT/meshBasicBuilder1/easing1\n\nfloat sineInOut(float t) {\n  return -0.5 * (cos(PI * t) - 1.0);\n}\n\n\n\n// /MAT/meshBasicBuilder1/instanceTransform1\n\n\n// https://github.com/mattatz/ShibuyaCrowd/blob/master/source/shaders/common/quaternion.glsl\nvec4 quatMult(vec4 q1, vec4 q2)\n{\n\treturn vec4(\n\tq1.w * q2.x + q1.x * q2.w + q1.z * q2.y - q1.y * q2.z,\n\tq1.w * q2.y + q1.y * q2.w + q1.x * q2.z - q1.z * q2.x,\n\tq1.w * q2.z + q1.z * q2.w + q1.y * q2.x - q1.x * q2.y,\n\tq1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z\n\t);\n}\n// http://glmatrix.net/docs/quat.js.html#line97\n//   let ax = a[0], ay = a[1], az = a[2], aw = a[3];\n\n//   let bx = b[0], by = b[1], bz = b[2], bw = b[3];\n\n//   out[0] = ax * bw + aw * bx + ay * bz - az * by;\n\n//   out[1] = ay * bw + aw * by + az * bx - ax * bz;\n\n//   out[2] = az * bw + aw * bz + ax * by - ay * bx;\n\n//   out[3] = aw * bw - ax * bx - ay * by - az * bz;\n\n//   return out\n\n\n\n// http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/\nmat4 rotationMatrix(vec3 axis, float angle)\n{\n\taxis = normalize(axis);\n\tfloat s = sin(angle);\n\tfloat c = cos(angle);\n\tfloat oc = 1.0 - c;\n\n \treturn mat4(oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,  oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s,  0.0, oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\n// https://www.geeks3d.com/20141201/how-to-rotate-a-vertex-by-a-quaternion-in-glsl/\nvec4 quatFromAxisAngle(vec3 axis, float angle)\n{\n\tvec4 qr;\n\tfloat half_angle = (angle * 0.5); // * 3.14159 / 180.0;\n\tfloat sin_half_angle = sin(half_angle);\n\tqr.x = axis.x * sin_half_angle;\n\tqr.y = axis.y * sin_half_angle;\n\tqr.z = axis.z * sin_half_angle;\n\tqr.w = cos(half_angle);\n\treturn qr;\n}\nvec3 rotateWithAxisAngle(vec3 position, vec3 axis, float angle)\n{\n\tvec4 q = quatFromAxisAngle(axis, angle);\n\tvec3 v = position.xyz;\n\treturn v + 2.0 * cross(q.xyz, cross(q.xyz, v) + q.w * v);\n}\n// vec3 applyQuaternionToVector( vec4 q, vec3 v ){\n// \treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n// }\nvec3 rotateWithQuat( vec3 v, vec4 q )\n{\n\t// vec4 qv = multQuat( quat, vec4(vec, 0.0) );\n\t// return multQuat( qv, vec4(-quat.x, -quat.y, -quat.z, quat.w) ).xyz;\n\treturn v + 2.0 * cross( q.xyz, cross( q.xyz, v ) + q.w * v );\n}\n// https://github.com/glslify/glsl-look-at/blob/gh-pages/index.glsl\n// mat3 rotation_matrix(vec3 origin, vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target - origin);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n// mat3 rotation_matrix(vec3 target, float roll) {\n// \tvec3 rr = vec3(sin(roll), cos(roll), 0.0);\n// \tvec3 ww = normalize(target);\n// \tvec3 uu = normalize(cross(ww, rr));\n// \tvec3 vv = normalize(cross(uu, ww));\n\n// \treturn mat3(uu, vv, ww);\n// }\n\nfloat vectorAngle(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 c1 = cross(start, dest);\n\t// We use the dot product of the cross with the Y axis.\n\t// This is a little arbitrary, but can still give a good sense of direction\n\tvec3 y_axis = vec3(0.0, 1.0, 0.0);\n\tfloat d1 = dot(c1, y_axis);\n\tfloat angle = acos(cosTheta) * sign(d1);\n\treturn angle;\n}\n\n// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/#i-need-an-equivalent-of-glulookat-how-do-i-orient-an-object-towards-a-point-\nvec4 vectorAlign(vec3 start, vec3 dest){\n\tstart = normalize(start);\n\tdest = normalize(dest);\n\n\tfloat cosTheta = dot(start, dest);\n\tvec3 axis;\n\n\t// if (cosTheta < -1 + 0.001f){\n\t// \t// special case when vectors in opposite directions:\n\t// \t// there is no \"ideal\" rotation axis\n\t// \t// So guess one; any will do as long as it's perpendicular to start\n\t// \taxis = cross(vec3(0.0f, 0.0f, 1.0f), start);\n\t// \tif (length2(axis) < 0.01 ) // bad luck, they were parallel, try again!\n\t// \t\taxis = cross(vec3(1.0f, 0.0f, 0.0f), start);\n\n\t// \taxis = normalize(axis);\n\t// \treturn gtx::quaternion::angleAxis(glm::radians(180.0f), axis);\n\t// }\n\tif(cosTheta > (1.0 - 0.0001) || cosTheta < (-1.0 + 0.0001) ){\n\t\taxis = normalize(cross(start, vec3(0.0, 1.0, 0.0)));\n\t\tif (length(axis) < 0.001 ){ // bad luck, they were parallel, try again!\n\t\t\taxis = normalize(cross(start, vec3(1.0, 0.0, 0.0)));\n\t\t}\n\t} else {\n\t\taxis = normalize(cross(start, dest));\n\t}\n\n\tfloat angle = acos(cosTheta);\n\n\treturn quatFromAxisAngle(axis, angle);\n}\nvec4 vectorAlignWithUp(vec3 start, vec3 dest, vec3 up){\n\tvec4 rot1 = vectorAlign(start, dest);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\t// vec3 right = normalize(cross(dest, up));\n\t// up = normalize(cross(right, dest));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(vec3(0.0, 1.0, 0.0), rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(up, newUp);\n\n\t// return rot1;\n\treturn rot2;\n\t// return multQuat(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n// https://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToAngle/index.htm\nfloat quatToAngle(vec4 q){\n\treturn 2.0 * acos(q.w);\n}\nvec3 quatToAxis(vec4 q){\n\treturn vec3(\n\t\tq.x / sqrt(1.0-q.w*q.w),\n\t\tq.y / sqrt(1.0-q.w*q.w),\n\t\tq.z / sqrt(1.0-q.w*q.w)\n\t);\n}\n\nvec4 align(vec3 dir, vec3 up){\n\tvec3 start_dir = vec3(0.0, 0.0, 1.0);\n\tvec3 start_up = vec3(0.0, 1.0, 0.0);\n\tvec4 rot1 = vectorAlign(start_dir, dir);\n\tup = normalize(up);\n\n\t// Recompute desiredUp so that it's perpendicular to the direction\n\t// You can skip that part if you really want to force desiredUp\n\tvec3 right = normalize(cross(dir, up));\n\tif(length(right)<0.001){\n\t\tright = vec3(1.0, 0.0, 0.0);\n\t}\n\tup = normalize(cross(right, dir));\n\n\t// Because of the 1rst rotation, the up is probably completely screwed up.\n\t// Find the rotation between the \"up\" of the rotated object, and the desired up\n\tvec3 newUp = rotateWithQuat(start_up, rot1);//rot1 * vec3(0.0, 1.0, 0.0);\n\tvec4 rot2 = vectorAlign(normalize(newUp), up);\n\n\t// return rot1;\n\treturn quatMult(rot1, rot2);\n\t// return rot2 * rot1;\n\n}\n\n\n\n\n\n\n\n// /MAT/meshBasicBuilder1/attribute2\nuniform sampler2D texture_instancePosition_SEPARATOR_active;\n\n// /MAT/meshBasicBuilder1/globals1\nuniform float time;\n\n// /MAT/meshBasicBuilder1/attribute2\nvarying vec2 particles_sim_uv_varying;\n\n// /MAT/meshBasicBuilder1/globals1\nvarying vec2 v_POLY_globals1_uv;\n\n// /MAT/meshBasicBuilder1/attribute1\nvarying vec2 varying_v_POLY_attribute1_val;\n\n// /MAT/meshBasicBuilder1/attribute2\nattribute vec2 particles_sim_uv_attrib;\n\n// /MAT/meshBasicBuilder1/attribute3\nattribute float id;\n\n// /MAT/meshBasicBuilder1/attribute4\nattribute float idn;\n\n// /MAT/meshBasicBuilder1/attribute1\nattribute vec2 instanceUv;\n\n// /MAT/meshBasicBuilder1/instanceTransform1\nattribute vec4 instanceOrientation;\n\n\n\n\n\n\n\nvoid main() {\n\n\t// INSERT BODY\n\n\n\n\t// /MAT/meshBasicBuilder1/attribute2\n\tparticles_sim_uv_varying = particles_sim_uv_attrib;\n\tvec3 v_POLY_attribute2_val = texture2D( texture_instancePosition_SEPARATOR_active, particles_sim_uv_varying ).xyz;\n\t\n\t// /MAT/meshBasicBuilder1/attribute3\n\tfloat v_POLY_attribute3_val = id;\n\t\n\t// /MAT/meshBasicBuilder1/attribute4\n\tfloat v_POLY_attribute4_val = idn;\n\t\n\t// /MAT/meshBasicBuilder1/globals1\n\tv_POLY_globals1_uv = vec2(uv);\n\tfloat v_POLY_globals1_time = time;\n\t\n\t// /MAT/meshBasicBuilder1/constant_SIZE_MULT\n\tvec2 v_POLY_constant_SIZE_MULT_val = vec2(0.9, 0.8);\n\t\n\t// /MAT/meshBasicBuilder1/attribute1\n\tvarying_v_POLY_attribute1_val = vec2(instanceUv);\n\t\n\t// /MAT/meshBasicBuilder1/noise1\n\tfloat v_POLY_noise1_noise = 1.9*fbm_snoise_noise1((v_POLY_attribute2_val*vec3(3.0, 3.0, 3.0))+vec3(0.0, 0.0, 0.0));\n\t\n\t// /MAT/meshBasicBuilder1/round2\n\tfloat v_POLY_round2_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_attribute3_val)*floor(abs(v_POLY_attribute3_val)+0.5);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd3\n\tfloat v_POLY_multAdd3_val = (0.86*(v_POLY_attribute4_val + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd2\n\tfloat v_POLY_multAdd2_val = (1.4*(v_POLY_globals1_time + -0.8)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/vec2ToVec3_2\n\tvec3 v_POLY_vec2ToVec3_2_vec3 = vec3(v_POLY_constant_SIZE_MULT_val.xy, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_2\n\tvec2 v_POLY_floatToVec2_2_vec2 = vec2(v_POLY_round2_val, 0.37);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec2_1\n\tvec2 v_POLY_floatToVec2_1_vec2 = vec2(v_POLY_round1_val, 0.27);\n\t\n\t// /MAT/meshBasicBuilder1/random2\n\tfloat v_POLY_random2_rand = rand(v_POLY_floatToVec2_2_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/random1\n\tfloat v_POLY_random1_rand = rand(v_POLY_floatToVec2_1_vec2);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd6\n\tfloat v_POLY_multAdd6_val = (1.0*(v_POLY_random2_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/multAdd4\n\tfloat v_POLY_multAdd4_val = (0.23*(v_POLY_random1_rand + 0.0)) + 0.0;\n\t\n\t// /MAT/meshBasicBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_noise1_noise * v_POLY_multAdd4_val * 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/fitFrom01_1\n\tfloat v_POLY_fitFrom01_1_val = fitFrom01(v_POLY_multAdd6_val, -1.0, 0.24);\n\t\n\t// /MAT/meshBasicBuilder1/add1\n\tfloat v_POLY_add1_sum = (v_POLY_multAdd3_val + v_POLY_multAdd2_val + v_POLY_mult3_product + 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val, v_POLY_fitFrom01_1_val);\n\t\n\t// /MAT/meshBasicBuilder1/clamp1\n\tfloat v_POLY_clamp1_val = clamp(v_POLY_add1_sum, 0.0, 1.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd8\n\tvec3 v_POLY_multAdd8_val = (vec3(1.0, 0.19999999999999996, 0.0)*(v_POLY_floatToVec3_1_vec3 + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd7\n\tvec3 v_POLY_multAdd7_val = (vec3(1.0, 1.0, 1.0)*(v_POLY_attribute2_val + v_POLY_multAdd8_val)) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/easing1\n\tfloat v_POLY_easing1_out = sineInOut(v_POLY_clamp1_val);\n\t\n\t// /MAT/meshBasicBuilder1/normalize1\n\tvec3 v_POLY_normalize1_normalized = normalize(v_POLY_multAdd7_val);\n\t\n\t// /MAT/meshBasicBuilder1/multAdd12\n\tvec3 v_POLY_multAdd12_val = (vec3(1.6, 1.6, 1.6)*(v_POLY_normalize1_normalized + vec3(0.0, 0.0, 0.0))) + vec3(0.0, 0.0, 0.0);\n\t\n\t// /MAT/meshBasicBuilder1/mix2\n\tvec3 v_POLY_mix2_mix = mix(v_POLY_multAdd12_val, v_POLY_attribute2_val, v_POLY_easing1_out);\n\t\n\t// /MAT/meshBasicBuilder1/instanceTransform1\n\tvec3 v_POLY_instanceTransform1_position = vec3(position);\n\tv_POLY_instanceTransform1_position *= v_POLY_vec2ToVec3_2_vec3;\n\tv_POLY_instanceTransform1_position = rotateWithQuat( v_POLY_instanceTransform1_position, instanceOrientation );\n\tv_POLY_instanceTransform1_position += v_POLY_mix2_mix;\n\tvec3 v_POLY_instanceTransform1_normal = vec3(normal);\n\tv_POLY_instanceTransform1_normal = rotateWithQuat( v_POLY_instanceTransform1_normal, instanceOrientation );\n\t\n\t// /MAT/meshBasicBuilder1/output1\n\tvec3 transformed = v_POLY_instanceTransform1_position;\n\tvec3 objectNormal = v_POLY_instanceTransform1_normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\n\n\t#include <project_vertex>\n\n\tvViewZDepth = - mvPosition.z;\n}",
+				"fragmentShader": "uniform float mNear;\nuniform float mFar;\n\nvarying float vViewZDepth;\n\nvoid main() {\n\n\tfloat color = 1.0 - smoothstep( mNear, mFar, vViewZDepth );\n\tgl_FragColor = vec4( vec3( color ), 1.0 );\n\n}\n",
+				"shadowSide": null,
+				"lights": false
+			}
+		}
+	}
+}

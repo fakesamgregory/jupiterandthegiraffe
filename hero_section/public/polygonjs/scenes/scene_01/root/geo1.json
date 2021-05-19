@@ -1,0 +1,299 @@
+{
+	"type": "geo",
+	"nodes": {
+		"plane1": {
+			"type": "plane",
+			"params": {
+				"size": [
+					"ch(\"../CONTROL/mainPlaneSizex\")",
+					"ch(\"../CONTROL/mainPlaneSizey\")"
+				],
+				"useSegmentsCount": 1,
+				"segments": [
+					"ch(\"../CONTROL/mainPlaneSegmentsx\")",
+					"ch(\"../CONTROL/mainPlaneSegmentsy\")"
+				],
+				"direction": [
+					0,
+					0,
+					1
+				],
+				"center": [
+					0,
+					"0.5/ch(\"segmentsy\")",
+					0
+				]
+			}
+		},
+		"plane2": {
+			"type": "plane",
+			"params": {
+				"size": [
+					"ch(\"../CONTROL/smallPlaneSizex\")",
+					"ch(\"../CONTROL/smallPlaneSizey\")"
+				],
+				"useSegmentsCount": 1,
+				"direction": [
+					0,
+					0,
+					1
+				]
+			}
+		},
+		"instance1": {
+			"type": "instance",
+			"params": {
+				"attributesToCopy": "instance* id idn restP active",
+				"applyMaterial": 0,
+				"material": "../../MAT/meshBasicBuilder1"
+			},
+			"inputs": [
+				"transform1",
+				"attribCreate3"
+			]
+		},
+		"transform1": {
+			"type": "transform",
+			"inputs": [
+				"plane2"
+			]
+		},
+		"attribCreate1": {
+			"type": "attribCreate",
+			"params": {
+				"name": "id",
+				"value1": "@ptnum"
+			},
+			"inputs": [
+				"transform3"
+			]
+		},
+		"attribCreate2": {
+			"type": "attribCreate",
+			"params": {
+				"name": "idn",
+				"value1": "@ptnum / (pointsCount(0)-1)"
+			},
+			"inputs": [
+				"attribCreate1"
+			]
+		},
+		"cameraPlane1": {
+			"type": "cameraPlane",
+			"params": {
+				"camera": "../../orthographicCamera1",
+				"direction": [
+					0,
+					0,
+					1
+				],
+				"segments": [
+					"ceil(0.01 * windowSize().x)",
+					"ceil(0.02 * windowSize().y)"
+				]
+			}
+		},
+		"delete1": {
+			"type": "delete",
+			"params": {
+				"class": 1,
+				"invert": 1,
+				"keepPoints": 1
+			},
+			"inputs": [
+				"plane4"
+			]
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"r": [
+					0,
+					0,
+					90
+				]
+			},
+			"inputs": [
+				"plane2"
+			]
+		},
+		"plane3": {
+			"type": "plane",
+			"params": {
+				"size": [
+					"windowSize().x / windowSize().y",
+					1
+				],
+				"useSegmentsCount": true,
+				"segments": [
+					"ceil(ch('sizex') * 0.02*windowSize().x)",
+					"ceil((2/ch('sizex'))*ch(\"segmentsx\"))"
+				],
+				"direction": [
+					0,
+					0,
+					1
+				]
+			}
+		},
+		"transform3": {
+			"type": "transform",
+			"params": {
+				"scale": 0.8
+			},
+			"inputs": [
+				"plane1"
+			],
+			"flags": {
+				"bypass": true
+			}
+		},
+		"plane4": {
+			"type": "plane",
+			"params": {
+				"useSegmentsCount": 1,
+				"segments": [
+					2,
+					2
+				]
+			}
+		},
+		"CONTROL": {
+			"type": "null",
+			"params": {
+				"ratio": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					},
+					"raw_input": "windowSize().x / windowSize().y"
+				},
+				"imgRatio": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true
+					},
+					"raw_input": "copRes('/COP/image_01','x') / copRes('/COP/image_01','y')"
+				},
+				"mainPlaneSize": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						"ch(\"ratio\") + 1.75 / ch(\"mainPlaneSegmentsx\")",
+						1
+					]
+				},
+				"mainPlaneRatio": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": "ch(\"mainPlaneSizex\") / ch(\"mainPlaneSizey\")"
+				},
+				"mainPlaneSegments": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						"if(ch('ratio')>1, 60, 17)+1",
+						"if(ch('ratio')>1, 59, 57)+1"
+					]
+				},
+				"smallPlaneSize": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						"ch(\"mainPlaneSizex\") / ch(\"mainPlaneSegmentsx\")",
+						"ch(\"mainPlaneSizey\") / ch(\"mainPlaneSegmentsy\")"
+					]
+				},
+				"imageRatio": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": "copRes('/COP/image_01','x') / copRes('/COP/image_01','y')"
+				},
+				"uvStretch": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true
+					},
+					"raw_input": "ch('imageRatio') / ch('mainPlaneRatio')"
+				},
+				"uvMult": {
+					"type": "vector2",
+					"default_value": [
+						1,
+						1
+					],
+					"options": {
+						"spare": true
+					},
+					"raw_input": [
+						"if(ch('mainPlaneRatio') > 1, 1, 1/ch('uvStretch'))",
+						"if(ch('mainPlaneRatio') <= 1, 1, ch('uvStretch'))"
+					]
+				}
+			}
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../../MAT/meshBasic_DEBUG"
+			},
+			"inputs": [
+				"plane1"
+			]
+		},
+		"sphere1": {
+			"type": "sphere"
+		},
+		"restAttributes1": {
+			"type": "restAttributes",
+			"params": {
+				"tnormal": 0
+			},
+			"inputs": [
+				"attribCreate2"
+			]
+		},
+		"attribCreate3": {
+			"type": "attribCreate",
+			"params": {
+				"name": "active"
+			},
+			"inputs": [
+				"restAttributes1"
+			]
+		}
+	},
+	"flags": {
+		"display": true
+	},
+	"selection": [
+		"particlesSystemGpu1"
+	]
+}
